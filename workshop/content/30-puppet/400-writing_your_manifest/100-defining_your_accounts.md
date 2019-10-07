@@ -1,17 +1,18 @@
 +++
-title = "Defining an account"
+title = "Defining your Accounts"
 weight = 100
 +++
-
-# Defining an Account
----------------------------
 
 There are 2 ways to describe your Accounts in the Manifest:
 
 - Individual AWS Account Ids
 - A set of AWS Accounts under a given AWS Organizational OU Path
 
-> NOTE: We will be using Individual Account Ids for this Workshop
+<aside class="warning">
+
+</aside>
+
+<div class="notices info" ><p>We will be using Individual Account Ids for this Workshop</p></div>
 
 ## Using Individual AWS Account Ids
 

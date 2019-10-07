@@ -1,5 +1,5 @@
 +++
-title = "Defining a portfolio share"
+title = "Share your Portfolios"
 weight = 300
 +++
 

@@ -14,10 +14,10 @@ the framework will perform all of the undifferentiated heavy lifting for you.  I
 addition, the pipelines the framework creates can perform functional tests and static
 analysis on your templates to help you with your SDLC.
 
+#### This Workshop will cover:
 
-During this workshop you will be working through the following steps:
+{{% children depth="1" showhidden="false" %}}
 
-{{% children showhidden="false" %}}
-
-
+{{% notice tip %}}
 Click on the arrow to the right to continue to the first step.
+{{% /notice %}}

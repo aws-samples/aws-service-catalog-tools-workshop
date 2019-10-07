@@ -3,4 +3,6 @@ title = "Introduction"
 weight = 100
 +++
 
-Intro to the topics, architecture etc
+
+
+Click on the arrow to the right to continue to the first step.

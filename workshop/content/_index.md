@@ -12,3 +12,7 @@ learning the AWS Service Catalog Tools.
 The Service Catalog Tools are a suite of tools built to power you with agility 
 and speed enabling you to reliably build, share and provision AWS Service Catalog 
 products across your multi-region and multi-account AWS environment.
+
+{{% notice tip %}}
+Click on the arrow to the right to continue to the first step.
+{{% /notice %}}

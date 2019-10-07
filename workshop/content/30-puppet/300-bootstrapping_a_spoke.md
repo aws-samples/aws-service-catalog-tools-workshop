@@ -16,7 +16,7 @@ There are 2 methods of bootstrapping available:
 
 **METHOD 1**
 
-Export IAM creadentials for an existing Spoke Account and run from the command live within your virtualenv:
+Export IAM credentials for an existing Spoke Account and run from the command live within your virtualenv:
 
     servicecatalog-puppet bootstrap-spoke <12_DIGIT_ID_OF_THE_PUPPET_ACCOUNT>
 
