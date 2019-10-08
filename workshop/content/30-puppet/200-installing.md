@@ -4,7 +4,7 @@ weight = 200
 +++
 ---
 
-### Login to AWS Console via Event Enngine
+### Login to AWS Console via Event Engine
 
 - Login to your AWS Account.
 
@@ -30,7 +30,7 @@ Confirm you are in the eu-west-1 region.
 
 ### Select the pre-configured CloudFormation Template
 Service Catalog Puppet can be installed via a pre-created CloudFormation Template stored in S3 under the following URL:
-> https://service-catalog-tools.s3.eu-west-2.amazonaws.com/factory/0.25.0/servicecatalog-factory-initialiser.template.yaml
+> https://service-catalog-tools.s3.eu-west-2.amazonaws.com/puppet/0.37.2/servicecatalog-puppet-initialiser.template.yaml
 
 - Paste this URL under 'Amazon S3 URL': 
 - Hit Next
