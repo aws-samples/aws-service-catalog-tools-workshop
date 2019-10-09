@@ -1,12 +1,16 @@
 +++
-title = "Introduction"
+title = "Introduction to service catalog factory"
 weight = 100
 +++
-<hr>
- <div align="left"> <p> During this workshop you will be working through the following steps:</p></div> 
+
+---
+
+This section will run you through the steps required to install the service catalog factory tool using AWs CloudFormation via the AWS Console
+
 
 
 {{% children depth="1" showhidden="false" %}}
 
-
-Click on the arrow to the right to continue to the first step.
+{{% notice tip%}}
+Click on the arrow to the right to continue to the next step.
+{{% /notice %}}

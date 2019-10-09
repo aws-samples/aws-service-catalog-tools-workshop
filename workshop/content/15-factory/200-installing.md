@@ -9,7 +9,7 @@ weight = 200
 
 - Login to your AWS Account.
 
-{{% notice tip %}}
+{{% notice note%}}
 For re:invent Workshops, use the credentials you were provided at the start of the session. Speak to one of the AWS Workshop Team if you don't have any login details.
 {{% /notice %}}
 

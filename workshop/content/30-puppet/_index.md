@@ -15,7 +15,9 @@ You can optionally using AWS Organizations to reduce the configuration you write
 you can use AWS Systems Manager Parameter Store as a data store sharing data between 
 products. 
 
-#### This Workshop will cover:
+{{< figure src="/sc_puppet.png" height="600" width="800">}}
+
+#### This section will cover:
 {{% children depth="1" showhidden="false" %}}
 
 {{% notice tip %}}
