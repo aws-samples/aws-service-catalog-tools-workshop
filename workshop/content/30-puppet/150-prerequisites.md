@@ -3,10 +3,14 @@ title = "Prerequisites"
 weight = 150
 +++
 
-In order to complete this workshop you will need a single AWS Account and a web browser where 
-you can access the AWS console.
+---
 
-If you are using Service Catalog Puppet with Service Catalog Factory you should install the two
-tools into the same account.
 
-We also recommend a tasty set of biscuits and a cup of tea!
+In order to complete this workshop you will need:
+
+- A single AWS Account which you can log into
+- A Web Browser where to access the AWS console.
+
+{{% notice note%}}
+Running this Workshop at re:invent? We have provided an AWS Account for you. Details available on the card you were handed when you entered the room.
+{{% /notice %}}
