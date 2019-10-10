@@ -1,5 +1,5 @@
 +++
-title = "Introduction to service catalog factory"
+title = "Introduction"
 weight = 100
 +++
 

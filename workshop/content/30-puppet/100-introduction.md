@@ -1,5 +1,5 @@
 +++
-title = "Introduction to service catalog puppet"
+title = "Introduction"
 weight = 100
 +++
 ---

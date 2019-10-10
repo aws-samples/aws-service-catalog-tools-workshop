@@ -1,16 +1,10 @@
 +++
-title = "Installing Puppet with CloudFormation"
+title = "Installation"
 weight = 200
 +++
+
 ---
 
-### Login to AWS Console via Event Engine
-
-- Login to your AWS Account.
-
-{{% notice tip %}}
-For re:invent Workshops, use the credentials you were provided at the start of the session. Speak to one of the AWS Workshop Team if you don't have any login details.
-{{% /notice %}}
 
 ### Navigate to CloudFormation
 
@@ -30,7 +24,7 @@ Confirm you are in the eu-west-1 region.
 
 ### Select the pre-configured CloudFormation Template
 Service Catalog Puppet can be installed via a pre-created CloudFormation Template stored in S3 under the following URL:
-> https://service-catalog-tools.s3.eu-west-2.amazonaws.com/puppet/0.37.2/servicecatalog-puppet-initialiser.template.yaml
+> https://service-catalog-tools.s3.eu-west-2.amazonaws.com/factory/0.25.0/servicecatalog-factory-initialiser.template.yaml
 
 - Paste this URL under 'Amazon S3 URL': 
 - Hit Next
