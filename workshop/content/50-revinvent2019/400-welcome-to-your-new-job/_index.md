@@ -1,7 +1,7 @@
 +++
 title = "You have been hired!"
 chapter = false
-weight = 600
+weight = 400
 +++
 Greetings, intrepid builders! You've made it.  Based on your impressive work so far, you have all been hired to work with the best and the brightest at ACME Corp (TODO). In your new roles as cloud engineers(TODO), you will deliver service catalog products that meet stringent security requirements with ease.
 
