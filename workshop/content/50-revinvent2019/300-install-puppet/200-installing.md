@@ -28,7 +28,7 @@ Note that the Factory Initialization Stack has been deployed. If yours has not r
 
 ### Select the pre-configured CloudFormation Template
 Service Catalog Puppet can be installed via a pre-created CloudFormation Template stored in S3 under the following URL:
-> https://service-catalog-tools.s3.eu-west-2.amazonaws.com/factory/latest/servicecatalog-puppet-initialiser.template.yaml
+>  https://service-catalog-tools.s3.eu-west-2.amazonaws.com/puppet/latest/servicecatalog-puppet-initialiser.template.yaml
 
 - Paste this URL under 'Amazon S3 URL': 
 - Hit Next
