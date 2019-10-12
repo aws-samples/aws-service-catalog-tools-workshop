@@ -1,5 +1,5 @@
 +++
-title = "Verify your factory installation"
+title = "Verify your installation"
 weight = 300
 +++
 
@@ -17,3 +17,7 @@ The following AWS Resources have just been deployed into your AWS Account:
 If everything was deployed, the CloudFormation Stack will show CREATE_COMPLETE
 {{% /notice %}}
 
+[TODO: add links to check the pipeline created]
+
+
+[TODO: add CTA for asking for help if stuck]

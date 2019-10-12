@@ -8,3 +8,4 @@ cdk.out/
 bin/
 *~
 .idea/
+ignored
