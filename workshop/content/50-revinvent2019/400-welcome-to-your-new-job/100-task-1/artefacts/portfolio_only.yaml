@@ -1,4 +1,3 @@
-Schema: factory-2019-04-01
 Portfolios:
   - DisplayName: "cloud-engineering-governance"
     Description: "Portfolio containing the products needed to govern AWS accounts"

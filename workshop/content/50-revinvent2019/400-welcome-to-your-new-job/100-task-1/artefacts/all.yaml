@@ -23,3 +23,16 @@ Products:
           Configuration:
             RepositoryName: "aws-config-s3-bucket-server-side-encryption-enabled"
             BranchName: "master"
+Portfolios:
+  - DisplayName: "cloud-engineering-governance"
+    Description: "Portfolio containing the products needed to govern AWS accounts"
+    ProviderName: "cloud-engineering"
+    Associations:
+      - "arn:aws:iam::${AWS::AccountId}:role/TeamRole"
+    Tags:
+      - Key: "type"
+        Value: "governance"
+      - Key: "creator"
+        Value: "cloud-engineering"
+      - Key: "cost-center"
+        Value: "cloud-engineering"

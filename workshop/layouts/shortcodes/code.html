@@ -1,3 +1,1 @@
-{{ $file := .Get "file" | readFile }}
-{{ $lang := .Get "language" }}
-{{(print "```" $lang "\n" $file "\n```") | safeHTML }}
+{{ $file := .Get "file" | readFile }} {{ $lang := .Get "language" }} {{ highlight $file $lang "" }}
