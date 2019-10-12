@@ -148,16 +148,35 @@ product.
 
 - Navigate to {{% codecommit_link %}}
 
+- Click *Create repository*
 
+{{< figure src="https://via.placeholder.com/640x400.png?text=CreateRepository" title="CreateRepository" >}}
 
+- Input the name `aws-config-s3-bucket-server-side-encryption-enabled`
 
+{{< figure src="https://via.placeholder.com/640x400.png?text=InputTheName" title="InputTheName" >}}
 
+- Click *Create*
 
+{{< figure src="https://via.placeholder.com/640x400.png?text=ClickCreate" title="ClickCreate" >}}
 
+- Scroll down to the bottom of the page and hit the `Create file` button
 
+{{< figure src="https://via.placeholder.com/640x200.png?text=CreateFile" title="CreateFile" >}}
 
+- Copy the following snippet into the main input field:
 
+ {{% code file="50-revinvent2019/400-welcome-to-your-new-job/100-task-1/artefacts/product.template.yaml" language="js" %}}
 
+- Set the *File name* to `product.template.yaml`
+
+- Set your *Author name*
+- Set your *Email address*
+- Set your *Commit message*
+
+{{% notice tip %}}
+Using a good / unique commit message will help you understand what is going on later.
+{{% /notice %}}
 
 
 
