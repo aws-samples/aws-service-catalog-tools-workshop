@@ -1,5 +1,5 @@
 +++
-title = "Installation"
+title = "Install Puppet Process"
 weight = 200
 +++
 ---
