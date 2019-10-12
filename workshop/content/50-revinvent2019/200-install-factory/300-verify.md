@@ -1,5 +1,5 @@
 +++
-title = "Verify your installation"
+title = "Verify Factory Installation"
 weight = 300
 +++
 

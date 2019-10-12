@@ -1,25 +1,40 @@
 +++
 title = "Service Catalog Puppet"
-chapter = true
+chapter = false
 weight = 30
 +++
+---
 
-# What is Service Catalog Puppet
+## What is Service Catalog Puppet
 
-Service Catalog Puppet uses a rules engine / metadata approach to achieve this quickly
-and easily.  With Service Catalog Puppet you chain products to be provisioned in a 
-particular sequence and you can provision products written in both AWS CloudFormation 
-and HashiCorp's Terraform using the same toolchain.
+**Service Catalog Factory** is part of a suite of open source Tools which have been built to compliment the AWS Service Catalog Service.
 
-You can optionally using AWS Organizations to reduce the configuration you write and 
-you can use AWS Systems Manager Parameter Store as a data store sharing data between 
-products. 
+Service Catalog Puppet enables you to provision AWS Service Catalog Products into multiple Accounts and Regions across your AWS Estate.
+
+The Tool reduces the Operational burden of engineering a solution to support Product Provisioning across a large Enterprise and allows you to focus on writing the Products you require to support 
+your Organizations needs.
+
+## How does Service Catalog Puppet Work?
+
+User interaction with the Framework is via a YAML file. The YAML file is used to describe your AWS Accounts as:
+
+- Individual AWS Account Ids
+- A set of AWS Accounts under a given AWS Organizational OU Path (Requires AWS organizations)
+
+The Descriptions of those Accounts can then be tagged and used to 'Share' Portfolios and 'Launch' Products into them. The initial creation of the Portfolios and products can either be done manually or using the `Service Catalog Factory Toolset'
+
+Under the covers, Service Catalog Puppet is converting requests into a workflow which is executed in your AWS Account using AWS CodePipeline, AWS CodeBuild and AWS CloudFormation.
+
+## High-Level Architecture Diagram
+
+You use an AWS CodeBuild project in a central _hub_ account that provisions AWS
+Service Catalog Products into _spoke_ accounts on your behalf.  The framework
+takes care of cross account sharing and cross region product replication for
+you.
 
 {{< figure src="/sc_puppet.png" height="600" width="800">}}
 
-#### This section will cover:
-{{% children depth="1" showhidden="false" %}}
 
-{{% notice tip %}}
-Click on the arrow to the right to continue to the first step.
-{{% /notice %}}
+
+
+
