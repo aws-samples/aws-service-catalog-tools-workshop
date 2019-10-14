@@ -1,25 +1,33 @@
 +++
 title = "Service Catalog Puppet"
-chapter = true
+chapter = false
 weight = 30
 +++
+---
 
-# What is Service Catalog Puppet
+## What is Service Catalog Puppet
 
-Service Catalog Puppet uses a rules engine / metadata approach to achieve this quickly
-and easily.  With Service Catalog Puppet you chain products to be provisioned in a 
-particular sequence and you can provision products written in both AWS CloudFormation 
-and HashiCorp's Terraform using the same toolchain.
+**Service Catalog Puppet** is part of a suite of open source Tools which have been built to compliment the AWS Service Catalog Service.
 
-You can optionally using AWS Organizations to reduce the configuration you write and 
-you can use AWS Systems Manager Parameter Store as a data store sharing data between 
-products. 
+Service Catalog Puppet enables you to provision AWS Service Catalog Products into multiple Accounts and Regions across your AWS Estate.
+
+The Tool reduces the Operational burden of engineering a solution to support Portfolio Sharing and Product Launches across a large Enterprise and allows you to focus on writing the Products you require to support your Organizations needs.
+
+Service Catalog Puppet makes use of a number of AWS Services including AWS CodePipeline, AWS CodeBuild and AWS CloudFormation to manage this for you.
+
+## High-Level Architecture Diagram
+
+You use an AWS CodeBuild project in a central _hub_ account that provisions AWS
+Service Catalog Products into _spoke_ accounts on your behalf.  The framework
+takes care of cross account sharing and cross region product replication for
+you.
 
 {{< figure src="/sc_puppet.png" height="600" width="800">}}
 
-#### This section will cover:
-{{% children depth="1" showhidden="false" %}}
+User interaction with the Framework is via a YAML file. The YAML file contains the definition of the AWS Accounts you want to manage (using tags), the portfolios you want to share and the Products you want to launch.
 
-{{% notice tip %}}
-Click on the arrow to the right to continue to the first step.
-{{% /notice %}}
+
+
+
+
+
