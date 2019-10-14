@@ -6,9 +6,6 @@ home_region = "eu-west-2"
 ---
 
 
-The solution is ...
-
-
 ## The plan
 We are going to create an AWS Service Catalog product and provision it into our account.  This product will enable an 
 AWS Config managed rule that will check if server side encryption is enabled on the AWS S3 buckets in our account.
@@ -22,6 +19,8 @@ If you need help at any time please raise your hands in the air like you just do
 {{% /notice %}}
 
 ## Sprint 1
+
+_In sprint 1 we will be adding a product to AWS Service Catalog, ready for provisioning._
 
 ### Create the product
 
@@ -180,7 +179,10 @@ product into that repository.
 
 - Copy the following snippet into the main input field:
 
- {{% code file="50-revinvent2019/400-welcome-to-your-new-job/100-task-1/artefacts/product.template.yaml" language="yaml" %}}
+ {{% code 
+    file="50-revinvent2019/400-welcome-to-your-new-job/100-task-1/artefacts/product.template.yaml" 
+    language="yaml" 
+ %}}
 
 - Set the *File name* to `product.template.yaml`
 
@@ -257,7 +259,8 @@ portfolio._
 
 {{% code file="50-revinvent2019/400-welcome-to-your-new-job/100-task-1/artefacts/all.yaml" language="yaml" %}}
 
-Once you have updated the file fill in the fields for *Author name*, *Email address*, *Commit message* and hit *Commit changes*
+Once you have updated the file fill in the fields for *Author name*, *Email address*, *Commit message* and hit 
+*Commit changes*
 
 {{< figure src="https://via.placeholder.com/640x400.png?text=CommitChanges.yaml" title="CommitChanges" >}}
 
@@ -320,7 +323,8 @@ _Now that you have a product and portfolio you can add the product to the portfo
 
 - Take note of lines 26 and 27.  We have added a portfolio to the product.
 
-Once you have updated the file fill in the fields for *Author name*, *Email address*, *Commit message* and hit *Commit changes*
+Once you have updated the file fill in the fields for *Author name*, *Email address*, *Commit message* and hit 
+*Commit changes*
 
 {{< figure src="https://via.placeholder.com/640x400.png?text=CommitChanges.yaml" title="CommitChanges" >}}
 
@@ -330,7 +334,57 @@ Using a good / unique commit message will help you understand what is going on l
 
 #### Verify the product was added to the portfolio
 
+Once you have made your changes the {{% service_catalog_factory_pipeline_link %}} should have run or if you were quick 
+may still be running.  If it has not yet started feel free to the hit the *Release change* button.
 
+Once it has completed it should show the *Source* and *Build* stages in green to indicate they have completed 
+successfully:
 
+{{< figure src="https://via.placeholder.com/640x400.png?text=SuccessfulRun" title="SuccessfulRun" >}}
+
+{{% notice note %}}
+If this is failing please raise your hand for some assistance
+{{% /notice %}}
+
+Once you have verified the pipeline has run you can go to {{% service_catalog_portfolios_list_link %}} to view your
+portfolio.
+
+- Click on *reinvent-cloud-engineering-governance*
+
+{{< figure 
+    src="https://via.placeholder.com/640x400.png?text=PortfolioReinventCloudEngineeringGovernance" 
+    title="PortfolioReinventCloudEngineeringGovernance" 
+>}}
+
+- Click on the product *aws-config-s3-bucket-server-side-encryption-enabled*
+
+{{< figure 
+    src="https://via.placeholder.com/640x400.png?text=ClickAwsConfigS3BucketServerSideEncryptionEnabled" 
+    title="ClickAwsConfigS3BucketServerSideEncryptionEnabled" 
+>}}
+
+- Click on the version *v1*
+
+{{< figure src="https://via.placeholder.com/640x400.png?text=v1" title="v1" >}}
+
+## Sprint 1 Review
+
+**Congratulations!**
+
+You have successfully updated your portfolio configuration, you have added the source code for your product and it is 
+now in a AWS Service Catalog portfolio ready to be provisioned. 
 
 ## Sprint 2
+
+_In sprint 2 we will be taking our product and provisioning it into an AWS account._
+
+### Provisioning the product
+
+_We will tell the framework to provision the product by adding it to the manifest._
+
+#### Adding the product to the manifest
+
+
+
+#### Verifying the provisioning
+
