@@ -1,7 +1,7 @@
 +++
 title = "You have been hired!"
 chapter = true
-weight = 400
+weight = 40
 +++
 
 

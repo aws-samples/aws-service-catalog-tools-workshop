@@ -1,8 +1,8 @@
 +++
-title = "Task 1"
-weight = 100
+title = "Install Puppet"
+chapter = true
+weight = 30
 +++
----
 
 
 
