@@ -1,6 +1,6 @@
 +++
 title = "Prerequisites"
-weight = 150
+weight = 15
 +++
 
 In order to complete this workshop you will need:

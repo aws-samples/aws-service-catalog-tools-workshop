@@ -1,0 +1,1 @@
+{{ $region := .Page.Params.home_region }} {{printf "<a href='https://%s.console.aws.amazon.com/servicecatalog/console?region=%s#admin-products' target='_blank'>Service Catalog products</a>" $region $region | safeHTML }}

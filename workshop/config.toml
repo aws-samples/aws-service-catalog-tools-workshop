@@ -12,7 +12,7 @@ pygmentsStyle = "monokai"
 [params]
 themeVariant = "mine"
 showVisitedLinks = false
-author = "Eamonn Faherty"
+author = "Service Catalog Tools Team"
 description = "AWS Service Catalog Tools Workshop"
 disableSearch = true
 disableAssetsBusting = true

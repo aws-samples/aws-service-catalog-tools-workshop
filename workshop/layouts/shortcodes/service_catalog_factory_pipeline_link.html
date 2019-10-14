@@ -1,0 +1,1 @@
+{{ $region := .Page.Params.home_region }} {{printf "<a href='https://%s.console.aws.amazon.com/codesuite/codepipeline/pipelines/servicecatalog-factory-pipeline/view?region=%s' target='_blank'>ServiceCatalogFactory Pipeline</a>" $region $region | safeHTML }}
