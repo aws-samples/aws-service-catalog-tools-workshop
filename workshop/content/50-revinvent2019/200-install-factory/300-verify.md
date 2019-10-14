@@ -13,6 +13,8 @@ The CodeBuild job created 2 CloudFormation Stacks which in turn deployed the Res
 
 > URL: https://eu-west-1.console.aws.amazon.com/cloudformation/home?region=eu-west-1
 
+{{< figure src="/factory_cloudformation.png" height="200" width="900">}}
+
 #### Factory CodeCommit Repository
 This respository holds the Service Catalog Factory YAML files which are used to configure the portfolios and products.
 
