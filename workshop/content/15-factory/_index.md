@@ -15,8 +15,6 @@ In addition, the pipelines the framework creates can perform functional tests an
 analysis on your templates to help you with your SDLC.
 
 
-## How does Service Catalog Factory Work?
-
 Service Catalog Factory allows you to define Service Catalog portfolios and products using YAML. You can version your products and specify where the source
 code for them can be found. 
 
@@ -29,4 +27,5 @@ Service Catalog in every enabled region of your hub account using AWS CodePipeli
 
 {{< figure src="/sc_factory.png" height="600" width="700">}}
 
+User interaction with the Framework is via a YAML file. The YAML file contains the definition of the Portfolios and Products you want to manage. Updates to the YAML file in AWS CodeCommit triggers the AWS CodePipeline to manage execute the tasks required.
 
