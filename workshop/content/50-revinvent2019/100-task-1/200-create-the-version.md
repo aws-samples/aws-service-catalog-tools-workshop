@@ -1,7 +1,7 @@
 +++
 title = "Create the version"
 weight = 200
-home_region = "eu-west-2"
+home_region = "eu-west-1"
 +++
 ---
 

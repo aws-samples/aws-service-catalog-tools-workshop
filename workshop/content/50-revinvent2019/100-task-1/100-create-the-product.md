@@ -1,7 +1,7 @@
 +++
 title = "Create the product"
 weight = 100
-home_region = "eu-west-2"
+home_region = "eu-west-1"
 +++
 ---
 

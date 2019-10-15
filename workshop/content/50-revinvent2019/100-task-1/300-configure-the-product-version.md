@@ -1,7 +1,7 @@
 +++
 title = "Configure the product version"
 weight = 300
-home_region = "eu-west-2"
+home_region = "eu-west-1"
 +++
 ---
 

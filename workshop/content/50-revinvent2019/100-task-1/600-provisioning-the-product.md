@@ -1,7 +1,7 @@
 +++
 title = "Provisioning the product"
 weight = 600
-home_region = "eu-west-2"
+home_region = "eu-west-1"
 +++
 ---
 
