@@ -1,0 +1,14 @@
+Schema: factory-2019-04-01
+Portfolios:
+  - DisplayName: "cloud-engineering-governance"
+    Description: "Portfolio containing the products needed to govern AWS accounts"
+    ProviderName: "cloud-engineering"
+    Associations:
+      - "arn:aws:iam::${AWS::AccountId}:role/TeamRole"
+    Tags:
+      - Key: "type"
+        Value: "governance"
+      - Key: "creator"
+        Value: "cloud-engineering"
+      - Key: "cost-center"
+        Value: "cloud-engineering"
