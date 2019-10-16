@@ -5,9 +5,9 @@ weight = 30
 +++
 
 
-# Install Puppet
+# Install Factory
 
-This section provide a step-by-step process to install the Service Catalog Puppet tool. Installation makes use of CloudFormation and deploys all of the resources required for Puppet to run.
+This section provide a step-by-step process to install the Service Catalog Factory tool. Installation makes use of CloudFormation and deploys all of the resources required for Puppet to run.
 
 ## This section covers:
 {{< children depth="1" showhidden="false" >}}
