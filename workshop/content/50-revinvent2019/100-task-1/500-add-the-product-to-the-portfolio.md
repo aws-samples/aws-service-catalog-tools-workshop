@@ -28,7 +28,7 @@ _Now that you have a product and portfolio you can add the product to the portfo
 
 - Replace the contents of your file with this:
 
-{{% code file="50-revinvent2019/100-task-1/artefacts/final.yaml" language="yaml" %}}
+{{% code file="50-revinvent2019/100-task-1/artefacts/final.yaml" language="js" %}}
 
 - Take note of lines 26 and 27.  We have added a portfolio to the product.
 

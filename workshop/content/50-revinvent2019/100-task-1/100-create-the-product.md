@@ -20,8 +20,8 @@ AWS Service Catalog in every region we specified when installing the framework._
 
 - Copy the following snippet into the main input field:
 
- {{% code file="50-revinvent2019/100-task-1/artefacts/product.yaml" language="yaml" %}}
-
+ {{% code file="50-revinvent2019/100-task-1/artefacts/product.yaml" language="js" %}}
+ 
 - Set the *File name* to `portfolios/reinvent.yaml`
 
 - Set your *Author name*
