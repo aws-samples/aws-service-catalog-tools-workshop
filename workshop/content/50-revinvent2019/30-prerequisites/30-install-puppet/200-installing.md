@@ -14,7 +14,7 @@ home_region = "eu-west-1"
 {{< figure src="/select_cloudformation.png" height="450" width="900">}}
 
 {{% notice warning %}}
-Confirm you are in the {{% param home_region %}} region.
+Confirm you are in the {{% param home_region %}} ({{% param home_region_name %}}) region.
 {{% /notice %}}
 
 ### Create a new CloudFormation Stack
