@@ -1,5 +1,5 @@
 +++
-title = "Verify Factory Installation"
+title = "Verify Puppet Installation"
 weight = 300
 +++
 
