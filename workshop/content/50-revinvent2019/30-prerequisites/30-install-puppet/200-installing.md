@@ -1,6 +1,7 @@
 +++
 title = "Install Puppet Process"
 weight = 200
+home_region = "eu-west-1"
 +++
 
 ---
@@ -13,7 +14,7 @@ weight = 200
 {{< figure src="/select_cloudformation.png" height="450" width="900">}}
 
 {{% notice warning %}}
-Confirm you are in the eu-west-1 region.
+Confirm you are in the {{% param home_region %}} region.
 {{% /notice %}}
 
 ### Create a new CloudFormation Stack
@@ -39,7 +40,7 @@ Service Catalog Puppet can be installed via a pre-created CloudFormation Templat
 
 - Specify the Stack details as follows:
     - **Stack Name:** `puppet-initialization-stack`
-    - **Enable Regions:** `eu-west-1`
+    - **Enable Regions:** `{{% param home_region %}}`
     - **OrgIAMRoleArn:** `None` 
     - **ShouldCollectCloudformationEvents:** `false`
     - **ShouldForwardEventsToEventbridge:** `false`
