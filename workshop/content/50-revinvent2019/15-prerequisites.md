@@ -6,7 +6,7 @@ weight = 15
 In order to complete this workshop you will need:
 
 - A single AWS Account which you can log into
-- A Web Browser where to access the AWS console.
+- A web browser where to access the AWS console.
 
 {{% notice note%}}
 
