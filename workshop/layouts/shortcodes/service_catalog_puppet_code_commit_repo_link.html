@@ -1,0 +1,1 @@
+{{ $region := .Page.Params.home_region }} {{printf "<a href='https://%s.console.aws.amazon.com/codesuite/codecommit/repositories/ServiceCatalogPuppet/browse?region=%s' target='_blank'>ServiceCatalogPuppet CodeCommit repository</a>" $region $region | safeHTML }}
