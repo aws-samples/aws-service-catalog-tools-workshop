@@ -22,11 +22,13 @@ _We will start out by adding your account to the manifest file._
 
 - Scroll down to the bottom of the page and hit the *Create file* button
 
-{{< figure src="https://via.placeholder.com/640x200.png?text=CreateFile" title="Create file" >}}
+{{< figure src="/tasks/create_file.png" >}}
 
 - Copy the following snippet into the main input field:
 
  {{% code file="50-revinvent2019/100-task-1/artefacts/manifest-accounts.yaml" language="yaml" %}}
+ 
+- Update account_id on line to show your account id
 
 
 #### Adding the product to the manifest
@@ -60,8 +62,7 @@ Using a good / unique commit message will help you understand what is going on l
 
 - Click the *Commit changes* button:
 
-{{< figure src="https://via.placeholder.com/640x100.png?text=CommitChanges" title="Commit changes" >}}
-
+{{< figure src="/tasks/CommitChanges.png" >}}
 
 
 #### Verifying the provisioning

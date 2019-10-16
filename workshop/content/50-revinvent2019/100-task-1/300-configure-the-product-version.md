@@ -23,19 +23,20 @@ product into that repository.
 
 - Click *Create repository*
 
-{{< figure src="https://via.placeholder.com/640x400.png?text=CreateRepository" title="CreateRepository" >}}
+{{< figure src="/tasks/CreateRepository.png" >}}
+
 
 - Input the name `aws-config-s3-bucket-server-side-encryption-enabled`
 
-{{< figure src="https://via.placeholder.com/640x400.png?text=InputTheName" title="InputTheName" >}}
+{{< figure src="/tasks/InputTheName.png" >}}
 
 - Click *Create*
 
-{{< figure src="https://via.placeholder.com/640x400.png?text=ClickCreate" title="ClickCreate" >}}
+{{< figure src="/tasks/ClickCreate.png" >}}
 
 - Scroll down to the bottom of the page and hit the *Create file* button
 
-{{< figure src="https://via.placeholder.com/640x200.png?text=CreateFile" title="CreateFile" >}}
+{{< figure src="/tasks/create_file.png" >}}
 
 - Copy the following snippet into the main input field:
 
@@ -55,12 +56,12 @@ Using a good / unique commit message will help you understand what is going on l
 {{% /notice %}}
 
 Creating that file should trigger your 
-{{% codepipeline_pipeline_link "reinvent-aws-config-s3-bucket-server-side-encryption-enabled-v1-pipeline" %}}.  
+{{% codepipeline_pipeline_link "aws-config-s3-bucket-server-side-encryption-enabled-v1-pipeline" %}}.  
 
 Once the pipeline has has completed it should show the *Source* and *Build* stages in green to indicate they have 
 completed successfully:
 
-{{< figure src="https://via.placeholder.com/640x400.png?text=SuccessfulRun" title="SuccessfulRun" >}}
+{{< figure src="/tasks/SuccessfulFactoryProductRun.png" >}}
 
 {{% notice tip %}}
 You should see your commit message on this screen, it will help you know which version of ServiceCatalogFactory repo the 
@@ -74,13 +75,13 @@ If this is failing please raise your hand for some assistance
 Once you have verified the pipeline has run you can go to {{% service_catalog_products_list_link %}} to view your newly
 created version.
 
-You should see the product you previously created listed:
+You should see the product you created listed:
 
-{{< figure src="https://via.placeholder.com/640x400.png?text=SeeYourProduct" title="SeeYourProduct" >}}
+{{< figure src="/tasks/SeeYourTask1Product.png" >}}
 
 Click on the product and verify *v1* is there
 
-{{< figure src="https://via.placeholder.com/640x400.png?text=SeeYourVersion" title="SeeYourVersion" >}}
+{{< figure src="/tasks/SeeYourTask1ProductVersion1.png" >}}
 
 {{% notice note %}}
 If you cannot see your version please raise your hand for some assistance

@@ -15,7 +15,8 @@ AWS Service Catalog in every region we specified when installing the framework._
 - Navigate to the {{% service_catalog_factory_code_commit_repo_link %}}  
 - Scroll down to the bottom of the page and hit the *Create file* button
 
-{{< figure src="https://via.placeholder.com/640x200.png?text=CreateFile" title="Create file" >}}
+
+{{< figure src="/tasks/create_file.png" >}}
 
 - Copy the following snippet into the main input field:
 
@@ -34,11 +35,10 @@ Using a good / unique commit message will help you understand what is going on l
 
 - Click the *Commit changes* button:
 
-{{< figure src="https://via.placeholder.com/640x100.png?text=CommitChanges" title="Commit changes" >}}
+{{< figure src="/tasks/CommitChanges.png" >}}
 
 
-
-#### Verify the product was created
+#### Verify the change worked
 
 Once you have made your changes the {{% service_catalog_factory_pipeline_link %}} should have run or if you were quick 
 may still be running.  If it has not yet started feel free to the hit the *Release change* button.
@@ -46,21 +46,8 @@ may still be running.  If it has not yet started feel free to the hit the *Relea
 Once it has completed it should show the *Source* and *Build* stages in green to indicate they have completed 
 successfully:
 
-{{< figure src="https://via.placeholder.com/640x400.png?text=SuccessfulRun" title="SuccessfulRun" >}}
+{{< figure src="/tasks/SuccessfulFactoryRun.png" >}}
 
 {{% notice note %}}
 If this is failing please raise your hand for some assistance
 {{% /notice %}}
-
-Once you have verified the pipeline has run you can go to {{% service_catalog_products_list_link %}} to view your product
-
-You should see the product you just created listed:
-
-{{< figure src="https://via.placeholder.com/640x400.png?text=SeeYourProduct" title="SeeYourProduct" >}}
-
-{{% notice note %}}
-If you cannot see your product please raise your hand for some assistance
-{{% /notice %}}
-
-You have now successfully created a product!
-

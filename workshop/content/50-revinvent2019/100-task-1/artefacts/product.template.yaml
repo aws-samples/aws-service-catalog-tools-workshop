@@ -1,5 +1,7 @@
 AWSTemplateFormatVersion: "2010-09-09"
-Description:
+Description: |
+  Checks that your Amazon S3 bucket either has S3 default encryption enabled or that the S3 bucket policy
+  explicitly denies put-object requests without server side encryption
 Resources:
   AWSConfigRule:
     Type: AWS::Config::ConfigRule
