@@ -44,6 +44,11 @@ identifier = "prtd"
 url = "https://aws-service-catalog-puppet.readthedocs.io/en/latest/"
 weight = 4
 
+[[menu.shortcuts]]
+name = "0922"
+identifier = "version"
+url = "#"
+weight = 5
 
 [outputs]
 home = [ "HTML", "AMP", "RSS", "JSON"]
