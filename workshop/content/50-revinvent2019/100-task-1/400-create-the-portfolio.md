@@ -17,15 +17,15 @@ portfolio._
 
 - Click on *portfolios*
 
-{{< figure src="https://via.placeholder.com/640x400.png?text=ClickOnPortfolios" title="ClickOnPortfolios" >}}
+{{< figure src="/tasks/ClickOnPortfolios.png" >}}
 
 - Click on *reinvent.yaml*
 
-{{< figure src="https://via.placeholder.com/640x400.png?text=ClickOnreinvent.yaml" title="ClickOnreinvent.yaml" >}}
+{{< figure src="/tasks/ClickOnreinvent.png" >}}
 
 - Click *Edit*
 
-{{< figure src="https://via.placeholder.com/640x400.png?text=ClickEdit" title="ClickEdit" >}}
+{{< figure src="/tasks/ClickEdit.png" >}}
 
 - Add the following to the end of the file (be careful with your indentation):
 
@@ -38,7 +38,7 @@ portfolio._
 Once you have updated the file fill in the fields for *Author name*, *Email address*, *Commit message* and hit 
 *Commit changes*
 
-{{< figure src="https://via.placeholder.com/640x400.png?text=CommitChanges.yaml" title="CommitChanges" >}}
+{{< figure src="/tasks/CommitChanges.png" >}}
 
 {{% notice tip %}}
 Using a good / unique commit message will help you understand what is going on later.
@@ -53,7 +53,7 @@ may still be running.  If it has not yet started feel free to the hit the *Relea
 Once it has completed it should show the *Source* and *Build* stages in green to indicate they have completed 
 successfully:
 
-{{< figure src="https://via.placeholder.com/640x400.png?text=SuccessfulRun" title="SuccessfulRun" >}}
+{{< figure src="/tasks/SuccessfulFactoryRun.png" >}}
 
 {{% notice note %}}
 If this is failing please raise your hand for some assistance
@@ -64,7 +64,7 @@ portfolio.
 
 You should see the portfolio you just created listed:
 
-{{< figure src="https://via.placeholder.com/640x400.png?text=SeeYourPortfolio" title="SeeYourPortfolio" >}}
+{{< figure src="/tasks/SeeYourPortfolio.png" >}}
 
 {{% notice note %}}
 If you cannot see your portfolio please raise your hand for some assistance

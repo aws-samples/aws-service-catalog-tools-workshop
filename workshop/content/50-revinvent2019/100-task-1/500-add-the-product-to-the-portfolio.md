@@ -16,15 +16,15 @@ _Now that you have a product and portfolio you can add the product to the portfo
 
 - Click on *portfolios*
 
-{{< figure src="https://via.placeholder.com/640x400.png?text=ClickOnPortfolios" title="ClickOnPortfolios" >}}
+{{< figure src="/tasks/ClickOnPortfolios.png" >}}
 
 - Click on *reinvent.yaml*
 
-{{< figure src="https://via.placeholder.com/640x400.png?text=ClickOnreinvent.yaml" title="ClickOnreinvent.yaml" >}}
+{{< figure src="/tasks/ClickOnreinvent.png" >}}
 
 - Click *Edit*
 
-{{< figure src="https://via.placeholder.com/640x400.png?text=ClickEdit" title="ClickEdit" >}}
+{{< figure src="/tasks/ClickEdit.png" >}}
 
 - Replace the contents of your file with this:
 
@@ -35,7 +35,7 @@ _Now that you have a product and portfolio you can add the product to the portfo
 Once you have updated the file fill in the fields for *Author name*, *Email address*, *Commit message* and hit 
 *Commit changes*
 
-{{< figure src="https://via.placeholder.com/640x400.png?text=CommitChanges.yaml" title="CommitChanges" >}}
+{{< figure src="/tasks/CommitChanges.png" >}}
 
 {{% notice tip %}}
 Using a good / unique commit message will help you understand what is going on later.
@@ -49,7 +49,8 @@ may still be running.  If it has not yet started feel free to the hit the *Relea
 Once it has completed it should show the *Source* and *Build* stages in green to indicate they have completed 
 successfully:
 
-{{< figure src="https://via.placeholder.com/640x400.png?text=SuccessfulRun" title="SuccessfulRun" >}}
+{{< figure src="/tasks/SuccessfulFactoryRun.png" >}}
+
 
 {{% notice note %}}
 If this is failing please raise your hand for some assistance
@@ -60,18 +61,13 @@ portfolio.
 
 - Click on *reinvent-cloud-engineering-governance*
 
-{{< figure 
-    src="https://via.placeholder.com/640x400.png?text=PortfolioReinventCloudEngineeringGovernance" 
-    title="PortfolioReinventCloudEngineeringGovernance" 
->}}
+{{< figure src="/tasks/PortfolioReinventCloudEngineeringGovernance.png" >}}
+
 
 - Click on the product *aws-config-s3-bucket-server-side-encryption-enabled*
 
-{{< figure 
-    src="https://via.placeholder.com/640x400.png?text=ClickAwsConfigS3BucketServerSideEncryptionEnabled" 
-    title="ClickAwsConfigS3BucketServerSideEncryptionEnabled" 
->}}
+{{< figure src="/tasks/ClickAwsConfigS3BucketServerSideEncryptionEnabled.png" >}}
 
 - Click on the version *v1*
 
-{{< figure src="https://via.placeholder.com/640x400.png?text=v1" title="v1" >}}
+{{< figure src="/tasks/ClickAwsConfigS3BucketServerSideEncryptionEnabledV1.png" >}}

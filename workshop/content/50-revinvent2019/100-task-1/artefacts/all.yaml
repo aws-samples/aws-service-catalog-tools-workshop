@@ -6,7 +6,9 @@ Products:
     Distributor: "cloud-engineering"
     SupportDescription: "Speak to data-governance@acme.com about exceptions and speak to cloud-engineering@acme.com about implementation issues"
     SupportEmail: "cloud-engineering@acme.com"
-    SupportUrl: "https%3A%2F%2Fwiki.acme.com%2Fcloud-engineering%2Fgovernance%2Faws-config-s3-bucket-server-side-encryption-enabled"
+    SupportUrl: "https://wiki.acme.com/cloud-engineering/governance/aws-config-s3-bucket-server-side-encryption-enabled"
+    Portfolios:
+      - "cloud-engineering-governance"
     Tags:
       - Key: "type"
         Value: "governance"

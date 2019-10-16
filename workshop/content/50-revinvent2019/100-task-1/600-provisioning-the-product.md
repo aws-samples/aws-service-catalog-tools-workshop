@@ -22,11 +22,13 @@ _We will start out by adding your account to the manifest file._
 
 - Scroll down to the bottom of the page and hit the *Create file* button
 
-{{< figure src="https://via.placeholder.com/640x200.png?text=CreateFile" title="Create file" >}}
+{{< figure src="/tasks/create_file.png" >}}
 
 - Copy the following snippet into the main input field:
 
  {{% code file="50-revinvent2019/100-task-1/artefacts/manifest-accounts.yaml" language="yaml" %}}
+ 
+- Update account_id on line to show your account id
 
 
 #### Adding the product to the manifest
@@ -60,8 +62,7 @@ Using a good / unique commit message will help you understand what is going on l
 
 - Click the *Commit changes* button:
 
-{{< figure src="https://via.placeholder.com/640x100.png?text=CommitChanges" title="Commit changes" >}}
-
+{{< figure src="/tasks/CommitChanges.png" >}}
 
 
 #### Verifying the provisioning
@@ -73,7 +74,8 @@ may still be running.  If it has not yet started feel free to the hit the *Relea
 Once it has completed it should show the *Source* and *Build* stages in green to indicate they have completed 
 successfully:
 
-{{< figure src="https://via.placeholder.com/640x400.png?text=SuccessfulPuppetRun" title="SuccessfulPuppetRun" >}}
+{{< figure src="/tasks/SuccessfulPuppetRun.png" >}}
+
 
 {{% notice note %}}
 If this is failing please raise your hand for some assistance
@@ -83,7 +85,7 @@ Once you have verified the pipeline has run you can go to {{% service_catalog_pr
 provisioned product.  Please note when you arrive at the provisioned product page you will need to select account from 
 the filter by drop down in the top right:
 
-{{< figure src="https://via.placeholder.com/640x400.png?text=FilterByAccount" title="FilterByAccount" >}}
+{{< figure src="/tasks/FilterByAccount.png" >}}
 
 {{% notice note %}}
 If you cannot see your product please raise your hand for some assistance

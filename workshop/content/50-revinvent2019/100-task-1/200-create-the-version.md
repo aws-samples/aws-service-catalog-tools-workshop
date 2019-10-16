@@ -17,15 +17,15 @@ specified when installing the framework._
 - Navigate to the {{% service_catalog_factory_code_commit_repo_link %}} again
 - Click on *portfolios*
 
-{{< figure src="https://via.placeholder.com/640x400.png?text=ClickOnPortfolios" title="ClickOnPortfolios" >}}
+{{< figure src="/tasks/ClickOnPortfolios.png" >}}
 
 - Click on *reinvent.yaml*
 
-{{< figure src="https://via.placeholder.com/640x400.png?text=ClickOnreinvent.yaml" title="ClickOnreinvent.yaml" >}}
+{{< figure src="/tasks/ClickOnreinvent.png" >}}
 
 - Click *Edit*
 
-{{< figure src="https://via.placeholder.com/640x400.png?text=ClickEdit" title="ClickEdit" >}}
+{{< figure src="/tasks/ClickEdit.png" >}}
 
 - Add the following to the end of the file (be careful with your indentation):
 
@@ -37,7 +37,7 @@ specified when installing the framework._
 
 Once you have updated the file fill in the fields for *Author name*, *Email address*, *Commit message* and hit *Commit changes*
 
-{{< figure src="https://via.placeholder.com/640x400.png?text=CommitChanges.yaml" title="CommitChanges" >}}
+{{< figure src="/tasks/CommitChanges.png" >}}
 
 {{% notice tip %}}
 Using a good / unique commit message will help you understand what is going on later.
@@ -51,7 +51,7 @@ may still be running.  If it has not yet started feel free to the hit the *Relea
 Once it has completed it should show the *Source* and *Build* stages in green to indicate they have completed 
 successfully:
 
-{{< figure src="https://via.placeholder.com/640x400.png?text=SuccessfulRun" title="SuccessfulRun" >}}
+{{< figure src="/tasks/SuccessfulFactoryRun.png" >}}
 
 {{% notice tip %}}
 You should see your commit message on this screen, it will help you know which version of ServiceCatalogFactory repo
@@ -66,5 +66,6 @@ If this is failing please raise your hand for some assistance
 Now that your *ServiceCatalogFactory* pipeline has completed you can view the newly created pipeline: 
 {{% codepipeline_pipeline_link "reinvent-aws-config-s3-bucket-server-side-encryption-enabled-v1-pipeline" %}}
 
-You can ignore whether this has run successfully or not for now.  We need to add the source code for it to work properly.
+You can ignore reinvent-aws-config-s3-bucket-server-side-encryption-enabled-v1-pipeline has failed.  
+We need to add the source code for it to work.
 
