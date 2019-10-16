@@ -12,7 +12,7 @@ weight = 200
 
 {{< figure src="/select_cloudformation.png" height="450" width="900">}}
 
-{{% notice tip %}}
+{{% notice warning %}}
 Confirm you are in the eu-west-1 region.
 {{% /notice %}}
 
@@ -28,7 +28,7 @@ Note that the Factory Initialization Stack has been deployed. If yours has not r
 
 ### Select the pre-configured CloudFormation Template
 Service Catalog Puppet can be installed via a pre-created CloudFormation Template stored in S3 under the following URL:
->  https://service-catalog-tools.s3.eu-west-2.amazonaws.com/puppet/latest/servicecatalog-puppet-initialiser.template.yaml
+>  `https://service-catalog-tools.s3.eu-west-2.amazonaws.com/puppet/latest/servicecatalog-puppet-initialiser.template.yaml`
 
 - Paste this URL under 'Amazon S3 URL': 
 - Hit Next
@@ -38,15 +38,15 @@ Service Catalog Puppet can be installed via a pre-created CloudFormation Templat
 ### Specify Stack Details
 
 - Specify the Stack details as follows:
-    - **Stack Name:** puppet-initialization-stack
-    - **OrgIAMRoleArn:** None 
-    - **ShouldCollectCloudformationEvents:** false
-    - **ShouldForwardEventsToEventbridge:** false
-    - **ShouldForwardFailuresToOpscenter:** false    
-    - **Enable Regions:** eu-west-1
+    - **Stack Name:** `puppet-initialization-stack`
+    - **Enable Regions:** `eu-west-1`
+    - **OrgIAMRoleArn:** `None` 
+    - **ShouldCollectCloudformationEvents:** `false`
+    - **ShouldForwardEventsToEventbridge:** `false`
+    - **ShouldForwardFailuresToOpscenter:** `false`   
 - Hit Next
 
-{{< figure src="/specify_stack_details_puppet.png" height="400" width="900">}}
+{{< figure src="/specify_stack_details_puppet.png" height="600" width="900">}}
 
 ### Create the Stack
 
