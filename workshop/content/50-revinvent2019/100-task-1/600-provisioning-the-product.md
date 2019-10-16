@@ -74,7 +74,8 @@ may still be running.  If it has not yet started feel free to the hit the *Relea
 Once it has completed it should show the *Source* and *Build* stages in green to indicate they have completed 
 successfully:
 
-{{< figure src="https://via.placeholder.com/640x400.png?text=SuccessfulPuppetRun" title="SuccessfulPuppetRun" >}}
+{{< figure src="/tasks/SuccessfulPuppetRun.png" >}}
+
 
 {{% notice note %}}
 If this is failing please raise your hand for some assistance
@@ -84,7 +85,7 @@ Once you have verified the pipeline has run you can go to {{% service_catalog_pr
 provisioned product.  Please note when you arrive at the provisioned product page you will need to select account from 
 the filter by drop down in the top right:
 
-{{< figure src="https://via.placeholder.com/640x400.png?text=FilterByAccount" title="FilterByAccount" >}}
+{{< figure src="/tasks/FilterByAccount.png" >}}
 
 {{% notice note %}}
 If you cannot see your product please raise your hand for some assistance

@@ -61,18 +61,13 @@ portfolio.
 
 - Click on *reinvent-cloud-engineering-governance*
 
-{{< figure 
-    src="https://via.placeholder.com/640x400.png?text=PortfolioReinventCloudEngineeringGovernance" 
-    title="PortfolioReinventCloudEngineeringGovernance" 
->}}
+{{< figure src="/tasks/PortfolioReinventCloudEngineeringGovernance.png" >}}
+
 
 - Click on the product *aws-config-s3-bucket-server-side-encryption-enabled*
 
-{{< figure 
-    src="https://via.placeholder.com/640x400.png?text=ClickAwsConfigS3BucketServerSideEncryptionEnabled" 
-    title="ClickAwsConfigS3BucketServerSideEncryptionEnabled" 
->}}
+{{< figure src="/tasks/ClickAwsConfigS3BucketServerSideEncryptionEnabled.png" >}}
 
 - Click on the version *v1*
 
-{{< figure src="https://via.placeholder.com/640x400.png?text=v1" title="v1" >}}
+{{< figure src="/tasks/ClickAwsConfigS3BucketServerSideEncryptionEnabledV1.png" >}}
