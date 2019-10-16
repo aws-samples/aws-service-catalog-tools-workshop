@@ -2,6 +2,7 @@
 title = "Install Puppet Process"
 weight = 200
 home_region = "eu-west-1"
+home_region_name = "Ireland"
 +++
 
 ---
