@@ -1,6 +1,7 @@
 +++
 title = "Install Factory Process"
 weight = 200
+home_region = "eu-west-1"
 +++
 
 ---
@@ -12,8 +13,8 @@ weight = 200
 
 {{< figure src="/select_cloudformation.png" height="450" width="900">}}
 
-{{% notice tip %}}
-Confirm you are in the eu-west-1 region.
+{{% notice warning %}}
+Confirm you are in the {{% param home_region %}} region.
 {{% /notice %}}
 
 ### Create a new CloudFormation Stack
@@ -24,7 +25,7 @@ Confirm you are in the eu-west-1 region.
 
 ### Select the pre-configured CloudFormation Template
 Service Catalog Factory can be installed via a pre-created CloudFormation Template stored in S3 under the following URL:
-> https://service-catalog-tools.s3.eu-west-2.amazonaws.com/factory/latest/servicecatalog-factory-initialiser.template.yaml
+> `https://service-catalog-tools.s3.eu-west-2.amazonaws.com/factory/latest/servicecatalog-factory-initialiser.template.yaml`
 
 - Paste this URL under 'Amazon S3 URL': 
 - Hit Next
@@ -34,8 +35,8 @@ Service Catalog Factory can be installed via a pre-created CloudFormation Templa
 ### Specify Stack Details
 
 - Specify the Stack details as follows:
-    - **Stack Name:** factory-initialization-stack
-    - **Enable Regions:** eu-west-1
+    - **Stack Name:** `factory-initialization-stack`
+    - **Enable Regions:** `{{% param home_region %}}`
 - Hit Next
 
 {{< figure src="/stack_details_factory.png" height="400" width="900">}}
