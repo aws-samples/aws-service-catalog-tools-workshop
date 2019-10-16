@@ -33,16 +33,20 @@ Service Catalog Puppet can be installed via a pre-created CloudFormation Templat
 - Paste this URL under 'Amazon S3 URL': 
 - Hit Next
 
-{{< figure src="/specify_template_puppet.png" height="400" width="900">}}
+{{< figure src="/specify_template_puppet.png" height="500" width="900">}}
 
 ### Specify Stack Details
 
 - Specify the Stack details as follows:
     - **Stack Name:** puppet-initialization-stack
+    - **OrgIAMRoleArn:** None 
+    - **ShouldCollectCloudformationEvents:** false
+    - **ShouldForwardEventsToEventbridge:** false
+    - **ShouldForwardFailuresToOpscenter:** false    
     - **Enable Regions:** eu-west-1
 - Hit Next
 
-{{< figure src="/stack_details.png" height="400" width="900">}}
+{{< figure src="/specify_stack_details_puppet.png" height="400" width="900">}}
 
 ### Create the Stack
 
@@ -51,12 +55,12 @@ Service Catalog Puppet can be installed via a pre-created CloudFormation Templat
 - Acknowledge that the Stack will create an IAM Role
 - Hit 'Create Stack'
 
-{{< figure src="/acknowledge_create.png" height="250" width="900">}}
+{{< figure src="/acknowledge_create.png" height="200" width="900">}}
 
 - You will now see the Stack Status as 'CREATE_IN_PROGRESS'
 
-{{< figure src="/create_in_progress_factory.png" height="250" width="900">}}
+{{< figure src="/create_in_progress_puppet.png" height="200" width="900">}}
 
 - Wait for the Stack Status to go to CREATE_COMPLETE
 
-{{< figure src="/create_complete_factory.png" height="250" width="900">}}
+{{< figure src="/create_complete_puppet.png" height="200" width="900">}}
