@@ -31,11 +31,11 @@ This CodePipeline is triggered by updates to the CodeCommit Repository. When run
 {{< figure src="/factory_codepipeline.png" height="200" width="900">}}
 
 #### S3 Buckets
-3 S3 Buckets were created to store artefacts for Service Catalog and Factory.
+1 S3 Bucket was created to store artefacts for Service Catalog factory.
 
 > URL: https://s3.console.aws.amazon.com/s3/home?region={{% param home_region %}}
 
-{{< figure src="/factory_s3.png" height="200" width="900">}}
+{{< figure src="/puppet_s3.png" height="200" width="900">}}
 
 {{% notice note%}}
 If everything was deployed correctly, proceed to **'Install Puppet'**. If not, don't worry, speak to one of the Workshop Team and we can help.
