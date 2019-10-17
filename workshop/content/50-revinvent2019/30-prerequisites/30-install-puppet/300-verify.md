@@ -14,29 +14,29 @@ The CodeBuild job created 2 CloudFormation Stacks which in turn deployed the Res
 
 > URL: https://{{% param home_region %}}.console.aws.amazon.com/cloudformation/home?region={{% param home_region %}}
 
-{{< figure src="/factory_cloudformation.png" height="200" width="900">}}
+{{< figure src="/puppet_cloudformation.png" height="200" width="900">}}
 
 #### Puppet CodeCommit Repository
 This respository holds the Service Catalog Puppet manifest YAML file which is used to configure provisioning and sharing.
 
 > URL: https://{{% param home_region %}}.console.aws.amazon.com/codesuite/codecommit/repositories?region={{% param home_region %}}
 
-{{< figure src="/factory_codecommit.png" height="200" width="900">}}
+{{< figure src="/puppet_codecommit.png" height="200" width="900">}}
 
-#### Factory CodePipeline
+#### Puppet CodePipeline
 This CodePipeline is triggered by updates to the CodeCommit Repository. When run, it will create the Service Catalog Portfolios and Products defined in the portfolio files. 
 
 > URL: https://{{% param home_region %}}.console.aws.amazon.com/codesuite/codepipeline/pipelines?region={{% param home_region %}}
 
-{{< figure src="/factory_codepipeline.png" height="200" width="900">}}
+{{< figure src="/puppet_codepipeline.png" height="200" width="900">}}
 
 #### S3 Buckets
-3 S3 Buckets were created to store artefacts for Service Catalog and Factory.
+3 S3 Buckets were created to store artefacts for Service Catalog Puppet.
 
 > URL: https://s3.console.aws.amazon.com/s3/home?region={{% param home_region %}}
 
-{{< figure src="/factory_s3.png" height="200" width="900">}}
+{{< figure src="/puppet_s3.png" height="200" width="900">}}
 
 {{% notice note%}}
-If everything was deployed correctly, proceed to **'Install Puppet'**. If not, don't worry, speak to one of the Workshop Team and we can help.
+If everything was deployed correctly, proceed to **''You have been hired''**. If not, don't worry, speak to one of the Workshop Team and we can help.
 {{% /notice %}}
