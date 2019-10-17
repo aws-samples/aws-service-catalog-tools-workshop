@@ -74,14 +74,12 @@ The CloudFormation Stack has created an AWS CodeBuild project which when run wil
 - Navigate to the CodeBuild Service
 - Select the **servicecatalog-product-puppet-initialiser** project and Start Build
 
-(PLCEHOLDER)
-<!-- {{< figure src="/start_factory_codebuild.png" height="150" width="900">}} -->
+{{< figure src="/start_puppet_codebuild.png" height="200" width="900">}}
 
 - Keep default settings and select Start Build again
 - Once complete, Status will be 'Succeeded'
 
-(PLCEHOLDER)
-<!-- {{< figure src="/factory_codebuild_complete.png" height="400" width="900">}} -->
+{{< figure src="/puppet_codebuild_complete.png" height="400" width="900">}}
 
 {{% notice note%}}
 Factory is now installed in your Account, let's verify the Resources that have been deployed.
