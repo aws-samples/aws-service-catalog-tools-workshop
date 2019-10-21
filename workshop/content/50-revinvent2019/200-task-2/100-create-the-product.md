@@ -12,18 +12,23 @@ AWS Service Catalog in every region we specified when installing the framework._
 
 #### Adding the product to the framework
 
-- Navigate to the {{% service_catalog_factory_code_commit_repo_link %}}  
-- Scroll down to the bottom of the page and hit the *Create file* button
+- Navigate to the {{% service_catalog_factory_code_commit_repo_link %}} again
+- Click on *portfolios*
 
+{{< figure src="/tasks/ClickOnPortfolios.png" >}}
 
-{{< figure src="/tasks/create_file.png" >}}
+- Click on *reinvent.yaml*
 
-- Copy the following snippet into the main input field:
+{{< figure src="/tasks/ClickOnreinvent.png" >}}
 
- {{% code file="50-revinvent2019/100-task-1/artefacts/product.yaml" language="js" %}}
+- Click *Edit*
+
+{{< figure src="/tasks/ClickEdit.png" >}}
+
+- Add the following to the end of the file (be careful with your indentation):
+
+ {{% code file="50-revinvent2019/200-task-2/artefacts/product.yaml" language="js" %}}
  
-- Set the *File name* to `portfolios/reinvent.yaml`
-
 - Set your *Author name*
 - Set your *Email address*
 - Set your *Commit message*

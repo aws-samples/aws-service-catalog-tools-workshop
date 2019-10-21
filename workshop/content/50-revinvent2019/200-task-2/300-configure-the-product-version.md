@@ -14,7 +14,7 @@ added to Service Catalog._
 #### Adding the source code for your product
 When you configured your version, you specified the following: 
 
-{{% code file="50-revinvent2019/100-task-1/artefacts/version_only.yaml" language="yaml" %}}
+{{% code file="50-revinvent2019/200-task-2/artefacts/version_only.yaml" language="yaml" %}}
 
 We now need to create the CodeCommit repository and add the AWS Cloudformation template we are going to use for our
 product into that repository.
@@ -41,7 +41,7 @@ product into that repository.
 - Copy the following snippet into the main input field:
 
  {{% code 
-    file="50-revinvent2019/100-task-1/artefacts/product.template.yaml" 
+    file="50-revinvent2019/200-task-2/artefacts/product.template.yaml" 
     language="yaml" 
  %}}
 

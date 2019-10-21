@@ -26,7 +26,7 @@ _We will start out by adding your account to the manifest file._
 
 - Copy the following snippet into the main input field:
 
- {{% code file="50-revinvent2019/100-task-1/artefacts/manifest-accounts.yaml" language="yaml" %}}
+ {{% code file="50-revinvent2019/200-task-2/artefacts/manifest-accounts.yaml" language="yaml" %}}
  
 - Update account_id on line to show your account id
 
@@ -37,12 +37,12 @@ _Now we are ready to add a product to the manifest file._
 
 - Add the following snippet to the end of the main input field:
 
- {{% code file="50-revinvent2019/100-task-1/artefacts/manifest-launches.yaml" language="yaml" %}}
+ {{% code file="50-revinvent2019/200-task-2/artefacts/manifest-launches.yaml" language="yaml" %}}
 
 
 - The main input field should look like this:
 
- {{% code file="50-revinvent2019/100-task-1/artefacts/manifest-all.yaml" language="yaml" %}}
+ {{% code file="50-revinvent2019/200-task-2/artefacts/manifest-all.yaml" language="yaml" %}}
 
 
 #### Committing the manifest file

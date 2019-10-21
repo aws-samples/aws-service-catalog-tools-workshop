@@ -29,11 +29,11 @@ specified when installing the framework._
 
 - Add the following to the end of the file (be careful with your indentation):
 
- {{% code file="50-revinvent2019/100-task-1/artefacts/version_only.yaml" language="yaml" %}}
+ {{% code file="50-revinvent2019/200-task-2/artefacts/version_only.yaml" language="yaml" %}}
  
 - Verify the contents of your file matches this:
 
- {{% code file="50-revinvent2019/100-task-1/artefacts/product_and_version.yaml" language="yaml" %}}
+ {{% code file="50-revinvent2019/200-task-2/artefacts/product_and_version.yaml" language="yaml" %}}
 
 Once you have updated the file fill in the fields for *Author name*, *Email address*, *Commit message* and hit *Commit changes*
 
