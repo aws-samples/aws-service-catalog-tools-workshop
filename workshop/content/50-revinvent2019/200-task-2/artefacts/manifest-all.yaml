@@ -10,9 +10,9 @@ accounts:
       - "partition:eu"
       - "scope:pci"
 launches:
-  aws-config-enable-config:
+  aws-config-s3-bucket-server-side-encryption-enabled:
     portfolio: "reinvent-cloud-engineering-governance"
-    product: "aws-config-enable-config"
+    product: "aws-config-s3-bucket-server-side-encryption-enabled"
     version: "v1"
     deploy_to:
       tags:

@@ -64,8 +64,8 @@ If this is failing please raise your hand for some assistance
 
 
 Now that your *ServiceCatalogFactory* pipeline has completed you can view the newly created pipeline: 
-{{% codepipeline_pipeline_link "aws-config-enable-config-v1-pipeline" %}}
+{{% codepipeline_pipeline_link "aws-config-s3-bucket-server-side-encryption-enabled-v1-pipeline" %}}
 
-You can ignore aws-config-enable-config-v1-pipeline has failed.  
+You can ignore aws-config-s3-bucket-server-side-encryption-enabled-v1-pipeline has failed.  
 We need to add the source code for it to work.
 

@@ -1,16 +1,17 @@
 +++
-title = "Add the product to the portfolio"
-weight = 500
+title = "Create the portfolio"
+weight = 400
 home_region = "eu-west-1"
 +++
 ---
 
 
-### Add the product to the portfolio
+### Create the portfolio
 
-_Now that you have a product and portfolio you can add the product to the portfolio._
+_Before we can add a product to a portfolio we need to create the portfolio. Below are the steps needed to create a 
+portfolio._
 
-#### Add the product to the portfolio
+#### Adding the portfolio to the framework
 
 - Navigate to the {{% service_catalog_factory_code_commit_repo_link %}} again
 
@@ -26,11 +27,13 @@ _Now that you have a product and portfolio you can add the product to the portfo
 
 {{< figure src="/tasks/ClickEdit.png" >}}
 
-- Replace the contents of your file with this:
+- Add the following to the end of the file (be careful with your indentation):
 
-{{% code file="50-revinvent2019/100-task-1/artefacts/final.yaml" language="js" %}}
+{{% code file="50-revinvent2019/100-task-1/artefacts/portfolio_only.yaml" language="yaml" %}}
+ 
+- Verify the contents of your file matches this:
 
-- Take note of lines 26 and 27.  We have added a portfolio to the product.
+{{% code file="50-revinvent2019/100-task-1/artefacts/all.yaml" language="yaml" %}}
 
 Once you have updated the file fill in the fields for *Author name*, *Email address*, *Commit message* and hit 
 *Commit changes*
@@ -41,7 +44,8 @@ Once you have updated the file fill in the fields for *Author name*, *Email addr
 Using a good / unique commit message will help you understand what is going on later.
 {{% /notice %}}
 
-#### Verify the product was added to the portfolio
+
+#### Verify the portfolio was created
 
 Once you have made your changes the {{% service_catalog_factory_pipeline_link %}} should have run or if you were quick 
 may still be running.  If it has not yet started feel free to the hit the *Release change* button.
@@ -51,7 +55,6 @@ successfully:
 
 {{< figure src="/tasks/SuccessfulFactoryRun.png" >}}
 
-
 {{% notice note %}}
 If this is failing please raise your hand for some assistance
 {{% /notice %}}
@@ -59,15 +62,14 @@ If this is failing please raise your hand for some assistance
 Once you have verified the pipeline has run you can go to {{% service_catalog_portfolios_list_link %}} to view your
 portfolio.
 
-- Click on *reinvent-cloud-engineering-governance*
+You should see the portfolio you just created listed:
 
-{{< figure src="/tasks/PortfolioReinventCloudEngineeringGovernance.png" >}}
+{{< figure src="/tasks/SeeYourPortfolio.png" >}}
+
+{{% notice note %}}
+If you cannot see your portfolio please raise your hand for some assistance
+{{% /notice %}}
+
+You have now successfully created a portfolio!
 
 
-- Click on the product *aws-config-enable-config*
-
-{{< figure src="/tasks/ClickAwsConfigS3BucketServerSideEncryptionEnabled.png" >}}
-
-- Click on the version *v1*
-
-{{< figure src="/tasks/ClickAwsConfigS3BucketServerSideEncryptionEnabledV1.png" >}}

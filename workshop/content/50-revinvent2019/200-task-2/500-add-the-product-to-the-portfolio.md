@@ -64,7 +64,7 @@ portfolio.
 {{< figure src="/tasks/PortfolioReinventCloudEngineeringGovernance.png" >}}
 
 
-- Click on the product *aws-config-enable-config*
+- Click on the product *aws-config-s3-bucket-server-side-encryption-enabled*
 
 {{< figure src="/tasks/ClickAwsConfigS3BucketServerSideEncryptionEnabled.png" >}}
 

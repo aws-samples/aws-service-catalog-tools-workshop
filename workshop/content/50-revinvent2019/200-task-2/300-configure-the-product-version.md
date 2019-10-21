@@ -26,7 +26,7 @@ product into that repository.
 {{< figure src="/tasks/CreateRepository.png" >}}
 
 
-- Input the name `aws-config-enable-config`
+- Input the name `aws-config-s3-bucket-server-side-encryption-enabled`
 
 {{< figure src="/tasks/InputTheName.png" >}}
 
@@ -56,7 +56,7 @@ Using a good / unique commit message will help you understand what is going on l
 {{% /notice %}}
 
 Creating that file should trigger your 
-{{% codepipeline_pipeline_link "aws-config-enable-config-v1-pipeline" %}}.  
+{{% codepipeline_pipeline_link "aws-config-s3-bucket-server-side-encryption-enabled-v1-pipeline" %}}.  
 
 Once the pipeline has has completed it should show the *Source* and *Build* stages in green to indicate they have 
 completed successfully:
