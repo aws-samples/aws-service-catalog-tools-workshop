@@ -5,14 +5,21 @@ weight: 1
 ---
 
 
-Thank you for joining us here at ACME, where we are using AWS Service Catalog to build products to meet security and governance requirements. A few words from our Chief Information Security Officer (CISO):
+This is the first day of your AWS Professional Services engagement with our customer, ACME Org. ACME Org is using AWS Service Catalog to build products to meet security and governance requirements. A few words from the project sponsor, ACME Org's Chief Information Security Officer (CISO):
 
->We are a regulated industry that believes that security is job zero and is crucial to building new capabilities in the cloud, and we are excited to have you on board as an aspiring security engineer. Over the next few years, we're looking to move our most sensitive workloads to the cloud and we want to ensure that we can enable our development teams to build with security guardrails in place. Doing this will help us move fast, but also ensure that we meet our commitments to our regulators, our internal security controls functions, and most importantly ensure that we grow our trusted relationships with customers.
+> We are a regulated industry that believes that security is job zero and is crucial to building new capabilities in the cloud, and we are excited to have Professional Services on-board to support our project. Over the next few years, we're looking to move our most sensitive workloads to the cloud and we want to ensure that we can enable our development teams to build with security guardrails in place. 
+>
+> Doing this will help us move fast, but also ensure that we meet our commitments to our regulators, our internal security controls functions, and most importantly ensure that we grow our trusted relationships with customers. 
+> 
+> The project will be using the open source service catalog tools developed by the Professional Servcies Team at AWS. During the Proof of Concept stage of the project, we found that these tools enabled us to create and deploy AWS Service Catalog products that comply with our security and governance requirements. We plan to use these products to build solutions that comply with our policies by default.
 
-We've created this workshop to introduce you to the open source service catalog tools. Using these tools, you can create and deploy AWS Service Catalog products that comply with security and governance requirements set by our Chief Information Security Office. We hope that users can then use these products to build solutions that comply with our policies by default.
 
+The project has been broken into a number of deliverable tasks:
 
-As an aspiring security engineer, we would like you to set up and configure service catalog tools to demonstrate your technical abilities. When you have completed the setup, we'll move on to creating products that meet requirements created by our CISO.
+1. Install the Tools in an AWS Account
+2. Create an AWS Servcie Catalog Product which enable AWS Config
+3. Create an AWS Config Rule to check for non-compliant S3 Buckets
+4. Create a product which only deploys compliant S3 Buckets
 
 Don't worry if you get stuck - look around the room to find friendly helpers from AWS who can help you continue on your journey.
 
