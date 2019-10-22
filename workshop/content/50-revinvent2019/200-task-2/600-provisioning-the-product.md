@@ -13,33 +13,23 @@ _We will add our account to the frameworks manifest file so it knows about our a
 provision our newly created product into our account._
 
 
-#### Adding an account to the manifest file
+#### Adding the product to the manifest
 
 _We will start out by adding your account to the manifest file._
 
-- Navigate to the {{% service_catalog_puppet_code_commit_repo_link %}}
+- Navigate to the {{% service_catalog_puppet_code_commit_repo_link %}} again
 
 
-- Scroll down to the bottom of the page and hit the *Create file* button
+- Click on *manifest.yaml*
 
-{{< figure src="/tasks/create_file.png" >}}
+- Click *Edit*
 
-- Copy the following snippet into the main input field:
+{{< figure src="/tasks/ClickEdit.png" >}}
 
- {{% code file="50-revinvent2019/200-task-2/artefacts/manifest-accounts.yaml" language="yaml" %}}
+- Append the following snippet to the YAML document in the main input field (be careful with your indentation):
+
+ {{% code file="50-revinvent2019/200-task-2/artefacts/manifest-launches-snippet.yaml" language="yaml" %}}
  
-- Update account_id on line to show your account id
-
-
-#### Adding the product to the manifest
-
-_Now we are ready to add a product to the manifest file._
-
-- Add the following snippet to the end of the main input field:
-
- {{% code file="50-revinvent2019/200-task-2/artefacts/manifest-launches.yaml" language="yaml" %}}
-
-
 - The main input field should look like this:
 
  {{% code file="50-revinvent2019/200-task-2/artefacts/manifest-all.yaml" language="yaml" %}}
@@ -48,8 +38,6 @@ _Now we are ready to add a product to the manifest file._
 #### Committing the manifest file
 
 _Now that we have written the manifest file we are ready to commit it._
-
-- Set the *File name* to `manifest.yaml`
 
 - Set your *Author name*
 - Set your *Email address*
