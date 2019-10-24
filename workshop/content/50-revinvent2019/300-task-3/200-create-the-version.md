@@ -29,11 +29,11 @@ specified when installing the framework._
 
 - Add the following to the end of the file (be careful with your indentation):
 
- {{% code file="50-revinvent2019/100-task-1/artefacts/version_only.yaml" language="yaml" %}}
+ {{% code file="50-revinvent2019/300-task-3/artefacts/version_only.yaml" language="yaml" %}}
  
 - Verify the contents of your file matches this:
 
- {{% code file="50-revinvent2019/100-task-1/artefacts/product_and_version.yaml" language="yaml" %}}
+ {{% code file="50-revinvent2019/300-task-3/artefacts/product_and_version.yaml" language="yaml" %}}
 
 Once you have updated the file fill in the fields for *Author name*, *Email address*, *Commit message* and hit *Commit changes*
 
@@ -64,8 +64,8 @@ If this is failing please raise your hand for some assistance
 
 
 Now that your *ServiceCatalogFactory* pipeline has completed you can view the newly created pipeline: 
-{{% codepipeline_pipeline_link "aws-config-enable-config-v1-pipeline" %}}
+{{% codepipeline_pipeline_link "compliant-bucket-v1-pipeline" %}}
 
-You can ignore aws-config-enable-config-v1-pipeline has failed.  
+You can ignore compliant-bucket-v1-pipeline has failed.  
 We need to add the source code for it to work.
 
