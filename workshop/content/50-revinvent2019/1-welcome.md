@@ -17,14 +17,13 @@ This is the first day of your AWS Professional Services engagement with our cust
 The project has been broken into a number of deliverable tasks:
 
 1. Install the Tools in an AWS Account
-2. Create an AWS Servcie Catalog Product which enable AWS Config
-3. Create an AWS Config Rule to check for non-compliant S3 Buckets
-4. Create a product which only deploys compliant S3 Buckets
+2. Create an AWS Servcie Catalog Product which enables AWS Config
+3. Create an AWS Service Catalog Product to create a Config Rule to check for non-compliant S3 Buckets
+4. Create an AWS Service Catalog Product which only deploys compliant S3 Buckets
+5. Create an AWS Service Catalog Product which limits priviliges provided to new IAM Roles
 
 Don't worry if you get stuck - look around the room to find friendly helpers from AWS who can help you continue on your journey.
 
 {{% notice tip %}}
 You can use the arrows to move backwards and forwards through the workshop
 {{% /notice %}}
-
-Ready, steady, go build!
