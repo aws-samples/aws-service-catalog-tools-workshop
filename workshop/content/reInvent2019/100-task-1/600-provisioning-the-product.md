@@ -5,7 +5,6 @@ home_region = "eu-west-1"
 +++
 ---
 
-
 ### Provisioning the product
 
 
@@ -91,4 +90,4 @@ the filter by drop down in the top right:
 If you cannot see your product please raise your hand for some assistance
 {{% /notice %}}
 
-You have now successfully provisioned a product!
+You have now successfully provisioned a product! When provisioned, this product will automatically enable AWS Config.

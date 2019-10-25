@@ -12,7 +12,7 @@ _We now need to tell the framework we want to create a new version of our produc
 CodePipeline that will take the source code for our product from git and add it to AWS Service Catalog in each region we
 specified when installing the framework._
 
-#### Adding the version to the framework
+#### Add the product version to the framework
 
 - Navigate to the {{% service_catalog_factory_code_commit_repo_link %}} again
 - Click on *portfolios*

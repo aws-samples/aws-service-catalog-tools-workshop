@@ -11,7 +11,7 @@ _Now that a product and version have been created we now need to add the source 
 added to Service Catalog._
 
 
-#### Adding the source code for your product
+#### Add the source code for your product
 When you configured your version, you specified the following: 
 
  {{% code file="reInvent2019/200-task-2/artefacts/factory/create-the-version--version-only.yaml" language="yaml" %}}

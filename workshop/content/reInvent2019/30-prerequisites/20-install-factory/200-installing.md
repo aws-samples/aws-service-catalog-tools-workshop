@@ -15,7 +15,7 @@ home_region_name = "Ireland"
 {{< figure src="/select_cloudformation.png" height="450" width="900">}}
 
 {{% notice warning %}}
-Confirm you are in the {{% param home_region %}} ({{% param home_region_name %}}) region.
+Confirm that you are in the {{% param home_region %}} ({{% param home_region_name %}}) region.
 {{% /notice %}}
 
 ### Create a new CloudFormation Stack
@@ -25,7 +25,7 @@ Confirm you are in the {{% param home_region %}} ({{% param home_region_name %}}
 {{< figure src="/create_stack.png" height="300" width="900">}}
 
 ### Select the pre-configured CloudFormation Template
-Service Catalog Factory can be installed via a pre-created CloudFormation Template stored in S3 under the following URL:
+Service Catalog Factory can be installed via a pre-created CloudFormation template stored in S3 under the following URL:
 > `https://service-catalog-tools.s3.eu-west-2.amazonaws.com/factory/latest/servicecatalog-factory-initialiser.template.yaml`
 
 - Paste this URL under 'Amazon S3 URL': 
@@ -61,7 +61,7 @@ Service Catalog Factory can be installed via a pre-created CloudFormation Templa
 
 ### Run the CodeBuild Project
 
-The CloudFormation Stack has created an AWS CodeBuild project which when run will install Factory.
+The CloudFormation Stack has created an AWS CodeBuild project which when run will install Service Catalog Factory.
 
 - Navigate to the CodeBuild Service
 - Select the **servicecatalog-product-factory-initialiser** project and Start Build
@@ -69,11 +69,11 @@ The CloudFormation Stack has created an AWS CodeBuild project which when run wil
 {{< figure src="/start_factory_codebuild.png" height="150" width="900">}}
 
 - Keep default settings and select Start Build again
-- Once complete, Status will be 'Succeeded'
+- Once the build is complete, the build status will be 'Succeeded'
 
 
 {{< figure src="/factory_codebuild_complete.png" height="400" width="900">}}
 
 {{% notice note%}}
-Factory is now installed in your Account, let's verify the Resources that have been deployed.
+Service Catalog Factory is now installed in your AWS Account, let's verify the resources that have been deployed.
 {{% /notice %}}

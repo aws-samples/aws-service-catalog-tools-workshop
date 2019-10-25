@@ -1,5 +1,5 @@
 +++
-title = "Configure the product version"
+title = "Configure product version"
 weight = 300
 home_region = "eu-west-1"
 +++
@@ -11,12 +11,12 @@ _Now that a product and version have been created we now need to add the source 
 added to Service Catalog._
 
 
-#### Adding the source code for your product
-When you configured your version, you specified the following: 
+#### Add the source code for your product
+When you configured your product version, you specified the following: 
 
 {{% code file="reInvent2019/100-task-1/artefacts/factory/create-the-version--version-only.yaml" language="yaml" %}}
 
-We now need to create the CodeCommit repository and add the AWS Cloudformation template we are going to use for our
+We now need to create the CodeCommit repository and add the AWS CloudFormation template we are going to use for our
 product into that repository.
 
 - Navigate to {{% codecommit_link %}}
@@ -64,7 +64,7 @@ completed successfully:
 {{< figure src="/tasks/SuccessfulFactoryProductRun.png" >}}
 
 {{% notice tip %}}
-You should see your commit message on this screen, it will help you know which version of ServiceCatalogFactory repo the 
+You should see your commit message on this screen, it will help you know which version of ServiceCatalogFactory repository the 
 pipeline is processing.
 {{% /notice %}}
 
