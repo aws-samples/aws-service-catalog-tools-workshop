@@ -1,9 +1,6 @@
-Schema: factory-2019-04-01
-Portfolios: []
-Products:
   - Name: "compliant-iam-role"
     Owner: "data-governance@acme.com"
-    Description: "Will provision an AWS S3 bucket that meets data-governance standards"
+    Description: "Will provision an AWS IAM role that meets data-governance standards"
     Distributor: "cloud-engineering"
     SupportDescription: "Speak to data-governance@acme.com about exceptions and speak to cloud-engineering@acme.com about implementation issues"
     SupportEmail: "cloud-engineering@acme.com"
@@ -12,6 +9,4 @@ Products:
       - Key: "type"
         Value: "governance"
       - Key: "creator"
-        Value: "cloud-engineering"
-      - Key: "cost-center"
         Value: "cloud-engineering"

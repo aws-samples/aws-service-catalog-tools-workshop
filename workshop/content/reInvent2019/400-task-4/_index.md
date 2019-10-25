@@ -5,12 +5,11 @@ weight = 400
 ---
 
 ## The ask
-IAM role for self service
+Complex IAM role
 
 
 ## The plan
-_create a new portfolio for sharing and create a product in it_
-
+create role product
 
 {{% notice note %}}
 If you need help at any time please raise your hands in the air like you just don't care.

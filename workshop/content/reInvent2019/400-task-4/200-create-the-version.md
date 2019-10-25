@@ -27,13 +27,13 @@ specified when installing the framework._
 
 {{< figure src="/tasks/ClickEdit.png" >}}
 
-- Add the following to the end of the file (be careful with your indentation):
+- Add the following to product you just added (be careful with your indentation):
 
- {{% code file="reInvent2019/400-task-4/artefacts/version_only.yaml" language="js" %}}
+ {{% code file="reInvent2019/400-task-4/artefacts/factory/create-the-version--version-only.yaml" language="js" %}}
  
 - Verify the contents of your file matches this:
 
- {{% code file="reInvent2019/400-task-4/artefacts/product_and_version.yaml" language="js" %}}
+ {{% code file="reInvent2019/400-task-4/artefacts/factory/create-the-version--product_and_version.yaml" language="js" %}}
 
 Once you have updated the file fill in the fields for *Author name*, *Email address*, *Commit message* and hit *Commit changes*
 

@@ -14,7 +14,8 @@ added to Service Catalog._
 #### Adding the source code for your product
 When you configured your version, you specified the following: 
 
-{{% code file="reInvent2019/400-task-4/artefacts/version_only.yaml" language="js" %}}
+ {{% code file="reInvent2019/400-task-4/artefacts/factory/create-the-version--version-only.yaml" language="js" highlight="1 2" %}}
+
 
 We now need to create the CodeCommit repository and add the AWS Cloudformation template we are going to use for our
 product into that repository.
@@ -26,7 +27,7 @@ product into that repository.
 {{< figure src="/tasks/CreateRepository.png" >}}
 
 
-- Input the name `aws-config-s3-bucket-server-side-encryption-enabled`
+- Input the name `compliant-iam-role`
 
 {{< figure src="/tasks/InputTheName.png" >}}
 
@@ -56,7 +57,7 @@ Using a good / unique commit message will help you understand what is going on l
 {{% /notice %}}
 
 Creating that file should trigger your 
-{{% codepipeline_pipeline_link "aws-config-s3-bucket-server-side-encryption-enabled-v1-pipeline" %}}.  
+{{% codepipeline_pipeline_link "compliant-iam-role-v1-pipeline" %}}.  
 
 Once the pipeline has has completed it should show the *Source* and *Build* stages in green to indicate they have 
 completed successfully:

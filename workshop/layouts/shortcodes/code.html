@@ -1,4 +1,7 @@
 {{ $file := .Get "file" | readFile | safeHTML }} {{ $lang := .Get "language" }}
-<div id="{{$file | urlize}}">
-	<pre>{{- highlight $file $lang "" -}}</pre>
-</div>
+{{ $highlightLines := .Get "highlight" | default "0" }}
+{{ $codeOptions := printf "hl_lines=%s" $highlightLines }}
+
+<figure>
+	{{- highlight $file $lang $codeOptions -}}
+</figure>
