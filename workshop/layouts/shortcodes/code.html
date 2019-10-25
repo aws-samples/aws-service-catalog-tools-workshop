@@ -1,6 +1,4 @@
 {{ $file := .Get "file" | readFile | safeHTML }} {{ $lang := .Get "language" }}
-<div class="code-copy" id="{{$file | urlize}}">
-	<button class="copy-button" title="Copy to clipboard" data-clipboard-snippet>
-	</button>
-	<pre><code class="language-{{ $lang }}">{{- highlight $file $lang "" -}}</code></pre>
+<div id="{{$file | urlize}}">
+	<pre>{{- highlight $file $lang "" -}}</pre>
 </div>
