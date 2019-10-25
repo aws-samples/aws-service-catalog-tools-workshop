@@ -69,7 +69,7 @@ Service Catalog Puppet can be installed via a pre-created CloudFormation Templat
 
 ### Run the CodeBuild Project
 
-The CloudFormation Stack has created an AWS CodeBuild project which when run will install Factory.
+The CloudFormation Stack has created an AWS CodeBuild project which when run will install Service Catalog Factory.
 
 - Navigate to the CodeBuild Service
 - Select the **servicecatalog-product-puppet-initialiser** project and Start Build
@@ -82,5 +82,5 @@ The CloudFormation Stack has created an AWS CodeBuild project which when run wil
 {{< figure src="/puppet_codebuild_complete.png" height="400" width="900">}}
 
 {{% notice note%}}
-Factory is now installed in your Account, let's verify the Resources that have been deployed.
+Factory is now installed in your Account, let's verify the resources that have been deployed.
 {{% /notice %}}

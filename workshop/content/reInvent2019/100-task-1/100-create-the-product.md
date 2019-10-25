@@ -7,8 +7,8 @@ home_region = "eu-west-1"
 
 ### Create the product
 
-_We need to tell the framework we want to create a product. When we add the product to the framework it will add it to
-AWS Service Catalog in every region we specified when installing the framework._  
+_We need to tell the framework that we want to create a product. When we add the product to the framework it will add it to
+AWS Service Catalog in every region that we specified when installing the framework._  
 
 #### Adding the product to the framework
 
@@ -38,9 +38,9 @@ Using a good / unique commit message will help you understand what is going on l
 {{< figure src="/tasks/CommitChanges.png" >}}
 
 
-#### Verify the change worked
+#### Verify that the change worked
 
-Once you have made your changes the {{% service_catalog_factory_pipeline_link %}} should have run or if you were quick 
+Once you have made your changes the {{% service_catalog_factory_pipeline_link %}} should have run or if you were very quick, the pipeline 
 may still be running.  If it has not yet started feel free to the hit the *Release change* button.
 
 Once it has completed it should show the *Source* and *Build* stages in green to indicate they have completed 

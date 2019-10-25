@@ -1,5 +1,5 @@
 +++
-title = "Add the product to the portfolio"
+title = "Add product to portfolio"
 weight = 500
 home_region = "eu-west-1"
 +++
@@ -9,8 +9,6 @@ home_region = "eu-west-1"
 ### Add the product to the portfolio
 
 _Now that you have a product and portfolio you can add the product to the portfolio._
-
-#### Add the product to the portfolio
 
 - Navigate to the {{% service_catalog_factory_code_commit_repo_link %}} again
 

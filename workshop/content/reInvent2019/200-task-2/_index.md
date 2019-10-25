@@ -7,8 +7,6 @@ weight = 200
 ## The ask
 Our users love to use S3 to build innovative solutions. As we are a regulated industry, we are required to check that they do so with the right security controls in place. Today, we don't know if all our users are using server-side encryption to ensure that we comply with our internal security policies. We want to identify S3 buckets that are in use today that don't use S3 server side encryption and notify users so that they can enforce it by default.
 
-In the past, we've had our wizards from the InfoSec team log in to various accounts and check if resources are compliant with security policies. As we've grown, this is becoming time consuming and error prone to do at scale. We would like to do checks like these automatically, and leave our InfoSec team to work on more challenging problems.
-
 Can you help us develop an automated mechanism to check for non-compliant S3 buckets?
 
 

@@ -8,11 +8,11 @@ home_region = "eu-west-1"
 
 ### Create the version
 
-_We now need to tell the framework we want to create a new version of our product.  Once this is done we will have an AWS
-CodePipeline that will take the source code for our product from git and add it to AWS Service Catalog in each region we
+_We have created the product. We now need to tell the framework we want to create a new version of our product.  Once this is done we will have an AWS
+CodePipeline that will take the source code for our product from a git repository and add it to AWS Service Catalog in each region that we
 specified when installing the framework._
 
-#### Adding the version to the framework
+#### Add the product version to the framework
 
 - Navigate to the {{% service_catalog_factory_code_commit_repo_link %}} again
 - Click on *portfolios*
@@ -66,6 +66,4 @@ If this is failing please raise your hand for some assistance
 Now that your *ServiceCatalogFactory* pipeline has completed you can view the newly created pipeline: 
 {{% codepipeline_pipeline_link "aws-config-enable-config-v1-pipeline" %}}
 
-You can ignore aws-config-enable-config-v1-pipeline has failed.  
-We need to add the source code for it to work.
-
+You can safely ignore aws-config-enable-config-v1-pipeline has failed.  For the pipeline to succeed, we need to add the source code for it to work which we will do in the next step.
