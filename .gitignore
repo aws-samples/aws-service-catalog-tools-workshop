@@ -1,6 +1,7 @@
 *.js
 *.d.ts
 node_modules
+workshop/content/public/**
 workshop/public/**
 .DS_Store
 obj/
