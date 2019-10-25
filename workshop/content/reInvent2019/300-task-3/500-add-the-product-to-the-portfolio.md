@@ -28,7 +28,7 @@ _Now that you have a product and portfolio you can add the product to the portfo
 
 - Replace the contents of your file with this:
 
-{{% code file="reInvent2019/300-task-3/artefacts/final.yaml" language="js" %}}
+{{% code file="reInvent2019/300-task-3/artefacts/factory/completed.yaml" language="js" %}}
 
 - Take note of lines 26 and 27.  We have added a portfolio to the product.
 
@@ -64,7 +64,7 @@ portfolio.
 {{< figure src="/tasks/PortfolioReinventCloudEngineeringGovernance.png" >}}
 
 
-- Click on the product *aws-config-s3-bucket-server-side-encryption-enabled*
+- Click on the product *compliant-bucket*
 
 {{< figure src="/tasks/ClickAwsConfigS3BucketServerSideEncryptionEnabled.png" >}}
 

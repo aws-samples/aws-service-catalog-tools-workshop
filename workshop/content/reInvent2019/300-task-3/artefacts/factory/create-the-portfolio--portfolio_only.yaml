@@ -1,6 +1,5 @@
-Portfolios:
-  - DisplayName: "cloud-engineering-governance"
-    Description: "Portfolio containing the products needed to govern AWS accounts"
+  - DisplayName: "cloud-engineering-governance-self-service"
+    Description: "Portfolio containing the products you can use to ensure governance of AWS accounts"
     ProviderName: "cloud-engineering"
     Associations:
       - "arn:aws:iam::${AWS::AccountId}:role/TeamRole"
@@ -8,6 +7,4 @@ Portfolios:
       - Key: "type"
         Value: "governance"
       - Key: "creator"
-        Value: "cloud-engineering"
-      - Key: "cost-center"
         Value: "cloud-engineering"

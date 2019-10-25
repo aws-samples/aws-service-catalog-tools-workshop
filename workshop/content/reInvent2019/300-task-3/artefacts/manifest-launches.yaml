@@ -1,7 +1,7 @@
 launches:
-  aws-config-s3-bucket-server-side-encryption-enabled:
+  compliant-bucket:
     portfolio: "reinvent-cloud-engineering-governance"
-    product: "aws-config-s3-bucket-server-side-encryption-enabled"
+    product: "compliant-bucket"
     version: "v1"
     deploy_to:
       tags:

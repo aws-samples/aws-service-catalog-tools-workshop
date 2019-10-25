@@ -25,9 +25,14 @@ AWS Service Catalog in every region we specified when installing the framework._
 
 {{< figure src="/tasks/ClickEdit.png" >}}
 
-- Add the following to the end of the file (be careful with your indentation):
+- Add the following to the products section (be careful with your indentation):
 
- {{% code file="reInvent2019/300-task-3/artefacts/product.yaml" language="js" %}}
+ {{% code file="reInvent2019/300-task-3/artefacts/factory/create-the-product--product-only.yaml" language="js" %}}
+ 
+- The whole input should look like this:
+
+{{% code file="reInvent2019/300-task-3/artefacts/factory/create-the-product--product.yaml" language="js" %}}
+
  
 - Set your *Author name*
 - Set your *Email address*

@@ -1,16 +1,16 @@
 +++
-title = "Provisioning the product"
+title = "Sharing the product"
 weight = 600
 home_region = "eu-west-1"
 +++
 ---
 
 
-### Provisioning the product
+### Sharing the product
 
 
 _We will add our account to the frameworks manifest file so it knows about our account and we will tell the framework to
-provision our newly created product into our account._
+share our newly created product into our account._
 
 
 #### Adding the product to the manifest
