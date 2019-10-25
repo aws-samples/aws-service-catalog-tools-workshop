@@ -29,11 +29,11 @@ specified when installing the framework._
 
 - Add the following to product you just added (be careful with your indentation):
 
- {{% code file="reInvent2019/300-task-3/artefacts/factory/create-the-version--version-only.yaml" language="yaml" %}}
+ {{% code file="reInvent2019/300-task-3/artefacts/factory/create-the-version--version-only.yaml" language="js" %}}
  
 - Verify the contents of your file matches this:
 
- {{% code file="reInvent2019/300-task-3/artefacts/factory/create-the-version--product_and_version.yaml" language="yaml" %}}
+ {{% code file="reInvent2019/300-task-3/artefacts/factory/create-the-version--product_and_version.yaml" language="js" %}}
 
 Once you have updated the file fill in the fields for *Author name*, *Email address*, *Commit message* and hit *Commit changes*
 

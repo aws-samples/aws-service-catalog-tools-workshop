@@ -27,11 +27,11 @@ _We will start out by adding your account to the manifest file._
 
 - Append the following snippet to the YAML document in the main input field (be careful with your indentation):
 
- {{% code file="reInvent2019/200-task-2/artefacts/orchestrator/manifest-launches-addition.yaml" language="yaml" %}}
+ {{% code file="reInvent2019/200-task-2/artefacts/orchestrator/manifest-launches-addition.yaml" language="js" %}}
  
 - The main input field should look like this:
 
- {{% code file="reInvent2019/200-task-2/artefacts/orchestrator/manifest-all.yaml" language="yaml" %}}
+ {{% code file="reInvent2019/200-task-2/artefacts/orchestrator/manifest-all.yaml" language="js" %}}
 
 
 #### Committing the manifest file

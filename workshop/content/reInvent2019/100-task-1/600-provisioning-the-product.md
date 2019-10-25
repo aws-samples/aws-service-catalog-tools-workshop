@@ -25,7 +25,7 @@ _We will start out by adding your account to the manifest file._
 
 - Copy the following snippet into the main input field:
 
- {{% code file="reInvent2019/100-task-1/artefacts/orchestrator/manifest-accounts-only.yaml" language="yaml" %}}
+ {{% code file="reInvent2019/100-task-1/artefacts/orchestrator/manifest-accounts-only.yaml" language="js" %}}
  
 - Update account_id on line to show your account id
 
@@ -36,12 +36,12 @@ _Now we are ready to add a product to the manifest file._
 
 - Add the following snippet to the end of the main input field:
 
- {{% code file="reInvent2019/100-task-1/artefacts/orchestrator/manifest-launches-only.yaml" language="yaml" %}}
+ {{% code file="reInvent2019/100-task-1/artefacts/orchestrator/manifest-launches-only.yaml" language="js" %}}
 
 
 - The main input field should look like this:
 
- {{% code file="reInvent2019/100-task-1/artefacts/orchestrator/manifest-all.yaml" language="yaml" %}}
+ {{% code file="reInvent2019/100-task-1/artefacts/orchestrator/manifest-all.yaml" language="js" %}}
 
 
 #### Committing the manifest file

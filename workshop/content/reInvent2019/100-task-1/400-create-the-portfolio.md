@@ -29,11 +29,11 @@ portfolio._
 
 - Add the following to the end of the file (be careful with your indentation):
 
-{{% code file="reInvent2019/100-task-1/artefacts/factory/create-the-portfolio--portfolio_only.yaml" language="yaml" %}}
+{{% code file="reInvent2019/100-task-1/artefacts/factory/create-the-portfolio--portfolio_only.yaml" language="js" %}}
  
 - Verify the contents of your file matches this:
 
-{{% code file="reInvent2019/100-task-1/artefacts/factory/create-the-portfolio--portfolio_product_and_version.yaml" language="yaml" %}}
+{{% code file="reInvent2019/100-task-1/artefacts/factory/create-the-portfolio--portfolio_product_and_version.yaml" language="js" %}}
 
 Once you have updated the file fill in the fields for *Author name*, *Email address*, *Commit message* and hit 
 *Commit changes*

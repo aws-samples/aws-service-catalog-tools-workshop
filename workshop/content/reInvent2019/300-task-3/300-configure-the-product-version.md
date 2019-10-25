@@ -43,7 +43,7 @@ product into that repository.
 
  {{% code 
     file="reInvent2019/300-task-3/artefacts/product.template.yaml" 
-    language="yaml" 
+    language="js" 
  %}}
 
 - Set the *File name* to `product.template.yaml`

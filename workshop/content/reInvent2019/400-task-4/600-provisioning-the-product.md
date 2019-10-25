@@ -28,11 +28,11 @@ _We will start out by adding your account to the manifest file._
 
 - Append the following snippet to the YAML document in the main input field (be careful with your indentation):
 
- {{% code file="reInvent2019/400-task-4/artefacts/manifest-launches-snippet.yaml" language="yaml" %}}
+ {{% code file="reInvent2019/400-task-4/artefacts/manifest-launches-snippet.yaml" language="js" %}}
  
 - The main input field should look like this:
 
- {{% code file="reInvent2019/400-task-4/artefacts/manifest-all.yaml" language="yaml" %}}
+ {{% code file="reInvent2019/400-task-4/artefacts/manifest-all.yaml" language="js" %}}
 
 
 #### Committing the manifest file
