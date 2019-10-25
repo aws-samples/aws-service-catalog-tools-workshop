@@ -8,17 +8,12 @@ home_region = "eu-west-1"
 
 ### Sharing the product
 
+We need to tell the framework that we want to share the portfolio *cloud-engineering-governance-self-service*.  To do 
+this we will need to update the manifest file.
 
-_We will add our account to the frameworks manifest file so it knows about our account and we will tell the framework to
-share our newly created product into our account._
-
-
-#### Adding the product to the manifest
-
-_We will start out by adding your account to the manifest file._
-
+#### Adding your shares to the manifest
+ 
 - Navigate to the {{% service_catalog_puppet_code_commit_repo_link %}} again
-
 
 - Click on *manifest.yaml*
 
@@ -28,11 +23,12 @@ _We will start out by adding your account to the manifest file._
 
 - Append the following snippet to the YAML document in the main input field (be careful with your indentation):
 
- {{% code file="reInvent2019/300-task-3/artefacts/manifest-launches-snippet.yaml" language="js" %}}
+ {{% code file="reInvent2019/300-task-3/artefacts/orchestrator/manifest-shares-addition.yaml" language="js" %}}
  
 - The main input field should look like this:
 
- {{% code file="reInvent2019/300-task-3/artefacts/manifest-all.yaml" language="js" %}}
+ {{% code file="reInvent2019/300-task-3/artefacts/orchestrator/manifest-all.yaml" language="js" %}}
+
 
 
 #### Committing the manifest file
@@ -69,14 +65,14 @@ successfully:
 If this is failing please raise your hand for some assistance
 {{% /notice %}}
 
-Once you have verified the pipeline has run you can go to {{% service_catalog_provisioned_products_link %}} to view your 
-provisioned product.  Please note when you arrive at the provisioned product page you will need to select account from 
-the filter by drop down in the top right:
+Once you have verified the pipeline has run you can go to {{% service_catalog_portfolios_list_link %}} to view your 
+shared product.  
 
-{{< figure src="/tasks/FilterByAccount.png" >}}
+When you share a portfolio the framework will decide if it should share the portfolio.  If the target account is the same
+as the factory account it will not share the portfolio as it is not needed.
 
 {{% notice note %}}
 If you cannot see your product please raise your hand for some assistance
 {{% /notice %}}
 
-You have now successfully provisioned a product!
+You have now successfully shared a portfolio!

@@ -1,8 +1,0 @@
-  compliant-bucket:
-    portfolio: "reinvent-cloud-engineering-governance"
-    product: "compliant-bucket"
-    version: "v1"
-    deploy_to:
-      tags:
-        - tag: "type:prod"
-          regions: "default_region"

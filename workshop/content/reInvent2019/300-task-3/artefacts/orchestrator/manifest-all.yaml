@@ -19,10 +19,18 @@ launches:
         - tag: "type:prod"
           regions: "default_region"
 
-  compliant-bucket:
+  aws-config-s3-bucket-server-side-encryption-enabled:
     portfolio: "reinvent-cloud-engineering-governance"
-    product: "compliant-bucket"
+    product: "aws-config-s3-bucket-server-side-encryption-enabled"
     version: "v1"
+    deploy_to:
+      tags:
+        - tag: "type:prod"
+          regions: "default_region"
+
+spoke-local-portfolios:
+  account-vending-for-spokes:
+    portfolio: cloud-engineering-governance-self-service
     deploy_to:
       tags:
         - tag: "type:prod"
