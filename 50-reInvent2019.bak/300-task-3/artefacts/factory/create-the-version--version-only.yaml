@@ -1,0 +1,9 @@
+    Versions:
+      - Name: "v1"
+        Description: "v1 of compliant-bucket"
+        Active: True
+        Source:
+          Provider: "CodeCommit"
+          Configuration:
+            RepositoryName: "compliant-bucket"
+            BranchName: "master"

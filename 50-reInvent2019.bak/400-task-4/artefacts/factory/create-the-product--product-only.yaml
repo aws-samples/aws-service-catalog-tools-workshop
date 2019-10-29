@@ -1,0 +1,12 @@
+  - Name: "compliant-iam-role"
+    Owner: "data-governance@acme.com"
+    Description: "Will provision an AWS IAM role that meets data-governance standards"
+    Distributor: "cloud-engineering"
+    SupportDescription: "Speak to data-governance@acme.com about exceptions and speak to cloud-engineering@acme.com about implementation issues"
+    SupportEmail: "cloud-engineering@acme.com"
+    SupportUrl: "https://wiki.acme.com/cloud-engineering/governance/compliant-iam-role"
+    Tags:
+      - Key: "type"
+        Value: "governance"
+      - Key: "creator"
+        Value: "cloud-engineering"
