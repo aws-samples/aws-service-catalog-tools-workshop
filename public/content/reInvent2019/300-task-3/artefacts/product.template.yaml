@@ -1,0 +1,18 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: |
+  Checks that your Amazon S3 bucket either has S3 default encryption enabled or that the S3 bucket policy
+  explicitly denies put-object requests without server side encryption
+Resources:
+  AWSConfigRule:
+    Type: AWS::Config::ConfigRule
+    Properties:
+      ConfigRuleName: S3_BUCKET_SERVER_SIDE_ENCRYPTION_ENABLED
+      Description: |
+        Checks that your Amazon S3 bucket either has S3 default encryption enabled or that the S3 bucket policy
+        explicitly denies put-object requests without server side encryption.
+      Scope:
+        ComplianceResourceTypes:
+          - 'AWS::S3::Bucket'
+      Source:
+        Owner: AWS
+        SourceIdentifier: S3_BUCKET_SERVER_SIDE_ENCRYPTION_ENABLED

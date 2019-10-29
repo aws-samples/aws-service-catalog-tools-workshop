@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AWS Service Catalog Tools Intro Workshop on Service Catalog Tools Workshop</title>
+    <link>https://servicecatalogtoolsworkshop.com/</link>
+    <description>Recent content in AWS Service Catalog Tools Intro Workshop on Service Catalog Tools Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://servicecatalogtoolsworkshop.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Welcome</title>
+      <link>https://servicecatalogtoolsworkshop.com/reinvent2019/1-welcome.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://servicecatalogtoolsworkshop.com/reinvent2019/1-welcome.html</guid>
+      <description>This is the first day of your AWS Professional Services engagement with our customer, ACME Org. ACME Org is using AWS Service Catalog to build products to meet security and governance requirements. A few words from the project sponsor, ACME Org&amp;rsquo;s Chief Information Security Officer (CISO):
+ We are a regulated industry that believes that security is job zero and is crucial to building new capabilities in the cloud, and we are excited to have Professional Services on-board to support our project.</description>
+    </item>
+    
+    <item>
+      <title>Create the product</title>
+      <link>https://servicecatalogtoolsworkshop.com/reinvent2019/100-task-1/100-create-the-product.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://servicecatalogtoolsworkshop.com/reinvent2019/100-task-1/100-create-the-product.html</guid>
+      <description>Create the product We need to tell the framework that we want to create a product. When we add the product to the framework it will add it to AWS Service Catalog in every region that we specified when installing the framework.
+Adding the product to the framework  Navigate to the ServiceCatalogFactory CodeCommit repository
+ Scroll down to the bottom of the page and hit the Create file button     Copy the following snippet into the main input field:   Schema: factory-2019-04-01 Products: - Name: &amp;#34;aws-config-enable-config&amp;#34; Owner: &amp;#34;data-governance@acme.</description>
+    </item>
+    
+    <item>
+      <title>Create the product</title>
+      <link>https://servicecatalogtoolsworkshop.com/reinvent2019/200-task-2/100-create-the-product.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://servicecatalogtoolsworkshop.com/reinvent2019/200-task-2/100-create-the-product.html</guid>
+      <description>Create the product We need to tell the framework we want to create a product. When we add the product to the framework it will add it to AWS Service Catalog in every region we specified when installing the framework.
+Add the product to the framework  Navigate to the ServiceCatalogFactory CodeCommit repository again Click on portfolios     Click on reinvent.yaml     Click Edit     Add the following to the products section (be careful with your indentation):   - Name: &amp;#34;aws-config-s3-bucket-server-side-encryption-enabled&amp;#34; Owner: &amp;#34;data-governance@acme.</description>
+    </item>
+    
+    <item>
+      <title>Create the product</title>
+      <link>https://servicecatalogtoolsworkshop.com/reinvent2019/300-task-3/100-create-the-product.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://servicecatalogtoolsworkshop.com/reinvent2019/300-task-3/100-create-the-product.html</guid>
+      <description>Create the product We need to tell the framework we want to create a product. When we add the product to the framework it will add it to AWS Service Catalog in every region we specified when installing the framework.
+Adding the product to the framework  Navigate to the ServiceCatalogFactory CodeCommit repository again Click on portfolios     Click on reinvent.yaml     Click Edit     Add the following to the products section (be careful with your indentation):   - Name: &amp;#34;compliant-bucket&amp;#34; Owner: &amp;#34;data-governance@acme.</description>
+    </item>
+    
+    <item>
+      <title>Create the product</title>
+      <link>https://servicecatalogtoolsworkshop.com/reinvent2019/400-task-4/100-create-the-product.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://servicecatalogtoolsworkshop.com/reinvent2019/400-task-4/100-create-the-product.html</guid>
+      <description>Create the product We need to tell the framework we want to create a product. When we add the product to the framework it will add it to AWS Service Catalog in every region we specified when installing the framework.
+Adding the product to the framework  Navigate to the ServiceCatalogFactory CodeCommit repository again Click on portfolios     Click on reinvent.yaml     Click Edit     Add the following to the products section (be careful with your indentation):   - Name: &amp;#34;compliant-iam-role&amp;#34; Owner: &amp;#34;data-governance@acme.</description>
+    </item>
+    
+    <item>
+      <title>Create the version</title>
+      <link>https://servicecatalogtoolsworkshop.com/reinvent2019/100-task-1/200-create-the-version.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://servicecatalogtoolsworkshop.com/reinvent2019/100-task-1/200-create-the-version.html</guid>
+      <description>Create the version We have created the product. We now need to tell the framework we want to create a new version of our product. Once this is done we will have an AWS CodePipeline that will take the source code for our product from a git repository and add it to AWS Service Catalog in each region that we specified when installing the framework.
+Add the product version to the framework  Navigate to the ServiceCatalogFactory CodeCommit repository again Click on portfolios     Click on reinvent.</description>
+    </item>
+    
+    <item>
+      <title>Create the version</title>
+      <link>https://servicecatalogtoolsworkshop.com/reinvent2019/200-task-2/200-create-the-version.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://servicecatalogtoolsworkshop.com/reinvent2019/200-task-2/200-create-the-version.html</guid>
+      <description>Create the version We now need to tell the framework we want to create a new version of our product. Once this is done we will have an AWS CodePipeline that will take the source code for our product from git and add it to AWS Service Catalog in each region we specified when installing the framework.
+Add the product version to the framework  Navigate to the ServiceCatalogFactory CodeCommit repository again Click on portfolios     Click on reinvent.</description>
+    </item>
+    
+    <item>
+      <title>Create the version</title>
+      <link>https://servicecatalogtoolsworkshop.com/reinvent2019/300-task-3/200-create-the-version.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://servicecatalogtoolsworkshop.com/reinvent2019/300-task-3/200-create-the-version.html</guid>
+      <description>Create the version We now need to tell the framework we want to create a new version of our product. Once this is done we will have an AWS CodePipeline that will take the source code for our product from git and add it to AWS Service Catalog in each region we specified when installing the framework.
+Adding the version to the framework  Navigate to the ServiceCatalogFactory CodeCommit repository again Click on portfolios     Click on reinvent.</description>
+    </item>
+    
+    <item>
+      <title>Create the version</title>
+      <link>https://servicecatalogtoolsworkshop.com/reinvent2019/400-task-4/200-create-the-version.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://servicecatalogtoolsworkshop.com/reinvent2019/400-task-4/200-create-the-version.html</guid>
+      <description>Create the version We now need to tell the framework we want to create a new version of our product. Once this is done we will have an AWS CodePipeline that will take the source code for our product from git and add it to AWS Service Catalog in each region we specified when installing the framework.
+Adding the version to the framework  Navigate to the ServiceCatalogFactory CodeCommit repository again Click on portfolios     Click on reinvent.</description>
+    </item>
+    
+    <item>
+      <title>Install Factory Process</title>
+      <link>https://servicecatalogtoolsworkshop.com/reinvent2019/30-prerequisites/20-install-factory/200-installing.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://servicecatalogtoolsworkshop.com/reinvent2019/30-prerequisites/20-install-factory/200-installing.html</guid>
+      <description>Navigate to CloudFormation  Select the CloudFormation Service.    Confirm that you are in the eu-west-1 (Ireland) region.
+ Create a new CloudFormation Stack  Select &amp;lsquo;Create Stack&amp;rsquo;    Select the pre-configured CloudFormation Template Service Catalog Factory can be installed via a pre-created CloudFormation template stored in S3 under the following URL: &amp;gt; https://service-catalog-tools.s3.eu-west-2.amazonaws.com/factory/latest/servicecatalog-factory-initialiser.template.yaml
+ Paste this URL under &amp;lsquo;Amazon S3 URL&amp;rsquo;: Hit Next    Specify Stack Details  Specify the Stack details as follows:  Stack Name: factory-initialization-stack Enable Regions: eu-west-1  Hit Next    Create the Stack  Leave Defaults for &amp;lsquo;Configure Stack Options&amp;rsquo; Hit Next Acknowledge that the Stack will create an IAM Role Hit &amp;lsquo;Create Stack&amp;rsquo;     You will now see the Stack Status as &amp;lsquo;CREATE_IN_PROGRESS&amp;rsquo;     Wait for the Stack Status to go to CREATE_COMPLETE    Run the CodeBuild Project The CloudFormation Stack has created an AWS CodeBuild project which when run will install Service Catalog Factory.</description>
+    </item>
+    
+    <item>
+      <title>Install Puppet Process</title>
+      <link>https://servicecatalogtoolsworkshop.com/reinvent2019/30-prerequisites/30-install-puppet/200-installing.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://servicecatalogtoolsworkshop.com/reinvent2019/30-prerequisites/30-install-puppet/200-installing.html</guid>
+      <description>Navigate to CloudFormation  Select the CloudFormation Service.    Confirm you are in the eu-west-1 (Ireland) region.
+ Create a new CloudFormation Stack  Select &amp;lsquo;Create Stack&amp;rsquo;    Note that the Factory Initialization Stack has been deployed. If yours has not refer to &amp;lsquo;Install Factory Process&amp;rsquo;
+ Select the pre-configured CloudFormation Template Service Catalog Puppet can be installed via a pre-created CloudFormation Template stored in S3 under the following URL: &amp;gt; https://service-catalog-tools.</description>
+    </item>
+    
+    <item>
+      <title>Configure product version</title>
+      <link>https://servicecatalogtoolsworkshop.com/reinvent2019/100-task-1/300-configure-the-product-version.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://servicecatalogtoolsworkshop.com/reinvent2019/100-task-1/300-configure-the-product-version.html</guid>
+      <description>Configuring the product version pipeline Now that a product and version have been created we now need to add the source code for the product so we can get it added to Service Catalog.
+Add the source code for your product When you configured your product version, you specified the following:
+Versions: - Name: &amp;#34;v1&amp;#34; Description: &amp;#34;v1 of aws-config-enable-config&amp;#34; Active: True Source: Provider: &amp;#34;CodeCommit&amp;#34; Configuration: RepositoryName: &amp;#34;aws-config-enable-config&amp;#34; BranchName: &amp;#34;master&amp;#34;  We now need to create the CodeCommit repository and add the AWS CloudFormation template we are going to use for our product into that repository.</description>
+    </item>
+    
+    <item>
+      <title>Configure the product version</title>
+      <link>https://servicecatalogtoolsworkshop.com/reinvent2019/200-task-2/300-configure-the-product-version.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://servicecatalogtoolsworkshop.com/reinvent2019/200-task-2/300-configure-the-product-version.html</guid>
+      <description>Configuring the product version pipeline Now that a product and version have been created we now need to add the source code for the product so we can get it added to Service Catalog.
+Add the source code for your product When you configured your version, you specified the following:
+Versions: - Name: &amp;#34;v1&amp;#34; Description: &amp;#34;v1 of aws-config-s3-bucket-server-side-encryption-enabled&amp;#34; Active: True Source: Provider: &amp;#34;CodeCommit&amp;#34; Configuration: RepositoryName: &amp;#34;aws-config-s3-bucket-server-side-encryption-enabled&amp;#34; BranchName: &amp;#34;master&amp;#34;  We now need to create the CodeCommit repository and add the AWS Cloudformation template we are going to use for our product into that repository.</description>
+    </item>
+    
+    <item>
+      <title>Configure the product version</title>
+      <link>https://servicecatalogtoolsworkshop.com/reinvent2019/300-task-3/300-configure-the-product-version.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://servicecatalogtoolsworkshop.com/reinvent2019/300-task-3/300-configure-the-product-version.html</guid>
+      <description>Configuring the product version pipeline Now that a product and version have been created we now need to add the source code for the product so we can get it added to Service Catalog.
+Adding the source code for your product When you configured your version, you specified the following:
+Versions: - Name: &amp;#34;v1&amp;#34; Description: &amp;#34;v1 of compliant-bucket&amp;#34; Active: True Source: Provider: &amp;#34;CodeCommit&amp;#34; Configuration: RepositoryName: &amp;#34;compliant-bucket&amp;#34; BranchName: &amp;#34;master&amp;#34;  We now need to create the CodeCommit repository and add the AWS Cloudformation template we are going to use for our product into that repository.</description>
+    </item>
+    
+    <item>
+      <title>Configure the product version</title>
+      <link>https://servicecatalogtoolsworkshop.com/reinvent2019/400-task-4/300-configure-the-product-version.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://servicecatalogtoolsworkshop.com/reinvent2019/400-task-4/300-configure-the-product-version.html</guid>
+      <description>Configuring the product version pipeline Now that a product and version have been created we now need to add the source code for the product so we can get it added to Service Catalog.
+Adding the source code for your product When you configured your version, you specified the following:
+Versions: - Name: &amp;#34;v1&amp;#34;  Description: &amp;#34;v1 of compliant-iam-role&amp;#34; Active: True Source: Provider: &amp;#34;CodeCommit&amp;#34; Configuration: RepositoryName: &amp;#34;compliant-iam-role&amp;#34; BranchName: &amp;#34;master&amp;#34;  We now need to create the CodeCommit repository and add the AWS Cloudformation template we are going to use for our product into that repository.</description>
+    </item>
+    
+    <item>
+      <title>Verify Factory Installation</title>
+      <link>https://servicecatalogtoolsworkshop.com/reinvent2019/30-prerequisites/20-install-factory/300-verify.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://servicecatalogtoolsworkshop.com/reinvent2019/30-prerequisites/20-install-factory/300-verify.html</guid>
+      <description>What have we deployed? The following AWS resources have just been deployed into your AWS Account:
+CloudFormation Stacks The CodeBuild job created 2 CloudFormation Stacks which in turn deployed the resources listed below:
+ URL: https://eu-west-1.console.aws.amazon.com/cloudformation/home?region=eu-west-1
+   Factory CodeCommit Repository This respository holds the Service Catalog Factory YAML files which are used to configure AWS Service Catalog Portfolios and Products.
+ URL: https://eu-west-1.console.aws.amazon.com/codesuite/codecommit/repositories?region=eu-west-1
+   Factory CodePipeline This CodePipeline is triggered by updates to the CodeCommit Repository.</description>
+    </item>
+    
+    <item>
+      <title>Verify Puppet Installation</title>
+      <link>https://servicecatalogtoolsworkshop.com/reinvent2019/30-prerequisites/30-install-puppet/300-verify.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://servicecatalogtoolsworkshop.com/reinvent2019/30-prerequisites/30-install-puppet/300-verify.html</guid>
+      <description>What have we deployed? The following AWS resources have just been deployed into your AWS Account:
+CloudFormation Stacks The CodeBuild job created 2 CloudFormation Stacks which in turn deployed the resources listed below
+ URL: https://eu-west-1.console.aws.amazon.com/cloudformation/home?region=eu-west-1
+   Puppet CodeCommit Repository This respository holds the Service Catalog Puppet manifest YAML file which is used to configure provisioning and sharing.
+ URL: https://eu-west-1.console.aws.amazon.com/codesuite/codecommit/repositories?region=eu-west-1
+   Puppet CodePipeline This CodePipeline is triggered by updates to the CodeCommit Repository.</description>
+    </item>
+    
+    <item>
+      <title>Create the portfolio</title>
+      <link>https://servicecatalogtoolsworkshop.com/reinvent2019/100-task-1/400-create-the-portfolio.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://servicecatalogtoolsworkshop.com/reinvent2019/100-task-1/400-create-the-portfolio.html</guid>
+      <description>Create the portfolio Before we can add a product to a portfolio we need to create the portfolio. Below are the steps needed to create a portfolio.
+Adding the portfolio to the framework  Navigate to the ServiceCatalogFactory CodeCommit repository again
+ Click on portfolios
+     Click on reinvent.yaml     Click Edit     Add the following to the end of the file (be careful with your indentation):  Portfolios: - DisplayName: &amp;#34;cloud-engineering-governance&amp;#34; Description: &amp;#34;Portfolio containing the products needed to govern AWS accounts&amp;#34; ProviderName: &amp;#34;cloud-engineering&amp;#34; Associations: - &amp;#34;arn:aws:iam::${AWS::AccountId}:role/TeamRole&amp;#34; Tags: - Key: &amp;#34;type&amp;#34; Value: &amp;#34;governance&amp;#34; - Key: &amp;#34;creator&amp;#34; Value: &amp;#34;cloud-engineering&amp;#34; - Key: &amp;#34;cost-center&amp;#34; Value: &amp;#34;cloud-engineering&amp;#34;   Verify the contents of your file matches this:  Schema: factory-2019-04-01 Products: - Name: &amp;#34;aws-config-enable-config&amp;#34; Owner: &amp;#34;data-governance@acme.</description>
+    </item>
+    
+    <item>
+      <title>Create the portfolio</title>
+      <link>https://servicecatalogtoolsworkshop.com/reinvent2019/300-task-3/400-create-the-portfolio.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://servicecatalogtoolsworkshop.com/reinvent2019/300-task-3/400-create-the-portfolio.html</guid>
+      <description>Create the portfolio Before we can add a product to a portfolio we need to create the portfolio. Below are the steps needed to create a portfolio.
+Adding the portfolio to the framework  Navigate to the ServiceCatalogFactory CodeCommit repository again
+ Click on portfolios
+     Click on reinvent.yaml     Click Edit     Add the following to the end of the file (be careful with your indentation):  - DisplayName: &amp;#34;cloud-engineering-governance-self-service&amp;#34; Description: &amp;#34;Portfolio containing the products you can use to ensure governance of AWS accounts&amp;#34; ProviderName: &amp;#34;cloud-engineering&amp;#34; Associations: - &amp;#34;arn:aws:iam::${AWS::AccountId}:role/TeamRole&amp;#34; Tags: - Key: &amp;#34;type&amp;#34; Value: &amp;#34;governance&amp;#34; - Key: &amp;#34;creator&amp;#34; Value: &amp;#34;cloud-engineering&amp;#34;   Verify the contents of your file matches this:  Schema: factory-2019-04-01 Products: - Name: &amp;#34;aws-config-enable-config&amp;#34; Owner: &amp;#34;data-governance@acme.</description>
+    </item>
+    
+    <item>
+      <title>Add product to portfolio</title>
+      <link>https://servicecatalogtoolsworkshop.com/reinvent2019/100-task-1/500-add-the-product-to-the-portfolio.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://servicecatalogtoolsworkshop.com/reinvent2019/100-task-1/500-add-the-product-to-the-portfolio.html</guid>
+      <description>Add the product to the portfolio Now that you have a product and portfolio you can add the product to the portfolio.
+ Navigate to the ServiceCatalogFactory CodeCommit repository again
+ Click on portfolios
+     Click on reinvent.yaml     Click Edit     Replace the contents of your file with this:  Schema: factory-2019-04-01 Products: - Name: &amp;#34;aws-config-enable-config&amp;#34; Owner: &amp;#34;data-governance@acme.com&amp;#34; Description: &amp;#34;Enables AWS Config&amp;#34; Distributor: &amp;#34;cloud-engineering&amp;#34; SupportDescription: &amp;#34;Speak to data-governance@acme.</description>
+    </item>
+    
+    <item>
+      <title>Add product to portfolio</title>
+      <link>https://servicecatalogtoolsworkshop.com/reinvent2019/200-task-2/500-add-the-product-to-the-portfolio.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://servicecatalogtoolsworkshop.com/reinvent2019/200-task-2/500-add-the-product-to-the-portfolio.html</guid>
+      <description>Add the product to the portfolio Now that you have a product and portfolio you can add the product to the portfolio.
+ Navigate to the ServiceCatalogFactory CodeCommit repository again
+ Click on portfolios
+     Click on reinvent.yaml     Click Edit     Replace the contents of your file with this:  Schema: factory-2019-04-01 Products: - Name: &amp;#34;aws-config-enable-config&amp;#34; Owner: &amp;#34;data-governance@acme.com&amp;#34; Description: &amp;#34;Enables AWS Config&amp;#34; Distributor: &amp;#34;cloud-engineering&amp;#34; SupportDescription: &amp;#34;Speak to data-governance@acme.</description>
+    </item>
+    
+    <item>
+      <title>Add the product to the portfolio</title>
+      <link>https://servicecatalogtoolsworkshop.com/reinvent2019/300-task-3/500-add-the-product-to-the-portfolio.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://servicecatalogtoolsworkshop.com/reinvent2019/300-task-3/500-add-the-product-to-the-portfolio.html</guid>
+      <description>Add the product to the portfolio Now that you have a product and portfolio you can add the product to the portfolio.
+Add the product to the portfolio  Navigate to the ServiceCatalogFactory CodeCommit repository again
+ Click on portfolios
+     Click on reinvent.yaml     Click Edit     Replace the contents of your file with this:  Schema: factory-2019-04-01 Products: - Name: &amp;#34;aws-config-enable-config&amp;#34; Owner: &amp;#34;data-governance@acme.</description>
+    </item>
+    
+    <item>
+      <title>Add the product to the portfolio</title>
+      <link>https://servicecatalogtoolsworkshop.com/reinvent2019/400-task-4/500-add-the-product-to-the-portfolio.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://servicecatalogtoolsworkshop.com/reinvent2019/400-task-4/500-add-the-product-to-the-portfolio.html</guid>
+      <description>Add the product to the portfolio Now that you have a product and portfolio you can add the product to the portfolio.
+Add the product to the portfolio  Navigate to the ServiceCatalogFactory CodeCommit repository again
+ Click on portfolios
+     Click on reinvent.yaml     Click Edit     Replace the contents of your file with this:  Schema: factory-2019-04-01 Products: - Name: &amp;#34;aws-config-enable-config&amp;#34; Owner: &amp;#34;data-governance@acme.</description>
+    </item>
+    
+    <item>
+      <title>Provisioning the product</title>
+      <link>https://servicecatalogtoolsworkshop.com/reinvent2019/100-task-1/600-provisioning-the-product.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://servicecatalogtoolsworkshop.com/reinvent2019/100-task-1/600-provisioning-the-product.html</guid>
+      <description>Provisioning the product We will add our account to the frameworks manifest file so it knows about our account and we will tell the framework to provision our newly created product into our account.
+Adding an account to the manifest file We will start out by adding your account to the manifest file.
+ Navigate to the ServiceCatalogPuppet CodeCommit repository
+ Scroll down to the bottom of the page and hit the Create file button</description>
+    </item>
+    
+    <item>
+      <title>Provisioning the product</title>
+      <link>https://servicecatalogtoolsworkshop.com/reinvent2019/200-task-2/600-provisioning-the-product.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://servicecatalogtoolsworkshop.com/reinvent2019/200-task-2/600-provisioning-the-product.html</guid>
+      <description>Provisioning the product We will add our account to the frameworks manifest file so it knows about our account and we will tell the framework to provision our newly created product into our account.
+Adding the product to the manifest We will start out by adding your account to the manifest file.
+ Navigate to the ServiceCatalogPuppet CodeCommit repository again
+ Click on manifest.yaml
+ Click Edit
+     Append the following snippet to the YAML document in the main input field (be careful with your indentation):   aws-config-s3-bucket-server-side-encryption-enabled: portfolio: &amp;#34;reinvent-cloud-engineering-governance&amp;#34; product: &amp;#34;aws-config-s3-bucket-server-side-encryption-enabled&amp;#34; version: &amp;#34;v1&amp;#34; deploy_to: tags: - tag: &amp;#34;type:prod&amp;#34; regions: &amp;#34;default_region&amp;#34;   The main input field should look like this:   accounts: - account_id: &amp;#34;&amp;lt;YOUR_ACCOUNT_ID&amp;gt;&amp;#34; name: &amp;#34;puppet-account&amp;#34; default_region: &amp;#34;eu-west-1&amp;#34; regions_enabled: - &amp;#34;eu-west-1&amp;#34; - &amp;#34;eu-west-2&amp;#34; tags: - &amp;#34;type:prod&amp;#34; - &amp;#34;partition:eu&amp;#34; - &amp;#34;scope:pci&amp;#34; launches: aws-config-enable-config: portfolio: &amp;#34;reinvent-cloud-engineering-governance&amp;#34; product: &amp;#34;aws-config-enable-config&amp;#34; version: &amp;#34;v1&amp;#34; deploy_to: tags: - tag: &amp;#34;type:prod&amp;#34; regions: &amp;#34;default_region&amp;#34; aws-config-s3-bucket-server-side-encryption-enabled: portfolio: &amp;#34;reinvent-cloud-engineering-governance&amp;#34; product: &amp;#34;aws-config-s3-bucket-server-side-encryption-enabled&amp;#34; version: &amp;#34;v1&amp;#34; deploy_to: tags: - tag: &amp;#34;type:prod&amp;#34; regions: &amp;#34;default_region&amp;#34;  Committing the manifest file Now that we have written the manifest file we are ready to commit it.</description>
+    </item>
+    
+    <item>
+      <title>Sharing the product</title>
+      <link>https://servicecatalogtoolsworkshop.com/reinvent2019/300-task-3/600-sharing-the-product.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://servicecatalogtoolsworkshop.com/reinvent2019/300-task-3/600-sharing-the-product.html</guid>
+      <description>Sharing the product We need to tell the framework that we want to share the portfolio cloud-engineering-governance-self-service. To do this we will need to update the manifest file.
+Adding your shares to the manifest  Navigate to the ServiceCatalogPuppet CodeCommit repository again
+ Click on manifest.yaml
+ Click Edit
+     Append the following snippet to the YAML document in the main input field (be careful with your indentation):   spoke-local-portfolios: account-vending-for-spokes: portfolio: cloud-engineering-governance-self-service deploy_to: tags: - tag: &amp;#34;type:prod&amp;#34; regions: &amp;#34;default_region&amp;#34;   The main input field should look like this:   accounts: - account_id: &amp;#34;&amp;lt;YOUR_ACCOUNT_ID&amp;gt;&amp;#34; name: &amp;#34;puppet-account&amp;#34; default_region: &amp;#34;eu-west-1&amp;#34; regions_enabled: - &amp;#34;eu-west-1&amp;#34; - &amp;#34;eu-west-2&amp;#34; tags: - &amp;#34;type:prod&amp;#34; - &amp;#34;partition:eu&amp;#34; - &amp;#34;scope:pci&amp;#34; launches: aws-config-enable-config: portfolio: &amp;#34;reinvent-cloud-engineering-governance&amp;#34; product: &amp;#34;aws-config-enable-config&amp;#34; version: &amp;#34;v1&amp;#34; deploy_to: tags: - tag: &amp;#34;type:prod&amp;#34; regions: &amp;#34;default_region&amp;#34; aws-config-s3-bucket-server-side-encryption-enabled: portfolio: &amp;#34;reinvent-cloud-engineering-governance&amp;#34; product: &amp;#34;aws-config-s3-bucket-server-side-encryption-enabled&amp;#34; version: &amp;#34;v1&amp;#34; deploy_to: tags: - tag: &amp;#34;type:prod&amp;#34; regions: &amp;#34;default_region&amp;#34; spoke-local-portfolios: account-vending-for-spokes: portfolio: cloud-engineering-governance-self-service deploy_to: tags: - tag: &amp;#34;type:prod&amp;#34; regions: &amp;#34;default_region&amp;#34;  Committing the manifest file Now that we have written the manifest file we are ready to commit it.</description>
+    </item>
+    
+    <item>
+      <title>Sharing the product</title>
+      <link>https://servicecatalogtoolsworkshop.com/reinvent2019/400-task-4/600-sharing-the-product.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://servicecatalogtoolsworkshop.com/reinvent2019/400-task-4/600-sharing-the-product.html</guid>
+      <description>Sharing the product We need to tell the framework that we want to share the portfolio cloud-engineering-governance-self-service. To do this we will need to update the manifest file.
+Adding your shares to the manifest  Navigate to the ServiceCatalogPuppet CodeCommit repository again
+ Click on manifest.yaml
+ Click Edit
+     Append the following snippet to the YAML document in the main input field (be careful with your indentation):   spoke-local-portfolios: account-vending-for-spokes: portfolio: cloud-engineering-governance-self-service deploy_to: tags: - tag: &amp;#34;type:prod&amp;#34; regions: &amp;#34;default_region&amp;#34;   The main input field should look like this:   accounts: - account_id: &amp;#34;&amp;lt;YOUR_ACCOUNT_ID&amp;gt;&amp;#34; name: &amp;#34;puppet-account&amp;#34; default_region: &amp;#34;eu-west-1&amp;#34; regions_enabled: - &amp;#34;eu-west-1&amp;#34; - &amp;#34;eu-west-2&amp;#34; tags: - &amp;#34;type:prod&amp;#34; - &amp;#34;partition:eu&amp;#34; - &amp;#34;scope:pci&amp;#34; launches: aws-config-enable-config: portfolio: &amp;#34;reinvent-cloud-engineering-governance&amp;#34; product: &amp;#34;aws-config-enable-config&amp;#34; version: &amp;#34;v1&amp;#34; deploy_to: tags: - tag: &amp;#34;type:prod&amp;#34; regions: &amp;#34;default_region&amp;#34; aws-config-s3-bucket-server-side-encryption-enabled: portfolio: &amp;#34;reinvent-cloud-engineering-governance&amp;#34; product: &amp;#34;aws-config-s3-bucket-server-side-encryption-enabled&amp;#34; version: &amp;#34;v1&amp;#34; deploy_to: tags: - tag: &amp;#34;type:prod&amp;#34; regions: &amp;#34;default_region&amp;#34; spoke-local-portfolios: account-vending-for-spokes: portfolio: cloud-engineering-governance-self-service deploy_to: tags: - tag: &amp;#34;type:prod&amp;#34; regions: &amp;#34;default_region&amp;#34;  Committing the manifest file Now that we have written the manifest file we are ready to commit it.</description>
+    </item>
+    
+    <item>
+      <title>Links and further reading</title>
+      <link>https://servicecatalogtoolsworkshop.com/999-further_reading/9999-links_and_further_reading.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://servicecatalogtoolsworkshop.com/999-further_reading/9999-links_and_further_reading.html</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

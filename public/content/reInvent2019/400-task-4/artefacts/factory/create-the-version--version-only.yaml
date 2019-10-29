@@ -1,0 +1,9 @@
+    Versions:
+      - Name: "v1"
+        Description: "v1 of compliant-iam-role"
+        Active: True
+        Source:
+          Provider: "CodeCommit"
+          Configuration:
+            RepositoryName: "compliant-iam-role"
+            BranchName: "master"
