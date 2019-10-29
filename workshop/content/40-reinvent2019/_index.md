@@ -1,7 +1,7 @@
 +++
 title = "re:Invent 2019"
 chapter = true
-weight = 50
+weight = 40
 +++
 
 # re:Invent 2019 Workshop
