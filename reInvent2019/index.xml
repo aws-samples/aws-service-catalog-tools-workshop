@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>re:Invent 2019 on Service Catalog Tools Workshop</title>
-    <link>https://servicecatalogtoolsworkshop.com/reinvent2019.html</link>
+    <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/reinvent2019.html</link>
     <description>Recent content in re:Invent 2019 on Service Catalog Tools Workshop</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	<atom:link href="https://servicecatalogtoolsworkshop.com/reinvent2019/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://aws-samples.github.io/aws-service-catalog-tools-workshop/reinvent2019/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Welcome</title>
-      <link>https://servicecatalogtoolsworkshop.com/reinvent2019/1-welcome.html</link>
+      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/reinvent2019/1-welcome.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://servicecatalogtoolsworkshop.com/reinvent2019/1-welcome.html</guid>
+      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/reinvent2019/1-welcome.html</guid>
       <description>This is the first day of your AWS Professional Services engagement with our customer, ACME Org. ACME Org is using AWS Service Catalog to build products to meet security and governance requirements. A few words from the project sponsor, ACME Org&amp;rsquo;s Chief Information Security Officer (CISO):
  We are a regulated industry that believes that security is job zero and is crucial to building new capabilities in the cloud, and we are excited to have Professional Services on-board to support our project.</description>
     </item>
