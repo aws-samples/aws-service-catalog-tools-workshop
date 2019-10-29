@@ -1,9 +1,0 @@
-    Versions:
-      - Name: "v1"
-        Description: "v1 of aws-config-s3-bucket-server-side-encryption-enabled"
-        Active: True
-        Source:
-          Provider: "CodeCommit"
-          Configuration:
-            RepositoryName: "aws-config-s3-bucket-server-side-encryption-enabled"
-            BranchName: "master"
