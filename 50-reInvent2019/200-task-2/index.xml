@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Task 2 on Service Catalog Tools Workshop</title>
+    <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/50-reinvent2019/200-task-2.html</link>
+    <description>Recent content in Task 2 on Service Catalog Tools Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://aws-samples.github.io/aws-service-catalog-tools-workshop/50-reinvent2019/200-task-2/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Create the product</title>
+      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/50-reinvent2019/200-task-2/100-create-the-product.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/50-reinvent2019/200-task-2/100-create-the-product.html</guid>
+      <description>Create the product We need to tell the framework we want to create a product. When we add the product to the framework it will add it to AWS Service Catalog in every region we specified when installing the framework.
+Add the product to the framework  Navigate to the ServiceCatalogFactory CodeCommit repository again Click on portfolios     Click on reinvent.yaml     Click Edit     Add the following to the products section (be careful with your indentation):   - Name: &amp;#34;aws-config-s3-bucket-server-side-encryption-enabled&amp;#34; Owner: &amp;#34;data-governance@acme.</description>
+    </item>
+    
+    <item>
+      <title>Create the version</title>
+      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/50-reinvent2019/200-task-2/200-create-the-version.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/50-reinvent2019/200-task-2/200-create-the-version.html</guid>
+      <description>Create the version We now need to tell the framework we want to create a new version of our product. Once this is done we will have an AWS CodePipeline that will take the source code for our product from git and add it to AWS Service Catalog in each region we specified when installing the framework.
+Add the product version to the framework  Navigate to the ServiceCatalogFactory CodeCommit repository again Click on portfolios     Click on reinvent.</description>
+    </item>
+    
+    <item>
+      <title>Configure the product version</title>
+      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/50-reinvent2019/200-task-2/300-configure-the-product-version.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/50-reinvent2019/200-task-2/300-configure-the-product-version.html</guid>
+      <description>Configuring the product version pipeline Now that a product and version have been created we now need to add the source code for the product so we can get it added to Service Catalog.
+Add the source code for your product When you configured your version, you specified the following:
+Versions: - Name: &amp;#34;v1&amp;#34; Description: &amp;#34;v1 of aws-config-s3-bucket-server-side-encryption-enabled&amp;#34; Active: True Source: Provider: &amp;#34;CodeCommit&amp;#34; Configuration: RepositoryName: &amp;#34;aws-config-s3-bucket-server-side-encryption-enabled&amp;#34; BranchName: &amp;#34;master&amp;#34;  We now need to create the CodeCommit repository and add the AWS Cloudformation template we are going to use for our product into that repository.</description>
+    </item>
+    
+    <item>
+      <title>Add product to portfolio</title>
+      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/50-reinvent2019/200-task-2/500-add-the-product-to-the-portfolio.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/50-reinvent2019/200-task-2/500-add-the-product-to-the-portfolio.html</guid>
+      <description>Add the product to the portfolio Now that you have a product and portfolio you can add the product to the portfolio.
+ Navigate to the ServiceCatalogFactory CodeCommit repository again
+ Click on portfolios
+     Click on reinvent.yaml     Click Edit     Replace the contents of your file with this:  Schema: factory-2019-04-01 Products: - Name: &amp;#34;aws-config-enable-config&amp;#34; Owner: &amp;#34;data-governance@acme.com&amp;#34; Description: &amp;#34;Enables AWS Config&amp;#34; Distributor: &amp;#34;cloud-engineering&amp;#34; SupportDescription: &amp;#34;Speak to data-governance@acme.</description>
+    </item>
+    
+    <item>
+      <title>Provisioning the product</title>
+      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/50-reinvent2019/200-task-2/600-provisioning-the-product.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/50-reinvent2019/200-task-2/600-provisioning-the-product.html</guid>
+      <description>Provisioning the product We will add our account to the frameworks manifest file so it knows about our account and we will tell the framework to provision our newly created product into our account.
+Adding the product to the manifest We will start out by adding your account to the manifest file.
+ Navigate to the ServiceCatalogPuppet CodeCommit repository again
+ Click on manifest.yaml
+ Click Edit
+     Append the following snippet to the YAML document in the main input field (be careful with your indentation):   aws-config-s3-bucket-server-side-encryption-enabled: portfolio: &amp;#34;reinvent-cloud-engineering-governance&amp;#34; product: &amp;#34;aws-config-s3-bucket-server-side-encryption-enabled&amp;#34; version: &amp;#34;v1&amp;#34; deploy_to: tags: - tag: &amp;#34;type:prod&amp;#34; regions: &amp;#34;default_region&amp;#34;   The main input field should look like this:   accounts: - account_id: &amp;#34;&amp;lt;YOUR_ACCOUNT_ID&amp;gt;&amp;#34; name: &amp;#34;puppet-account&amp;#34; default_region: &amp;#34;eu-west-1&amp;#34; regions_enabled: - &amp;#34;eu-west-1&amp;#34; - &amp;#34;eu-west-2&amp;#34; tags: - &amp;#34;type:prod&amp;#34; - &amp;#34;partition:eu&amp;#34; - &amp;#34;scope:pci&amp;#34; launches: aws-config-enable-config: portfolio: &amp;#34;reinvent-cloud-engineering-governance&amp;#34; product: &amp;#34;aws-config-enable-config&amp;#34; version: &amp;#34;v1&amp;#34; deploy_to: tags: - tag: &amp;#34;type:prod&amp;#34; regions: &amp;#34;default_region&amp;#34; aws-config-s3-bucket-server-side-encryption-enabled: portfolio: &amp;#34;reinvent-cloud-engineering-governance&amp;#34; product: &amp;#34;aws-config-s3-bucket-server-side-encryption-enabled&amp;#34; version: &amp;#34;v1&amp;#34; deploy_to: tags: - tag: &amp;#34;type:prod&amp;#34; regions: &amp;#34;default_region&amp;#34;  Committing the manifest file Now that we have written the manifest file we are ready to commit it.</description>
+    </item>
+    
+  </channel>
+</rss>
