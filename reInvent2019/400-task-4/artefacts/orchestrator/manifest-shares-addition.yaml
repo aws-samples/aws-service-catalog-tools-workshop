@@ -1,0 +1,7 @@
+spoke-local-portfolios:
+  account-vending-for-spokes:
+    portfolio: cloud-engineering-governance-self-service
+    deploy_to:
+      tags:
+        - tag: "type:prod"
+          regions: "default_region"
