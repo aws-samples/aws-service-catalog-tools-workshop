@@ -12,43 +12,31 @@ _We will add our account to the frameworks manifest file so it knows about our a
 provision our newly created product into our account._
 
 
-#### Adding an account to the manifest file
+#### Adding the product to the manifest
 
 _We will start out by adding your account to the manifest file._
 
-- Navigate to the {{% service_catalog_puppet_code_commit_repo_link %}}
+- Navigate to the {{% service_catalog_puppet_code_commit_repo_link %}} again
 
 
-- Scroll down to the bottom of the page and hit the *Create file* button
+- Click on *manifest.yaml*
 
-{{< figure src="/tasks/create_file.png" >}}
+- Click *Edit*
 
-- Copy the following snippet into the main input field:
+{{< figure src="/tasks/ClickEdit.png" >}}
 
- {{% code file="reInvent2019/100-task-1/artefacts/orchestrator/manifest-accounts-only.yaml" language="js" %}}
+- Append the following snippet to the YAML document in the main input field (be careful with your indentation):
+
+ {{% code file="50-reInvent2019/200-task-2/artefacts/orchestrator/manifest-launches-addition.yaml" language="js" %}}
  
-- Update account_id on line to show your account id
-
-
-#### Adding the product to the manifest
-
-_Now we are ready to add a product to the manifest file._
-
-- Add the following snippet to the end of the main input field:
-
- {{% code file="reInvent2019/100-task-1/artefacts/orchestrator/manifest-launches-only.yaml" language="js" %}}
-
-
 - The main input field should look like this:
 
- {{% code file="reInvent2019/100-task-1/artefacts/orchestrator/manifest-all.yaml" language="js" %}}
+ {{% code file="50-reInvent2019/200-task-2/artefacts/orchestrator/manifest-all.yaml" language="js" %}}
 
 
 #### Committing the manifest file
 
 _Now that we have written the manifest file we are ready to commit it._
-
-- Set the *File name* to `manifest.yaml`
 
 - Set your *Author name*
 - Set your *Email address*
@@ -90,4 +78,4 @@ the filter by drop down in the top right:
 If you cannot see your product please raise your hand for some assistance
 {{% /notice %}}
 
-You have now successfully provisioned a product! When provisioned, this product will automatically enable AWS Config.
+You have now successfully provisioned another product! This product enables an AWS Config rule that looks for buckets that don't have server side encryption enabled.

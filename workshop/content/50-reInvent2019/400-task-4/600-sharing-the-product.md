@@ -23,11 +23,11 @@ this we will need to update the manifest file.
 
 - Append the following snippet to the YAML document in the main input field (be careful with your indentation):
 
- {{% code file="reInvent2019/300-task-3/artefacts/orchestrator/manifest-shares-addition.yaml" language="js" %}}
+ {{% code file="50-reInvent2019/400-task-4/artefacts/orchestrator/manifest-shares-addition.yaml" language="js" %}}
  
 - The main input field should look like this:
 
- {{% code file="reInvent2019/300-task-3/artefacts/orchestrator/manifest-all.yaml" language="js" %}}
+ {{% code file="50-reInvent2019/400-task-4/artefacts/orchestrator/manifest-all.yaml" language="js" %}}
 
 
 

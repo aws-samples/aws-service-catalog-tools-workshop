@@ -29,11 +29,11 @@ specified when installing the framework._
 
 - Add the following to product you just added (be careful with your indentation):
 
- {{% code file="reInvent2019/400-task-4/artefacts/factory/create-the-version--version-only.yaml" language="js" %}}
+ {{% code file="50-reInvent2019/300-task-3/artefacts/factory/create-the-version--version-only.yaml" language="js" %}}
  
 - Verify the contents of your file matches this:
 
- {{% code file="reInvent2019/400-task-4/artefacts/factory/create-the-version--product_and_version.yaml" language="js" %}}
+ {{% code file="50-reInvent2019/300-task-3/artefacts/factory/create-the-version--product_and_version.yaml" language="js" %}}
 
 Once you have updated the file fill in the fields for *Author name*, *Email address*, *Commit message* and hit *Commit changes*
 
@@ -64,8 +64,8 @@ If this is failing please raise your hand for some assistance
 
 
 Now that your *ServiceCatalogFactory* pipeline has completed you can view the newly created pipeline: 
-{{% codepipeline_pipeline_link "compliant-iam-role-v1-pipeline" %}}
+{{% codepipeline_pipeline_link "compliant-bucket-v1-pipeline" %}}
 
-You can ignore compliant-iam-role-v1-pipeline has failed.  
+You can ignore compliant-bucket-v1-pipeline has failed.  
 We need to add the source code for it to work.
 

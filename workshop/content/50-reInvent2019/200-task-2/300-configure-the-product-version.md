@@ -1,5 +1,5 @@
 +++
-title = "Configure product version"
+title = "Configure the product version"
 weight = 300
 home_region = "eu-west-1"
 +++
@@ -12,11 +12,11 @@ added to Service Catalog._
 
 
 #### Add the source code for your product
-When you configured your product version, you specified the following: 
+When you configured your version, you specified the following: 
 
-{{% code file="reInvent2019/100-task-1/artefacts/factory/create-the-version--version-only.yaml" language="js" %}}
+ {{% code file="50-reInvent2019/200-task-2/artefacts/factory/create-the-version--version-only.yaml" language="js" %}}
 
-We now need to create the CodeCommit repository and add the AWS CloudFormation template we are going to use for our
+We now need to create the CodeCommit repository and add the AWS Cloudformation template we are going to use for our
 product into that repository.
 
 - Navigate to {{% codecommit_link %}}
@@ -26,7 +26,7 @@ product into that repository.
 {{< figure src="/tasks/CreateRepository.png" >}}
 
 
-- Input the name `aws-config-enable-config`
+- Input the name `aws-config-s3-bucket-server-side-encryption-enabled`
 
 {{< figure src="/tasks/InputTheName.png" >}}
 
@@ -41,7 +41,7 @@ product into that repository.
 - Copy the following snippet into the main input field:
 
  {{% code 
-    file="reInvent2019/100-task-1/artefacts/product.template.yaml" 
+    file="50-reInvent2019/200-task-2/artefacts/product.template.yaml" 
     language="js" 
  %}}
 
@@ -56,7 +56,7 @@ Using a good / unique commit message will help you understand what is going on l
 {{% /notice %}}
 
 Creating that file should trigger your 
-{{% codepipeline_pipeline_link "aws-config-enable-config-v1-pipeline" %}}.  
+{{% codepipeline_pipeline_link "aws-config-s3-bucket-server-side-encryption-enabled-v1-pipeline" %}}.  
 
 Once the pipeline has has completed it should show the *Source* and *Build* stages in green to indicate they have 
 completed successfully:
@@ -64,7 +64,7 @@ completed successfully:
 {{< figure src="/tasks/SuccessfulFactoryProductRun.png" >}}
 
 {{% notice tip %}}
-You should see your commit message on this screen, it will help you know which version of ServiceCatalogFactory repository the 
+You should see your commit message on this screen, it will help you know which version of ServiceCatalogFactory repo the 
 pipeline is processing.
 {{% /notice %}}
 

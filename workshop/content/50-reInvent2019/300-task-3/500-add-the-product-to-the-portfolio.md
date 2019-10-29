@@ -1,5 +1,5 @@
 +++
-title = "Add product to portfolio"
+title = "Add the product to the portfolio"
 weight = 500
 home_region = "eu-west-1"
 +++
@@ -9,6 +9,8 @@ home_region = "eu-west-1"
 ### Add the product to the portfolio
 
 _Now that you have a product and portfolio you can add the product to the portfolio._
+
+#### Add the product to the portfolio
 
 - Navigate to the {{% service_catalog_factory_code_commit_repo_link %}} again
 
@@ -26,7 +28,7 @@ _Now that you have a product and portfolio you can add the product to the portfo
 
 - Replace the contents of your file with this:
 
-{{% code file="reInvent2019/100-task-1/artefacts/factory/completed.yaml" language="js" %}}
+{{% code file="50-reInvent2019/300-task-3/artefacts/factory/completed.yaml" language="js" %}}
 
 - Take note of lines 26 and 27.  We have added a portfolio to the product.
 
@@ -62,7 +64,7 @@ portfolio.
 {{< figure src="/tasks/PortfolioReinventCloudEngineeringGovernance.png" >}}
 
 
-- Click on the product *aws-config-enable-config*
+- Click on the product *compliant-bucket*
 
 {{< figure src="/tasks/ClickAwsConfigS3BucketServerSideEncryptionEnabled.png" >}}
 

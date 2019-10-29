@@ -1,5 +1,5 @@
 +++
-title = "Add the product to the portfolio"
+title = "Add product to portfolio"
 weight = 500
 home_region = "eu-west-1"
 +++
@@ -10,7 +10,6 @@ home_region = "eu-west-1"
 
 _Now that you have a product and portfolio you can add the product to the portfolio._
 
-#### Add the product to the portfolio
 
 - Navigate to the {{% service_catalog_factory_code_commit_repo_link %}} again
 
@@ -28,9 +27,8 @@ _Now that you have a product and portfolio you can add the product to the portfo
 
 - Replace the contents of your file with this:
 
-{{% code file="reInvent2019/400-task-4/artefacts/factory/completed.yaml" language="js" %}}
+{{% code file="50-reInvent2019/200-task-2/artefacts/factory/completed.yaml" language="js" %}}
 
-- Take note of lines 26 and 27.  We have added a portfolio to the product.
 
 Once you have updated the file fill in the fields for *Author name*, *Email address*, *Commit message* and hit 
 *Commit changes*
@@ -41,9 +39,9 @@ Once you have updated the file fill in the fields for *Author name*, *Email addr
 Using a good / unique commit message will help you understand what is going on later.
 {{% /notice %}}
 
-#### Verify the product was added to the portfolio
+#### Verify that the product was added to the portfolio
 
-Once you have made your changes the {{% service_catalog_factory_pipeline_link %}} should have run or if you were quick 
+Once you have made your changes the {{% service_catalog_factory_pipeline_link %}} should have run or if you were quick, the pipeline
 may still be running.  If it has not yet started feel free to the hit the *Release change* button.
 
 Once it has completed it should show the *Source* and *Build* stages in green to indicate they have completed 
@@ -64,7 +62,7 @@ portfolio.
 {{< figure src="/tasks/PortfolioReinventCloudEngineeringGovernance.png" >}}
 
 
-- Click on the product *compliant-iam-role*
+- Click on the product *aws-config-s3-bucket-server-side-encryption-enabled*
 
 {{< figure src="/tasks/ClickAwsConfigS3BucketServerSideEncryptionEnabled.png" >}}
 

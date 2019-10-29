@@ -1,3 +1,6 @@
+.PHONY: clean build all
+
+all: clean build
 
 clean:
 	rm -rf workshop/public
@@ -11,6 +14,7 @@ build:
 	echo "Removing existing files"
 	rm -rf workshop/public/*
 	echo "Generating site"
-	cd workshop && hugo
+	cd workshop && hugo --environment ghpages --verbose
 	echo "Updating gh-pages branch"
 	cd workshop/public && git add --all && git commit -m "Publishing to gh-pages (publish.sh)" && git push
+

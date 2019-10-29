@@ -20,7 +20,7 @@ AWS Service Catalog in every region that we specified when installing the framew
 
 - Copy the following snippet into the main input field:
 
- {{% code file="reInvent2019/100-task-1/artefacts/factory/create-the-product--product-only.yaml" language="js" %}}
+ {{% code file="50-reInvent2019/100-task-1/artefacts/factory/create-the-product--product-only.yaml" language="js" %}}
  
 - Set the *File name* to `portfolios/reinvent.yaml`
 
