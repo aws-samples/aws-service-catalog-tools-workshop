@@ -1,4 +1,5 @@
-baseURL = "https://servicecatalogtoolsworkshop.com"
+baseURL= "https://aws-samples.github.io/aws-service-catalog-tools-workshop/"
+staticDir= ["aws-service-catalog-tools-workshop"]
 languageCode = "en-us"
 defaultContentLanguage = "en"
 title = "Service Catalog Tools Workshop"

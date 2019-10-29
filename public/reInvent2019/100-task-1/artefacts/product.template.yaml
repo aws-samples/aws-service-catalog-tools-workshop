@@ -1,5 +1,0 @@
-AWSTemplateFormatVersion: "2010-09-09"
-Description: |
-  Enables AWS Config in the account / region where this is provisioned.
-Resources:
-  Wow: amazing
