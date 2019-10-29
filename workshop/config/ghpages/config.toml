@@ -11,8 +11,6 @@ pygmentsCodeFences = true
 pygmentsStyle = "monokai"
 relativeURLs = true
 canonifyURLs = true
-RelativeURLs=true
-CanonifyURLs=true
 
 [params]
 themeVariant = "mine"
@@ -50,7 +48,7 @@ url = "https://aws-service-catalog-puppet.readthedocs.io/en/latest/"
 weight = 4
 
 [[menu.shortcuts]]
-name = "1201"
+name = "1215"
 identifier = "version"
 url = "#"
 weight = 5

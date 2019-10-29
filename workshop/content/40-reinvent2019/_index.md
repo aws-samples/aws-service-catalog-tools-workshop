@@ -2,6 +2,7 @@
 title = "re:Invent 2019"
 chapter = true
 weight = 40
+url = "reInvent2019"
 +++
 
 # re:Invent 2019 Workshop

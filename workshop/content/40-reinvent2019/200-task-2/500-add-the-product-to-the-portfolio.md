@@ -27,7 +27,7 @@ _Now that you have a product and portfolio you can add the product to the portfo
 
 - Replace the contents of your file with this:
 
-{{% code file="50-reInvent2019/200-task-2/artefacts/factory/completed.yaml" language="js" %}}
+{{% code file="40-reinvent2019/200-task-2/artefacts/factory/completed.yaml" language="js" %}}
 
 
 Once you have updated the file fill in the fields for *Author name*, *Email address*, *Commit message* and hit 

@@ -16,7 +16,7 @@ The service catalog tools are a suite of tools built to power you with agility a
 
 ### Instructions
 
-- You can find the Workshop Instructions [here](Service-catalog-tools-workshop.com/50-revinvent2019.html)
+- You can find the Workshop Instructions [here](Service-catalog-tools-workshop.com/40-reinvent2019.html)
 - To Login to the AWS Console refer to the card that you were given when you entered the room
 
 
