@@ -1,7 +1,7 @@
 +++
 title = "Service Catalog Puppet"
 chapter = false
-weight = 30
+weight = 20
 +++
 ---
 
