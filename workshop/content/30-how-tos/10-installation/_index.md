@@ -1,5 +1,5 @@
 +++
-title = "Installing the tools"
+title = "Installation"
 weight = 10
 +++
 

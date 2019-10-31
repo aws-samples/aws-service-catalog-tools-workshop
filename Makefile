@@ -1,5 +1,8 @@
 .PHONY: clean build all development
 
+development:
+	cd workshop && hugo server --disableFastRender --environment development
+
 all: clean build
 
 clean:
@@ -18,5 +21,3 @@ build:
 	echo "Updating gh-pages branch"
 	cd workshop/public && git add --all && git commit -m "Publishing to gh-pages (publish.sh)" && git push
 
-development:
-	cd workshop && hugo server --disableFastRender --environment development

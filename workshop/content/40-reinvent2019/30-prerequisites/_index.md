@@ -10,10 +10,10 @@ In order to complete this workshop you will need:
 
 {{% notice note%}}
 
-Running this Workshop at re:invent? We have provided an AWS Account for you. Details available on the card you were handed when you entered the room.
-
-For re:invent Workshops, use the credentials you were provided at the start of the session. Speak to one of the AWS Workshop Team if you don't have any login details.
-
+If you are taking this workshop at re:Invent 2019 you should have been given a note when you entered the workshop.  This
+note contains all you need to log into a AWS account we have created for you.  
+We have installed the tools needed for you to get going.  If you want to run through this workshop in your own account 
+please <a href="{{< relref "/30-how-tos/10-installation" >}}">install</a> the tools first.
 {{% /notice %}}
 
 

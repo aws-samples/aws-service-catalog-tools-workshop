@@ -1,22 +1,25 @@
 +++
 title = "re:Invent 2019"
-chapter = true
+chapter = false
 weight = 40
 url = "reInvent2019"
 +++
-
-# re:Invent 2019 Workshop
 
 Welcome to this Workshop Session at re:Invent 2019. 
 
 ## Meet the Team
 
+Presenters:
+
 - Eamonn Faherty
 - Jamie McKay
+
+Workshop helpers:
+
 - Ritesh Sinha
-- Steve Morris
 - Thivan Visvanathan
 - Alex Nicot
+- Oli Leach
 
 
 {{% notice tip%}}
