@@ -9,11 +9,9 @@ accounts:
       - "type:prod"
       - "partition:eu"
       - "scope:pci"
-launches:
-  aws-config-enable-config:
-    portfolio: "reinvent-cloud-engineering-governance"
-    product: "aws-config-enable-config"
-    version: "v1"
+spoke-local-portfolios:
+  account-vending-for-spokes:
+    portfolio: cloud-engineering-governance-self-service
     deploy_to:
       tags:
         - tag: "type:prod"

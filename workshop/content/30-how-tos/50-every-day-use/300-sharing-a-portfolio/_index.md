@@ -60,7 +60,7 @@ _Now we are ready to add a product to the manifest file._
 
 - Add the following snippet to the end of the main input field:
 
- {{% code file="30-how-tos/50-every-day-use/300-sharing-a-portfolio/artefacts/orchestrator/manifest-launches-only.yaml" language="js" %}}
+ {{% code file="30-how-tos/50-every-day-use/300-sharing-a-portfolio/artefacts/orchestrator/manifest-shares-only.yaml" language="js" %}}
 
 
 - The main input field should look like this:
@@ -88,7 +88,7 @@ Using a good / unique commit message will help you understand what is going on l
 {{< figure src="/how-tos/creating-and-provisioning-a-product/CommitChanges.png" >}}
 
 
-### Verifying the provisioning
+### Verifying the sharing
 
 Once you have made your changes the {{% service_catalog_puppet_pipeline_link %}} should have run or if you were quick 
 may still be running.  If it has not yet started feel free to the hit the *Release change* button.
@@ -98,10 +98,8 @@ successfully:
 
 {{< figure src="/how-tos/creating-and-provisioning-a-product/SuccessfulPuppetRun.png" >}}
 
-Once you have verified the pipeline has run you can go to {{% service_catalog_provisioned_products_link %}} to view your 
-provisioned product.  Please note when you arrive at the provisioned product page you will need to select account from 
-the filter by drop down in the top right:
+Once you have verified the pipeline has run you can go to {{% service_catalog_portfolios_list_link %}} to view your 
+shared product.  
 
-{{< figure src="/how-tos/creating-and-provisioning-a-product/FilterByAccount.png" >}}
-
-You have now successfully provisioned a product! When provisioned, this product will automatically enable AWS Config.
+When you share a portfolio the framework will decide if it should share the portfolio.  If the target account is the same
+as the factory account it will not share the portfolio as it is not needed.
