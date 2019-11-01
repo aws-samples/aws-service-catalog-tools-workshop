@@ -1,0 +1,9 @@
+launches:
+  aws-config-enable-config:
+    portfolio: "reinvent-cloud-engineering-governance"
+    product: "aws-config-enable-config"
+    version: "v1"
+    deploy_to:
+      tags:
+        - tag: "type:prod"
+          regions: "default_region"
