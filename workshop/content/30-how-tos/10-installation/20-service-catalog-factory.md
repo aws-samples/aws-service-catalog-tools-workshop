@@ -59,26 +59,6 @@ Service Catalog Factory can be installed via a pre-created CloudFormation templa
 
 {{< figure src="/how-tos/installation/create_complete_factory.png" height="200" width="900">}}
 
-### Run the CodeBuild Project
-
-The CloudFormation Stack has created an AWS CodeBuild project which when run will install Service Catalog Factory.
-
-- Navigate to the CodeBuild Service
-- Select the **servicecatalog-product-factory-initialiser** project and Start Build
-
-{{< figure src="/how-tos/installation/start_factory_codebuild.png" height="150" width="900">}}
-
-- Keep default settings and select Start Build again
-- Once the build is complete, the build status will be 'Succeeded'
-
-
-{{< figure src="/how-tos/installation/factory_codebuild_complete.png" height="400" width="900">}}
-
-{{% notice note%}}
-Service Catalog Factory is now installed in your AWS Account, let's verify the resources that have been deployed.
-{{% /notice %}}
-
-
 ### What have we deployed?
 The following AWS resources have just been deployed into your AWS Account:
 
