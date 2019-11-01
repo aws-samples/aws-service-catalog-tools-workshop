@@ -3,15 +3,13 @@
 development:
 	cd workshop && hugo server --disableFastRender --environment development
 
-all: clean build
-
 clean:
 	rm -rf workshop/public
 	mkdir workshop/public
 	git worktree prune
 	rm -rf .git/worktrees/public/
 
-build:
+gh-pages: clean
 	echo "Checking out gh-pages branch into public"
 	git worktree add -B gh-pages workshop/public origin/gh-pages
 	echo "Removing existing files"
