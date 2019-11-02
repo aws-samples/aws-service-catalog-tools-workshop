@@ -1,0 +1,10 @@
+  - DisplayName: "cloud-engineering-self-service"
+    Description: "Portfolio containing the you can use to ensure you meet the governance guidelines"
+    ProviderName: "cloud-engineering"
+    Associations:
+      - "arn:aws:iam::${AWS::AccountId}:role/TeamRole"
+    Tags:
+      - Key: "type"
+        Value: "governance"
+      - Key: "creator"
+        Value: "cloud-engineering"

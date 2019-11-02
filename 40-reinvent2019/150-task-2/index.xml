@@ -12,10 +12,10 @@
     
     <item>
       <title>Create the control</title>
-      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/150-task-2/100-create-the-product.html</link>
+      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/150-task-2/100-create-the-control.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/150-task-2/100-create-the-product.html</guid>
+      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/150-task-2/100-create-the-control.html</guid>
       <description>What are we going to do? We are going to perform the following steps:
  define another product with a version and add it to the existing cloud-engineering-governance portfolio add the source code for our product provision that product into a spoke account  Step by step guide Here are the steps you need to follow to &amp;ldquo;Create the control&amp;rdquo;
 Define a product with a version and a portfolio  Navigate to the ServiceCatalogFactory CodeCommit repository again</description>
@@ -23,16 +23,27 @@ Define a product with a version and a portfolio  Navigate to the ServiceCatalogF
     
     <item>
       <title>Provision the control</title>
-      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/150-task-2/200-provision-the-product.html</link>
+      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/150-task-2/200-provision-the-control.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/150-task-2/200-provision-the-product.html</guid>
+      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/150-task-2/200-provision-the-control.html</guid>
       <description>What are we going to do? We are going to perform the following steps:
  provision the product aws-config-rds-storage-encrypted into a spoke account  Step by step guide Here are the steps you need to follow to &amp;ldquo;Provision the control&amp;rdquo;
 Provision the product aws-config-rds-storage-encrypted into a spoke account  Navigate to the ServiceCatalogPuppet CodeCommit repository again
  Click on manifest.yaml
  Click Edit
  Append the following snippet to the end of the main input field:</description>
+    </item>
+    
+    <item>
+      <title>Create the product</title>
+      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/150-task-2/300-create-the-product.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/150-task-2/300-create-the-product.html</guid>
+      <description>What are we going to do? We previously provisioned a detective control to ensure AWS RDS Instances have encryption enabled. Using this framework we can create compliant products for our users to provision resources. We are going to create a product that allows our users to provision an AWS RDS Instance that meets the Data Governance teams guidelines.
+We are going to perform the following steps:
+ define a product with a version and a portfolio add the source code for our product share that portfolio with a spoke account  Step by step guide Here are the steps you need to follow to &amp;ldquo;Create the product&amp;rdquo;</description>
     </item>
     
   </channel>
