@@ -15,7 +15,7 @@
     <link rel="shortcut icon" href="../images/favicon.png" type="image/png" />
 <link rel="icon" href="../images/favicon.png" type="image/png" />
 
-    <title>Task 1 :: Service Catalog Tools Workshop</title>
+    <title>Budget &amp; cost governance :: Service Catalog Tools Workshop</title>
 
     
     <link href="../css/nucleus.css" rel="stylesheet">
@@ -542,13 +542,13 @@
  
   
     
-    <li data-nav-id="/40-reinvent2019/100-task-1.html" title="Task 1" class="dd-item 
+    <li data-nav-id="/40-reinvent2019/100-task-1.html" title="Budget &amp; cost governance" class="dd-item 
         parent
         active
         
         ">
       <a href="../40-reinvent2019/100-task-1.html">
-          Task 1
+          Budget &amp; cost governance
           
       </a>
       
@@ -586,9 +586,62 @@
  
   
     
-      <li data-nav-id="/40-reinvent2019/100-task-1/200-create-the-version.html" title="Create the version" class="dd-item ">
-        <a href="../40-reinvent2019/100-task-1/200-create-the-version.html">
-        Create the version
+      <li data-nav-id="/40-reinvent2019/100-task-1/200-provision-the-product.html" title="Provision the product" class="dd-item ">
+        <a href="../40-reinvent2019/100-task-1/200-provision-the-product.html">
+        Provision the product
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/40-reinvent2019/150-task-2.html" title="Data governance" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../40-reinvent2019/150-task-2.html">
+          Data governance
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/40-reinvent2019/150-task-2/100-create-the-product.html" title="Create the product" class="dd-item ">
+        <a href="../40-reinvent2019/150-task-2/100-create-the-product.html">
+        Create the product
         
         </a>
     </li>
@@ -605,66 +658,9 @@
  
   
     
-      <li data-nav-id="/40-reinvent2019/100-task-1/300-configure-the-product-version.html" title="Configure product version" class="dd-item ">
-        <a href="../40-reinvent2019/100-task-1/300-configure-the-product-version.html">
-        Configure product version
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/40-reinvent2019/100-task-1/400-create-the-portfolio.html" title="Create the portfolio" class="dd-item ">
-        <a href="../40-reinvent2019/100-task-1/400-create-the-portfolio.html">
-        Create the portfolio
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/40-reinvent2019/100-task-1/500-add-the-product-to-the-portfolio.html" title="Add product to portfolio" class="dd-item ">
-        <a href="../40-reinvent2019/100-task-1/500-add-the-product-to-the-portfolio.html">
-        Add product to portfolio
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/40-reinvent2019/100-task-1/600-provisioning-the-product.html" title="Provisioning the product" class="dd-item ">
-        <a href="../40-reinvent2019/100-task-1/600-provisioning-the-product.html">
-        Provisioning the product
+      <li data-nav-id="/40-reinvent2019/150-task-2/200-provision-the-product.html" title="Provision the product" class="dd-item ">
+        <a href="../40-reinvent2019/150-task-2/200-provision-the-product.html">
+        Provision the product
         
         </a>
     </li>
@@ -897,7 +893,7 @@
               </li>
           
               <li> 
-                  <a class="padding" href="https://aws-samples.github.io/aws-service-catalog-tools-workshop">201911011249</a>
+                  <a class="padding" href="https://aws-samples.github.io/aws-service-catalog-tools-workshop">201911021342</a>
               </li>
           
         </ul>
@@ -949,7 +945,7 @@
             
           
           
-            <a href='../'>AWS Service Catalog Tools Intro Workshop</a> > <a href='../reinvent2019/'>re:Invent 2019</a> > Task 1
+            <a href='../'>AWS Service Catalog Tools Intro Workshop</a> > <a href='../reinvent2019/'>re:Invent 2019</a> > Budget & cost governance
           
         
           
@@ -966,7 +962,7 @@
 <li>
 <ul>
 <li><a href="#the-ask">The ask</a></li>
-<li><a href="#the-plan">The plan</a></li>
+<li><a href="#task-list">Task list</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -981,7 +977,7 @@
         
         <div id="body-inner">
           
-            <h1>Task 1</h1>
+            <h1>Budget &amp; cost governance</h1>
           
 
         
@@ -994,24 +990,16 @@
 
 <h2 id="the-ask">The ask</h2>
 
-<p>Going back to our original requirements list, we have been asked to provide a mechanism to audit the current configuration of their AWS estate. To do this, we will enable AWS Config.</p>
+<p>The customer has bought some reserved instances and we need to ensure the teams are using them.</p>
 
-<p>AWS Config is a service that enables you to assess, audit, and evaluate the configurations of your AWS resources. Config continuously monitors and records your AWS resource configurations and allows you to automate the evaluation of recorded configurations against desired configurations.</p>
+<p>We need to add controls to ensure budget and cost management is met within the account.</p>
 
-<h2 id="the-plan">The plan</h2>
+<h2 id="task-list">Task list</h2>
 
-<p><em>We are going to create an AWS Service Catalog product and provision it into our account.  This product will enable AWS
-Config.</em></p>
+<p>We are going to create and deploy a security control using an AWS Config managed rule to ensure the right instance types
+are being used.</p>
 
-<p><em>To do this we will need to use Service Catalog factory to build the product and then we will use Service Catalog
-puppet to provision it into the designated account.</em></p>
-
-<p>This task should give you an understanding of how the service catalog tools are used to both create and then provision AWS Service Catalog products. We&rsquo;ll build on this knowledge in subsequent tasks.</p>
-
-
-<div class="notices note" ><p>If you need help at any time please raise your hands in the air like you just don&rsquo;t care.</p>
-</div>
-
+<p>You can follow these steps to do this:</p>
 
 
 
@@ -1049,59 +1037,7 @@ puppet to provision it into the designated account.</em></p>
 			
 				
 <li>
-<a href="../40-reinvent2019/100-task-1/200-create-the-version.html" >Create the version</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="../40-reinvent2019/100-task-1/300-configure-the-product-version.html" >Configure product version</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="../40-reinvent2019/100-task-1/400-create-the-portfolio.html" >Create the portfolio</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="../40-reinvent2019/100-task-1/500-add-the-product-to-the-portfolio.html" >Add product to portfolio</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="../40-reinvent2019/100-task-1/600-provisioning-the-product.html" >Provisioning the product</a>
+<a href="../40-reinvent2019/100-task-1/200-provision-the-product.html" >Provision the product</a>
 </li>
 				
 
@@ -1114,6 +1050,8 @@ puppet to provision it into the designated account.</em></p>
 	
 </ul>
 
+<div class="notices note" ><p>If you need help at any time please raise your hand.</p>
+</div>
 
 
 
@@ -1511,19 +1449,6 @@ puppet to provision it into the designated account.</em></p>
             
         
                     
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
             
         
                     
@@ -1539,9 +1464,6 @@ puppet to provision it into the designated account.</em></p>
                     
                     
 
-                    
-            
-        
                     
                         
             

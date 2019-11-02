@@ -12,9 +12,12 @@ accounts:
 launches:
   aws-config-enable-config:
     portfolio: "reinvent-cloud-engineering-governance"
-    product: "aws-config-enable-config"
+    product: "aws-config-desired-instance-types"
     version: "v1"
+    parameters:
+      InstanceType:
+        default: "t2.medium, t2.large, t2.xlarge"
     deploy_to:
       tags:
         - tag: "type:prod"
-          regions: "default_region"
+          regions: "regions_enabled"

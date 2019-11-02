@@ -12,27 +12,27 @@
     <meta name="description" content="AWS Service Catalog Tools Workshop">
 <meta name="author" content="Service Catalog Tools Team">
 
-    <link rel="shortcut icon" href="../../../images/favicon.png" type="image/png" />
-<link rel="icon" href="../../../images/favicon.png" type="image/png" />
+    <link rel="shortcut icon" href="../../images/favicon.png" type="image/png" />
+<link rel="icon" href="../../images/favicon.png" type="image/png" />
 
-    <title>Create the portfolio :: Service Catalog Tools Workshop</title>
+    <title>Provision the product :: Service Catalog Tools Workshop</title>
 
     
-    <link href="../../../css/nucleus.css" rel="stylesheet">
-    <link href="../../../css/fontawesome-all.min.css" rel="stylesheet">
-    <link href="../../../css/hybrid.css" rel="stylesheet">
-    <link href="../../../css/featherlight.min.css" rel="stylesheet">
-    <link href="../../../css/perfect-scrollbar.min.css" rel="stylesheet">
-    <link href="../../../css/auto-complete.css" rel="stylesheet">
-    <link href="../../../css/theme.css" rel="stylesheet">
-    <link href="../../../css/hugo-theme.css" rel="stylesheet">
-    <link href="../../../css/jquery-ui.min.css" rel="stylesheet">
+    <link href="../../css/nucleus.css" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css" rel="stylesheet">
+    <link href="../../css/hybrid.css" rel="stylesheet">
+    <link href="../../css/featherlight.min.css" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css" rel="stylesheet">
+    <link href="../../css/auto-complete.css" rel="stylesheet">
+    <link href="../../css/theme.css" rel="stylesheet">
+    <link href="../../css/hugo-theme.css" rel="stylesheet">
+    <link href="../../css/jquery-ui.min.css" rel="stylesheet">
     
-      <link href="../../../css/theme-mine.css" rel="stylesheet">
+      <link href="../../css/theme-mine.css" rel="stylesheet">
     
 
-    <script src="../../../js/jquery-3.3.1.min.js"></script>
-    <script src="../../../js/jquery-ui-1.12.1.min.js"></script>
+    <script src="../../js/jquery-3.3.1.min.js"></script>
+    <script src="../../js/jquery-ui-1.12.1.min.js"></script>
 
 
     <style type="text/css">
@@ -43,14 +43,14 @@
     </style>
     
   </head>
-  <body class="" data-url="/amp/40-reinvent2019/100-task-1/400-create-the-portfolio.html">
+  <body class="" data-url="/40-reinvent2019/100-task-1/200-provision-the-product.html">
     <nav id="sidebar" class="">
 
 
 
   <div id="header-wrapper">
     <div id="header">
-      <a href="../../../" title="Go home"><svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 30" width="60%" style="padding:20px 0px;"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#f90;fill-rule:evenodd;}</style></defs><title>AWS-Logo_White-Color</title><path class="cls-1" d="M14.09,10.85a4.7,4.7,0,0,0,.19,1.48,7.73,7.73,0,0,0,.54,1.19.77.77,0,0,1,.12.38.64.64,0,0,1-.32.49l-1,.7a.83.83,0,0,1-.44.15.69.69,0,0,1-.49-.23,3.8,3.8,0,0,1-.6-.77q-.25-.42-.51-1a6.14,6.14,0,0,1-4.89,2.3,4.54,4.54,0,0,1-3.32-1.19,4.27,4.27,0,0,1-1.22-3.2A4.28,4.28,0,0,1,3.61,7.75,6.06,6.06,0,0,1,7.69,6.46a12.47,12.47,0,0,1,1.76.13q.92.13,1.91.36V5.73a3.65,3.65,0,0,0-.79-2.66A3.81,3.81,0,0,0,7.86,2.3a7.71,7.71,0,0,0-1.79.22,12.78,12.78,0,0,0-1.79.57,4.55,4.55,0,0,1-.58.22l-.26,0q-.35,0-.35-.52V2a1.09,1.09,0,0,1,.12-.58,1.2,1.2,0,0,1,.47-.35A10.88,10.88,0,0,1,5.77.32,10.19,10.19,0,0,1,8.36,0a6,6,0,0,1,4.35,1.35,5.49,5.49,0,0,1,1.38,4.09ZM7.34,13.38a5.36,5.36,0,0,0,1.72-.31A3.63,3.63,0,0,0,10.63,12,2.62,2.62,0,0,0,11.19,11a5.63,5.63,0,0,0,.16-1.44v-.7a14.35,14.35,0,0,0-1.53-.28,12.37,12.37,0,0,0-1.56-.1,3.84,3.84,0,0,0-2.47.67A2.34,2.34,0,0,0,5,11a2.35,2.35,0,0,0,.61,1.76A2.4,2.4,0,0,0,7.34,13.38Zm13.35,1.8a1,1,0,0,1-.64-.16,1.3,1.3,0,0,1-.35-.65L15.81,1.51a3,3,0,0,1-.15-.67.36.36,0,0,1,.41-.41H17.7a1,1,0,0,1,.65.16,1.4,1.4,0,0,1,.33.65l2.79,11,2.59-11A1.17,1.17,0,0,1,24.39.6a1.1,1.1,0,0,1,.67-.16H26.4a1.1,1.1,0,0,1,.67.16,1.17,1.17,0,0,1,.32.65L30,12.39,32.88,1.25A1.39,1.39,0,0,1,33.22.6a1,1,0,0,1,.65-.16h1.54a.36.36,0,0,1,.41.41,1.36,1.36,0,0,1,0,.26,3.64,3.64,0,0,1-.12.41l-4,12.86a1.3,1.3,0,0,1-.35.65,1,1,0,0,1-.64.16H29.25a1,1,0,0,1-.67-.17,1.26,1.26,0,0,1-.32-.67L25.67,3.64,23.11,14.34a1.26,1.26,0,0,1-.32.67,1,1,0,0,1-.67.17Zm21.36.44a11.28,11.28,0,0,1-2.56-.29,7.44,7.44,0,0,1-1.92-.67,1,1,0,0,1-.61-.93v-.84q0-.52.38-.52a.9.9,0,0,1,.31.06l.42.17a8.77,8.77,0,0,0,1.83.58,9.78,9.78,0,0,0,2,.2,4.48,4.48,0,0,0,2.43-.55,1.76,1.76,0,0,0,.86-1.57,1.61,1.61,0,0,0-.45-1.16A4.29,4.29,0,0,0,43,9.22l-2.41-.76A5.15,5.15,0,0,1,38,6.78a3.94,3.94,0,0,1-.83-2.41,3.7,3.7,0,0,1,.45-1.85,4.47,4.47,0,0,1,1.19-1.37A5.27,5.27,0,0,1,40.51.29,7.4,7.4,0,0,1,42.6,0a8.87,8.87,0,0,1,1.12.07q.57.07,1.08.19t.95.26a4.27,4.27,0,0,1,.7.29,1.59,1.59,0,0,1,.49.41.94.94,0,0,1,.15.55v.79q0,.52-.38.52a1.76,1.76,0,0,1-.64-.2,7.74,7.74,0,0,0-3.2-.64,4.37,4.37,0,0,0-2.21.47,1.6,1.6,0,0,0-.79,1.48,1.58,1.58,0,0,0,.49,1.18,4.94,4.94,0,0,0,1.83.92L44.55,7a5.08,5.08,0,0,1,2.57,1.6A3.76,3.76,0,0,1,47.9,11a4.21,4.21,0,0,1-.44,1.93,4.4,4.4,0,0,1-1.21,1.47,5.43,5.43,0,0,1-1.85.93A8.25,8.25,0,0,1,42.05,15.62Z"></path><path class="cls-2" d="M45.19,23.81C39.72,27.85,31.78,30,25,30A36.64,36.64,0,0,1,.22,20.57c-.51-.46-.06-1.09.56-.74A49.78,49.78,0,0,0,25.53,26.4,49.23,49.23,0,0,0,44.4,22.53C45.32,22.14,46.1,23.14,45.19,23.81Z"></path><path class="cls-2" d="M47.47,21.21c-.7-.9-4.63-.42-6.39-.21-.53.06-.62-.4-.14-.74,3.13-2.2,8.27-1.57,8.86-.83s-.16,5.89-3.09,8.35c-.45.38-.88.18-.68-.32C46.69,25.8,48.17,22.11,47.47,21.21Z"></path></svg></a>
+      <a href="../../" title="Go home"><svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 30" width="60%" style="padding:20px 0px;"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#f90;fill-rule:evenodd;}</style></defs><title>AWS-Logo_White-Color</title><path class="cls-1" d="M14.09,10.85a4.7,4.7,0,0,0,.19,1.48,7.73,7.73,0,0,0,.54,1.19.77.77,0,0,1,.12.38.64.64,0,0,1-.32.49l-1,.7a.83.83,0,0,1-.44.15.69.69,0,0,1-.49-.23,3.8,3.8,0,0,1-.6-.77q-.25-.42-.51-1a6.14,6.14,0,0,1-4.89,2.3,4.54,4.54,0,0,1-3.32-1.19,4.27,4.27,0,0,1-1.22-3.2A4.28,4.28,0,0,1,3.61,7.75,6.06,6.06,0,0,1,7.69,6.46a12.47,12.47,0,0,1,1.76.13q.92.13,1.91.36V5.73a3.65,3.65,0,0,0-.79-2.66A3.81,3.81,0,0,0,7.86,2.3a7.71,7.71,0,0,0-1.79.22,12.78,12.78,0,0,0-1.79.57,4.55,4.55,0,0,1-.58.22l-.26,0q-.35,0-.35-.52V2a1.09,1.09,0,0,1,.12-.58,1.2,1.2,0,0,1,.47-.35A10.88,10.88,0,0,1,5.77.32,10.19,10.19,0,0,1,8.36,0a6,6,0,0,1,4.35,1.35,5.49,5.49,0,0,1,1.38,4.09ZM7.34,13.38a5.36,5.36,0,0,0,1.72-.31A3.63,3.63,0,0,0,10.63,12,2.62,2.62,0,0,0,11.19,11a5.63,5.63,0,0,0,.16-1.44v-.7a14.35,14.35,0,0,0-1.53-.28,12.37,12.37,0,0,0-1.56-.1,3.84,3.84,0,0,0-2.47.67A2.34,2.34,0,0,0,5,11a2.35,2.35,0,0,0,.61,1.76A2.4,2.4,0,0,0,7.34,13.38Zm13.35,1.8a1,1,0,0,1-.64-.16,1.3,1.3,0,0,1-.35-.65L15.81,1.51a3,3,0,0,1-.15-.67.36.36,0,0,1,.41-.41H17.7a1,1,0,0,1,.65.16,1.4,1.4,0,0,1,.33.65l2.79,11,2.59-11A1.17,1.17,0,0,1,24.39.6a1.1,1.1,0,0,1,.67-.16H26.4a1.1,1.1,0,0,1,.67.16,1.17,1.17,0,0,1,.32.65L30,12.39,32.88,1.25A1.39,1.39,0,0,1,33.22.6a1,1,0,0,1,.65-.16h1.54a.36.36,0,0,1,.41.41,1.36,1.36,0,0,1,0,.26,3.64,3.64,0,0,1-.12.41l-4,12.86a1.3,1.3,0,0,1-.35.65,1,1,0,0,1-.64.16H29.25a1,1,0,0,1-.67-.17,1.26,1.26,0,0,1-.32-.67L25.67,3.64,23.11,14.34a1.26,1.26,0,0,1-.32.67,1,1,0,0,1-.67.17Zm21.36.44a11.28,11.28,0,0,1-2.56-.29,7.44,7.44,0,0,1-1.92-.67,1,1,0,0,1-.61-.93v-.84q0-.52.38-.52a.9.9,0,0,1,.31.06l.42.17a8.77,8.77,0,0,0,1.83.58,9.78,9.78,0,0,0,2,.2,4.48,4.48,0,0,0,2.43-.55,1.76,1.76,0,0,0,.86-1.57,1.61,1.61,0,0,0-.45-1.16A4.29,4.29,0,0,0,43,9.22l-2.41-.76A5.15,5.15,0,0,1,38,6.78a3.94,3.94,0,0,1-.83-2.41,3.7,3.7,0,0,1,.45-1.85,4.47,4.47,0,0,1,1.19-1.37A5.27,5.27,0,0,1,40.51.29,7.4,7.4,0,0,1,42.6,0a8.87,8.87,0,0,1,1.12.07q.57.07,1.08.19t.95.26a4.27,4.27,0,0,1,.7.29,1.59,1.59,0,0,1,.49.41.94.94,0,0,1,.15.55v.79q0,.52-.38.52a1.76,1.76,0,0,1-.64-.2,7.74,7.74,0,0,0-3.2-.64,4.37,4.37,0,0,0-2.21.47,1.6,1.6,0,0,0-.79,1.48,1.58,1.58,0,0,0,.49,1.18,4.94,4.94,0,0,0,1.83.92L44.55,7a5.08,5.08,0,0,1,2.57,1.6A3.76,3.76,0,0,1,47.9,11a4.21,4.21,0,0,1-.44,1.93,4.4,4.4,0,0,1-1.21,1.47,5.43,5.43,0,0,1-1.85.93A8.25,8.25,0,0,1,42.05,15.62Z"></path><path class="cls-2" d="M45.19,23.81C39.72,27.85,31.78,30,25,30A36.64,36.64,0,0,1,.22,20.57c-.51-.46-.06-1.09.56-.74A49.78,49.78,0,0,0,25.53,26.4,49.23,49.23,0,0,0,44.4,22.53C45.32,22.14,46.1,23.14,45.19,23.81Z"></path><path class="cls-2" d="M47.47,21.21c-.7-.9-4.63-.42-6.39-.21-.53.06-.62-.4-.14-.74,3.13-2.2,8.27-1.57,8.86-.83s-.16,5.89-3.09,8.35c-.45.38-.88.18-.68-.32C46.69,25.8,48.17,22.11,47.47,21.21Z"></path></svg></a>
 
     </div>
     
@@ -72,7 +72,7 @@
         
         
         ">
-      <a href="../../../10-servicecatalog.html">
+      <a href="../../10-servicecatalog.html">
           AWS Service Catalog
           
       </a>
@@ -94,7 +94,7 @@
         
         
         ">
-      <a href="../../../15-factory.html">
+      <a href="../../15-factory.html">
           Service Catalog Factory
           
       </a>
@@ -116,7 +116,7 @@
         
         
         ">
-      <a href="../../../20-puppet.html">
+      <a href="../../20-puppet.html">
           Service Catalog Puppet
           
       </a>
@@ -138,7 +138,7 @@
         
         
         ">
-      <a href="../../../30-how-tos.html">
+      <a href="../../30-how-tos.html">
           How Tos
           
       </a>
@@ -165,7 +165,7 @@
         
         
         ">
-      <a href="../../../30-how-tos/10-installation.html">
+      <a href="../../30-how-tos/10-installation.html">
           Installation
           
       </a>
@@ -185,8 +185,8 @@
  
   
     
-      <li data-nav-id="/amp/30-how-tos/10-installation/20-service-catalog-factory.html" title="Service Catalog Factory" class="dd-item ">
-        <a href="../../../amp/30-how-tos/10-installation/20-service-catalog-factory.html">
+      <li data-nav-id="/30-how-tos/10-installation/20-service-catalog-factory.html" title="Service Catalog Factory" class="dd-item ">
+        <a href="../../30-how-tos/10-installation/20-service-catalog-factory.html">
         Service Catalog Factory
         
         </a>
@@ -204,8 +204,8 @@
  
   
     
-      <li data-nav-id="/amp/30-how-tos/10-installation/30-service-catalog-puppet.html" title="Service Catalog Puppet" class="dd-item ">
-        <a href="../../../amp/30-how-tos/10-installation/30-service-catalog-puppet.html">
+      <li data-nav-id="/30-how-tos/10-installation/30-service-catalog-puppet.html" title="Service Catalog Puppet" class="dd-item ">
+        <a href="../../30-how-tos/10-installation/30-service-catalog-puppet.html">
         Service Catalog Puppet
         
         </a>
@@ -237,7 +237,7 @@
         
         
         ">
-      <a href="../../../30-how-tos/50-every-day-use.html">
+      <a href="../../30-how-tos/50-every-day-use.html">
           Every day use
           
       </a>
@@ -264,7 +264,7 @@
         
         
         ">
-      <a href="../../../30-how-tos/50-every-day-use/100-creating-a-product.html">
+      <a href="../../30-how-tos/50-every-day-use/100-creating-a-product.html">
           Creating a product
           
       </a>
@@ -284,8 +284,8 @@
  
   
     
-      <li data-nav-id="/amp/30-how-tos/50-every-day-use/100-creating-a-product/100-define-the-product.html" title="Define the product" class="dd-item ">
-        <a href="../../../amp/30-how-tos/50-every-day-use/100-creating-a-product/100-define-the-product.html">
+      <li data-nav-id="/30-how-tos/50-every-day-use/100-creating-a-product/100-define-the-product.html" title="Define the product" class="dd-item ">
+        <a href="../../30-how-tos/50-every-day-use/100-creating-a-product/100-define-the-product.html">
         Define the product
         
         </a>
@@ -303,8 +303,8 @@
  
   
     
-      <li data-nav-id="/amp/30-how-tos/50-every-day-use/100-creating-a-product/300-add-the-source-code.html" title="Add the source code" class="dd-item ">
-        <a href="../../../amp/30-how-tos/50-every-day-use/100-creating-a-product/300-add-the-source-code.html">
+      <li data-nav-id="/30-how-tos/50-every-day-use/100-creating-a-product/300-add-the-source-code.html" title="Add the source code" class="dd-item ">
+        <a href="../../30-how-tos/50-every-day-use/100-creating-a-product/300-add-the-source-code.html">
         Add the source code
         
         </a>
@@ -336,7 +336,7 @@
         
         
         ">
-      <a href="../../../30-how-tos/50-every-day-use/150-creating-a-portfolio.html">
+      <a href="../../30-how-tos/50-every-day-use/150-creating-a-portfolio.html">
           Creating a portfolio
           
       </a>
@@ -360,7 +360,7 @@
         
         
         ">
-      <a href="../../../30-how-tos/50-every-day-use/180-adding-a-product-to-a-portfolio.html">
+      <a href="../../30-how-tos/50-every-day-use/180-adding-a-product-to-a-portfolio.html">
           Adding a product to a portfolio
           
       </a>
@@ -384,7 +384,7 @@
         
         
         ">
-      <a href="../../../30-how-tos/50-every-day-use/190-creating-a-manifest.html">
+      <a href="../../30-how-tos/50-every-day-use/190-creating-a-manifest.html">
           Creating a manifest
           
       </a>
@@ -408,7 +408,7 @@
         
         
         ">
-      <a href="../../../30-how-tos/50-every-day-use/192-adding-an-account.html">
+      <a href="../../30-how-tos/50-every-day-use/192-adding-an-account.html">
           Adding an account
           
       </a>
@@ -432,7 +432,7 @@
         
         
         ">
-      <a href="../../../30-how-tos/50-every-day-use/200-provisioning-a-product.html">
+      <a href="../../30-how-tos/50-every-day-use/200-provisioning-a-product.html">
           Provisioning a product
           
       </a>
@@ -456,7 +456,7 @@
         
         
         ">
-      <a href="../../../30-how-tos/50-every-day-use/300-sharing-a-portfolio.html">
+      <a href="../../30-how-tos/50-every-day-use/300-sharing-a-portfolio.html">
           Sharing a portfolio
           
       </a>
@@ -496,7 +496,7 @@
         
         
         ">
-      <a href="../../../reinvent2019/">
+      <a href="../../reinvent2019/">
           re:Invent 2019
           
       </a>
@@ -523,7 +523,7 @@
         
         
         ">
-      <a href="../../../40-reinvent2019/30-prerequisites.html">
+      <a href="../../40-reinvent2019/30-prerequisites.html">
           Prerequisites
           
       </a>
@@ -542,13 +542,13 @@
  
   
     
-    <li data-nav-id="/40-reinvent2019/100-task-1.html" title="Task 1" class="dd-item 
+    <li data-nav-id="/40-reinvent2019/100-task-1.html" title="Budget &amp; cost governance" class="dd-item 
         parent
         
         
         ">
-      <a href="../../../40-reinvent2019/100-task-1.html">
-          Task 1
+      <a href="../../40-reinvent2019/100-task-1.html">
+          Budget &amp; cost governance
           
       </a>
       
@@ -567,8 +567,8 @@
  
   
     
-      <li data-nav-id="/amp/40-reinvent2019/100-task-1/100-create-the-product.html" title="Create the product" class="dd-item ">
-        <a href="../../../amp/40-reinvent2019/100-task-1/100-create-the-product.html">
+      <li data-nav-id="/40-reinvent2019/100-task-1/100-create-the-product.html" title="Create the product" class="dd-item ">
+        <a href="../../40-reinvent2019/100-task-1/100-create-the-product.html">
         Create the product
         
         </a>
@@ -586,9 +586,62 @@
  
   
     
-      <li data-nav-id="/amp/40-reinvent2019/100-task-1/200-create-the-version.html" title="Create the version" class="dd-item ">
-        <a href="../../../amp/40-reinvent2019/100-task-1/200-create-the-version.html">
-        Create the version
+      <li data-nav-id="/40-reinvent2019/100-task-1/200-provision-the-product.html" title="Provision the product" class="dd-item active">
+        <a href="../../40-reinvent2019/100-task-1/200-provision-the-product.html">
+        Provision the product
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/40-reinvent2019/150-task-2.html" title="Data governance" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../40-reinvent2019/150-task-2.html">
+          Data governance
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/40-reinvent2019/150-task-2/100-create-the-product.html" title="Create the product" class="dd-item ">
+        <a href="../../40-reinvent2019/150-task-2/100-create-the-product.html">
+        Create the product
         
         </a>
     </li>
@@ -605,66 +658,9 @@
  
   
     
-      <li data-nav-id="/amp/40-reinvent2019/100-task-1/300-configure-the-product-version.html" title="Configure product version" class="dd-item ">
-        <a href="../../../amp/40-reinvent2019/100-task-1/300-configure-the-product-version.html">
-        Configure product version
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/amp/40-reinvent2019/100-task-1/400-create-the-portfolio.html" title="Create the portfolio" class="dd-item active">
-        <a href="../../../amp/40-reinvent2019/100-task-1/400-create-the-portfolio.html">
-        Create the portfolio
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/amp/40-reinvent2019/100-task-1/500-add-the-product-to-the-portfolio.html" title="Add product to portfolio" class="dd-item ">
-        <a href="../../../amp/40-reinvent2019/100-task-1/500-add-the-product-to-the-portfolio.html">
-        Add product to portfolio
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/amp/40-reinvent2019/100-task-1/600-provisioning-the-product.html" title="Provisioning the product" class="dd-item ">
-        <a href="../../../amp/40-reinvent2019/100-task-1/600-provisioning-the-product.html">
-        Provisioning the product
+      <li data-nav-id="/40-reinvent2019/150-task-2/200-provision-the-product.html" title="Provision the product" class="dd-item ">
+        <a href="../../40-reinvent2019/150-task-2/200-provision-the-product.html">
+        Provision the product
         
         </a>
     </li>
@@ -695,7 +691,7 @@
         
         
         ">
-      <a href="../../../40-reinvent2019/200-task-2.html">
+      <a href="../../40-reinvent2019/200-task-2.html">
           Task 2
           
       </a>
@@ -715,8 +711,8 @@
  
   
     
-      <li data-nav-id="/amp/40-reinvent2019/200-task-2/100-create-the-product.html" title="Create the product" class="dd-item ">
-        <a href="../../../amp/40-reinvent2019/200-task-2/100-create-the-product.html">
+      <li data-nav-id="/40-reinvent2019/200-task-2/100-create-the-product.html" title="Create the product" class="dd-item ">
+        <a href="../../40-reinvent2019/200-task-2/100-create-the-product.html">
         Create the product
         
         </a>
@@ -734,8 +730,8 @@
  
   
     
-      <li data-nav-id="/amp/40-reinvent2019/200-task-2/200-create-the-version.html" title="Create the version" class="dd-item ">
-        <a href="../../../amp/40-reinvent2019/200-task-2/200-create-the-version.html">
+      <li data-nav-id="/40-reinvent2019/200-task-2/200-create-the-version.html" title="Create the version" class="dd-item ">
+        <a href="../../40-reinvent2019/200-task-2/200-create-the-version.html">
         Create the version
         
         </a>
@@ -753,8 +749,8 @@
  
   
     
-      <li data-nav-id="/amp/40-reinvent2019/200-task-2/300-configure-the-product-version.html" title="Configure the product version" class="dd-item ">
-        <a href="../../../amp/40-reinvent2019/200-task-2/300-configure-the-product-version.html">
+      <li data-nav-id="/40-reinvent2019/200-task-2/300-configure-the-product-version.html" title="Configure the product version" class="dd-item ">
+        <a href="../../40-reinvent2019/200-task-2/300-configure-the-product-version.html">
         Configure the product version
         
         </a>
@@ -772,8 +768,8 @@
  
   
     
-      <li data-nav-id="/amp/40-reinvent2019/200-task-2/500-add-the-product-to-the-portfolio.html" title="Add product to portfolio" class="dd-item ">
-        <a href="../../../amp/40-reinvent2019/200-task-2/500-add-the-product-to-the-portfolio.html">
+      <li data-nav-id="/40-reinvent2019/200-task-2/500-add-the-product-to-the-portfolio.html" title="Add product to portfolio" class="dd-item ">
+        <a href="../../40-reinvent2019/200-task-2/500-add-the-product-to-the-portfolio.html">
         Add product to portfolio
         
         </a>
@@ -791,8 +787,8 @@
  
   
     
-      <li data-nav-id="/amp/40-reinvent2019/200-task-2/600-provisioning-the-product.html" title="Provisioning the product" class="dd-item ">
-        <a href="../../../amp/40-reinvent2019/200-task-2/600-provisioning-the-product.html">
+      <li data-nav-id="/40-reinvent2019/200-task-2/600-provisioning-the-product.html" title="Provisioning the product" class="dd-item ">
+        <a href="../../40-reinvent2019/200-task-2/600-provisioning-the-product.html">
         Provisioning the product
         
         </a>
@@ -831,7 +827,7 @@
         
         
         ">
-      <a href="../../../999-further_reading.html">
+      <a href="../../999-further_reading.html">
           Further Reading
           
       </a>
@@ -851,8 +847,8 @@
  
   
     
-      <li data-nav-id="/amp/999-further_reading/9999-links_and_further_reading.html" title="Links and further reading" class="dd-item ">
-        <a href="../../../amp/999-further_reading/9999-links_and_further_reading.html">
+      <li data-nav-id="/999-further_reading/9999-links_and_further_reading.html" title="Links and further reading" class="dd-item ">
+        <a href="../../999-further_reading/9999-links_and_further_reading.html">
         Links and further reading
         
         </a>
@@ -897,7 +893,7 @@
               </li>
           
               <li> 
-                  <a class="padding" href="https://aws-samples.github.io/aws-service-catalog-tools-workshop">201911011249</a>
+                  <a class="padding" href="https://aws-samples.github.io/aws-service-catalog-tools-workshop">201911021342</a>
               </li>
           
         </ul>
@@ -953,7 +949,7 @@
             
           
           
-            <a href='../../../amp/'>AWS Service Catalog Tools Intro Workshop</a> > <a href='../../../reinvent2019/'>re:Invent 2019</a> > <a href='../../../40-reinvent2019/100-task-1.html'>Task 1</a> > Create the portfolio
+            <a href='../../'>AWS Service Catalog Tools Intro Workshop</a> > <a href='../../reinvent2019/'>re:Invent 2019</a> > <a href='../../40-reinvent2019/100-task-1.html'>Budget & cost governance</a> > Provision the product
           
         
           
@@ -971,12 +967,15 @@
 <ul>
 <li>
 <ul>
-<li>
+<li><a href="#what-are-we-going-to-do">What are we going to do?</a></li>
+<li><a href="#step-by-step-guide">Step by step guide</a>
 <ul>
-<li><a href="#create-the-portfolio">Create the portfolio</a>
+<li><a href="#create-a-manifest-file-with-our-account-in-it">Create a manifest file with our account in it</a>
 <ul>
-<li><a href="#adding-the-portfolio-to-the-framework">Adding the portfolio to the framework</a></li>
-<li><a href="#verify-the-portfolio-was-created">Verify the portfolio was created</a></li>
+<li><a href="#committing-the-manifest-file">Committing the manifest file</a></li>
+<li><a href="#what-did-we-just-do">What did we just do?</a></li>
+<li><a href="#verifying-the-provisioning">Verifying the provisioning</a></li>
+<li><a href="#verify-the-aws-config-rule-is-enabled">Verify the AWS Config rule is enabled</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -993,7 +992,7 @@
         
         <div id="body-inner">
           
-            <h1>Create the portfolio</h1>
+            <h1>Provision the product</h1>
           
 
         
@@ -1003,129 +1002,152 @@
 
 <hr />
 
-<h3 id="create-the-portfolio">Create the portfolio</h3>
+<h2 id="what-are-we-going-to-do">What are we going to do?</h2>
 
-<p><em>Before we can add a product to a portfolio we need to create the portfolio. Below are the steps needed to create a
-portfolio.</em></p>
-
-<h4 id="adding-the-portfolio-to-the-framework">Adding the portfolio to the framework</h4>
+<p>We are going to perform the following steps:</p>
 
 <ul>
-<li><p>Navigate to the  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codecommit/repositories/ServiceCatalogFactory/browse?region=eu-west-1' target='_blank'>ServiceCatalogFactory CodeCommit repository</a> again</p></li>
+<li>create a manifest file with our account in it<br /></li>
+<li>provision the product <em>aws-config-desired-instance-types</em> into a spoke account</li>
+</ul>
 
-<li><p>Click on <em>portfolios</em></p></li>
+<h2 id="step-by-step-guide">Step by step guide</h2>
+
+<p>Here are the steps you need to follow to &ldquo;Provision the product&rdquo;</p>
+
+<h3 id="create-a-manifest-file-with-our-account-in-it">Create a manifest file with our account in it</h3>
+
+<ul>
+<li><p>Navigate to the  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codecommit/repositories/ServiceCatalogPuppet/browse?region=eu-west-1' target='_blank'>ServiceCatalogPuppet CodeCommit repository</a></p></li>
+
+<li><p>Scroll down to the bottom of the page and hit the <em>Create file</em> button</p></li>
 </ul>
 
 <figure>
-    <img src="../../../tasks/ClickOnPortfolios.png"/> 
+    <img src="../../tasks/create_file.png"/> 
 </figure>
 
 
 <ul>
-<li>Click on <em>reinvent.yaml</em></li>
+<li>Copy the following snippet into the main input field and replace account_id to show your account id on the highlighted line:
+
+<br /></li>
 </ul>
 
-<figure>
-    <img src="../../../tasks/ClickOnreinvent.png"/> 
-</figure>
-
-
-<ul>
-<li>Click <em>Edit</em></li>
-</ul>
-
-<figure>
-    <img src="../../../tasks/ClickEdit.png"/> 
-</figure>
-
-
-<ul>
-<li>Add the following to the end of the file (be careful with your indentation):</li>
-</ul>
-
-<figure><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">Portfolios</span><span style="color:#f92672">:</span>
-  <span style="color:#f92672">-</span> <span style="color:#a6e22e">DisplayName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering-governance&#34;</span>
-    <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Portfolio containing the products needed to govern AWS accounts&#34;</span>
-    <span style="color:#a6e22e">ProviderName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering&#34;</span>
-    <span style="color:#a6e22e">Associations</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;arn:aws:iam::${AWS::AccountId}:role/TeamRole&#34;</span>
-    <span style="color:#a6e22e">Tags</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;type&#34;</span>
-        <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;governance&#34;</span>
-      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;creator&#34;</span>
-        <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering&#34;</span>
-      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cost-center&#34;</span>
-        <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering&#34;</span>
+<figure><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">accounts</span><span style="color:#f92672">:</span>
+<span style="display:block;width:100%;background-color:#3c3d38">  <span style="color:#f92672">-</span> <span style="color:#a6e22e">account_id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;&lt;YOUR_ACCOUNT_ID&gt;&#34;</span>
+</span>    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;puppet-account&#34;</span>
+    <span style="color:#a6e22e">default_region</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;eu-west-1&#34;</span>
+    <span style="color:#a6e22e">regions_enabled</span><span style="color:#f92672">:</span>
+      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;eu-west-1&#34;</span>
+      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;eu-west-2&#34;</span>
+    <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
+      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;type:prod&#34;</span>
+      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;partition:eu&#34;</span>
+      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;scope:pci&#34;</span>
 </code></pre></div></figure>
  
 
 <ul>
-<li>Verify the contents of your file matches this:</li>
+<li>Append the following snippet to the end of the main input field:
+
+<br /></li>
 </ul>
 
-<figure><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">Schema</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">factory</span><span style="color:#f92672">-</span><span style="color:#ae81ff">2019</span><span style="color:#f92672">-</span><span style="color:#ae81ff">04</span><span style="color:#f92672">-</span><span style="color:#ae81ff">01</span>
-<span style="color:#a6e22e">Products</span><span style="color:#f92672">:</span>
-  <span style="color:#f92672">-</span> <span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;aws-config-enable-config&#34;</span>
-    <span style="color:#a6e22e">Owner</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;data-governance@acme.com&#34;</span>
-    <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Enables AWS Config&#34;</span>
-    <span style="color:#a6e22e">Distributor</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering&#34;</span>
-    <span style="color:#a6e22e">SupportDescription</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Speak to data-governance@acme.com about exceptions and speak to cloud-engineering@acme.com about implementation issues&#34;</span>
-    <span style="color:#a6e22e">SupportEmail</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering@acme.com&#34;</span>
-    <span style="color:#a6e22e">SupportUrl</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;https://wiki.acme.com/cloud-engineering/governance/aws-config-enable-config&#39;</span>
-    <span style="color:#a6e22e">Tags</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;type&#34;</span>
-        <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;governance&#34;</span>
-      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;creator&#34;</span>
-        <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering&#34;</span>
-      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cost-center&#34;</span>
-        <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering&#34;</span>
-    <span style="color:#a6e22e">Versions</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1&#34;</span>
-        <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1 of aws-config-enable-config&#34;</span>
-        <span style="color:#a6e22e">Active</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">True</span>
-        <span style="color:#a6e22e">Source</span><span style="color:#f92672">:</span>
-          <span style="color:#a6e22e">Provider</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;CodeCommit&#34;</span>
-          <span style="color:#a6e22e">Configuration</span><span style="color:#f92672">:</span>
-            <span style="color:#a6e22e">RepositoryName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;aws-config-enable-config&#34;</span>
-            <span style="color:#a6e22e">BranchName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;master&#34;</span>
-<span style="color:#a6e22e">Portfolios</span><span style="color:#f92672">:</span>
-  <span style="color:#f92672">-</span> <span style="color:#a6e22e">DisplayName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering-governance&#34;</span>
-    <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Portfolio containing the products needed to govern AWS accounts&#34;</span>
-    <span style="color:#a6e22e">ProviderName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering&#34;</span>
-    <span style="color:#a6e22e">Associations</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;arn:aws:iam::${AWS::AccountId}:role/TeamRole&#34;</span>
-    <span style="color:#a6e22e">Tags</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;type&#34;</span>
-        <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;governance&#34;</span>
-      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;creator&#34;</span>
-        <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering&#34;</span>
-      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cost-center&#34;</span>
-        <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering&#34;</span>
+<figure><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">launches</span><span style="color:#f92672">:</span>
+  <span style="color:#a6e22e">aws</span><span style="color:#f92672">-</span><span style="color:#a6e22e">config</span><span style="color:#f92672">-</span><span style="color:#a6e22e">enable</span><span style="color:#f92672">-</span><span style="color:#a6e22e">config</span><span style="color:#f92672">:</span>
+    <span style="color:#a6e22e">portfolio</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;reinvent-cloud-engineering-governance&#34;</span>
+    <span style="color:#a6e22e">product</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;aws-config-desired-instance-types&#34;</span>
+    <span style="color:#a6e22e">version</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1&#34;</span>
+    <span style="color:#a6e22e">parameters</span><span style="color:#f92672">:</span>
+      <span style="color:#a6e22e">InstanceType</span><span style="color:#f92672">:</span>
+        <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;t2.medium, t2.large, t2.xlarge&#34;</span>
+    <span style="color:#a6e22e">deploy_to</span><span style="color:#f92672">:</span>
+      <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
+        <span style="color:#f92672">-</span> <span style="color:#a6e22e">tag</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;type:prod&#34;</span>
+          <span style="color:#a6e22e">regions</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;regions_enabled&#34;</span>
 </code></pre></div></figure>
 
-<p>Once you have updated the file fill in the fields for <em>Author name</em>, <em>Email address</em>, <em>Commit message</em> and hit
-<em>Commit changes</em></p>
+<ul>
+<li>The main input field should look like this (remember to set your account_id):
 
-<figure>
-    <img src="../../../tasks/CommitChanges.png"/> 
-</figure>
+<br /></li>
+</ul>
 
+<figure><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">accounts</span><span style="color:#f92672">:</span>
+  <span style="color:#f92672">-</span> <span style="color:#a6e22e">account_id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;&lt;YOUR_ACCOUNT_ID&gt;&#34;</span>
+    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;puppet-account&#34;</span>
+    <span style="color:#a6e22e">default_region</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;eu-west-1&#34;</span>
+    <span style="color:#a6e22e">regions_enabled</span><span style="color:#f92672">:</span>
+      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;eu-west-1&#34;</span>
+      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;eu-west-2&#34;</span>
+    <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
+      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;type:prod&#34;</span>
+      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;partition:eu&#34;</span>
+      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;scope:pci&#34;</span>
+<span style="color:#a6e22e">launches</span><span style="color:#f92672">:</span>
+  <span style="color:#a6e22e">aws</span><span style="color:#f92672">-</span><span style="color:#a6e22e">config</span><span style="color:#f92672">-</span><span style="color:#a6e22e">enable</span><span style="color:#f92672">-</span><span style="color:#a6e22e">config</span><span style="color:#f92672">:</span>
+    <span style="color:#a6e22e">portfolio</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;reinvent-cloud-engineering-governance&#34;</span>
+    <span style="color:#a6e22e">product</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;aws-config-desired-instance-types&#34;</span>
+    <span style="color:#a6e22e">version</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1&#34;</span>
+    <span style="color:#a6e22e">parameters</span><span style="color:#f92672">:</span>
+      <span style="color:#a6e22e">InstanceType</span><span style="color:#f92672">:</span>
+        <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;t2.medium, t2.large, t2.xlarge&#34;</span>
+    <span style="color:#a6e22e">deploy_to</span><span style="color:#f92672">:</span>
+      <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
+        <span style="color:#f92672">-</span> <span style="color:#a6e22e">tag</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;type:prod&#34;</span>
+          <span style="color:#a6e22e">regions</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;regions_enabled&#34;</span>
+</code></pre></div></figure>
+
+<h4 id="committing-the-manifest-file">Committing the manifest file</h4>
+
+<p><em>Now that we have written the manifest file we are ready to commit it.</em></p>
+
+<ul>
+<li><p>Set the <em>File name</em> to <code>manifest.yaml</code></p></li>
+
+<li><p>Set your <em>Author name</em></p></li>
+
+<li><p>Set your <em>Email address</em></p></li>
+
+<li><p>Set your <em>Commit message</em></p></li>
+</ul>
 
 
 <div class="notices tip" ><p>Using a good / unique commit message will help you understand what is going on later.</p>
 </div>
 
 
-<h4 id="verify-the-portfolio-was-created">Verify the portfolio was created</h4>
+<ul>
+<li>Click the <em>Commit changes</em> button:</li>
+</ul>
 
-<p>Once you have made your changes the  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/servicecatalog-factory-pipeline/view?region=eu-west-1' target='_blank'>ServiceCatalogFactory Pipeline</a> should have run or if you were quick
+<figure>
+    <img src="../../tasks/CommitChanges.png"/> 
+</figure>
+
+
+<h4 id="what-did-we-just-do">What did we just do?</h4>
+
+<p>The YAML we pasted in the previous step told the framework to perform two actions:</p>
+
+<ul>
+<li>provision a product named <em>aws-config-desired-instance-types</em></li>
+<li>add a <em>v1</em> of our product</li>
+<li>create a portfolio named <em>cloud-engineering-governance</em></li>
+<li>add the product: <em>aws-config-desired-instance-types</em> to the portfolio: <em>cloud-engineering-governance</em></li>
+</ul>
+
+<h4 id="verifying-the-provisioning">Verifying the provisioning</h4>
+
+<p>Once you have made your changes the  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/servicecatalog-puppet-pipeline/view?region=eu-west-1' target='_blank'>ServiceCatalogPuppet Pipeline</a> should have run or if you were quick
 may still be running.  If it has not yet started feel free to the hit the <em>Release change</em> button.</p>
 
 <p>Once it has completed it should show the <em>Source</em> and <em>Build</em> stages in green to indicate they have completed
 successfully:</p>
 
 <figure>
-    <img src="../../../tasks/SuccessfulFactoryRun.png"/> 
+    <img src="../../tasks/SuccessfulPuppetRun.png"/> 
 </figure>
 
 
@@ -1134,22 +1156,31 @@ successfully:</p>
 </div>
 
 
-<p>Once you have verified the pipeline has run you can go to  <a href='https://eu-west-1.console.aws.amazon.com/servicecatalog/console?region=eu-west-1#portfolios?' target='_blank'>Service Catalog portfolios</a> to view your
-portfolio.</p>
-
-<p>You should see the portfolio you just created listed:</p>
+<p>Once you have verified the pipeline has run you can go to  <a href='https://eu-west-1.console.aws.amazon.com/servicecatalog/home?region=eu-west-1#/stacks' target='_blank'>Service Catalog provisioned products</a> to view your
+provisioned product.  Please note when you arrive at the provisioned product page you will need to select account from
+the filter by drop down in the top right:</p>
 
 <figure>
-    <img src="../../../tasks/SeeYourPortfolio.png"/> 
+    <img src="../../tasks/FilterByAccount.png"/> 
 </figure>
 
 
 
-<div class="notices note" ><p>If you cannot see your portfolio please raise your hand for some assistance</p>
+<div class="notices note" ><p>If you cannot see your product please raise your hand for some assistance</p>
 </div>
 
 
-<p>You have now successfully created a portfolio!</p>
+<p>You have now successfully provisioned a product</p>
+
+<h4 id="verify-the-aws-config-rule-is-enabled">Verify the AWS Config rule is enabled</h4>
+
+<p>To see the AWS Config rule enabled, navigate to  <a href='https://eu-west-1.console.aws.amazon.com/config/home?region=eu-west-1#/rules/view' target='_blank'>AWS Config rules</a>.  Once there you should see the
+following:</p>
+
+<figure>
+    <img src="../../tasks/aws-config-rule-enabled.png"/> 
+</figure>
+
 
 
 <footer class=" footline" >
@@ -1527,21 +1558,6 @@ portfolio.</p>
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -1554,20 +1570,6 @@ portfolio.</p>
             
         
                     
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
             
         
                     
@@ -1578,6 +1580,19 @@ portfolio.</p>
                     
                         
                         
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -1749,10 +1764,10 @@ portfolio.</p>
 	 
 	 
 		
-			<a class="nav nav-prev" href="../../../amp/40-reinvent2019/100-task-1/300-configure-the-product-version.html" title="Configure product version"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="../../40-reinvent2019/100-task-1/100-create-the-product.html" title="Create the product"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="../../../amp/40-reinvent2019/100-task-1/500-add-the-product-to-the-portfolio.html" title="Add product to portfolio" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="../../40-reinvent2019/150-task-2.html" title="Data governance" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1762,20 +1777,20 @@ portfolio.</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../../js/clipboard.min.js"></script>
-    <script src="../../../js/perfect-scrollbar.min.js"></script>
-    <script src="../../../js/perfect-scrollbar.jquery.min.js"></script>
-    <script src="../../../js/jquery.sticky.js"></script>
-    <script src="../../../js/featherlight.min.js"></script>
-    <script src="../../../js/html5shiv-printshiv.min.js"></script>
-    <script src="../../../js/highlight.pack.js"></script>
+    <script src="../../js/clipboard.min.js"></script>
+    <script src="../../js/perfect-scrollbar.min.js"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js"></script>
+    <script src="../../js/jquery.sticky.js"></script>
+    <script src="../../js/featherlight.min.js"></script>
+    <script src="../../js/html5shiv-printshiv.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../../js/modernizr.custom-3.6.0.js"></script>
-    <script src="../../../js/learn.js"></script>
-    <script src="../../../js/hugo-learn.js"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js"></script>
+    <script src="../../js/learn.js"></script>
+    <script src="../../js/hugo-learn.js"></script>
 
-    <link href="../../../mermaid/mermaid.css" rel="stylesheet" />
-    <script src="../../../mermaid/mermaid.js"></script>
+    <link href="../../mermaid/mermaid.css" rel="stylesheet" />
+    <script src="../../mermaid/mermaid.js"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

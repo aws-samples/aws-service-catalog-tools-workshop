@@ -39,15 +39,19 @@
   </url>
   
   <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/reinvent2019/</loc>
-  </url>
-  
-  <url>
     <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/30-how-tos/50-every-day-use.html</loc>
   </url>
   
   <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/100-task-1.html</loc>
+  </url>
+  
+  <url>
     <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/100-task-1/100-create-the-product.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/150-task-2/100-create-the-product.html</loc>
   </url>
   
   <url>
@@ -63,11 +67,19 @@
   </url>
   
   <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/100-task-1.html</loc>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/100-task-1/200-provision-the-product.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/150-task-2/200-provision-the-product.html</loc>
   </url>
   
   <url>
     <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/30-how-tos/50-every-day-use/150-creating-a-portfolio.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/150-task-2.html</loc>
   </url>
   
   <url>
@@ -83,15 +95,15 @@
   </url>
   
   <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/100-task-1/200-create-the-version.html</loc>
-  </url>
-  
-  <url>
     <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/200-task-2/200-create-the-version.html</loc>
   </url>
   
   <url>
     <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/30-how-tos/50-every-day-use/200-provisioning-a-product.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/reinvent2019/</loc>
   </url>
   
   <url>
@@ -103,10 +115,6 @@
   </url>
   
   <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/100-task-1/300-configure-the-product-version.html</loc>
-  </url>
-  
-  <url>
     <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/200-task-2/300-configure-the-product-version.html</loc>
   </url>
   
@@ -115,19 +123,7 @@
   </url>
   
   <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/100-task-1/400-create-the-portfolio.html</loc>
-  </url>
-  
-  <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/100-task-1/500-add-the-product-to-the-portfolio.html</loc>
-  </url>
-  
-  <url>
     <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/200-task-2/500-add-the-product-to-the-portfolio.html</loc>
-  </url>
-  
-  <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/100-task-1/600-provisioning-the-product.html</loc>
   </url>
   
   <url>
