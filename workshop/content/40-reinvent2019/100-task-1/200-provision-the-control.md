@@ -78,6 +78,19 @@ The YAML we pasted in the previous step told the framework to perform the follow
 
 - provision a product named _{{% param product_name %}}_ into each of the enabled regions of the account
 
+When you added the following:
+
+{{% code file="40-reinvent2019/100-task-1/artefacts/orchestrator/manifest-launches-only.yaml" language="js" highlight="11-12" %}}
+
+You told the framework to provision _{{% param product_version %}}_ of _{{% param product_name %}}_ from the portfolio 
+_{{% param portfolio_name %}}_ into every account that has the tag _type:prod_
+
+{{% code file="40-reinvent2019/100-task-1/artefacts/orchestrator/manifest-accounts-only.yaml" language="js" highlight="8-11" %}}
+
+Within each account there will be a copy of the product provisioned into each of the regions listed in the 
+regions_enabled section:  
+
+{{% code file="40-reinvent2019/100-task-1/artefacts/orchestrator/manifest-accounts-only.yaml" language="js" highlight="5-7" %}}
 
 #### Verifying the provisioning
 
