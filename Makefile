@@ -18,4 +18,5 @@ gh-pages: clean
 	cd workshop && hugo --environment ghpages
 	echo "Updating gh-pages branch"
 	cd workshop/public && git add --all && git commit -m "Publishing to gh-pages (publish.sh)" && git push
+	echo "https://aws-samples.github.io/aws-service-catalog-tools-workshop/"
 

@@ -1,10 +1,10 @@
 +++
-title = "Provision the product"
-weight = 100
+title = "Provision the control"
+weight = 200
 home_region = "eu-west-1"
-codecommit_repo_name = "aws-config-desired-instance-types" 
+codecommit_repo_name = "aws-config-rds-storage-encrypted" 
 codecommit_repo_branch = "master" 
-product_name = "aws-config-desired-instance-types"
+product_name = "aws-config-rds-storage-encrypted"
 product_version = "v1"
 portfolio_name = "cloud-engineering-governance"
 +++
@@ -15,40 +15,32 @@ portfolio_name = "cloud-engineering-governance"
 
 We are going to perform the following steps:
 
-- create a manifest file with our account in it  
 - provision the product _{{% param product_name %}}_ into a spoke account
 
 ## Step by step guide
 
 Here are the steps you need to follow to "{{% param title %}}"
 
+### Provision the product _{{% param product_name %}}_ into a spoke account
 
-### Create a manifest file with our account in it
+- Navigate to the {{% service_catalog_puppet_code_commit_repo_link %}} again
 
-- Navigate to the {{% service_catalog_puppet_code_commit_repo_link %}}
+- Click on *manifest.yaml*
 
-- Scroll down to the bottom of the page and hit the *Create file* button
-
-{{< figure src="/tasks/create_file.png" >}}
-
-- Copy the following snippet into the main input field and replace account_id to show your account id on the highlighted line:
-
- {{% code file="40-reinvent2019/100-task-1/artefacts/orchestrator/manifest-accounts-only.yaml" language="js" highlight="2" %}}
+- Click *Edit*
  
 - Append the following snippet to the end of the main input field:
 
- {{% code file="40-reinvent2019/100-task-1/artefacts/orchestrator/manifest-launches-only.yaml" language="js" %}}
+ {{% code file="40-reinvent2019/150-task-2/artefacts/orchestrator/manifest-launches-only.yaml" language="js" %}}
 
 - The main input field should look like this (remember to set your account_id):
 
- {{% code file="40-reinvent2019/100-task-1/artefacts/orchestrator/manifest-all.yaml" language="js" %}}
+ {{% code file="40-reinvent2019/150-task-2/artefacts/orchestrator/manifest-all.yaml" language="js" %}}
 
 
 #### Committing the manifest file
 
 _Now that we have written the manifest file we are ready to commit it._
-
-- Set the *File name* to `manifest.yaml`
 
 - Set your *Author name*
 - Set your *Email address*
@@ -66,13 +58,9 @@ Using a good / unique commit message will help you understand what is going on l
 
 #### What did we just do?
 
-The YAML we pasted in the previous step told the framework to perform two actions:
+The YAML we pasted in the previous step told the framework to perform the following actions:
 
-- provision a product named _{{% param product_name %}}_
-- add a _{{% param product_version %}}_ of our product
-- create a portfolio named _{{% param portfolio_name %}}_
-- add the product: _{{% param product_name %}}_ to the portfolio: _{{% param portfolio_name %}}_
-
+- provision a product named _{{% param product_name %}}_ into each of the enabled regions of the account
 
 
 #### Verifying the provisioning

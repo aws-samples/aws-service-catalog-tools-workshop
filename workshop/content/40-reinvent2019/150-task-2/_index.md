@@ -17,8 +17,9 @@ From this guidance there are two new requirements:
 
 ## The plan
 
-We are going to create and deploy a security control using an AWS Config managed rule to ensure the right instance types
-are being used. 
+We are going to create and deploy a security control using an AWS Config managed rule to ensure the teams are using 
+encryption when creating an RDS instance.  We will then a self service Service Catalog product so the teams can create
+compliant resources. 
 
 {{% children depth="1" showhidden="false" %}}
 

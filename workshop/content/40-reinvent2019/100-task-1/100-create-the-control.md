@@ -1,5 +1,5 @@
 +++
-title = "Create the product"
+title = "Create the control"
 weight = 100
 home_region = "eu-west-1"
 codecommit_repo_name = "aws-config-desired-instance-types" 
@@ -25,6 +25,7 @@ Here are the steps you need to follow to "{{% param title %}}"
 ### Define a product with a version and a portfolio
 
 - Navigate to the {{% service_catalog_factory_code_commit_repo_link %}}  
+
 - Scroll down to the bottom of the page and hit the *Create file* button
 
 {{< figure src="/tasks/create_file.png" >}}
@@ -123,7 +124,7 @@ Using a good / unique commit message will help you understand what is going on l
 Creating that file should trigger your 
 {{% codepipeline_pipeline_link "aws-config-desired-instance-types-v1-pipeline" %}}.  
 
-Once the pipeline has has completed it should show the *Source* and *Build* stages in green to indicate they have 
+Once the pipeline has completed it should show the *Source* and *Build* stages in green to indicate they have 
 completed successfully:
 
 {{< figure src="/tasks/SuccessfulFactoryProductRun.png" >}}
@@ -164,8 +165,6 @@ portfolio.
 {{< figure src="/tasks/PortfolioReinventCloudEngineeringGovernance.png" >}}
 
 - Click on the product *aws-config-enable-config*
-
-{{< figure src="/tasks/ClickAwsConfigS3BucketServerSideEncryptionEnabled.png" >}}
 
 - Click on the version *_{{% param product_version %}}_*
 

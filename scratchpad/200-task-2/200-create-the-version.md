@@ -15,6 +15,7 @@ specified when installing the framework._
 #### Add the product version to the framework
 
 - Navigate to the {{% service_catalog_factory_code_commit_repo_link %}} again
+
 - Click on *portfolios*
 
 {{< figure src="/tasks/ClickOnPortfolios.png" >}}

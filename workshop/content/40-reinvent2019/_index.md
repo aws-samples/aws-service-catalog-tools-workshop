@@ -35,7 +35,7 @@ Workshop helpers:
 
 ### Lets get going
 
-Please head over to task 1 after checking the 
+When you are ready, click the right arrow to begin! 
 
 {{% notice tip%}}
 You can use the left and right arrows to navigate through the Workshop

@@ -48,7 +48,7 @@ url = "https://aws-service-catalog-puppet.readthedocs.io/en/latest/"
 weight = 4
 
 [[menu.shortcuts]]
-name = "201911021342"
+name = "201911021539"
 identifier = "version"
 url = "#"
 weight = 5

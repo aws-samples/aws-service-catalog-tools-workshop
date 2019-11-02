@@ -1,9 +1,9 @@
     Versions:
       - Name: "v1"
-        Description: "v1 of aws-config-rds-storage-encrypted"
+        Description: "v1 of rds-instance"
         Active: True
         Source:
           Provider: "CodeCommit"
           Configuration:
-            RepositoryName: "aws-config-rds-storage-encrypted"
+            RepositoryName: "rds-instance"
             BranchName: "master"
