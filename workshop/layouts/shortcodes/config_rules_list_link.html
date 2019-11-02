@@ -1,0 +1,1 @@
+{{ $region := .Page.Params.home_region }} {{printf "<a href='https://%s.console.aws.amazon.com/config/home?region=%s#/rules/view' target='_blank'>AWS Config rules</a>" $region $region | safeHTML }}

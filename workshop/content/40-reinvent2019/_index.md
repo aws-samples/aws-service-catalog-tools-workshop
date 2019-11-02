@@ -1,13 +1,25 @@
 +++
 title = "re:Invent 2019"
 chapter = false
-weight = 40
+weight = 200
 url = "reInvent2019"
 +++
 
 Welcome to this Workshop Session at re:Invent 2019. 
 
-## Meet the Team
+## House keeping
+
+Please check through the following to help you get started.
+
+
+### What to do if you need help
+
+Raise your hand and a helper will be with you as soon as possible.
+
+
+### Meet the Team
+
+In today's workshop you have the following team
 
 Presenters:
 
@@ -21,6 +33,9 @@ Workshop helpers:
 - Alex Nicot
 - Oli Leach
 
+### Lets get going
+
+Please head over to task 1 after checking the 
 
 {{% notice tip%}}
 You can use the left and right arrows to navigate through the Workshop

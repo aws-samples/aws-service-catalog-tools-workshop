@@ -1,6 +1,6 @@
 +++
-title = "Provisioning the product"
-weight = 600
+title = "Provision the product"
+weight = 100
 home_region = "eu-west-1"
 +++
 ---

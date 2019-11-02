@@ -3,6 +3,8 @@ title = "Installation"
 weight = 10
 +++
 
+
+## Prerequisites
 In order to install these tools you will need:
 
 - A single AWS Account which you can log into
@@ -16,5 +18,9 @@ account where there is (or can be) a trust relationship with the Organizations m
 tools into your master account but this is not recommended. 
 
 Both tools should be installed into the same region of the same account.
+
+## Task list
+
+Here:
 
 {{% children depth="1" showhidden="false" %}}
