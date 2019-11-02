@@ -10,7 +10,7 @@ accounts:
       - "partition:eu"
       - "scope:pci"
 launches:
-  aws-config-enable-config:
+  aws-config-desired-instance-types:
     portfolio: "reinvent-cloud-engineering-governance"
     product: "aws-config-desired-instance-types"
     version: "v1"
