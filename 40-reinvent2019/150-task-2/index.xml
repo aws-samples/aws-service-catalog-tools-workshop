@@ -11,26 +11,28 @@
     
     
     <item>
-      <title>Create the product</title>
+      <title>Create the control</title>
       <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/150-task-2/100-create-the-product.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/150-task-2/100-create-the-product.html</guid>
-      <description>Create the product We need to tell the framework that we want to create a product. When we add the product to the framework it will add it to AWS Service Catalog in every region that we specified when installing the framework.
-Adding the product to the framework  Navigate to the ServiceCatalogFactory CodeCommit repository
- Scroll down to the bottom of the page and hit the Create file button     Copy the following snippet into the main input field:   Schema: factory-2019-04-01 Products: - Name: &amp;#34;aws-config-desired-instance-types&amp;#34; Owner: &amp;#34;budget-and-cost-governance@acme.</description>
+      <description>What are we going to do? We are going to perform the following steps:
+ define another product with a version and add it to the existing cloud-engineering-governance portfolio add the source code for our product provision that product into a spoke account  Step by step guide Here are the steps you need to follow to &amp;ldquo;Create the control&amp;rdquo;
+Define a product with a version and a portfolio  Navigate to the ServiceCatalogFactory CodeCommit repository again</description>
     </item>
     
     <item>
-      <title>Provision the product</title>
+      <title>Provision the control</title>
       <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/150-task-2/200-provision-the-product.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/150-task-2/200-provision-the-product.html</guid>
-      <description>Provisioning the product We will add our account to the frameworks manifest file so it knows about our account and we will tell the framework to provision our newly created product into our account.
-Adding an account to the manifest file We will start out by adding your account to the manifest file.
- Navigate to the ServiceCatalogPuppet CodeCommit repository
- Scroll down to the bottom of the page and hit the Create file button</description>
+      <description>What are we going to do? We are going to perform the following steps:
+ provision the product aws-config-rds-storage-encrypted into a spoke account  Step by step guide Here are the steps you need to follow to &amp;ldquo;Provision the control&amp;rdquo;
+Provision the product aws-config-rds-storage-encrypted into a spoke account  Navigate to the ServiceCatalogPuppet CodeCommit repository again
+ Click on manifest.yaml
+ Click Edit
+ Append the following snippet to the end of the main input field:</description>
     </item>
     
   </channel>

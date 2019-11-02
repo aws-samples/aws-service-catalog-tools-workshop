@@ -11,25 +11,25 @@
     
     
     <item>
-      <title>Create the product</title>
+      <title>Create the control</title>
       <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/100-task-1/100-create-the-product.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/100-task-1/100-create-the-product.html</guid>
       <description>What are we going to do? We are going to perform the following steps:
- define a product with a version and a portfolio add the source code for our product provision that product into a spoke account  Step by step guide Here are the steps you need to follow to &amp;ldquo;Create the product&amp;rdquo;
+ define a product with a version and a portfolio add the source code for our product provision that product into a spoke account  Step by step guide Here are the steps you need to follow to &amp;ldquo;Create the control&amp;rdquo;
 Define a product with a version and a portfolio  Navigate to the ServiceCatalogFactory CodeCommit repository</description>
     </item>
     
     <item>
-      <title>Provision the product</title>
+      <title>Provision the control</title>
       <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/100-task-1/200-provision-the-product.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/100-task-1/200-provision-the-product.html</guid>
       <description>What are we going to do? We are going to perform the following steps:
  create a manifest file with our account in it
- provision the product aws-config-desired-instance-types into a spoke account  Step by step guide Here are the steps you need to follow to &amp;ldquo;Provision the product&amp;rdquo;
+ provision the product aws-config-desired-instance-types into a spoke account  Step by step guide Here are the steps you need to follow to &amp;ldquo;Provision the control&amp;rdquo;
 Create a manifest file with our account in it  Navigate to the ServiceCatalogPuppet CodeCommit repository
  Scroll down to the bottom of the page and hit the Create file button</description>
     </item>

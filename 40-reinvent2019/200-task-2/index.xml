@@ -27,7 +27,7 @@ Add the product to the framework  Navigate to the ServiceCatalogFactory CodeComm
       
       <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/200-task-2/200-create-the-version.html</guid>
       <description>Create the version We now need to tell the framework we want to create a new version of our product. Once this is done we will have an AWS CodePipeline that will take the source code for our product from git and add it to AWS Service Catalog in each region we specified when installing the framework.
-Add the product version to the framework  Navigate to the ServiceCatalogFactory CodeCommit repository again Click on portfolios     Click on reinvent.</description>
+Add the product version to the framework  Navigate to the ServiceCatalogFactory CodeCommit repository again</description>
     </item>
     
     <item>

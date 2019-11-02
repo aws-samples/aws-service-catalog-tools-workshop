@@ -15,7 +15,7 @@
     <link rel="shortcut icon" href="../../images/favicon.png" type="image/png" />
 <link rel="icon" href="../../images/favicon.png" type="image/png" />
 
-    <title>Provision the product :: Service Catalog Tools Workshop</title>
+    <title>Provision the control :: Service Catalog Tools Workshop</title>
 
     
     <link href="../../css/nucleus.css" rel="stylesheet">
@@ -567,9 +567,9 @@
  
   
     
-      <li data-nav-id="/40-reinvent2019/100-task-1/100-create-the-product.html" title="Create the product" class="dd-item ">
+      <li data-nav-id="/40-reinvent2019/100-task-1/100-create-the-product.html" title="Create the control" class="dd-item ">
         <a href="../../40-reinvent2019/100-task-1/100-create-the-product.html">
-        Create the product
+        Create the control
         
         </a>
     </li>
@@ -586,9 +586,9 @@
  
   
     
-      <li data-nav-id="/40-reinvent2019/100-task-1/200-provision-the-product.html" title="Provision the product" class="dd-item active">
+      <li data-nav-id="/40-reinvent2019/100-task-1/200-provision-the-product.html" title="Provision the control" class="dd-item active">
         <a href="../../40-reinvent2019/100-task-1/200-provision-the-product.html">
-        Provision the product
+        Provision the control
         
         </a>
     </li>
@@ -639,9 +639,9 @@
  
   
     
-      <li data-nav-id="/40-reinvent2019/150-task-2/100-create-the-product.html" title="Create the product" class="dd-item ">
+      <li data-nav-id="/40-reinvent2019/150-task-2/100-create-the-product.html" title="Create the control" class="dd-item ">
         <a href="../../40-reinvent2019/150-task-2/100-create-the-product.html">
-        Create the product
+        Create the control
         
         </a>
     </li>
@@ -658,9 +658,9 @@
  
   
     
-      <li data-nav-id="/40-reinvent2019/150-task-2/200-provision-the-product.html" title="Provision the product" class="dd-item ">
+      <li data-nav-id="/40-reinvent2019/150-task-2/200-provision-the-product.html" title="Provision the control" class="dd-item ">
         <a href="../../40-reinvent2019/150-task-2/200-provision-the-product.html">
-        Provision the product
+        Provision the control
         
         </a>
     </li>
@@ -949,7 +949,7 @@
             
           
           
-            <a href='../../'>AWS Service Catalog Tools Intro Workshop</a> > <a href='../../reinvent2019/'>re:Invent 2019</a> > <a href='../../40-reinvent2019/100-task-1.html'>Budget & cost governance</a> > Provision the product
+            <a href='../../'>AWS Service Catalog Tools Intro Workshop</a> > <a href='../../reinvent2019/'>re:Invent 2019</a> > <a href='../../40-reinvent2019/100-task-1.html'>Budget & cost governance</a> > Provision the control
           
         
           
@@ -970,7 +970,8 @@
 <li><a href="#what-are-we-going-to-do">What are we going to do?</a></li>
 <li><a href="#step-by-step-guide">Step by step guide</a>
 <ul>
-<li><a href="#create-a-manifest-file-with-our-account-in-it">Create a manifest file with our account in it</a>
+<li><a href="#create-a-manifest-file-with-our-account-in-it">Create a manifest file with our account in it</a></li>
+<li><a href="#provision-the-product-aws-config-desired-instance-types-into-a-spoke-account">Provision the product <em>aws-config-desired-instance-types</em> into a spoke account</a>
 <ul>
 <li><a href="#committing-the-manifest-file">Committing the manifest file</a></li>
 <li><a href="#what-did-we-just-do">What did we just do?</a></li>
@@ -992,7 +993,7 @@
         
         <div id="body-inner">
           
-            <h1>Provision the product</h1>
+            <h1>Provision the control</h1>
           
 
         
@@ -1013,7 +1014,7 @@
 
 <h2 id="step-by-step-guide">Step by step guide</h2>
 
-<p>Here are the steps you need to follow to &ldquo;Provision the product&rdquo;</p>
+<p>Here are the steps you need to follow to &ldquo;Provision the control&rdquo;</p>
 
 <h3 id="create-a-manifest-file-with-our-account-in-it">Create a manifest file with our account in it</h3>
 
@@ -1029,9 +1030,7 @@
 
 
 <ul>
-<li>Copy the following snippet into the main input field and replace account_id to show your account id on the highlighted line:
-
-<br /></li>
+<li>Copy the following snippet into the main input field and replace account_id to show your account id on the highlighted line:</li>
 </ul>
 
 <figure><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">accounts</span><span style="color:#f92672">:</span>
@@ -1046,7 +1045,8 @@
       <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;partition:eu&#34;</span>
       <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;scope:pci&#34;</span>
 </code></pre></div></figure>
- 
+
+<h3 id="provision-the-product-aws-config-desired-instance-types-into-a-spoke-account">Provision the product <em>aws-config-desired-instance-types</em> into a spoke account</h3>
 
 <ul>
 <li>Append the following snippet to the end of the main input field:
@@ -1129,13 +1129,10 @@
 
 <h4 id="what-did-we-just-do">What did we just do?</h4>
 
-<p>The YAML we pasted in the previous step told the framework to perform two actions:</p>
+<p>The YAML we pasted in the previous step told the framework to perform the following actions:</p>
 
 <ul>
-<li>provision a product named <em>aws-config-desired-instance-types</em></li>
-<li>add a <em>v1</em> of our product</li>
-<li>create a portfolio named <em>cloud-engineering-governance</em></li>
-<li>add the product: <em>aws-config-desired-instance-types</em> to the portfolio: <em>cloud-engineering-governance</em></li>
+<li>provision a product named <em>aws-config-desired-instance-types</em> into each of the enabled regions of the account</li>
 </ul>
 
 <h4 id="verifying-the-provisioning">Verifying the provisioning</h4>
@@ -1764,7 +1761,7 @@ following:</p>
 	 
 	 
 		
-			<a class="nav nav-prev" href="../../40-reinvent2019/100-task-1/100-create-the-product.html" title="Create the product"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="../../40-reinvent2019/100-task-1/100-create-the-product.html" title="Create the control"> <i class="fa fa-chevron-left"></i></a>
 		
 		
 			<a class="nav nav-next" href="../../40-reinvent2019/150-task-2.html" title="Data governance" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>

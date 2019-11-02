@@ -15,7 +15,7 @@
     <link rel="shortcut icon" href="../../../images/favicon.png" type="image/png" />
 <link rel="icon" href="../../../images/favicon.png" type="image/png" />
 
-    <title>Provision the product :: Service Catalog Tools Workshop</title>
+    <title>Provision the control :: Service Catalog Tools Workshop</title>
 
     
     <link href="../../../css/nucleus.css" rel="stylesheet">
@@ -567,9 +567,9 @@
  
   
     
-      <li data-nav-id="/amp/40-reinvent2019/100-task-1/100-create-the-product.html" title="Create the product" class="dd-item ">
+      <li data-nav-id="/amp/40-reinvent2019/100-task-1/100-create-the-product.html" title="Create the control" class="dd-item ">
         <a href="../../../amp/40-reinvent2019/100-task-1/100-create-the-product.html">
-        Create the product
+        Create the control
         
         </a>
     </li>
@@ -586,9 +586,9 @@
  
   
     
-      <li data-nav-id="/amp/40-reinvent2019/100-task-1/200-provision-the-product.html" title="Provision the product" class="dd-item ">
+      <li data-nav-id="/amp/40-reinvent2019/100-task-1/200-provision-the-product.html" title="Provision the control" class="dd-item ">
         <a href="../../../amp/40-reinvent2019/100-task-1/200-provision-the-product.html">
-        Provision the product
+        Provision the control
         
         </a>
     </li>
@@ -639,9 +639,9 @@
  
   
     
-      <li data-nav-id="/amp/40-reinvent2019/150-task-2/100-create-the-product.html" title="Create the product" class="dd-item ">
+      <li data-nav-id="/amp/40-reinvent2019/150-task-2/100-create-the-product.html" title="Create the control" class="dd-item ">
         <a href="../../../amp/40-reinvent2019/150-task-2/100-create-the-product.html">
-        Create the product
+        Create the control
         
         </a>
     </li>
@@ -658,9 +658,9 @@
  
   
     
-      <li data-nav-id="/amp/40-reinvent2019/150-task-2/200-provision-the-product.html" title="Provision the product" class="dd-item active">
+      <li data-nav-id="/amp/40-reinvent2019/150-task-2/200-provision-the-product.html" title="Provision the control" class="dd-item active">
         <a href="../../../amp/40-reinvent2019/150-task-2/200-provision-the-product.html">
-        Provision the product
+        Provision the control
         
         </a>
     </li>
@@ -949,7 +949,7 @@
             
           
           
-            <a href='../../../amp/'>AWS Service Catalog Tools Intro Workshop</a> > <a href='../../../reinvent2019/'>re:Invent 2019</a> > <a href='../../../40-reinvent2019/150-task-2.html'>Data governance</a> > Provision the product
+            <a href='../../../amp/'>AWS Service Catalog Tools Intro Workshop</a> > <a href='../../../reinvent2019/'>re:Invent 2019</a> > <a href='../../../40-reinvent2019/150-task-2.html'>Data governance</a> > Provision the control
           
         
           
@@ -967,14 +967,15 @@
 <ul>
 <li>
 <ul>
-<li>
+<li><a href="#what-are-we-going-to-do">What are we going to do?</a></li>
+<li><a href="#step-by-step-guide">Step by step guide</a>
 <ul>
-<li><a href="#provisioning-the-product">Provisioning the product</a>
+<li><a href="#provision-the-product-aws-config-rds-storage-encrypted-into-a-spoke-account">Provision the product <em>aws-config-rds-storage-encrypted</em> into a spoke account</a>
 <ul>
-<li><a href="#adding-an-account-to-the-manifest-file">Adding an account to the manifest file</a></li>
-<li><a href="#adding-the-product-to-the-manifest">Adding the product to the manifest</a></li>
 <li><a href="#committing-the-manifest-file">Committing the manifest file</a></li>
+<li><a href="#what-did-we-just-do">What did we just do?</a></li>
 <li><a href="#verifying-the-provisioning">Verifying the provisioning</a></li>
+<li><a href="#verify-the-aws-config-rule-is-enabled">Verify the AWS Config rule is enabled</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -991,7 +992,7 @@
         
         <div id="body-inner">
           
-            <h1>Provision the product</h1>
+            <h1>Provision the control</h1>
           
 
         
@@ -1001,68 +1002,34 @@
 
 <hr />
 
-<h3 id="provisioning-the-product">Provisioning the product</h3>
+<h2 id="what-are-we-going-to-do">What are we going to do?</h2>
 
-<p><em>We will add our account to the frameworks manifest file so it knows about our account and we will tell the framework to
-provision our newly created product into our account.</em></p>
-
-<h4 id="adding-an-account-to-the-manifest-file">Adding an account to the manifest file</h4>
-
-<p><em>We will start out by adding your account to the manifest file.</em></p>
+<p>We are going to perform the following steps:</p>
 
 <ul>
-<li><p>Navigate to the  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codecommit/repositories/ServiceCatalogPuppet/browse?region=eu-west-1' target='_blank'>ServiceCatalogPuppet CodeCommit repository</a></p></li>
-
-<li><p>Scroll down to the bottom of the page and hit the <em>Create file</em> button</p></li>
+<li>provision the product <em>aws-config-rds-storage-encrypted</em> into a spoke account</li>
 </ul>
 
-<figure>
-    <img src="../../../tasks/create_file.png"/> 
-</figure>
+<h2 id="step-by-step-guide">Step by step guide</h2>
 
+<p>Here are the steps you need to follow to &ldquo;Provision the control&rdquo;</p>
+
+<h3 id="provision-the-product-aws-config-rds-storage-encrypted-into-a-spoke-account">Provision the product <em>aws-config-rds-storage-encrypted</em> into a spoke account</h3>
 
 <ul>
-<li>Copy the following snippet into the main input field:
+<li><p>Navigate to the  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codecommit/repositories/ServiceCatalogPuppet/browse?region=eu-west-1' target='_blank'>ServiceCatalogPuppet CodeCommit repository</a> again</p></li>
 
-<br /></li>
+<li><p>Click on <em>manifest.yaml</em></p></li>
+
+<li><p>Click <em>Edit</em></p></li>
+
+<li><p>Append the following snippet to the end of the main input field:</p></li>
 </ul>
 
-<figure><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">accounts</span><span style="color:#f92672">:</span>
-  <span style="color:#f92672">-</span> <span style="color:#a6e22e">account_id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;&lt;YOUR_ACCOUNT_ID&gt;&#34;</span>
-    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;puppet-account&#34;</span>
-    <span style="color:#a6e22e">default_region</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;eu-west-1&#34;</span>
-    <span style="color:#a6e22e">regions_enabled</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;eu-west-1&#34;</span>
-      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;eu-west-2&#34;</span>
-    <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;type:prod&#34;</span>
-      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;partition:eu&#34;</span>
-      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;scope:pci&#34;</span>
-</code></pre></div></figure>
- 
-
-<ul>
-<li>Update account_id on line to show your account id</li>
-</ul>
-
-<h4 id="adding-the-product-to-the-manifest">Adding the product to the manifest</h4>
-
-<p><em>Now we are ready to add a product to the manifest file.</em></p>
-
-<ul>
-<li>Add the following snippet to the end of the main input field:
-
-<br /></li>
-</ul>
-
-<figure><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">launches</span><span style="color:#f92672">:</span>
-  <span style="color:#a6e22e">aws</span><span style="color:#f92672">-</span><span style="color:#a6e22e">config</span><span style="color:#f92672">-</span><span style="color:#a6e22e">enable</span><span style="color:#f92672">-</span><span style="color:#a6e22e">config</span><span style="color:#f92672">:</span>
+<figure><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">  <span style="color:#a6e22e">aws</span><span style="color:#f92672">-</span><span style="color:#a6e22e">config</span><span style="color:#f92672">-</span><span style="color:#a6e22e">rds</span><span style="color:#f92672">-</span><span style="color:#a6e22e">storage</span><span style="color:#f92672">-</span><span style="color:#a6e22e">encrypted</span><span style="color:#f92672">:</span>
     <span style="color:#a6e22e">portfolio</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;reinvent-cloud-engineering-governance&#34;</span>
-    <span style="color:#a6e22e">product</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;aws-config-desired-instance-types&#34;</span>
+    <span style="color:#a6e22e">product</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;aws-config-rds-storage-encrypted&#34;</span>
     <span style="color:#a6e22e">version</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1&#34;</span>
-    <span style="color:#a6e22e">parameters</span><span style="color:#f92672">:</span>
-      <span style="color:#a6e22e">InstanceType</span><span style="color:#f92672">:</span>
-        <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;t2.medium, t2.large, t2.xlarge&#34;</span>
     <span style="color:#a6e22e">deploy_to</span><span style="color:#f92672">:</span>
       <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
         <span style="color:#f92672">-</span> <span style="color:#a6e22e">tag</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;type:prod&#34;</span>
@@ -1070,7 +1037,7 @@ provision our newly created product into our account.</em></p>
 </code></pre></div></figure>
 
 <ul>
-<li>The main input field should look like this:
+<li>The main input field should look like this (remember to set your account_id):
 
 <br /></li>
 </ul>
@@ -1089,11 +1056,16 @@ provision our newly created product into our account.</em></p>
 <span style="color:#a6e22e">launches</span><span style="color:#f92672">:</span>
   <span style="color:#a6e22e">aws</span><span style="color:#f92672">-</span><span style="color:#a6e22e">config</span><span style="color:#f92672">-</span><span style="color:#a6e22e">enable</span><span style="color:#f92672">-</span><span style="color:#a6e22e">config</span><span style="color:#f92672">:</span>
     <span style="color:#a6e22e">portfolio</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;reinvent-cloud-engineering-governance&#34;</span>
-    <span style="color:#a6e22e">product</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;aws-config-desired-instance-types&#34;</span>
+    <span style="color:#a6e22e">product</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;aws-config-enable-config&#34;</span>
     <span style="color:#a6e22e">version</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1&#34;</span>
-    <span style="color:#a6e22e">parameters</span><span style="color:#f92672">:</span>
-      <span style="color:#a6e22e">InstanceType</span><span style="color:#f92672">:</span>
-        <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;t2.medium, t2.large, t2.xlarge&#34;</span>
+    <span style="color:#a6e22e">deploy_to</span><span style="color:#f92672">:</span>
+      <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
+        <span style="color:#f92672">-</span> <span style="color:#a6e22e">tag</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;type:prod&#34;</span>
+          <span style="color:#a6e22e">regions</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;default_region&#34;</span>
+  <span style="color:#a6e22e">aws</span><span style="color:#f92672">-</span><span style="color:#a6e22e">config</span><span style="color:#f92672">-</span><span style="color:#a6e22e">rds</span><span style="color:#f92672">-</span><span style="color:#a6e22e">storage</span><span style="color:#f92672">-</span><span style="color:#a6e22e">encrypted</span><span style="color:#f92672">:</span>
+    <span style="color:#a6e22e">portfolio</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;reinvent-cloud-engineering-governance&#34;</span>
+    <span style="color:#a6e22e">product</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;aws-config-rds-storage-encrypted&#34;</span>
+    <span style="color:#a6e22e">version</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1&#34;</span>
     <span style="color:#a6e22e">deploy_to</span><span style="color:#f92672">:</span>
       <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
         <span style="color:#f92672">-</span> <span style="color:#a6e22e">tag</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;type:prod&#34;</span>
@@ -1105,13 +1077,9 @@ provision our newly created product into our account.</em></p>
 <p><em>Now that we have written the manifest file we are ready to commit it.</em></p>
 
 <ul>
-<li><p>Set the <em>File name</em> to <code>manifest.yaml</code></p></li>
-
-<li><p>Set your <em>Author name</em></p></li>
-
-<li><p>Set your <em>Email address</em></p></li>
-
-<li><p>Set your <em>Commit message</em></p></li>
+<li>Set your <em>Author name</em></li>
+<li>Set your <em>Email address</em></li>
+<li>Set your <em>Commit message</em></li>
 </ul>
 
 
@@ -1127,6 +1095,14 @@ provision our newly created product into our account.</em></p>
     <img src="../../../tasks/CommitChanges.png"/> 
 </figure>
 
+
+<h4 id="what-did-we-just-do">What did we just do?</h4>
+
+<p>The YAML we pasted in the previous step told the framework to perform the following actions:</p>
+
+<ul>
+<li>provision a product named <em>aws-config-rds-storage-encrypted</em> into each of the enabled regions of the account</li>
+</ul>
 
 <h4 id="verifying-the-provisioning">Verifying the provisioning</h4>
 
@@ -1160,7 +1136,17 @@ the filter by drop down in the top right:</p>
 </div>
 
 
-<p>You have now successfully provisioned a product! When provisioned, this product will automatically enable AWS Config.</p>
+<p>You have now successfully provisioned a product</p>
+
+<h4 id="verify-the-aws-config-rule-is-enabled">Verify the AWS Config rule is enabled</h4>
+
+<p>To see the AWS Config rule enabled, navigate to  <a href='https://eu-west-1.console.aws.amazon.com/config/home?region=eu-west-1#/rules/view' target='_blank'>AWS Config rules</a>.  Once there you should see the
+following:</p>
+
+<figure>
+    <img src="../../../tasks/aws-config-rule-enabled.png"/> 
+</figure>
+
 
 
 <footer class=" footline" >
@@ -1744,7 +1730,7 @@ the filter by drop down in the top right:</p>
 	 
 	 
 		
-			<a class="nav nav-prev" href="../../../amp/40-reinvent2019/150-task-2/100-create-the-product.html" title="Create the product"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="../../../amp/40-reinvent2019/150-task-2/100-create-the-product.html" title="Create the control"> <i class="fa fa-chevron-left"></i></a>
 		
 		
 			<a class="nav nav-next" href="../../../40-reinvent2019/200-task-2.html" title="Task 2" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>

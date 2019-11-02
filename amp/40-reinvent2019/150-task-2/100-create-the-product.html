@@ -15,7 +15,7 @@
     <link rel="shortcut icon" href="../../../images/favicon.png" type="image/png" />
 <link rel="icon" href="../../../images/favicon.png" type="image/png" />
 
-    <title>Create the product :: Service Catalog Tools Workshop</title>
+    <title>Create the control :: Service Catalog Tools Workshop</title>
 
     
     <link href="../../../css/nucleus.css" rel="stylesheet">
@@ -567,9 +567,9 @@
  
   
     
-      <li data-nav-id="/amp/40-reinvent2019/100-task-1/100-create-the-product.html" title="Create the product" class="dd-item ">
+      <li data-nav-id="/amp/40-reinvent2019/100-task-1/100-create-the-product.html" title="Create the control" class="dd-item ">
         <a href="../../../amp/40-reinvent2019/100-task-1/100-create-the-product.html">
-        Create the product
+        Create the control
         
         </a>
     </li>
@@ -586,9 +586,9 @@
  
   
     
-      <li data-nav-id="/amp/40-reinvent2019/100-task-1/200-provision-the-product.html" title="Provision the product" class="dd-item ">
+      <li data-nav-id="/amp/40-reinvent2019/100-task-1/200-provision-the-product.html" title="Provision the control" class="dd-item ">
         <a href="../../../amp/40-reinvent2019/100-task-1/200-provision-the-product.html">
-        Provision the product
+        Provision the control
         
         </a>
     </li>
@@ -639,9 +639,9 @@
  
   
     
-      <li data-nav-id="/amp/40-reinvent2019/150-task-2/100-create-the-product.html" title="Create the product" class="dd-item active">
+      <li data-nav-id="/amp/40-reinvent2019/150-task-2/100-create-the-product.html" title="Create the control" class="dd-item active">
         <a href="../../../amp/40-reinvent2019/150-task-2/100-create-the-product.html">
-        Create the product
+        Create the control
         
         </a>
     </li>
@@ -658,9 +658,9 @@
  
   
     
-      <li data-nav-id="/amp/40-reinvent2019/150-task-2/200-provision-the-product.html" title="Provision the product" class="dd-item ">
+      <li data-nav-id="/amp/40-reinvent2019/150-task-2/200-provision-the-product.html" title="Provision the control" class="dd-item ">
         <a href="../../../amp/40-reinvent2019/150-task-2/200-provision-the-product.html">
-        Provision the product
+        Provision the control
         
         </a>
     </li>
@@ -949,7 +949,7 @@
             
           
           
-            <a href='../../../amp/'>AWS Service Catalog Tools Intro Workshop</a> > <a href='../../../reinvent2019/'>re:Invent 2019</a> > <a href='../../../40-reinvent2019/150-task-2.html'>Data governance</a> > Create the product
+            <a href='../../../amp/'>AWS Service Catalog Tools Intro Workshop</a> > <a href='../../../reinvent2019/'>re:Invent 2019</a> > <a href='../../../40-reinvent2019/150-task-2.html'>Data governance</a> > Create the control
           
         
           
@@ -967,28 +967,15 @@
 <ul>
 <li>
 <ul>
-<li>
+<li><a href="#what-are-we-going-to-do">What are we going to do?</a></li>
+<li><a href="#step-by-step-guide">Step by step guide</a>
 <ul>
-<li><a href="#create-the-product">Create the product</a>
+<li><a href="#define-a-product-with-a-version-and-a-portfolio">Define a product with a version and a portfolio</a>
 <ul>
-<li><a href="#adding-the-product-to-the-framework">Adding the product to the framework</a></li>
-<li><a href="#verify-that-the-change-worked">Verify that the change worked</a></li>
+<li><a href="#what-did-we-just-do">What did we just do?</a></li>
+<li><a href="#verify-the-change-worked">Verify the change worked</a></li>
 </ul></li>
-<li><a href="#create-the-version">Create the version</a>
-<ul>
-<li><a href="#add-the-product-version-to-the-framework">Add the product version to the framework</a></li>
-<li><a href="#verify-the-version-was-created">Verify the version was created</a></li>
-</ul></li>
-<li><a href="#configuring-the-product-version-pipeline">Configuring the product version pipeline</a>
-<ul>
-<li><a href="#add-the-source-code-for-your-product">Add the source code for your product</a></li>
-</ul></li>
-<li><a href="#create-the-portfolio">Create the portfolio</a>
-<ul>
-<li><a href="#adding-the-portfolio-to-the-framework">Adding the portfolio to the framework</a></li>
-<li><a href="#verify-the-portfolio-was-created">Verify the portfolio was created</a></li>
-</ul></li>
-<li><a href="#add-the-product-to-the-portfolio">Add the product to the portfolio</a>
+<li><a href="#add-the-source-code-for-our-product">Add the source code for our product</a>
 <ul>
 <li><a href="#verify-the-product-was-added-to-the-portfolio">Verify the product was added to the portfolio</a></li>
 </ul></li>
@@ -1007,7 +994,7 @@
         
         <div id="body-inner">
           
-            <h1>Create the product</h1>
+            <h1>Create the control</h1>
           
 
         
@@ -1017,101 +1004,26 @@
 
 <hr />
 
-<h3 id="create-the-product">Create the product</h3>
+<h2 id="what-are-we-going-to-do">What are we going to do?</h2>
 
-<p><em>We need to tell the framework that we want to create a product. When we add the product to the framework it will add it to
-AWS Service Catalog in every region that we specified when installing the framework.</em></p>
-
-<h4 id="adding-the-product-to-the-framework">Adding the product to the framework</h4>
+<p>We are going to perform the following steps:</p>
 
 <ul>
-<li>Navigate to the  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codecommit/repositories/ServiceCatalogFactory/browse?region=eu-west-1' target='_blank'>ServiceCatalogFactory CodeCommit repository</a><br /></li>
-<li>Scroll down to the bottom of the page and hit the <em>Create file</em> button</li>
+<li>define another product with a version and add it to the existing <em>cloud-engineering-governance</em> portfolio</li>
+<li>add the source code for our product</li>
+<li>provision that product into a spoke account</li>
 </ul>
 
-<figure>
-    <img src="../../../tasks/create_file.png"/> 
-</figure>
+<h2 id="step-by-step-guide">Step by step guide</h2>
 
+<p>Here are the steps you need to follow to &ldquo;Create the control&rdquo;</p>
 
-<ul>
-<li>Copy the following snippet into the main input field:
-
-<br /></li>
-</ul>
-
-<figure><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">Schema</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">factory</span><span style="color:#f92672">-</span><span style="color:#ae81ff">2019</span><span style="color:#f92672">-</span><span style="color:#ae81ff">04</span><span style="color:#f92672">-</span><span style="color:#ae81ff">01</span>
-<span style="color:#a6e22e">Products</span><span style="color:#f92672">:</span>
-  <span style="color:#f92672">-</span> <span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;aws-config-desired-instance-types&#34;</span>
-    <span style="color:#a6e22e">Owner</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;budget-and-cost-governance@acme.com&#34;</span>
-    <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Enables AWS Config rule - desired-instance-type with our RIs&#34;</span>
-    <span style="color:#a6e22e">Distributor</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering&#34;</span>
-    <span style="color:#a6e22e">SupportDescription</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Speak to budget-and-cost-governance@acme.com about exceptions and speak to cloud-engineering@acme.com about implementation issues&#34;</span>
-    <span style="color:#a6e22e">SupportEmail</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering@acme.com&#34;</span>
-    <span style="color:#a6e22e">SupportUrl</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;https://wiki.acme.com/cloud-engineering/budget-and-cost-governance/aws-config-desired-instance-types&#34;</span>
-    <span style="color:#a6e22e">Tags</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;type&#34;</span>
-        <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;governance&#34;</span>
-      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;creator&#34;</span>
-        <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering&#34;</span>
-      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cost-center&#34;</span>
-        <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;governance&#34;</span>
-</code></pre></div></figure>
- 
+<h3 id="define-a-product-with-a-version-and-a-portfolio">Define a product with a version and a portfolio</h3>
 
 <ul>
-<li><p>Set the <em>File name</em> to <code>portfolios/reinvent.yaml</code></p></li>
+<li><p>Navigate to the  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codecommit/repositories/ServiceCatalogFactory/browse?region=eu-west-1' target='_blank'>ServiceCatalogFactory CodeCommit repository</a> again</p></li>
 
-<li><p>Set your <em>Author name</em></p></li>
-
-<li><p>Set your <em>Email address</em></p></li>
-
-<li><p>Set your <em>Commit message</em></p></li>
-</ul>
-
-
-<div class="notices tip" ><p>Using a good / unique commit message will help you understand what is going on later.</p>
-</div>
-
-
-<ul>
-<li>Click the <em>Commit changes</em> button:</li>
-</ul>
-
-<figure>
-    <img src="../../../tasks/CommitChanges.png"/> 
-</figure>
-
-
-<h4 id="verify-that-the-change-worked">Verify that the change worked</h4>
-
-<p>Once you have made your changes the  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/servicecatalog-factory-pipeline/view?region=eu-west-1' target='_blank'>ServiceCatalogFactory Pipeline</a> should have run or if you were very quick, the pipeline
-may still be running.  If it has not yet started feel free to the hit the <em>Release change</em> button.</p>
-
-<p>Once it has completed it should show the <em>Source</em> and <em>Build</em> stages in green to indicate they have completed
-successfully:</p>
-
-<figure>
-    <img src="../../../tasks/SuccessfulFactoryRun.png"/> 
-</figure>
-
-
-
-<div class="notices note" ><p>If this is failing please raise your hand for some assistance</p>
-</div>
-
-
-<h3 id="create-the-version">Create the version</h3>
-
-<p><em>We have created the product. We now need to tell the framework we want to create a new version of our product.  Once this is done we will have an AWS
-CodePipeline that will take the source code for our product from a git repository and add it to AWS Service Catalog in each region that we
-specified when installing the framework.</em></p>
-
-<h4 id="add-the-product-version-to-the-framework">Add the product version to the framework</h4>
-
-<ul>
-<li>Navigate to the  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codecommit/repositories/ServiceCatalogFactory/browse?region=eu-west-1' target='_blank'>ServiceCatalogFactory CodeCommit repository</a> again</li>
-<li>Click on <em>portfolios</em></li>
+<li><p>Click on <em>portfolios</em></p></li>
 </ul>
 
 <figure>
@@ -1138,27 +1050,38 @@ specified when installing the framework.</em></p>
 
 
 <ul>
-<li>Add the following to the end of the file (be careful with your indentation):
-
-<br /></li>
+<li>We will need to insert the following to the products section:</li>
 </ul>
 
-<figure><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">    <span style="color:#a6e22e">Versions</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1&#34;</span>
-        <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1 of aws-config-desired-instance-types&#34;</span>
-        <span style="color:#a6e22e">Active</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">True</span>
-        <span style="color:#a6e22e">Source</span><span style="color:#f92672">:</span>
-          <span style="color:#a6e22e">Provider</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;CodeCommit&#34;</span>
-          <span style="color:#a6e22e">Configuration</span><span style="color:#f92672">:</span>
-            <span style="color:#a6e22e">RepositoryName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;aws-config-desired-instance-types&#34;</span>
-            <span style="color:#a6e22e">BranchName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;master&#34;</span>
+<figure><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#f92672">-</span> <span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;aws-config-rds-storage-encrypted&#34;</span>
+  <span style="color:#a6e22e">Owner</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;data-governance@acme.com&#34;</span>
+  <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Enables AWS Config rule - aws-config-rds-storage-encrypted&#34;</span>
+  <span style="color:#a6e22e">Distributor</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering&#34;</span>
+  <span style="color:#a6e22e">SupportDescription</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Speak to data-governance@acme.com about exceptions and speak to cloud-engineering@acme.com about implementation issues&#34;</span>
+  <span style="color:#a6e22e">SupportEmail</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering@acme.com&#34;</span>
+  <span style="color:#a6e22e">SupportUrl</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;https://wiki.acme.com/cloud-engineering/data-governance/aws-config-rds-storage-encrypted&#34;</span>
+  <span style="color:#a6e22e">Tags</span><span style="color:#f92672">:</span>
+    <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;type&#34;</span>
+      <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;governance&#34;</span>
+    <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;creator&#34;</span>
+      <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering&#34;</span>
+    <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cost-center&#34;</span>
+      <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;governance&#34;</span>
+  <span style="color:#a6e22e">Versions</span><span style="color:#f92672">:</span>
+    <span style="color:#f92672">-</span> <span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1&#34;</span>
+      <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1 of aws-config-rds-storage-encrypted&#34;</span>
+      <span style="color:#a6e22e">Active</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">True</span>
+      <span style="color:#a6e22e">Source</span><span style="color:#f92672">:</span>
+        <span style="color:#a6e22e">Provider</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;CodeCommit&#34;</span>
+        <span style="color:#a6e22e">Configuration</span><span style="color:#f92672">:</span>
+          <span style="color:#a6e22e">RepositoryName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;aws-config-rds-storage-encrypted&#34;</span>
+          <span style="color:#a6e22e">BranchName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;master&#34;</span>
+  <span style="color:#a6e22e">Portfolios</span><span style="color:#f92672">:</span>
+    <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;cloud-engineering-governance&#34;</span>
 </code></pre></div></figure>
- 
 
 <ul>
-<li>Verify the contents of your file matches this:
-
-<br /></li>
+<li>Once completed it should like look this:</li>
 </ul>
 
 <figure><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">Schema</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">factory</span><span style="color:#f92672">-</span><span style="color:#ae81ff">2019</span><span style="color:#f92672">-</span><span style="color:#ae81ff">04</span><span style="color:#f92672">-</span><span style="color:#ae81ff">01</span>
@@ -1186,23 +1109,84 @@ specified when installing the framework.</em></p>
           <span style="color:#a6e22e">Configuration</span><span style="color:#f92672">:</span>
             <span style="color:#a6e22e">RepositoryName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;aws-config-desired-instance-types&#34;</span>
             <span style="color:#a6e22e">BranchName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;master&#34;</span>
+    <span style="color:#a6e22e">Portfolios</span><span style="color:#f92672">:</span>
+      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;cloud-engineering-governance&#34;</span>
+
+  <span style="color:#f92672">-</span> <span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;aws-config-rds-storage-encrypted&#34;</span>
+    <span style="color:#a6e22e">Owner</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;data-governance@acme.com&#34;</span>
+    <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Enables AWS Config rule - aws-config-rds-storage-encrypted&#34;</span>
+    <span style="color:#a6e22e">Distributor</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering&#34;</span>
+    <span style="color:#a6e22e">SupportDescription</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Speak to data-governance@acme.com about exceptions and speak to cloud-engineering@acme.com about implementation issues&#34;</span>
+    <span style="color:#a6e22e">SupportEmail</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering@acme.com&#34;</span>
+    <span style="color:#a6e22e">SupportUrl</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;https://wiki.acme.com/cloud-engineering/data-governance/aws-config-rds-storage-encrypted&#34;</span>
+    <span style="color:#a6e22e">Tags</span><span style="color:#f92672">:</span>
+      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;type&#34;</span>
+        <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;governance&#34;</span>
+      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;creator&#34;</span>
+        <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering&#34;</span>
+      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cost-center&#34;</span>
+        <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;governance&#34;</span>
+    <span style="color:#a6e22e">Versions</span><span style="color:#f92672">:</span>
+      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1&#34;</span>
+        <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1 of aws-config-rds-storage-encrypted&#34;</span>
+        <span style="color:#a6e22e">Active</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">True</span>
+        <span style="color:#a6e22e">Source</span><span style="color:#f92672">:</span>
+          <span style="color:#a6e22e">Provider</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;CodeCommit&#34;</span>
+          <span style="color:#a6e22e">Configuration</span><span style="color:#f92672">:</span>
+            <span style="color:#a6e22e">RepositoryName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;aws-config-rds-storage-encrypted&#34;</span>
+            <span style="color:#a6e22e">BranchName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;master&#34;</span>
+    <span style="color:#a6e22e">Portfolios</span><span style="color:#f92672">:</span>
+      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;cloud-engineering-governance&#34;</span>
+
+<span style="color:#a6e22e">Portfolios</span><span style="color:#f92672">:</span>
+  <span style="color:#f92672">-</span> <span style="color:#a6e22e">DisplayName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering-governance&#34;</span>
+    <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Portfolio containing the products needed to govern AWS accounts&#34;</span>
+    <span style="color:#a6e22e">ProviderName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering&#34;</span>
+    <span style="color:#a6e22e">Associations</span><span style="color:#f92672">:</span>
+      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;arn:aws:iam::${AWS::AccountId}:role/TeamRole&#34;</span>
+    <span style="color:#a6e22e">Tags</span><span style="color:#f92672">:</span>
+      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;type&#34;</span>
+        <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;governance&#34;</span>
+      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;creator&#34;</span>
+        <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering&#34;</span>
+      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cost-center&#34;</span>
+        <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;governance&#34;</span>
 </code></pre></div></figure>
+ 
 
-<p>Once you have updated the file fill in the fields for <em>Author name</em>, <em>Email address</em>, <em>Commit message</em> and hit <em>Commit changes</em></p>
-
-<figure>
-    <img src="../../../tasks/CommitChanges.png"/> 
-</figure>
-
+<ul>
+<li>Set your <em>Author name</em></li>
+<li>Set your <em>Email address</em></li>
+<li>Set your <em>Commit message</em></li>
+</ul>
 
 
 <div class="notices tip" ><p>Using a good / unique commit message will help you understand what is going on later.</p>
 </div>
 
 
-<h4 id="verify-the-version-was-created">Verify the version was created</h4>
+<ul>
+<li>Click the <em>Commit changes</em> button:</li>
+</ul>
 
-<p>Once you have made your changes the  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/servicecatalog-factory-pipeline/view?region=eu-west-1' target='_blank'>ServiceCatalogFactory Pipeline</a> should have run or if you were quick
+<figure>
+    <img src="../../../tasks/CommitChanges.png"/> 
+</figure>
+
+
+<h4 id="what-did-we-just-do">What did we just do?</h4>
+
+<p>The YAML we pasted in the previous step told the framework to perform several actions:</p>
+
+<ul>
+<li>create a product named <em>aws-config-rds-storage-encrypted</em></li>
+<li>add a <em>v1</em> of our product</li>
+<li>add the product: <em>aws-config-rds-storage-encrypted</em> to the portfolio: <em>cloud-engineering-governance</em></li>
+</ul>
+
+<h4 id="verify-the-change-worked">Verify the change worked</h4>
+
+<p>Once you have made your changes the  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/servicecatalog-factory-pipeline/view?region=eu-west-1' target='_blank'>ServiceCatalogFactory Pipeline</a> should have run or if you were very quick, the pipeline
 may still be running.  If it has not yet started feel free to the hit the <em>Release change</em> button.</p>
 
 <p>Once it has completed it should show the <em>Source</em> and <em>Build</em> stages in green to indicate they have completed
@@ -1214,43 +1198,30 @@ successfully:</p>
 
 
 
-<div class="notices tip" ><p>You should see your commit message on this screen, it will help you know which version of ServiceCatalogFactory repo
-the pipeline is processing.</p>
-</div>
-
-
-
 <div class="notices note" ><p>If this is failing please raise your hand for some assistance</p>
 </div>
 
 
-<p>Now that your <em>ServiceCatalogFactory</em> pipeline has completed you can view the newly created pipeline:
-  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/aws-config-enable-config-v1-pipeline/view?region=eu-west-1' target='_blank'>aws-config-enable-config-v1-pipeline</a></p>
+<h3 id="add-the-source-code-for-our-product">Add the source code for our product</h3>
 
-<p>You can safely ignore aws-config-enable-config-v1-pipeline has failed.  For the pipeline to succeed, we need to add the source code for it to work which we will do in the next step.</p>
-
-<h3 id="configuring-the-product-version-pipeline">Configuring the product version pipeline</h3>
-
-<p><em>Now that a product and version have been created we now need to add the source code for the product so we can get it
-added to Service Catalog.</em></p>
-
-<h4 id="add-the-source-code-for-your-product">Add the source code for your product</h4>
-
-<p>When you configured your product version, you specified the following:</p>
+<p>When you configured your product version, you specified the following version:</p>
 
 <figure><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">    <span style="color:#a6e22e">Versions</span><span style="color:#f92672">:</span>
       <span style="color:#f92672">-</span> <span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1&#34;</span>
-        <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1 of aws-config-desired-instance-types&#34;</span>
+        <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1 of aws-config-rds-storage-encrypted&#34;</span>
         <span style="color:#a6e22e">Active</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">True</span>
         <span style="color:#a6e22e">Source</span><span style="color:#f92672">:</span>
           <span style="color:#a6e22e">Provider</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;CodeCommit&#34;</span>
           <span style="color:#a6e22e">Configuration</span><span style="color:#f92672">:</span>
-            <span style="color:#a6e22e">RepositoryName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;aws-config-desired-instance-types&#34;</span>
+            <span style="color:#a6e22e">RepositoryName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;aws-config-rds-storage-encrypted&#34;</span>
             <span style="color:#a6e22e">BranchName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;master&#34;</span>
 </code></pre></div></figure>
 
+<p>This tells the framework the source code for the product comes from the <em>master</em> branch of a
+<em>CodeCommit</em> repository of the name <em>aws-config-rds-storage-encrypted</em>.</p>
+
 <p>We now need to create the CodeCommit repository and add the AWS CloudFormation template we are going to use for our
-product into that repository.</p>
+product.</p>
 
 <ul>
 <li><p>Navigate to  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codecommit/repositories?region=eu-west-1' target='_blank'>AWS CodeCommit</a></p></li>
@@ -1264,7 +1235,7 @@ product into that repository.</p>
 
 
 <ul>
-<li>Input the name <code>aws-config-enable-config</code></li>
+<li>Input the name <code>aws-config-rds-storage-encrypted</code></li>
 </ul>
 
 <figure>
@@ -1291,34 +1262,24 @@ product into that repository.</p>
 
 
 <ul>
-<li>Copy the following snippet into the main input field:
-
-<br /></li>
+<li>Copy the following snippet into the main input field:</li>
 </ul>
 
-<figure><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">AWSTemplateFormatVersion</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;2010-09-09&#34;</span>
-<span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Create an AWS Congig rule ensuring the given instance types are the only instance types used&#34;</span>
-
-<span style="color:#a6e22e">Parameters</span><span style="color:#f92672">:</span>
-  <span style="color:#a6e22e">InstanceType</span><span style="color:#f92672">:</span>
-    <span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> String
-    <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Comma separated list of EC2 instance types (for example, &#39;t2.small, m4.large&#39;).&#34;</span>
-    <span style="color:#a6e22e">Default</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;t2.micro, t2.small&#34;</span>
+<figure><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">AWSTemplateFormatVersion</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;2010-09-09&#39;</span>
+<span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Create an AWS Congig rule ensuring RDS instances use encrypted storage&#34;</span>
 
 <span style="color:#a6e22e">Resources</span><span style="color:#f92672">:</span>
   <span style="color:#a6e22e">AWSConfigRule</span><span style="color:#f92672">:</span>
     <span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">AWS</span><span style="color:#f92672">::</span><span style="color:#a6e22e">Config</span><span style="color:#f92672">::</span><span style="color:#a6e22e">ConfigRule</span>
     <span style="color:#a6e22e">Properties</span><span style="color:#f92672">:</span>
-      <span style="color:#a6e22e">ConfigRuleName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;desired-instance-type&#34;</span>
-      <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Checks whether your EC2 instances are of the specified instance types.&#34;</span>
-      <span style="color:#a6e22e">InputParameters</span><span style="color:#f92672">:</span>
-        <span style="color:#a6e22e">instanceType</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Ref</span> <span style="color:#a6e22e">InstanceType</span>
+      <span style="color:#a6e22e">ConfigRuleName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;rds-storage-encrypted&#34;</span>
+      <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Checks whether storage encryption is enabled for your RDS DB instances.&#34;</span>
       <span style="color:#a6e22e">Scope</span><span style="color:#f92672">:</span>
         <span style="color:#a6e22e">ComplianceResourceTypes</span><span style="color:#f92672">:</span>
-          <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;AWS::EC2::Instance&#34;</span>
+          <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;AWS::RDS::DBInstance&#34;</span>
       <span style="color:#a6e22e">Source</span><span style="color:#f92672">:</span>
         <span style="color:#a6e22e">Owner</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">AWS</span>
-        <span style="color:#a6e22e">SourceIdentifier</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">DESIRED_INSTANCE_TYPE</span>
+        <span style="color:#a6e22e">SourceIdentifier</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">RDS_STORAGE_ENCRYPTED</span>
 </code></pre></div></figure>
 
 <ul>
@@ -1337,9 +1298,9 @@ product into that repository.</p>
 
 
 <p>Creating that file should trigger your
-  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/aws-config-enable-config-v1-pipeline/view?region=eu-west-1' target='_blank'>aws-config-enable-config-v1-pipeline</a>.</p>
+  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/aws-config-desired-instance-types-v1-pipeline/view?region=eu-west-1' target='_blank'>aws-config-desired-instance-types-v1-pipeline</a>.</p>
 
-<p>Once the pipeline has has completed it should show the <em>Source</em> and <em>Build</em> stages in green to indicate they have
+<p>Once the pipeline has completed it should show the <em>Source</em> and <em>Build</em> stages in green to indicate they have
 completed successfully:</p>
 
 <figure>
@@ -1380,258 +1341,11 @@ created version.</p>
 </div>
 
 
-<p>You have now successfully created a version for your product!  Next you are going to create a portfolio and add your
-product to it.</p>
-
-<h3 id="create-the-portfolio">Create the portfolio</h3>
-
-<p><em>Before we can add a product to a portfolio we need to create the portfolio. Below are the steps needed to create a
-portfolio.</em></p>
-
-<h4 id="adding-the-portfolio-to-the-framework">Adding the portfolio to the framework</h4>
-
-<ul>
-<li><p>Navigate to the  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codecommit/repositories/ServiceCatalogFactory/browse?region=eu-west-1' target='_blank'>ServiceCatalogFactory CodeCommit repository</a> again</p></li>
-
-<li><p>Click on <em>portfolios</em></p></li>
-</ul>
-
-<figure>
-    <img src="../../../tasks/ClickOnPortfolios.png"/> 
-</figure>
-
-
-<ul>
-<li>Click on <em>reinvent.yaml</em></li>
-</ul>
-
-<figure>
-    <img src="../../../tasks/ClickOnreinvent.png"/> 
-</figure>
-
-
-<ul>
-<li>Click <em>Edit</em></li>
-</ul>
-
-<figure>
-    <img src="../../../tasks/ClickEdit.png"/> 
-</figure>
-
-
-<ul>
-<li>Add the following to the end of the file (be careful with your indentation):</li>
-</ul>
-
-<p>% code file=&ldquo;40-reinvent2019/100-task-1/artefacts/factory/create-the-portfolio&ndash;portfolio_only.yaml&rdquo; language=&ldquo;js&rdquo; %}}</p>
-
-<ul>
-<li>Verify the contents of your file matches this:</li>
-</ul>
-
-<figure><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">Schema</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">factory</span><span style="color:#f92672">-</span><span style="color:#ae81ff">2019</span><span style="color:#f92672">-</span><span style="color:#ae81ff">04</span><span style="color:#f92672">-</span><span style="color:#ae81ff">01</span>
-<span style="color:#a6e22e">Products</span><span style="color:#f92672">:</span>
-  <span style="color:#f92672">-</span> <span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;aws-config-desired-instance-types&#34;</span>
-    <span style="color:#a6e22e">Owner</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;budget-and-cost-governance@acme.com&#34;</span>
-    <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Enables AWS Config rule - desired-instance-type with our RIs&#34;</span>
-    <span style="color:#a6e22e">Distributor</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering&#34;</span>
-    <span style="color:#a6e22e">SupportDescription</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Speak to budget-and-cost-governance@acme.com about exceptions and speak to cloud-engineering@acme.com about implementation issues&#34;</span>
-    <span style="color:#a6e22e">SupportEmail</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering@acme.com&#34;</span>
-    <span style="color:#a6e22e">SupportUrl</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;https://wiki.acme.com/cloud-engineering/budget-and-cost-governance/aws-config-desired-instance-types&#34;</span>
-    <span style="color:#a6e22e">Tags</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;type&#34;</span>
-        <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;governance&#34;</span>
-      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;creator&#34;</span>
-        <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering&#34;</span>
-      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cost-center&#34;</span>
-        <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;governance&#34;</span>
-    <span style="color:#a6e22e">Versions</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1&#34;</span>
-        <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1 of aws-config-desired-instance-types&#34;</span>
-        <span style="color:#a6e22e">Active</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">True</span>
-        <span style="color:#a6e22e">Source</span><span style="color:#f92672">:</span>
-          <span style="color:#a6e22e">Provider</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;CodeCommit&#34;</span>
-          <span style="color:#a6e22e">Configuration</span><span style="color:#f92672">:</span>
-            <span style="color:#a6e22e">RepositoryName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;aws-config-desired-instance-types&#34;</span>
-            <span style="color:#a6e22e">BranchName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;master&#34;</span>
-<span style="color:#a6e22e">Portfolios</span><span style="color:#f92672">:</span>
-  <span style="color:#f92672">-</span> <span style="color:#a6e22e">DisplayName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering-governance&#34;</span>
-    <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Portfolio containing the products needed to govern AWS accounts&#34;</span>
-    <span style="color:#a6e22e">ProviderName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering&#34;</span>
-    <span style="color:#a6e22e">Associations</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;arn:aws:iam::${AWS::AccountId}:role/TeamRole&#34;</span>
-    <span style="color:#a6e22e">Tags</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;type&#34;</span>
-        <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;governance&#34;</span>
-      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;creator&#34;</span>
-        <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering&#34;</span>
-      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cost-center&#34;</span>
-        <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;governance&#34;</span>
-</code></pre></div></figure>
-
-<p>Once you have updated the file fill in the fields for <em>Author name</em>, <em>Email address</em>, <em>Commit message</em> and hit
-<em>Commit changes</em></p>
-
-<figure>
-    <img src="../../../tasks/CommitChanges.png"/> 
-</figure>
-
-
-
-<div class="notices tip" ><p>Using a good / unique commit message will help you understand what is going on later.</p>
-</div>
-
-
-<h4 id="verify-the-portfolio-was-created">Verify the portfolio was created</h4>
-
-<p>Once you have made your changes the  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/servicecatalog-factory-pipeline/view?region=eu-west-1' target='_blank'>ServiceCatalogFactory Pipeline</a> should have run or if you were quick
-may still be running.  If it has not yet started feel free to the hit the <em>Release change</em> button.</p>
-
-<p>Once it has completed it should show the <em>Source</em> and <em>Build</em> stages in green to indicate they have completed
-successfully:</p>
-
-<figure>
-    <img src="../../../tasks/SuccessfulFactoryRun.png"/> 
-</figure>
-
-
-
-<div class="notices note" ><p>If this is failing please raise your hand for some assistance</p>
-</div>
-
-
-<p>Once you have verified the pipeline has run you can go to  <a href='https://eu-west-1.console.aws.amazon.com/servicecatalog/console?region=eu-west-1#portfolios?' target='_blank'>Service Catalog portfolios</a> to view your
-portfolio.</p>
-
-<p>You should see the portfolio you just created listed:</p>
-
-<figure>
-    <img src="../../../tasks/SeeYourPortfolio.png"/> 
-</figure>
-
-
-
-<div class="notices note" ><p>If you cannot see your portfolio please raise your hand for some assistance</p>
-</div>
-
-
-<p>You have now successfully created a portfolio!</p>
-
-<h3 id="add-the-product-to-the-portfolio">Add the product to the portfolio</h3>
-
-<p><em>Now that you have a product and portfolio you can add the product to the portfolio.</em></p>
-
-<ul>
-<li><p>Navigate to the  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codecommit/repositories/ServiceCatalogFactory/browse?region=eu-west-1' target='_blank'>ServiceCatalogFactory CodeCommit repository</a> again</p></li>
-
-<li><p>Click on <em>portfolios</em></p></li>
-</ul>
-
-<figure>
-    <img src="../../../tasks/ClickOnPortfolios.png"/> 
-</figure>
-
-
-<ul>
-<li>Click on <em>reinvent.yaml</em></li>
-</ul>
-
-<figure>
-    <img src="../../../tasks/ClickOnreinvent.png"/> 
-</figure>
-
-
-<ul>
-<li>Click <em>Edit</em></li>
-</ul>
-
-<figure>
-    <img src="../../../tasks/ClickEdit.png"/> 
-</figure>
-
-
-<ul>
-<li>Replace the contents of your file with this:</li>
-</ul>
-
-<figure><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">Schema</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">factory</span><span style="color:#f92672">-</span><span style="color:#ae81ff">2019</span><span style="color:#f92672">-</span><span style="color:#ae81ff">04</span><span style="color:#f92672">-</span><span style="color:#ae81ff">01</span>
-<span style="color:#a6e22e">Products</span><span style="color:#f92672">:</span>
-  <span style="color:#f92672">-</span> <span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;aws-config-desired-instance-types&#34;</span>
-    <span style="color:#a6e22e">Owner</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;budget-and-cost-governance@acme.com&#34;</span>
-    <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Enables AWS Config rule - desired-instance-type with our RIs&#34;</span>
-    <span style="color:#a6e22e">Distributor</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering&#34;</span>
-    <span style="color:#a6e22e">SupportDescription</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Speak to budget-and-cost-governance@acme.com about exceptions and speak to cloud-engineering@acme.com about implementation issues&#34;</span>
-    <span style="color:#a6e22e">SupportEmail</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering@acme.com&#34;</span>
-    <span style="color:#a6e22e">SupportUrl</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;https://wiki.acme.com/cloud-engineering/budget-and-cost-governance/aws-config-desired-instance-types&#34;</span>
-    <span style="color:#a6e22e">Tags</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;type&#34;</span>
-        <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;governance&#34;</span>
-      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;creator&#34;</span>
-        <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering&#34;</span>
-      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cost-center&#34;</span>
-        <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;governance&#34;</span>
-    <span style="color:#a6e22e">Versions</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1&#34;</span>
-        <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1 of aws-config-desired-instance-types&#34;</span>
-        <span style="color:#a6e22e">Active</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">True</span>
-        <span style="color:#a6e22e">Source</span><span style="color:#f92672">:</span>
-          <span style="color:#a6e22e">Provider</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;CodeCommit&#34;</span>
-          <span style="color:#a6e22e">Configuration</span><span style="color:#f92672">:</span>
-            <span style="color:#a6e22e">RepositoryName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;aws-config-desired-instance-types&#34;</span>
-            <span style="color:#a6e22e">BranchName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;master&#34;</span>
-    <span style="color:#a6e22e">Portfolios</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;cloud-engineering-governance&#34;</span>
-<span style="color:#a6e22e">Portfolios</span><span style="color:#f92672">:</span>
-  <span style="color:#f92672">-</span> <span style="color:#a6e22e">DisplayName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering-governance&#34;</span>
-    <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Portfolio containing the products needed to govern AWS accounts&#34;</span>
-    <span style="color:#a6e22e">ProviderName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering&#34;</span>
-    <span style="color:#a6e22e">Associations</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;arn:aws:iam::${AWS::AccountId}:role/TeamRole&#34;</span>
-    <span style="color:#a6e22e">Tags</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;type&#34;</span>
-        <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;governance&#34;</span>
-      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;creator&#34;</span>
-        <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering&#34;</span>
-      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cost-center&#34;</span>
-        <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;governance&#34;</span>
-</code></pre></div></figure>
-
-<ul>
-<li>Take note of lines 26 and 27.  We have added a portfolio to the product.</li>
-</ul>
-
-<p>Once you have updated the file fill in the fields for <em>Author name</em>, <em>Email address</em>, <em>Commit message</em> and hit
-<em>Commit changes</em></p>
-
-<figure>
-    <img src="../../../tasks/CommitChanges.png"/> 
-</figure>
-
-
-
-<div class="notices tip" ><p>Using a good / unique commit message will help you understand what is going on later.</p>
-</div>
-
+<p>You have now successfully created a version for your product!</p>
 
 <h4 id="verify-the-product-was-added-to-the-portfolio">Verify the product was added to the portfolio</h4>
 
-<p>Once you have made your changes the  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/servicecatalog-factory-pipeline/view?region=eu-west-1' target='_blank'>ServiceCatalogFactory Pipeline</a> should have run or if you were quick
-may still be running.  If it has not yet started feel free to the hit the <em>Release change</em> button.</p>
-
-<p>Once it has completed it should show the <em>Source</em> and <em>Build</em> stages in green to indicate they have completed
-successfully:</p>
-
-<figure>
-    <img src="../../../tasks/SuccessfulFactoryRun.png"/> 
-</figure>
-
-
-
-<div class="notices note" ><p>If this is failing please raise your hand for some assistance</p>
-</div>
-
-
-<p>Once you have verified the pipeline has run you can go to  <a href='https://eu-west-1.console.aws.amazon.com/servicecatalog/console?region=eu-west-1#portfolios?' target='_blank'>Service Catalog portfolios</a> to view your
+<p>Now that you have verified the pipeline has run you can go to  <a href='https://eu-west-1.console.aws.amazon.com/servicecatalog/console?region=eu-west-1#portfolios?' target='_blank'>Service Catalog portfolios</a> to view your
 portfolio.</p>
 
 <ul>
@@ -1644,16 +1358,9 @@ portfolio.</p>
 
 
 <ul>
-<li>Click on the product <em>aws-config-enable-config</em></li>
-</ul>
+<li><p>Click on the product <em>aws-config-enable-config</em></p></li>
 
-<figure>
-    <img src="../../../tasks/ClickAwsConfigS3BucketServerSideEncryptionEnabled.png"/> 
-</figure>
-
-
-<ul>
-<li>Click on the version <em>v1</em></li>
+<li><p>Click on the version <em><em>v1</em></em></p></li>
 </ul>
 
 <figure>
@@ -2246,7 +1953,7 @@ portfolio.</p>
 			<a class="nav nav-prev" href="../../../40-reinvent2019/150-task-2.html" title="Data governance"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="../../../amp/40-reinvent2019/150-task-2/200-provision-the-product.html" title="Provision the product" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="../../../amp/40-reinvent2019/150-task-2/200-provision-the-product.html" title="Provision the control" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

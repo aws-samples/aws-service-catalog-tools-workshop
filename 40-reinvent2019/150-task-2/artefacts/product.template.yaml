@@ -1,5 +1,15 @@
-AWSTemplateFormatVersion: "2010-09-09"
-Description: |
-  Enables AWS Config in the account / region where this is provisioned.
+AWSTemplateFormatVersion: '2010-09-09'
+Description: "Create an AWS Congig rule ensuring RDS instances use encrypted storage"
+
 Resources:
-  Wow: amazing
+  AWSConfigRule:
+    Type: AWS::Config::ConfigRule
+    Properties:
+      ConfigRuleName: "rds-storage-encrypted"
+      Description: "Checks whether storage encryption is enabled for your RDS DB instances."
+      Scope:
+        ComplianceResourceTypes:
+          - "AWS::RDS::DBInstance"
+      Source:
+        Owner: AWS
+        SourceIdentifier: RDS_STORAGE_ENCRYPTED

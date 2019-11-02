@@ -67,14 +67,6 @@
   </url>
   
   <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/100-task-1/200-provision-the-product.html</loc>
-  </url>
-  
-  <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/150-task-2/200-provision-the-product.html</loc>
-  </url>
-  
-  <url>
     <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/30-how-tos/50-every-day-use/150-creating-a-portfolio.html</loc>
   </url>
   
@@ -96,6 +88,14 @@
   
   <url>
     <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/200-task-2/200-create-the-version.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/100-task-1/200-provision-the-product.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/150-task-2/200-provision-the-product.html</loc>
   </url>
   
   <url>

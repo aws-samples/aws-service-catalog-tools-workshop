@@ -1,30 +1,57 @@
 Schema: factory-2019-04-01
 Products:
-  - Name: "aws-config-enable-config"
-    Owner: "data-governance@acme.com"
-    Description: "Enables AWS Config"
+  - Name: "aws-config-desired-instance-types"
+    Owner: "budget-and-cost-governance@acme.com"
+    Description: "Enables AWS Config rule - desired-instance-type with our RIs"
     Distributor: "cloud-engineering"
-    SupportDescription: "Speak to data-governance@acme.com about exceptions and speak to cloud-engineering@acme.com about implementation issues"
+    SupportDescription: "Speak to budget-and-cost-governance@acme.com about exceptions and speak to cloud-engineering@acme.com about implementation issues"
     SupportEmail: "cloud-engineering@acme.com"
-    SupportUrl: "https://wiki.acme.com/cloud-engineering/governance/aws-config-enable-config"
+    SupportUrl: "https://wiki.acme.com/cloud-engineering/budget-and-cost-governance/aws-config-desired-instance-types"
     Tags:
       - Key: "type"
         Value: "governance"
       - Key: "creator"
         Value: "cloud-engineering"
       - Key: "cost-center"
-        Value: "cloud-engineering"
+        Value: "governance"
     Versions:
       - Name: "v1"
-        Description: "v1 of aws-config-enable-config"
+        Description: "v1 of aws-config-desired-instance-types"
         Active: True
         Source:
           Provider: "CodeCommit"
           Configuration:
-            RepositoryName: "aws-config-enable-config"
+            RepositoryName: "aws-config-desired-instance-types"
             BranchName: "master"
     Portfolios:
       - "cloud-engineering-governance"
+
+  - Name: "aws-config-rds-storage-encrypted"
+    Owner: "data-governance@acme.com"
+    Description: "Enables AWS Config rule - aws-config-rds-storage-encrypted"
+    Distributor: "cloud-engineering"
+    SupportDescription: "Speak to data-governance@acme.com about exceptions and speak to cloud-engineering@acme.com about implementation issues"
+    SupportEmail: "cloud-engineering@acme.com"
+    SupportUrl: "https://wiki.acme.com/cloud-engineering/data-governance/aws-config-rds-storage-encrypted"
+    Tags:
+      - Key: "type"
+        Value: "governance"
+      - Key: "creator"
+        Value: "cloud-engineering"
+      - Key: "cost-center"
+        Value: "governance"
+    Versions:
+      - Name: "v1"
+        Description: "v1 of aws-config-rds-storage-encrypted"
+        Active: True
+        Source:
+          Provider: "CodeCommit"
+          Configuration:
+            RepositoryName: "aws-config-rds-storage-encrypted"
+            BranchName: "master"
+    Portfolios:
+      - "cloud-engineering-governance"
+
 Portfolios:
   - DisplayName: "cloud-engineering-governance"
     Description: "Portfolio containing the products needed to govern AWS accounts"
@@ -37,4 +64,4 @@ Portfolios:
       - Key: "creator"
         Value: "cloud-engineering"
       - Key: "cost-center"
-        Value: "cloud-engineering"
+        Value: "governance"
