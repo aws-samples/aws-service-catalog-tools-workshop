@@ -15,8 +15,10 @@ portfolio_name = "cloud-engineering-governance"
 We are going to perform the following steps:
 
 - define a product with a version and a portfolio 
-- add the source code for our product
+- add the source code for the product
 - provision that product into a spoke account
+
+The "hub" AWS account is the source of truth for our AWS Service Catalog products. "Spoke" AWS accounts are consumers of these products.
 
 ## Step by step guide
 
@@ -61,7 +63,7 @@ The YAML we pasted in the previous step told the framework to perform several ac
 
 #### Verify the change worked
 
-Once you have made your changes the {{% service_catalog_factory_pipeline_link %}} should have run or if you were very quick, the pipeline 
+Once you have made your changes the {{% service_catalog_factory_pipeline_link %}} should have run. If you were very quick in making the change, the pipeline 
 may still be running.  If it has not yet started feel free to the hit the *Release change* button.
 
 Once it has completed it should show the *Source* and *Build* stages in green to indicate they have completed 
