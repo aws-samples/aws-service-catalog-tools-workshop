@@ -88,6 +88,7 @@ Resources:
       DBClusterIdentifier : !Sub '${AWS::StackName}-dbcluster'
       DBClusterParameterGroupName: !Ref RdsDbClusterParameterGroup
       PreferredBackupWindow: 18:05-18:35
+      StorageEncrypted: True
 
   RdsDbParameterGroup:
     Type: AWS::RDS::DBParameterGroup
@@ -112,3 +113,4 @@ Resources:
       PreferredMaintenanceWindow: Thu:19:05-Thu:19:35
       AvailabilityZone: !Select [0, !GetAZs {Ref: 'AWS::Region'}]
       DBInstanceClass: 'db.t2.small'
+      StorageEncrypted: True

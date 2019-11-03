@@ -783,7 +783,7 @@
               </li>
           
               <li> 
-                  <a class="padding" href="https://aws-samples.github.io/aws-service-catalog-tools-workshop">201911021600</a>
+                  <a class="padding" href="https://aws-samples.github.io/aws-service-catalog-tools-workshop">201911032310</a>
               </li>
           
         </ul>
@@ -852,7 +852,7 @@
 <li>
 <ul>
 <li><a href="#the-ask">The ask</a></li>
-<li><a href="#task-list">Task list</a></li>
+<li><a href="#the-plan">The plan</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -880,14 +880,13 @@
 
 <h2 id="the-ask">The ask</h2>
 
-<p>The customer has bought some reserved instances and we need to ensure the teams are using them.</p>
+<p>Cloud usage within the organization has picked up significantly and a number of teams are now using EC2 instances in innovative ways. The customer has noticed that teams are often not sure which EC2 instance types to use for their applications and this is leading to underutilized EC2 instances that are run on-demand. To bring down costs, the customer has purchased a set of EC2 reserved instances, based on common workload profiles, and we need to ensure the teams are using them for long running applications.</p>
 
-<p>We need to add controls to ensure budget and cost management is met within the account.</p>
+<p>To help the customer, we will design and then deploy a control that gives them visibility into which EC2 instance types are being used within an AWS account.</p>
 
-<h2 id="task-list">Task list</h2>
+<h2 id="the-plan">The plan</h2>
 
-<p>We are going to create and deploy a security control using an AWS Config managed rule to ensure the right instance types
-are being used.</p>
+<p>We are going to create and deploy a governance control using an AWS Config managed rule to ensure the right instance types are being used.</p>
 
 <p>You can follow these steps to do this:</p>
 
@@ -939,6 +938,8 @@ are being used.</p>
 
 	
 </ul>
+
+<p>Future work will involve mandating that teams use only approved instance types. To start, we will gather data via AWS Config.</p>
 
 <div class="notices note" ><p>If you need help at any time please raise your hand.</p>
 </div>

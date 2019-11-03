@@ -783,7 +783,7 @@
               </li>
           
               <li> 
-                  <a class="padding" href="https://aws-samples.github.io/aws-service-catalog-tools-workshop">201911021600</a>
+                  <a class="padding" href="https://aws-samples.github.io/aws-service-catalog-tools-workshop">201911032310</a>
               </li>
           
         </ul>
@@ -900,9 +900,11 @@
 
 <ul>
 <li>define a product with a version and a portfolio</li>
-<li>add the source code for our product</li>
+<li>add the source code for the product</li>
 <li>provision that product into a spoke account</li>
 </ul>
+
+<p>The &ldquo;hub&rdquo; AWS account is the source of truth for our AWS Service Catalog products. &ldquo;Spoke&rdquo; AWS accounts are consumers of these products.</p>
 
 <h2 id="step-by-step-guide">Step by step guide</h2>
 
@@ -1007,7 +1009,7 @@
 
 <h4 id="verify-the-change-worked">Verify the change worked</h4>
 
-<p>Once you have made your changes the  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/servicecatalog-factory-pipeline/view?region=eu-west-1' target='_blank'>ServiceCatalogFactory Pipeline</a> should have run or if you were very quick, the pipeline
+<p>Once you have made your changes the  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/servicecatalog-factory-pipeline/view?region=eu-west-1' target='_blank'>ServiceCatalogFactory Pipeline</a> should have run. If you were very quick in making the change, the pipeline
 may still be running.  If it has not yet started feel free to the hit the <em>Release change</em> button.</p>
 
 <p>Once it has completed it should show the <em>Source</em> and <em>Build</em> stages in green to indicate they have completed

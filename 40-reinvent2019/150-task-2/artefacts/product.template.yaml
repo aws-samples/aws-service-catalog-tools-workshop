@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: '2010-09-09'
-Description: "Create an AWS Congig rule ensuring RDS instances use encrypted storage"
+Description: "Create an AWS Config rule ensuring RDS instances use encrypted storage"
 
 Resources:
   AWSConfigRule:
