@@ -137,6 +137,7 @@ product.
 - Set your *Author name*
 - Set your *Email address*
 - Set your *Commit message*
+- Click *Commit changes*
 
 {{% notice tip %}}
 Using a good / unique commit message will help you understand what is going on later.
@@ -145,10 +146,61 @@ Using a good / unique commit message will help you understand what is going on l
 Creating that file should trigger your 
 {{% codepipeline_pipeline_link "rds-instance-v1-pipeline" %}}.  
 
-Once the pipeline has completed it should show the *Source* and *Build* stages in green to indicate they have 
-completed successfully:
+Once the pipeline has completed it should show the *Source* stage in green to indicate it has completed successfully but 
+it should show the CFNNag action within the Tests stage as failing:
 
-{{< figure src="/tasks/SuccessfulFactoryProductRun.png" >}}
+{{< figure src="/tasks/FailedCFNNag.png" >}}
+
+Clicking the _Details_ link within the CFNNag box will bring you to the AWS CodeBuild project.  When you scroll near to 
+the bottom of that page you should see an error:
+
+```bash
+·[0;31;49m| FAIL F26·[0m 
+·[0;31;49m|·[0m 
+·[0;31;49m| Resources: ["RdsDbCluster"]·[0m 
+·[0;31;49m| Line Numbers: [84]·[0m 
+·[0;31;49m|·[0m 
+·[0;31;49m| RDS DBCluster should have StorageEncrypted enabled·[0m 
+```  
+
+CFNNag has determined you are not applying encryption to your DBCluster.  This is a violation of the data governance 
+guidelines and so we need to fix it.
+
+- Go to {{% codecommit_link %}}
+
+- Click on the _{{% param codecommit_repo_name %}}_ repository
+
+- Click on _product.template.yaml_
+
+- Click on edit
+
+- Replace the contents with this:
+
+{{% code file="40-reinvent2019/150-task-2/artefacts/product_third_time.template.yaml" language="js" highlight="91 116" %}}
+
+Please observe the highlighted lines showing where we have made a change.  We have added:
+
+```js
+      StorageEncrypted: True
+``` 
+- Set your *Author name*
+- Set your *Email address*
+- Set your *Commit message*
+- Click *Commit changes*
+
+{{% notice tip %}}
+Using a good / unique commit message will help you understand what is going on later.
+{{% /notice %}}
+
+
+Creating that file should trigger your 
+{{% codepipeline_pipeline_link "rds-instance-v1-pipeline" %}}.  
+
+Once the pipeline has completed it should show the *Source* and *Tests* stages in green to indicate they have completed 
+successfully:
+
+{{< figure src="/tasks/PassedCFNNag.png" >}}
+
 
 {{% notice tip %}}
 You should see your commit message on this screen, it will help you know which version of ServiceCatalogFactory repository the 
