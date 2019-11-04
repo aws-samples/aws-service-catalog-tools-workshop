@@ -42,7 +42,7 @@ Service Catalog Factory can be installed via a pre-created CloudFormation templa
 
 {{< figure src="/how-tos/installation/stack_details_factory.png" height="400" width="900">}}
 
-### Create the Stack
+### Create the CloudFormation Stack
 
 - Leave Defaults for 'Configure Stack Options'
 - Hit Next
@@ -70,7 +70,7 @@ The CodeBuild job created 2 CloudFormation Stacks which in turn deployed the res
 {{< figure src="/how-tos/installation/factory_cloudformation.png" height="200" width="900">}}
 
 #### Factory CodeCommit Repository
-This respository holds the Service Catalog Factory YAML files which are used to configure AWS Service Catalog Portfolios and Products.
+This repository holds the Service Catalog Factory YAML files which are used to configure AWS Service Catalog Portfolios and Products.
 
 > URL: https://{{% param home_region %}}.console.aws.amazon.com/codesuite/codecommit/repositories?region={{% param home_region %}}
 

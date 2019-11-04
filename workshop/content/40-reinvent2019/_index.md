@@ -1,11 +1,11 @@
 +++
-title = "re:Invent 2019"
+title = "AWS re:Invent 2019"
 chapter = false
 weight = 200
 url = "reInvent2019"
 +++
 
-Welcome to this Workshop Session at re:Invent 2019. 
+Welcome to the Service Catalog tools workshop at re:Invent 2019. In this workshop, we will walk through using Service Catalog tools to build controls for governance. At the end of the session, we hope that you will go away with tools and techniques to help you build for security and governance requirements using AWS Service Catalog.  
 
 ## House keeping
 
@@ -28,10 +28,10 @@ Presenters:
 
 Workshop helpers:
 
-- Ritesh Sinha
-- Thivan Visvanathan
 - Alex Nicot
 - Oli Leach
+- Ritesh Sinha
+- Thivan Visvanathan
 
 ### Lets get going
 

@@ -1,12 +1,12 @@
 +++
-title = "Prerequisites"
+title = "Pre-requisites"
 weight = 30
 +++
 
 In order to complete this workshop you will need:
 
 - A single AWS Account which you can log into
-- A web browser where to access the AWS console.
+- A web browser to access the AWS console
 
 {{% notice note%}}
 

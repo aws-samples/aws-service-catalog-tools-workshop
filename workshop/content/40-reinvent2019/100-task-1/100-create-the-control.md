@@ -54,7 +54,7 @@ Using a good / unique commit message will help you understand what is going on l
 
 #### What did we just do?
 
-The YAML we pasted in the previous step told the framework to perform several actions:
+The YAML file we created in the CodeCommit repository told the framework to perform several actions:
 
 - create a product named _{{% param product_name %}}_
 - add a _{{% param product_version %}}_ of our product
@@ -158,6 +158,7 @@ If you cannot see your version please raise your hand for some assistance
 You have now successfully created a version for your product! 
 
 #### Verify the product was added to the portfolio
+
 
 Now that you have verified the pipeline has run you can go to {{% service_catalog_portfolios_list_link %}} to view your
 portfolio.

@@ -15,12 +15,12 @@ portfolio_name = "cloud-engineering-governance"
 
 We are going to perform the following steps:
 
-- create a manifest file with our account in it  
-- provision the product _{{% param product_name %}}_ into a spoke account
+- create a manifest file with our account in it
+- provision the product _{{% param product_name %}}_ into our account
 
 ## Step by step guide
 
-Here are the steps you need to follow to "{{% param title %}}"
+Here are the steps you need to follow to provision the control. In the previous task, we created an AWS Service Catalog product but it has not yet been provisioned.
 
 
 ### Create a manifest file with our account in it
@@ -74,7 +74,7 @@ Using a good / unique commit message will help you understand what is going on l
 
 #### What did we just do?
 
-The YAML we pasted in the previous step told the framework to perform the following actions:
+The YAML file we created in the previous step told the framework to perform the following actions:
 
 - provision a product named _{{% param product_name %}}_ into each of the enabled regions of the account
 
@@ -88,14 +88,14 @@ _{{% param portfolio_name %}}_ into every account that has the tag _type:prod_
 {{% code file="40-reinvent2019/100-task-1/artefacts/orchestrator/manifest-accounts-only.yaml" language="js" highlight="8-11" %}}
 
 Within each account there will be a copy of the product provisioned into each of the regions listed in the 
-regions_enabled section:  
+regions_enabled section:
 
 {{% code file="40-reinvent2019/100-task-1/artefacts/orchestrator/manifest-accounts-only.yaml" language="js" highlight="5-7" %}}
 
-#### Verifying the provisioning
+#### Verifying the provisioned product
 
 
-Once you have made your changes the {{% service_catalog_puppet_pipeline_link %}} should have run or if you were quick 
+Once you have made your changes the {{% service_catalog_puppet_pipeline_link %}} should have run. If you were quick in making the change, the pipeline 
 may still be running.  If it has not yet started feel free to the hit the *Release change* button.
 
 Once it has completed it should show the *Source* and *Build* stages in green to indicate they have completed 
@@ -120,7 +120,7 @@ If you cannot see your product please raise your hand for some assistance
 
 You have now successfully provisioned a product
 
-#### Verify the AWS Config rule is enabled
+#### Verify that the AWS Config rule is enabled
 
 To see the AWS Config rule enabled, navigate to {{% config_rules_list_link %}}.  Once there you should see the 
 following:
