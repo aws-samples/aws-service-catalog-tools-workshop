@@ -38,7 +38,7 @@ Here are the steps you need to follow to "{{% param title %}}"
  {{% code file="40-reinvent2019/150-task-2/artefacts/orchestrator/manifest-all.yaml" language="js" %}}
 
 
-#### Committing the manifest file
+#### AWS Committing the manifest file
 
 _Now that we have written the manifest file we are ready to commit it._
 
@@ -66,7 +66,7 @@ The YAML we pasted in the previous step told the framework to perform the follow
 #### Verifying the provisioning
 
 
-Once you have made your changes the {{% service_catalog_puppet_pipeline_link %}} should have run or if you were quick 
+Once you have made your changes the {{% service_catalog_puppet_pipeline_link %}} should have run. If you were quick 
 may still be running.  If it has not yet started feel free to the hit the *Release change* button.
 
 Once it has completed it should show the *Source* and *Build* stages in green to indicate they have completed 

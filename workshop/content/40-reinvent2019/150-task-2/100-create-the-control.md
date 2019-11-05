@@ -66,9 +66,9 @@ The YAML we pasted in the previous step told the framework to perform several ac
 - add a _{{% param product_version %}}_ of our product
 - add the product: _{{% param product_name %}}_ to the portfolio: _{{% param portfolio_name %}}_
 
-#### Verify the change worked
+#### Verify that the change worked
 
-Once you have made your changes the {{% service_catalog_factory_pipeline_link %}} should have run or if you were very quick, the pipeline 
+Once you have made your changes the {{% service_catalog_factory_pipeline_link %}} should have run. If you were very quick, the pipeline 
 may still be running.  If it has not yet started feel free to the hit the *Release change* button.
 
 Once it has completed it should show the *Source* and *Build* stages in green to indicate they have completed 
@@ -90,7 +90,7 @@ When you configured your product version, you specified the following version:
 This tells the framework the source code for the product comes from the _{{% param codecommit_repo_branch %}}_ branch of a
 _CodeCommit_ repository of the name _{{% param codecommit_repo_name %}}_. 
 
-We now need to create the CodeCommit repository and add the AWS CloudFormation template we are going to use for our
+We now need to create the CodeCommit repository and add the CloudFormation template we are going to use for our
 product.
 
 - Navigate to {{% codecommit_link %}}

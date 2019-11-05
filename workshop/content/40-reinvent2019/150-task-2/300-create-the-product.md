@@ -12,10 +12,8 @@ portfolio_name = "cloud-engineering-self-service"
 
 ## What are we going to do?
 
-We previously provisioned a detective control to ensure AWS RDS Instances have encryption enabled.  Using this framework
-we can create compliant products for our users to provision resources.  We are going to create a product that allows our
-users to provision an AWS RDS Instance that meets the Data Governance teams guidelines.
- 
+We previously provisioned a detective control to look for AWS RDS Instances that have don't have encryption enabled.  We can do better, and create an AWS Service Catalog product that meets the encryption requirement by default using service catalog tools. When users create a new RDS instance using this product, encryption at rest is enabled by default an no further configuration is required. 
+
 We are going to perform the following steps:
 
 - define a product with a version and a portfolio 
@@ -42,11 +40,11 @@ Here are the steps you need to follow to "{{% param title %}}"
 
 {{< figure src="/tasks/ClickEdit.png" >}}
 
-- We will need to insert the following to the products section:
+- Add the following to the products section:
 
 {{% code file="40-reinvent2019/150-task-2/artefacts/factory/new_product_details_second_time.yaml" language="js" %}}
 
-- We will need to insert the following to the portfolios section:
+- Add the following to the portfolios section:
 
 {{% code file="40-reinvent2019/150-task-2/artefacts/factory/new_portfolio_details_second_time.yaml" language="js" %}}
 
@@ -55,7 +53,7 @@ Here are the steps you need to follow to "{{% param title %}}"
 {{% code file="40-reinvent2019/150-task-2/artefacts/factory/completed_second_time.yaml" language="js" highlight="62-63" %}}
 
 {{% notice note %}}
-Have a look at the highlighted lines.  We are using this to turn on stelligent's _cfn-nag_.  This will add an extra layer
+Have a look at the highlighted lines.  We are using this to turn on _cfn-nag_, an open source tool by Stelligent that looks for insecure configuration of resources.  This will add an extra layer
 of governance ensuring the AWS CloudFormation templates we are using meets the quality bar set by _cfn-nag_.
 {{% /notice %}}
 
@@ -85,7 +83,7 @@ The YAML we pasted in the previous step told the framework to perform several ac
 
 #### Verify the change worked
 
-Once you have made your changes the {{% service_catalog_factory_pipeline_link %}} should have run or if you were very quick, the pipeline 
+Once you have made your changes the {{% service_catalog_factory_pipeline_link %}} should have run. If you were very quick, the pipeline 
 may still be running.  If it has not yet started feel free to the hit the *Release change* button.
 
 Once it has completed it should show the *Source* and *Build* stages in green to indicate they have completed 
@@ -228,7 +226,7 @@ If you cannot see your version please raise your hand for some assistance
 
 You have now successfully created a version for your product! 
 
-#### Verify the product was added to the portfolio
+#### Verify that the product was added to the portfolio
 
 Now that you have verified the pipeline has run you can go to {{% service_catalog_portfolios_list_link %}} to view your
 portfolio.
@@ -244,7 +242,7 @@ portfolio.
 {{< figure src="/tasks/ClickAwsConfigS3BucketServerSideEncryptionEnabledV1.png" >}}
 
 
-### Share that portfolio with a spoke account
+### Share portfolio with a spoke account
 
 - Navigate to the {{% service_catalog_puppet_code_commit_repo_link %}} again
 
@@ -282,7 +280,7 @@ Using a good / unique commit message will help you understand what is going on l
 
 #### Verifying the sharing
 
-Once you have made your changes the {{% service_catalog_puppet_pipeline_link %}} should have run or if you were quick 
+Once you have made your changes the {{% service_catalog_puppet_pipeline_link %}} should have run. If you were quick 
 may still be running.  If it has not yet started feel free to the hit the *Release change* button.
 
 Once it has completed it should show the *Source* and *Build* stages in green to indicate they have completed 
@@ -298,7 +296,7 @@ Once you have verified the pipeline has run you can go to {{% service_catalog_po
 shared product.  
 
 When you share a portfolio the framework will decide if it should share the portfolio.  If the target account is the same
-as the factory account it will not share the portfolio as it is not needed.
+as the factory account it will not share the portfolio as it is not needed. 
 
 {{% notice note %}}
 If you cannot see your product please raise your hand for some assistance

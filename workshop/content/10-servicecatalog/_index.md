@@ -4,7 +4,7 @@ chapter = true
 weight = 10
 +++
 
-# What is AWS Service Catalog
+# What is AWS Service Catalog?
 
 AWS Service Catalog Service allows organizations to create and manage catalogs of IT services that are approved for use on AWS. 
 
