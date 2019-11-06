@@ -32,4 +32,4 @@ gh-pages-on-travisci:
 	echo "Generating site"
 	cd workshop && version=$(version) hugo --environment ghpages
 	echo "Updating gh-pages branch"
-	cd workshop/public && git add --all && git commit -m "Publishing to gh-pages (publish.sh)" && git push --quiet $(GH_REF) gh-pages
+	cd workshop/public && git add --all && git commit -m "Publishing to gh-pages (publish.sh)" && git push --quiet $(GH_REF) gh-pages  > /dev/null 2>&1
