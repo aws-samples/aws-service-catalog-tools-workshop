@@ -1,5 +1,5 @@
 +++
-title = "HowTos"
+title = "How Tos"
 chapter = true
 weight = 30
 +++
