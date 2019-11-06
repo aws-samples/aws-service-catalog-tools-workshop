@@ -1,6 +1,10 @@
-.PHONY: clean build all development
+.PHONY: clean build all development install-on-travisci
 
 version := "$(shell git rev-parse --short HEAD)"
+
+install-on-travisci:
+	wget -O /tmp/hugo.deb https://github.com/gohugoio/hugo/releases/download/v0.59.1/hugo_0.59.1_Linux-64bit.deb
+	sudo dpkg -i /tmp/hugo.deb
 
 development:
 	cd workshop && version=Development hugo server --disableFastRender --environment development
