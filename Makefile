@@ -1,10 +1,7 @@
-.PHONY: clean build all development install-on-travisci
+.PHONY: clean build all development gh-pages-on-travisci
 
 version := "$(shell git rev-parse --short HEAD)"
-
-install-on-travisci:
-	wget -O /tmp/hugo.deb https://github.com/gohugoio/hugo/releases/download/v0.59.1/hugo_0.59.1_Linux-64bit.deb
-	sudo dpkg -i /tmp/hugo.deb
+GH_REF := "$(shell git remote get-url origin | awk "{sub(/https:\/\//,\"https://${GH_TOKEN}@\")}; 1" | awk "{sub(/\.git/, \"\")} 1")"
 
 development:
 	cd workshop && version=Development hugo server --disableFastRender --environment development
@@ -26,3 +23,13 @@ gh-pages: clean
 	cd workshop/public && git add --all && git commit -m "Publishing to gh-pages (publish.sh)" && git push
 	echo "https://aws-samples.github.io/aws-service-catalog-tools-workshop/"
 
+
+gh-pages-on-travisci:
+	git config remote.origin.fetch +refs/heads/*:refs/remotes/origin/*
+	git fetch --unshallow origin gh-pages
+	git worktree add -B gh-pages workshop/public origin/gh-pages
+	rm -rf workshop/public/*
+	echo "Generating site"
+	cd workshop && version=$(version) hugo --environment ghpages
+	echo "Updating gh-pages branch"
+	cd workshop/public && git add --all && git commit -m "Publishing to gh-pages (publish.sh)" && git push --quiet "$(GH_REF)" gh-pages > /dev/null 2>&1;
