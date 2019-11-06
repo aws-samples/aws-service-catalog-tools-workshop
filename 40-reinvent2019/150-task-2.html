@@ -491,13 +491,13 @@
  
   
     
-    <li data-nav-id="/reinvent2019/" title="re:Invent 2019" class="dd-item 
+    <li data-nav-id="/reinvent2019/" title="AWS re:Invent 2019" class="dd-item 
         parent
         
         
         ">
       <a href="../reinvent2019/">
-          re:Invent 2019
+          AWS re:Invent 2019
           
       </a>
       
@@ -518,13 +518,13 @@
  
   
     
-    <li data-nav-id="/40-reinvent2019/30-prerequisites.html" title="Prerequisites" class="dd-item 
+    <li data-nav-id="/40-reinvent2019/30-prerequisites.html" title="Pre-requisites" class="dd-item 
         
         
         
         ">
       <a href="../40-reinvent2019/30-prerequisites.html">
-          Prerequisites
+          Pre-requisites
           
       </a>
       
@@ -542,13 +542,13 @@
  
   
     
-    <li data-nav-id="/40-reinvent2019/100-task-1.html" title="Budget &amp; cost governance" class="dd-item 
+    <li data-nav-id="/40-reinvent2019/100-task-1.html" title="Budget &amp; Cost governance" class="dd-item 
         
         
         
         ">
       <a href="../40-reinvent2019/100-task-1.html">
-          Budget &amp; cost governance
+          Budget &amp; Cost governance
           
       </a>
       
@@ -783,7 +783,7 @@
               </li>
           
               <li> 
-                  <a class="padding" href="https://aws-samples.github.io/aws-service-catalog-tools-workshop">201911032310</a>
+                  <a class="padding" href="https://aws-samples.github.io/aws-service-catalog-tools-workshop">201911061336</a>
               </li>
           
         </ul>
@@ -835,7 +835,7 @@
             
           
           
-            <a href='../'>AWS Service Catalog Tools Intro Workshop</a> > <a href='../reinvent2019/'>re:Invent 2019</a> > Data governance
+            <a href='../'>AWS Service Catalog Tools Intro Workshop</a> > <a href='../reinvent2019/'>AWS re:Invent 2019</a> > Data governance
           
         
           
@@ -880,20 +880,27 @@
 
 <h2 id="the-ask">The ask</h2>
 
-<p>The customer has recently established a data governance team.  They have recently issued guidance saying encryption
-should be used whenever data is at rest.</p>
+<p>ACME Org now has a number of development and test workloads in AWS. Many of these workloads make use of data storage services such as Amazon RDS and Amazon S3.  The customer has recently established a dedicated data governance team, who have been tasked with identifying controls for workloads that process data classified as confidential or internal-use only.</p>
 
-<p>From this guidance there are two new requirements:</p>
+<p>The data governance team has recently issued guidelines around the use of encryption for data at rest and in transit in the cloud. We have below an excerpt from the data governance standard:</p>
+
+<blockquote>
+<p>3.1.1 All cloud data storage systems must be configured to support encryption at rest and in transit using industry supported encryption algorithms for data classified as Confidential, or Internal-Use only. For a list of approved encryption algorithms and key-lengths please see Appendix A.</p>
+</blockquote>
+
+<p>From these guidelines there are two new requirements:</p>
 
 <ul>
-<li>ACME Org want to get visibility where encryption at rest is not being used</li>
-<li>The data governance team want to use AWS Service Catalog to distribute best practice for AWS RDS provisioning so teams can easily achieve compliance</li>
+<li>The data governance team at ACME Org wants to get visibility into resources where encryption at rest is not being used</li>
+<li>The team wants to use AWS Service Catalog to make it easy for development teams to comply with the encryption-at-rest requirement, without having to set it up themselves.</li>
 </ul>
+
+<p>These requirements will shape the work that goes into building additional data governance controls as development teams look to use additional AWS services to store production or material data.</p>
 
 <h2 id="the-plan">The plan</h2>
 
-<p>We are going to create and deploy a security control using an AWS Config managed rule to ensure the teams are using
-encryption when creating an RDS instance.  We will then a self service Service Catalog product so the teams can create
+<p>We are going to create and deploy a data governance control using an AWS Config managed rule to ensure the teams are using
+encryption when creating an RDS instance.  We will then create a self service Service Catalog product so the teams can create
 compliant resources.</p>
 
 

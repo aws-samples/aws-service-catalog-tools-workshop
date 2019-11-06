@@ -491,13 +491,13 @@
  
   
     
-    <li data-nav-id="/reinvent2019/" title="re:Invent 2019" class="dd-item 
+    <li data-nav-id="/reinvent2019/" title="AWS re:Invent 2019" class="dd-item 
         parent
         
         
         ">
       <a href="../../../reinvent2019/">
-          re:Invent 2019
+          AWS re:Invent 2019
           
       </a>
       
@@ -518,13 +518,13 @@
  
   
     
-    <li data-nav-id="/40-reinvent2019/30-prerequisites.html" title="Prerequisites" class="dd-item 
+    <li data-nav-id="/40-reinvent2019/30-prerequisites.html" title="Pre-requisites" class="dd-item 
         
         
         
         ">
       <a href="../../../40-reinvent2019/30-prerequisites.html">
-          Prerequisites
+          Pre-requisites
           
       </a>
       
@@ -542,13 +542,13 @@
  
   
     
-    <li data-nav-id="/40-reinvent2019/100-task-1.html" title="Budget &amp; cost governance" class="dd-item 
+    <li data-nav-id="/40-reinvent2019/100-task-1.html" title="Budget &amp; Cost governance" class="dd-item 
         parent
         
         
         ">
       <a href="../../../40-reinvent2019/100-task-1.html">
-          Budget &amp; cost governance
+          Budget &amp; Cost governance
           
       </a>
       
@@ -783,7 +783,7 @@
               </li>
           
               <li> 
-                  <a class="padding" href="https://aws-samples.github.io/aws-service-catalog-tools-workshop">201911032310</a>
+                  <a class="padding" href="https://aws-samples.github.io/aws-service-catalog-tools-workshop">201911061336</a>
               </li>
           
         </ul>
@@ -839,7 +839,7 @@
             
           
           
-            <a href='../../../amp/'>AWS Service Catalog Tools Intro Workshop</a> > <a href='../../../reinvent2019/'>re:Invent 2019</a> > <a href='../../../40-reinvent2019/100-task-1.html'>Budget & cost governance</a> > Provision the control
+            <a href='../../../amp/'>AWS Service Catalog Tools Intro Workshop</a> > <a href='../../../reinvent2019/'>AWS re:Invent 2019</a> > <a href='../../../40-reinvent2019/100-task-1.html'>Budget & Cost governance</a> > Provision the control
           
         
           
@@ -865,8 +865,8 @@
 <ul>
 <li><a href="#committing-the-manifest-file">Committing the manifest file</a></li>
 <li><a href="#what-did-we-just-do">What did we just do?</a></li>
-<li><a href="#verifying-the-provisioning">Verifying the provisioning</a></li>
-<li><a href="#verify-the-aws-config-rule-is-enabled">Verify the AWS Config rule is enabled</a></li>
+<li><a href="#verifying-the-provisioned-product">Verifying the provisioned product</a></li>
+<li><a href="#verify-that-the-aws-config-rule-is-enabled">Verify that the AWS Config rule is enabled</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -898,13 +898,13 @@
 <p>We are going to perform the following steps:</p>
 
 <ul>
-<li>create a manifest file with our account in it<br /></li>
-<li>provision the product <em>aws-config-desired-instance-types</em> into a spoke account</li>
+<li>create a manifest file with our account in it</li>
+<li>provision the product <em>aws-config-desired-instance-types</em> into our account</li>
 </ul>
 
 <h2 id="step-by-step-guide">Step by step guide</h2>
 
-<p>Here are the steps you need to follow to &ldquo;Provision the control&rdquo;</p>
+<p>Here are the steps you need to follow to provision the control. In the previous task, we created an AWS Service Catalog product but it has not yet been provisioned.</p>
 
 <h3 id="create-a-manifest-file-with-our-account-in-it">Create a manifest file with our account in it</h3>
 
@@ -1026,7 +1026,7 @@ show how we can use the framework to set a value for that parameter when provisi
 
 <h4 id="what-did-we-just-do">What did we just do?</h4>
 
-<p>The YAML we pasted in the previous step told the framework to perform the following actions:</p>
+<p>The YAML file we created in the previous step told the framework to perform the following actions:</p>
 
 <ul>
 <li>provision a product named <em>aws-config-desired-instance-types</em> into each of the enabled regions of the account</li>
@@ -1080,9 +1080,9 @@ regions_enabled section:</p>
       <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;scope:pci&#34;</span>
 </code></pre></div></figure>
 
-<h4 id="verifying-the-provisioning">Verifying the provisioning</h4>
+<h4 id="verifying-the-provisioned-product">Verifying the provisioned product</h4>
 
-<p>Once you have made your changes the  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/servicecatalog-puppet-pipeline/view?region=eu-west-1' target='_blank'>ServiceCatalogPuppet Pipeline</a> should have run or if you were quick
+<p>Once you have made your changes the  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/servicecatalog-puppet-pipeline/view?region=eu-west-1' target='_blank'>ServiceCatalogPuppet Pipeline</a> should have run. If you were quick in making the change, the pipeline
 may still be running.  If it has not yet started feel free to the hit the <em>Release change</em> button.</p>
 
 <p>Once it has completed it should show the <em>Source</em> and <em>Build</em> stages in green to indicate they have completed
@@ -1114,7 +1114,7 @@ the filter by drop down in the top right:</p>
 
 <p>You have now successfully provisioned a product</p>
 
-<h4 id="verify-the-aws-config-rule-is-enabled">Verify the AWS Config rule is enabled</h4>
+<h4 id="verify-that-the-aws-config-rule-is-enabled">Verify that the AWS Config rule is enabled</h4>
 
 <p>To see the AWS Config rule enabled, navigate to  <a href='https://eu-west-1.console.aws.amazon.com/config/home?region=eu-west-1#/rules/view' target='_blank'>AWS Config rules</a>.  Once there you should see the
 following:</p>

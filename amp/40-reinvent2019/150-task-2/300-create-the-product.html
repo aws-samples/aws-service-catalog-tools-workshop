@@ -491,13 +491,13 @@
  
   
     
-    <li data-nav-id="/reinvent2019/" title="re:Invent 2019" class="dd-item 
+    <li data-nav-id="/reinvent2019/" title="AWS re:Invent 2019" class="dd-item 
         parent
         
         
         ">
       <a href="../../../reinvent2019/">
-          re:Invent 2019
+          AWS re:Invent 2019
           
       </a>
       
@@ -518,13 +518,13 @@
  
   
     
-    <li data-nav-id="/40-reinvent2019/30-prerequisites.html" title="Prerequisites" class="dd-item 
+    <li data-nav-id="/40-reinvent2019/30-prerequisites.html" title="Pre-requisites" class="dd-item 
         
         
         
         ">
       <a href="../../../40-reinvent2019/30-prerequisites.html">
-          Prerequisites
+          Pre-requisites
           
       </a>
       
@@ -542,13 +542,13 @@
  
   
     
-    <li data-nav-id="/40-reinvent2019/100-task-1.html" title="Budget &amp; cost governance" class="dd-item 
+    <li data-nav-id="/40-reinvent2019/100-task-1.html" title="Budget &amp; Cost governance" class="dd-item 
         
         
         
         ">
       <a href="../../../40-reinvent2019/100-task-1.html">
-          Budget &amp; cost governance
+          Budget &amp; Cost governance
           
       </a>
       
@@ -783,7 +783,7 @@
               </li>
           
               <li> 
-                  <a class="padding" href="https://aws-samples.github.io/aws-service-catalog-tools-workshop">201911032310</a>
+                  <a class="padding" href="https://aws-samples.github.io/aws-service-catalog-tools-workshop">201911061336</a>
               </li>
           
         </ul>
@@ -839,7 +839,7 @@
             
           
           
-            <a href='../../../amp/'>AWS Service Catalog Tools Intro Workshop</a> > <a href='../../../reinvent2019/'>re:Invent 2019</a> > <a href='../../../40-reinvent2019/150-task-2.html'>Data governance</a> > Create the product
+            <a href='../../../amp/'>AWS Service Catalog Tools Intro Workshop</a> > <a href='../../../reinvent2019/'>AWS re:Invent 2019</a> > <a href='../../../40-reinvent2019/150-task-2.html'>Data governance</a> > Create the product
           
         
           
@@ -867,9 +867,9 @@
 </ul></li>
 <li><a href="#add-the-source-code-for-our-product">Add the source code for our product</a>
 <ul>
-<li><a href="#verify-the-product-was-added-to-the-portfolio">Verify the product was added to the portfolio</a></li>
+<li><a href="#verify-that-the-product-was-added-to-the-portfolio">Verify that the product was added to the portfolio</a></li>
 </ul></li>
-<li><a href="#share-that-portfolio-with-a-spoke-account">Share that portfolio with a spoke account</a>
+<li><a href="#share-portfolio-with-a-spoke-account">Share portfolio with a spoke account</a>
 <ul>
 <li><a href="#committing-the-manifest-file">Committing the manifest file</a></li>
 <li><a href="#verifying-the-sharing">Verifying the sharing</a></li>
@@ -901,9 +901,7 @@
 
 <h2 id="what-are-we-going-to-do">What are we going to do?</h2>
 
-<p>We previously provisioned a detective control to ensure AWS RDS Instances have encryption enabled.  Using this framework
-we can create compliant products for our users to provision resources.  We are going to create a product that allows our
-users to provision an AWS RDS Instance that meets the Data Governance teams guidelines.</p>
+<p>We previously provisioned a detective control to look for AWS RDS Instances that have don&rsquo;t have encryption enabled.  We can do better, and create an AWS Service Catalog product that meets the encryption requirement by default using service catalog tools. When users create a new RDS instance using this product, encryption at rest is enabled by default an no further configuration is required.</p>
 
 <p>We are going to perform the following steps:</p>
 
@@ -949,7 +947,7 @@ users to provision an AWS RDS Instance that meets the Data Governance teams guid
 
 
 <ul>
-<li>We will need to insert the following to the products section:</li>
+<li>Add the following to the products section:</li>
 </ul>
 
 <figure><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#f92672">-</span> <span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;rds-instance&#34;</span>
@@ -980,7 +978,7 @@ users to provision an AWS RDS Instance that meets the Data Governance teams guid
 </code></pre></div></figure>
 
 <ul>
-<li>We will need to insert the following to the portfolios section:</li>
+<li>Add the following to the portfolios section:</li>
 </ul>
 
 <figure><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">  <span style="color:#f92672">-</span> <span style="color:#a6e22e">DisplayName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering-self-service&#34;</span>
@@ -1106,7 +1104,7 @@ users to provision an AWS RDS Instance that meets the Data Governance teams guid
 </code></pre></div></figure>
 
 
-<div class="notices note" ><p>Have a look at the highlighted lines.  We are using this to turn on stelligent&rsquo;s <em>cfn-nag</em>.  This will add an extra layer
+<div class="notices note" ><p>Have a look at the highlighted lines.  We are using this to turn on <em>cfn-nag</em>, an open source tool by Stelligent that looks for insecure configuration of resources.  This will add an extra layer
 of governance ensuring the AWS CloudFormation templates we are using meets the quality bar set by <em>cfn-nag</em>.</p>
 </div>
 
@@ -1146,7 +1144,7 @@ of governance ensuring the AWS CloudFormation templates we are using meets the q
 
 <h4 id="verify-the-change-worked">Verify the change worked</h4>
 
-<p>Once you have made your changes the  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/servicecatalog-factory-pipeline/view?region=eu-west-1' target='_blank'>ServiceCatalogFactory Pipeline</a> should have run or if you were very quick, the pipeline
+<p>Once you have made your changes the  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/servicecatalog-factory-pipeline/view?region=eu-west-1' target='_blank'>ServiceCatalogFactory Pipeline</a> should have run. If you were very quick, the pipeline
 may still be running.  If it has not yet started feel free to the hit the <em>Release change</em> button.</p>
 
 <p>Once it has completed it should show the <em>Source</em> and <em>Build</em> stages in green to indicate they have completed
@@ -1571,7 +1569,7 @@ created version.</p>
 
 <p>You have now successfully created a version for your product!</p>
 
-<h4 id="verify-the-product-was-added-to-the-portfolio">Verify the product was added to the portfolio</h4>
+<h4 id="verify-that-the-product-was-added-to-the-portfolio">Verify that the product was added to the portfolio</h4>
 
 <p>Now that you have verified the pipeline has run you can go to  <a href='https://eu-west-1.console.aws.amazon.com/servicecatalog/console?region=eu-west-1#portfolios?' target='_blank'>Service Catalog portfolios</a> to view your
 portfolio.</p>
@@ -1596,7 +1594,7 @@ portfolio.</p>
 </figure>
 
 
-<h3 id="share-that-portfolio-with-a-spoke-account">Share that portfolio with a spoke account</h3>
+<h3 id="share-portfolio-with-a-spoke-account">Share portfolio with a spoke account</h3>
 
 <ul>
 <li><p>Navigate to the  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codecommit/repositories/ServiceCatalogPuppet/browse?region=eu-west-1' target='_blank'>ServiceCatalogPuppet CodeCommit repository</a> again</p></li>
@@ -1697,7 +1695,7 @@ portfolio.</p>
 
 <h4 id="verifying-the-sharing">Verifying the sharing</h4>
 
-<p>Once you have made your changes the  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/servicecatalog-puppet-pipeline/view?region=eu-west-1' target='_blank'>ServiceCatalogPuppet Pipeline</a> should have run or if you were quick
+<p>Once you have made your changes the  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/servicecatalog-puppet-pipeline/view?region=eu-west-1' target='_blank'>ServiceCatalogPuppet Pipeline</a> should have run. If you were quick
 may still be running.  If it has not yet started feel free to the hit the <em>Release change</em> button.</p>
 
 <p>Once it has completed it should show the <em>Source</em> and <em>Build</em> stages in green to indicate they have completed

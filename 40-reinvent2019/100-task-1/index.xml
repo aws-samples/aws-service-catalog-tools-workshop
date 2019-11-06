@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Budget &amp; cost governance on Service Catalog Tools Workshop</title>
+    <title>Budget &amp; Cost governance on Service Catalog Tools Workshop</title>
     <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/100-task-1.html</link>
-    <description>Recent content in Budget &amp; cost governance on Service Catalog Tools Workshop</description>
+    <description>Recent content in Budget &amp; Cost governance on Service Catalog Tools Workshop</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
@@ -28,10 +28,8 @@ Step by step guide Here are the steps you need to follow to &amp;ldquo;Create th
       
       <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/100-task-1/200-provision-the-control.html</guid>
       <description>What are we going to do? We are going to perform the following steps:
- create a manifest file with our account in it
- provision the product aws-config-desired-instance-types into a spoke account  Step by step guide Here are the steps you need to follow to &amp;ldquo;Provision the control&amp;rdquo;
-Create a manifest file with our account in it  Navigate to the ServiceCatalogPuppet CodeCommit repository
- Scroll down to the bottom of the page and hit the Create file button</description>
+ create a manifest file with our account in it provision the product aws-config-desired-instance-types into our account  Step by step guide Here are the steps you need to follow to provision the control. In the previous task, we created an AWS Service Catalog product but it has not yet been provisioned.
+Create a manifest file with our account in it  Navigate to the ServiceCatalogPuppet CodeCommit repository</description>
     </item>
     
   </channel>

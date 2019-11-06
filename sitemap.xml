@@ -83,6 +83,10 @@
   </url>
   
   <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/reinvent2019/</loc>
+  </url>
+  
+  <url>
     <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/100-task-1/200-provision-the-control.html</loc>
   </url>
   
@@ -92,10 +96,6 @@
   
   <url>
     <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/30-how-tos/50-every-day-use/200-provisioning-a-product.html</loc>
-  </url>
-  
-  <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/reinvent2019/</loc>
   </url>
   
   <url>

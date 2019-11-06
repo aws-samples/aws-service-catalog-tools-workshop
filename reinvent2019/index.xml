@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>re:Invent 2019 on Service Catalog Tools Workshop</title>
+    <title>AWS re:Invent 2019 on Service Catalog Tools Workshop</title>
     <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/reinvent2019/</link>
-    <description>Recent content in re:Invent 2019 on Service Catalog Tools Workshop</description>
+    <description>Recent content in AWS re:Invent 2019 on Service Catalog Tools Workshop</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     

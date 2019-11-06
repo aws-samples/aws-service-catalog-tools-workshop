@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: "2010-09-09"
-Description: "Create an AWS Congig rule ensuring the given instance types are the only instance types used"
+Description: "Create an AWS Config rule ensuring the given instance types are the only instance types used"
 
 Parameters:
   InstanceType:
