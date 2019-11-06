@@ -4,7 +4,7 @@ version := "$(shell git rev-parse --short HEAD)"
 GH_REF := "$(shell git remote get-url origin | awk "{sub(/https:\/\//,\"https://${GH_TOKEN}@\")}; 1" | awk "{sub(/\.git/, \"\")} 1")"
 
 development:
-	cd workshop && version=Development hugo server --disableFastRender --environment development
+	cd workshop && version=Development hugo server --disableFastRender
 
 clean:
 	rm -rf workshop/public
