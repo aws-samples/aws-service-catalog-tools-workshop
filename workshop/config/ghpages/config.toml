@@ -22,7 +22,6 @@ disableAssetsBusting = true
 disableLanguageSwitchingButton = true
 disableShortcutsTitle = true
 
-
 [outputs]
 home = [ "HTML", "AMP", "RSS", "JSON"]
 page = [ "HTML", "AMP"]
