@@ -15,4 +15,8 @@ python:
 branches:
   only: 
     - master
+
+before_install:
+	- git config remote.origin.fetch +refs/heads/*:refs/remotes/origin/*
+  - git fetch --unshallow origin gh-pages
 script: make gh-pages
