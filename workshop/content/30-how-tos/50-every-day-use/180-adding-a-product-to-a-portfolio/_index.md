@@ -1,6 +1,7 @@
 +++
 title = "Adding a product to a portfolio"
 weight = 180
+home_region = "eu-west-1"
 +++
 ---
 
