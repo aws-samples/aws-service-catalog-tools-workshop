@@ -1,7 +1,9 @@
 .PHONY: clean build all development
 
+version := "$(shell git rev-parse --short HEAD)"
+
 development:
-	cd workshop && hugo server --disableFastRender --environment development
+	cd workshop && version=Development hugo server --disableFastRender --environment development
 
 clean:
 	rm -rf workshop/public
@@ -15,7 +17,7 @@ gh-pages: clean
 	echo "Removing existing files"
 	rm -rf workshop/public/*
 	echo "Generating site"
-	cd workshop && hugo --environment ghpages
+	cd workshop && version=$(version) hugo --environment ghpages
 	echo "Updating gh-pages branch"
 	cd workshop/public && git add --all && git commit -m "Publishing to gh-pages (publish.sh)" && git push
 	echo "https://aws-samples.github.io/aws-service-catalog-tools-workshop/"

@@ -47,12 +47,6 @@ identifier = "prtd"
 url = "https://aws-service-catalog-puppet.readthedocs.io/en/latest/"
 weight = 4
 
-[[menu.shortcuts]]
-name = "201911061336"
-identifier = "version"
-url = "#"
-weight = 5
-
 [outputs]
 home = [ "HTML", "AMP", "RSS", "JSON"]
 page = [ "HTML", "AMP"]
