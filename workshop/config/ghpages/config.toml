@@ -23,30 +23,6 @@ disableLanguageSwitchingButton = true
 disableShortcutsTitle = true
 
 
-[[menu.shortcuts]]
-name = "<i class='fab fa-github fa-lg'></i> aws-service-catalog-factory repo"
-identifier = "fgh"
-url = "https://github.com/awslabs/aws-service-catalog-factory"
-weight = 1
-
-[[menu.shortcuts]]
-name = "aws-service-catalog-factory docs"
-identifier = "frtd"
-url = "https://aws-service-catalog-factory.readthedocs.io/en/latest/"
-weight = 2
-
-[[menu.shortcuts]]
-name = "<i class='fab fa-github fa-lg'></i> aws-service-catalog-puppet repo"
-identifier = "pgh"
-url = "https://github.com/awslabs/aws-service-catalog-puppet"
-weight = 3
-
-[[menu.shortcuts]]
-name = "aws-service-catalog-puppet docs"
-identifier = "prtd"
-url = "https://aws-service-catalog-puppet.readthedocs.io/en/latest/"
-weight = 4
-
 [outputs]
 home = [ "HTML", "AMP", "RSS", "JSON"]
 page = [ "HTML", "AMP"]
