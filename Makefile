@@ -1,4 +1,4 @@
-.PHONY: clean build all development gh-pages-on-travisci
+.PHONY: clean build all development gh-pages-on-travisci gh-pages
 
 version := "$(shell git rev-parse --short HEAD)"
 GH_REF := "$(shell git remote get-url origin | awk "{sub(/https:\/\//,\"https://${GH_TOKEN}@\")}; 1" | awk "{sub(/\.git/, \"\")} 1")"
@@ -24,7 +24,7 @@ gh-pages: clean
 	echo "https://aws-samples.github.io/aws-service-catalog-tools-workshop/"
 
 
-gh-pages-on-travisci:
+gh-pages-on-travisci: clean
 	git config remote.origin.fetch +refs/heads/*:refs/remotes/origin/*
 	git fetch --unshallow origin gh-pages
 	git worktree add -B gh-pages workshop/public origin/gh-pages
