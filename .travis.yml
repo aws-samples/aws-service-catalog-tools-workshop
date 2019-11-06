@@ -1,12 +1,12 @@
 dist: xenial
 addons:
-   apt:
-     sources:
-       - git-core
-     packages:
-       - git
+  apt:
+    sources:
+    - git-core
+    packages:
+    - git
   snaps:
-    - hugo
+  - hugo
 
 language: python
 python:
