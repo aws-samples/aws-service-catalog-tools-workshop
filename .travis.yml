@@ -4,6 +4,10 @@ addons:
        - git-core
      packages:
        - git
+dist: xenial
+addons:
+  snaps:
+    - hugo
 
 language: python
 python:
@@ -11,5 +15,4 @@ python:
 branches:
   only: 
     - master
-install: make install-on-travisci
 script: make gh-pages
