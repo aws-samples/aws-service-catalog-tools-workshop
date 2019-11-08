@@ -21,7 +21,7 @@ launches:
     deploy_to:
       tags:
         - tag: "type:prod"
-          regions: "regions_enabled"
+          regions: "default_region"
   aws-config-rds-storage-encrypted:
     portfolio: "reinvent-cloud-engineering-governance"
     product: "aws-config-rds-storage-encrypted"
@@ -29,7 +29,7 @@ launches:
     deploy_to:
       tags:
         - tag: "type:prod"
-          regions: "regions_enabled"
+          regions: "default_region"
 
 spoke-local-portfolios:
   cloud-engineering-self-service:
@@ -37,4 +37,4 @@ spoke-local-portfolios:
     deploy_to:
       tags:
         - tag: "type:prod"
-          regions: "regions_enabled"
+          regions: "default_region"

@@ -9,4 +9,4 @@ launches:
     deploy_to:
       tags:
         - tag: "type:prod"
-          regions: "regions_enabled"
+          regions: "default_region"
