@@ -36,7 +36,7 @@ Here are the steps you need to follow to provision the control. In the previous 
 {{% code file="40-reinvent2019/100-task-1/artefacts/orchestrator/manifest-accounts-only.yaml" language="js" highlight="2" %}}
 
 {{% notice note %}}
-You can find your Account Number in the __top right__ frop down of the AWS Console page. It is a 12 digit number. Please __do not__ include the hyphens ('-') in the manifest code.
+You can find your Account Number in the __top right__ drop down of the AWS Console page. It is a 12 digit number. Please __do not__ include the hyphens ('-') in the manifest code.
 {{% /notice %}}
 
 {{< figure src="/tasks/FindMyAccountNumber.png" >}}
