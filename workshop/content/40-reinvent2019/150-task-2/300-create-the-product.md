@@ -12,7 +12,7 @@ portfolio_name = "cloud-engineering-self-service"
 
 ## What are we going to do?
 
-We previously provisioned a detective control to look for AWS RDS Instances that have don't have encryption enabled.  We can do better, and create an AWS Service Catalog product that meets the encryption requirement by default using service catalog tools. When users create a new RDS instance using this product, encryption at rest is enabled by default an no further configuration is required. 
+We previously provisioned a detective control to look for AWS RDS Instances that have don't have encryption enabled.  We can do better, and create an AWS Service Catalog product that meets the encryption requirement by default using service catalog tools. When users create a new RDS instance using this product, encryption at rest is enabled by default and no further configuration is required. 
 
 We are going to perform the following steps:
 

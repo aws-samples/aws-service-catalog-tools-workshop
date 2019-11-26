@@ -1,6 +1,6 @@
 spoke-local-portfolios:
   cloud-engineering-self-service:
-    portfolio: "cloud-engineering-self-service"
+    portfolio: "reinvent-cloud-engineering-self-service"
     deploy_to:
       tags:
         - tag: "type:prod"

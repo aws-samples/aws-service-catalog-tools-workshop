@@ -126,7 +126,7 @@ Using a good / unique commit message will help you understand what is going on l
 Creating that file should trigger your 
 {{% codepipeline_pipeline_link "aws-config-desired-instance-types-v1-pipeline" %}}.  
 
-Once the pipeline has completed it should show the *Source* and *Build* stages in green to indicate they have 
+Once the pipeline has completed it should show the *Source*, *Package* and *Deploy* stages in green to indicate they have 
 completed successfully:
 
 {{< figure src="/tasks/SuccessfulFactoryProductRun.png" >}}
@@ -167,7 +167,7 @@ portfolio.
 
 {{< figure src="/tasks/PortfolioReinventCloudEngineeringGovernance.png" >}}
 
-- Click on the product *aws-config-enable-config*
+- Click on the product *_{{% param product_name %}}_*
 
 - Click on the version *_{{% param product_version %}}_*
 
