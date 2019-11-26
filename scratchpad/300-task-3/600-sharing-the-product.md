@@ -19,7 +19,7 @@ this we will need to update the manifest file.
 
 - Click *Edit*
 
-{{< figure src="/tasks/ClickEdit.png" >}}
+{{< figure src="/tasks/ClickEditPuppetRepo.png" >}}
 
 - Append the following snippet to the YAML document in the main input field (be careful with your indentation):
 

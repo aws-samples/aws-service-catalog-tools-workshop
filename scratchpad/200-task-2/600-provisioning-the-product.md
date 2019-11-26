@@ -23,7 +23,7 @@ _We will start out by adding your account to the manifest file._
 
 - Click *Edit*
 
-{{< figure src="/tasks/ClickEdit.png" >}}
+{{< figure src="/tasks/ClickEditPuppetRepo.png" >}}
 
 - Append the following snippet to the YAML document in the main input field (be careful with your indentation):
 
