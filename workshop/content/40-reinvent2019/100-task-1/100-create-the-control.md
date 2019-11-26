@@ -167,7 +167,7 @@ portfolio.
 
 {{< figure src="/tasks/PortfolioReinventCloudEngineeringGovernance.png" >}}
 
-- Click on the product *aws-config-enable-config*
+- Click on the product *_{{% param product_name %}}_*
 
 - Click on the version *_{{% param product_version %}}_*
 
