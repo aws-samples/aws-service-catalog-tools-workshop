@@ -1,0 +1,21 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: "This template uses Stack Resource to install Service Catalog Factory and Puppet"
+
+Resources:
+  FactoryInstall:
+    Type: AWS::CloudFormation::Stack
+    Properties: 
+      Parameters:
+        EnabledRegions: eu-west-1
+      TemplateURL: "https://service-catalog-tools.s3.eu-west-2.amazonaws.com/factory/latest/servicecatalog-factory-initialiser.template.yaml"
+      TimeoutInMinutes: 10
+  PuppetInstall:
+    Type: AWS::CloudFormation::Stack
+    Properties: 
+      Parameters:
+          EnabledRegions: eu-west-1
+          ShouldCollectCloudformationEvents: False
+          ShouldForwardEventsToEventbridge: False
+          ShouldForwardFailuresToOpscenter: False
+      TemplateURL: "https://service-catalog-tools.s3.eu-west-2.amazonaws.com/puppet/latest/servicecatalog-puppet-initialiser.template.yaml"
+      TimeoutInMinutes: 10
