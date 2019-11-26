@@ -128,7 +128,7 @@ Using a good / unique commit message will help you understand what is going on l
 Creating that file should trigger your 
 {{% codepipeline_pipeline_link "aws-config-rds-storage-encrypted" %}}.  
 
-Once the pipeline has completed it should show the *Source* and *Build* stages in green to indicate they have 
+Once the pipeline has completed it should show the *Source*, *Package* and *Deploy* stages in green to indicate they have 
 completed successfully:
 
 {{< figure src="/tasks/SuccessfulFactoryProductRun.png" >}}
