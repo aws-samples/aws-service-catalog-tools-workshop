@@ -33,7 +33,7 @@ Here are the steps you need to follow to "{{% param title %}}"
 
 - Click *Edit*
 
-{{< figure src="/tasks/ClickEdit.png" >}}
+{{< figure src="/tasks/ClickEditPuppetRepo.png" >}}
 
 - Append the following snippet to the YAML document in the main input field (be careful with your indentation):
 

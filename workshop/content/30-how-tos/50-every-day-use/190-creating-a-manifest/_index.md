@@ -49,4 +49,4 @@ Using a good / unique commit message will help you understand what is going on l
 
 - Click the *Commit changes* button:
 
-{{< figure src="/how-tos/creating-and-provisioning-a-product/CommitChanges.png" >}}
+{{< figure src="/how-tos/creating-and-provisioning-a-product/CommitChangesEmpty.png" >}}
