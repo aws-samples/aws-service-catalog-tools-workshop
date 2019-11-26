@@ -13,7 +13,7 @@ We will assume you have:
  
  - installed Service Catalog Puppet correctly
  - created a manifest
- - bootstrapped a spoke
+ - bootstrapped a spoke - see https://aws-service-catalog-puppet.readthedocs.io/en/latest/puppet/bootstrapping_spokes.html for how
  
 We are going to perform the following steps:
 
@@ -33,7 +33,7 @@ Here are the steps you need to follow to "{{% param title %}}"
 
 - Click *Edit*
 
-{{< figure src="/tasks/ClickEdit.png" >}}
+{{< figure src="/tasks/ClickEditPuppetRepo.png" >}}
 
 - Append the following snippet to the YAML document in the main input field (be careful with your indentation):
 
