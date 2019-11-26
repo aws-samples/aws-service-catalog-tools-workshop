@@ -69,7 +69,7 @@ The YAML we pasted in the previous step told the framework to perform the follow
 Once you have made your changes the {{% service_catalog_puppet_pipeline_link %}} should have run. If you were quick 
 may still be running.  If it has not yet started feel free to the hit the *Release change* button.
 
-Once it has completed it should show the *Source* and *Build* stages in green to indicate they have completed 
+Once it has completed it should show the *Source*, *Build* and *Deploy* stages in green to indicate they have completed 
 successfully:
 
 {{< figure src="/tasks/SuccessfulPuppetRun.png" >}}
