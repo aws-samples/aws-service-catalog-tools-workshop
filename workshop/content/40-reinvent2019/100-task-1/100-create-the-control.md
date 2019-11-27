@@ -126,8 +126,8 @@ Using a good / unique commit message will help you understand what is going on l
 Creating that file should trigger your 
 {{% codepipeline_pipeline_link "aws-config-desired-instance-types-v1-pipeline" %}}.  
 
-Once the pipeline has completed it should show the *Source*, *Package* and *Deploy* stages in green to indicate they have 
-completed successfully:
+Once the pipeline has completed it should show the *Source*, *Tests*, *Package* and *Deploy* stages in green to indicate 
+they have completed successfully:
 
 {{< figure src="/tasks/SuccessfulFactoryProductRun.png" >}}
 

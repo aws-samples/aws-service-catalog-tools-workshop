@@ -105,7 +105,7 @@ regions_enabled section:
 Once you have made your changes the {{% service_catalog_puppet_pipeline_link %}} should have run. If you were quick in making the change, the pipeline 
 may still be running.  If it has not yet started feel free to the hit the *Release change* button.
 
-Once it has completed it should show the *Source*, *Build* and *Deploy* stages in green to indicate they have completed 
+Once it has completed it should show the *Source*, *Generate* and *Deploy* stages in green to indicate they have completed 
 successfully:
 
 {{< figure src="/tasks/SuccessfulPuppetRun.png" >}}
