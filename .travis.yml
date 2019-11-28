@@ -5,9 +5,10 @@ addons:
     - git-core
     packages:
     - git
-  snaps:
-  - name: hugo
-    channel: 0.59.0/stable
+
+before_install:
+  - wget https://github.com/gohugoio/hugo/releases/download/v0.60.0/hugo_0.60.0_Linux-64bit.deb
+  - sudo dpkg -i hugo_0.60.0_Linux-64bit.deb
 
 language: python
 python:
