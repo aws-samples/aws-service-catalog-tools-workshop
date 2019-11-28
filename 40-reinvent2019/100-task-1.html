@@ -8,7 +8,7 @@
     <meta property="og:url" content="https://cdkworkshop.com" />
     <meta property="og:image" content="https://cdkworkshop.com/images/new-cdk-logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <meta name="generator" content="Hugo 0.60.0" />
+    <meta name="generator" content="Hugo 0.59.0" />
     <meta name="description" content="AWS Service Catalog Tools Workshop">
 <meta name="author" content="Service Catalog Tools Team">
 
@@ -767,7 +767,7 @@
     <section id="footer">
       <left>
     <h5 class="copyright">&copy; 2018 Amazon Web Services, Inc. or its Affiliates. All rights reserved.</h5>
-    <h5 class="copyright">086c110 - Thu Nov 28 16:55:28 UTC 2019</h5>
+    <h5 class="copyright">0beb990 - Thu Nov 28 16:58:39 UTC 2019</h5>
 </left>
 
     </section>
@@ -820,10 +820,13 @@
                     <div class="progress">
     <div class="wrapper">
 <nav id="TableOfContents">
-  <ul>
-    <li><a href="#the-ask">The ask</a></li>
-    <li><a href="#the-plan">The plan</a></li>
-  </ul>
+<ul>
+<li>
+<ul>
+<li><a href="#the-ask">The ask</a></li>
+<li><a href="#the-plan">The plan</a></li>
+</ul></li>
+</ul>
 </nav>
     </div>
 </div>
@@ -843,13 +846,22 @@
 
 
 
-	<hr>
+	
+
+<hr />
+
 <h2 id="the-ask">The ask</h2>
+
 <p>Cloud usage within ACME Org has picked up significantly and a number of teams are now using EC2 instances in innovative ways. The customer has noticed that teams are often not sure which EC2 instance types to use for their applications and this is leading to underutilized EC2 instances that are run on-demand. To bring down costs, the customer has purchased a set of EC2 reserved instances, based on common workload profiles, and we need to ensure the teams are using them for long running applications.</p>
+
 <p>To help the customer, we will design and then deploy a control that gives them visibility into which EC2 instance types are being used within an AWS account.</p>
+
 <h2 id="the-plan">The plan</h2>
+
 <p>We are going to create and deploy a governance control using an AWS Config managed rule to ensure the right instance types are being used.</p>
+
 <p>You can follow these steps to do this:</p>
+
 
 
 
@@ -900,7 +912,9 @@
 </ul>
 
 <p>Future work will involve mandating that teams use only approved instance types. To start, we will gather data via AWS Config.</p>
-<!-- raw HTML omitted -->
+
+<div class="notices note" ><p>If you need help at any time please raise your hand.</p>
+</div>
 
 
 

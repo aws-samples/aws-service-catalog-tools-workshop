@@ -30,7 +30,7 @@ Create the portfolio file We need to tell the framework that a product exists.</
       <description>What are we going to do? We are going to perform the following steps:
  Add the source code for the version of the product we have just created  Step by step guide Here are the steps you need to follow to &amp;ldquo;Add the source code&amp;rdquo;
 Add the source code for your product When you configured your product version, you specified the following:
-We now need to create the CodeCommit repository and add the AWS CloudFormation template we are going to use for our product into that repository.</description>
+Versions: - Name: &amp;#34;v1&amp;#34; Description: &amp;#34;v1 of aws-config-enable-config&amp;#34; Active: True Source: Provider: &amp;#34;CodeCommit&amp;#34; Configuration: RepositoryName: &amp;#34;aws-config-enable-config&amp;#34; BranchName: &amp;#34;master&amp;#34;  We now need to create the CodeCommit repository and add the AWS CloudFormation template we are going to use for our product into that repository.</description>
     </item>
     
   </channel>

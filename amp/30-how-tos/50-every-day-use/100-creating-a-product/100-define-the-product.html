@@ -8,7 +8,7 @@
     <meta property="og:url" content="https://cdkworkshop.com" />
     <meta property="og:image" content="https://cdkworkshop.com/images/new-cdk-logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <meta name="generator" content="Hugo 0.60.0" />
+    <meta name="generator" content="Hugo 0.59.0" />
     <meta name="description" content="AWS Service Catalog Tools Workshop">
 <meta name="author" content="Service Catalog Tools Team">
 
@@ -767,7 +767,7 @@
     <section id="footer">
       <left>
     <h5 class="copyright">&copy; 2018 Amazon Web Services, Inc. or its Affiliates. All rights reserved.</h5>
-    <h5 class="copyright">086c110 - Thu Nov 28 16:55:29 UTC 2019</h5>
+    <h5 class="copyright">0beb990 - Thu Nov 28 16:58:40 UTC 2019</h5>
 </left>
 
     </section>
@@ -832,16 +832,18 @@
                     <div class="progress">
     <div class="wrapper">
 <nav id="TableOfContents">
-  <ul>
-    <li><a href="#what-are-we-going-to-do">What are we going to do?</a></li>
-    <li><a href="#step-by-step-guide">Step by step guide</a>
-      <ul>
-        <li><a href="#create-the-portfolio-file">Create the portfolio file</a></li>
-        <li><a href="#create-the-version">Create the version</a></li>
-        <li><a href="#verify-the-version-was-created">Verify the version was created</a></li>
-      </ul>
-    </li>
-  </ul>
+<ul>
+<li>
+<ul>
+<li><a href="#what-are-we-going-to-do">What are we going to do?</a></li>
+<li><a href="#step-by-step-guide">Step by step guide</a>
+<ul>
+<li><a href="#create-the-portfolio-file">Create the portfolio file</a></li>
+<li><a href="#create-the-version">Create the version</a></li>
+<li><a href="#verify-the-version-was-created">Verify the version was created</a></li>
+</ul></li>
+</ul></li>
+</ul>
 </nav>
     </div>
 </div>
@@ -860,9 +862,14 @@
         
 
 
-<hr>
+
+
+<hr />
+
 <h2 id="what-are-we-going-to-do">What are we going to do?</h2>
+
 <p>We are going to perform the following steps:</p>
+
 <ul>
 <li>create a portfolio file</li>
 <li>define a product</li>
@@ -870,112 +877,198 @@
 <li>commit our portfolio file</li>
 <li>verify the framework has create an AWS CodePipeline for our product version</li>
 </ul>
+
 <h2 id="step-by-step-guide">Step by step guide</h2>
+
 <p>Here are the steps you need to follow to &ldquo;Define the product&rdquo;</p>
+
 <h3 id="create-the-portfolio-file">Create the portfolio file</h3>
+
 <p>We need to tell the framework that a product exists.  We do that by creating a portfolio file and by describing the
 products details there.</p>
+
 <p>Here is how we do this:</p>
+
 <ul>
-<li>Navigate to the  <!-- raw HTML omitted -->ServiceCatalogFactory CodeCommit repository<!-- raw HTML omitted --></li>
+<li>Navigate to the  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codecommit/repositories/ServiceCatalogFactory/browse?region=eu-west-1' target='_blank'>ServiceCatalogFactory CodeCommit repository</a><br /></li>
 <li>Scroll down to the bottom of the page and hit the <em>Create file</em> button</li>
 </ul>
+
 <figure>
     <img src="../../../../how-tos/creating-and-provisioning-a-product/create_file.png"/> 
 </figure>
 
+
 <ul>
-<li>Copy the following snippet into the main input field:</li>
+<li>Copy the following snippet into the main input field:
+
+<br /></li>
 </ul>
-<!-- raw HTML omitted -->
+
+<figure><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">Schema</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">factory</span><span style="color:#f92672">-</span><span style="color:#ae81ff">2019</span><span style="color:#f92672">-</span><span style="color:#ae81ff">04</span><span style="color:#f92672">-</span><span style="color:#ae81ff">01</span>
+<span style="color:#a6e22e">Products</span><span style="color:#f92672">:</span>
+  <span style="color:#f92672">-</span> <span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;aws-config-enable-config&#34;</span>
+    <span style="color:#a6e22e">Owner</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;data-governance@acme.com&#34;</span>
+    <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Enables AWS Config&#34;</span>
+    <span style="color:#a6e22e">Distributor</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering&#34;</span>
+    <span style="color:#a6e22e">SupportDescription</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Speak to data-governance@acme.com about exceptions and speak to cloud-engineering@acme.com about implementation issues&#34;</span>
+    <span style="color:#a6e22e">SupportEmail</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering@acme.com&#34;</span>
+    <span style="color:#a6e22e">SupportUrl</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;https://wiki.acme.com/cloud-engineering/governance/aws-config-enable-config&#34;</span>
+    <span style="color:#a6e22e">Tags</span><span style="color:#f92672">:</span>
+      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;type&#34;</span>
+        <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;governance&#34;</span>
+      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;creator&#34;</span>
+        <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering&#34;</span>
+      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cost-center&#34;</span>
+        <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering&#34;</span>
+</code></pre></div></figure>
+ 
+
 <ul>
-<li>
-<p>Set the <em>File name</em> to <code>portfolios/reinvent.yaml</code></p>
-</li>
-<li>
-<p>Set your <em>Author name</em></p>
-</li>
-<li>
-<p>Set your <em>Email address</em></p>
-</li>
-<li>
-<p>Set your <em>Commit message</em></p>
-</li>
+<li><p>Set the <em>File name</em> to <code>portfolios/reinvent.yaml</code></p></li>
+
+<li><p>Set your <em>Author name</em></p></li>
+
+<li><p>Set your <em>Email address</em></p></li>
+
+<li><p>Set your <em>Commit message</em></p></li>
 </ul>
+
 
 <div class="notices tip" ><p>Using a good / unique commit message will help you understand what is going on later.</p>
 </div>
+
 
 <ul>
 <li>Click the <em>Commit changes</em> button:</li>
 </ul>
+
 <figure>
     <img src="../../../../how-tos/creating-and-provisioning-a-product/CommitChanges.png"/> 
 </figure>
 
+
 <p>We have just told the framework there is a product named aws-config-enable-config.  This product has no versions and so
 it will not appear in AWS Service Catalog yet.</p>
+
 <h3 id="create-the-version">Create the version</h3>
+
 <p>We now need to tell the framework we want to create a new version of our product.</p>
+
 <ul>
-<li>
-<p>Navigate to the  <!-- raw HTML omitted -->ServiceCatalogFactory CodeCommit repository<!-- raw HTML omitted --> again</p>
-</li>
-<li>
-<p>Click on <em>portfolios</em></p>
-</li>
+<li><p>Navigate to the  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codecommit/repositories/ServiceCatalogFactory/browse?region=eu-west-1' target='_blank'>ServiceCatalogFactory CodeCommit repository</a> again</p></li>
+
+<li><p>Click on <em>portfolios</em></p></li>
 </ul>
+
 <figure>
     <img src="../../../../how-tos/creating-and-provisioning-a-product/ClickOnPortfolios.png"/> 
 </figure>
 
+
 <ul>
 <li>Click on <em>reinvent.yaml</em></li>
 </ul>
+
 <figure>
     <img src="../../../../how-tos/creating-and-provisioning-a-product/ClickOnreinvent.png"/> 
 </figure>
 
+
 <ul>
 <li>Click <em>Edit</em></li>
 </ul>
+
 <figure>
     <img src="../../../../how-tos/creating-and-provisioning-a-product/ClickEdit.png"/> 
 </figure>
 
+
 <ul>
-<li>Add the following to the end of the file (be careful with your indentation):</li>
+<li>Add the following to the end of the file (be careful with your indentation):
+
+<br /></li>
 </ul>
-<!-- raw HTML omitted -->
+
+<figure><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">    <span style="color:#a6e22e">Versions</span><span style="color:#f92672">:</span>
+      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1&#34;</span>
+        <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1 of aws-config-enable-config&#34;</span>
+        <span style="color:#a6e22e">Active</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">True</span>
+        <span style="color:#a6e22e">Source</span><span style="color:#f92672">:</span>
+          <span style="color:#a6e22e">Provider</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;CodeCommit&#34;</span>
+          <span style="color:#a6e22e">Configuration</span><span style="color:#f92672">:</span>
+            <span style="color:#a6e22e">RepositoryName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;aws-config-enable-config&#34;</span>
+            <span style="color:#a6e22e">BranchName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;master&#34;</span>
+</code></pre></div></figure>
+ 
+
 <ul>
-<li>Verify the contents of your file matches this:</li>
+<li>Verify the contents of your file matches this:
+
+<br /></li>
 </ul>
-<!-- raw HTML omitted -->
+
+<figure><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">Schema</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">factory</span><span style="color:#f92672">-</span><span style="color:#ae81ff">2019</span><span style="color:#f92672">-</span><span style="color:#ae81ff">04</span><span style="color:#f92672">-</span><span style="color:#ae81ff">01</span>
+<span style="color:#a6e22e">Products</span><span style="color:#f92672">:</span>
+  <span style="color:#f92672">-</span> <span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;aws-config-enable-config&#34;</span>
+    <span style="color:#a6e22e">Owner</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;data-governance@acme.com&#34;</span>
+    <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Enables AWS Config&#34;</span>
+    <span style="color:#a6e22e">Distributor</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering&#34;</span>
+    <span style="color:#a6e22e">SupportDescription</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Speak to data-governance@acme.com about exceptions and speak to cloud-engineering@acme.com about implementation issues&#34;</span>
+    <span style="color:#a6e22e">SupportEmail</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering@acme.com&#34;</span>
+    <span style="color:#a6e22e">SupportUrl</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;https://wiki.acme.com/cloud-engineering/governance/aws-config-enable-config&#34;</span>
+    <span style="color:#a6e22e">Tags</span><span style="color:#f92672">:</span>
+      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;type&#34;</span>
+        <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;governance&#34;</span>
+      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;creator&#34;</span>
+        <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering&#34;</span>
+      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cost-center&#34;</span>
+        <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering&#34;</span>
+    <span style="color:#a6e22e">Versions</span><span style="color:#f92672">:</span>
+      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1&#34;</span>
+        <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1 of aws-config-enable-config&#34;</span>
+        <span style="color:#a6e22e">Active</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">True</span>
+        <span style="color:#a6e22e">Source</span><span style="color:#f92672">:</span>
+          <span style="color:#a6e22e">Provider</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;CodeCommit&#34;</span>
+          <span style="color:#a6e22e">Configuration</span><span style="color:#f92672">:</span>
+            <span style="color:#a6e22e">RepositoryName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;aws-config-enable-config&#34;</span>
+            <span style="color:#a6e22e">BranchName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;master&#34;</span>
+</code></pre></div></figure>
+
 <p>Once you have updated the file fill in the fields for <em>Author name</em>, <em>Email address</em>, <em>Commit message</em> and hit <em>Commit changes</em></p>
+
 <figure>
     <img src="../../../../how-tos/creating-and-provisioning-a-product/CommitChanges.png"/> 
 </figure>
+
 
 
 <div class="notices tip" ><p>Using a good / unique commit message will help you understand what is going on later.</p>
 </div>
 
+
 <h3 id="verify-the-version-was-created">Verify the version was created</h3>
-<p>Once you have made your changes the  <!-- raw HTML omitted -->ServiceCatalogFactory Pipeline<!-- raw HTML omitted --> should have run or if you were quick
+
+<p>Once you have made your changes the  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/servicecatalog-factory-pipeline/view?region=eu-west-1' target='_blank'>ServiceCatalogFactory Pipeline</a> should have run or if you were quick
 may still be running.  If it has not yet started feel free to the hit the <em>Release change</em> button.</p>
+
 <p>Once it has completed it should show the <em>Source</em> and <em>Build</em> stages in green to indicate they have completed
 successfully:</p>
+
 <figure>
     <img src="../../../../how-tos/creating-and-provisioning-a-product/SuccessfulFactoryRun.png"/> 
 </figure>
+
 
 
 <div class="notices tip" ><p>You should see your commit message on this screen, it will help you know which version of ServiceCatalogFactory repo
 the pipeline is processing.</p>
 </div>
 
+
 <p>Now that your <em>ServiceCatalogFactory</em> pipeline has completed you can view the newly created pipeline:
-<!-- raw HTML omitted -->aws-config-enable-config-v1-pipeline<!-- raw HTML omitted --></p>
+  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/aws-config-enable-config-v1-pipeline/view?region=eu-west-1' target='_blank'>aws-config-enable-config-v1-pipeline</a></p>
+
 <p>You can safely ignore aws-config-enable-config-v1-pipeline has failed.  For the pipeline to succeed, we need to add the source code for it to work which we will do in the next step.</p>
 
 

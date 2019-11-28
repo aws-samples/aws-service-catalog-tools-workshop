@@ -8,7 +8,7 @@
     <meta property="og:url" content="https://cdkworkshop.com" />
     <meta property="og:image" content="https://cdkworkshop.com/images/new-cdk-logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <meta name="generator" content="Hugo 0.60.0" />
+    <meta name="generator" content="Hugo 0.59.0" />
     <meta name="description" content="AWS Service Catalog Tools Workshop">
 <meta name="author" content="Service Catalog Tools Team">
 
@@ -767,7 +767,7 @@
     <section id="footer">
       <left>
     <h5 class="copyright">&copy; 2018 Amazon Web Services, Inc. or its Affiliates. All rights reserved.</h5>
-    <h5 class="copyright">086c110 - Thu Nov 28 16:55:28 UTC 2019</h5>
+    <h5 class="copyright">0beb990 - Thu Nov 28 16:58:39 UTC 2019</h5>
 </left>
 
     </section>
@@ -814,10 +814,13 @@
                     <div class="progress">
     <div class="wrapper">
 <nav id="TableOfContents">
-  <ul>
-    <li><a href="#what-is-service-catalog-puppet">What is Service Catalog Puppet</a></li>
-    <li><a href="#highlevel-architecture-diagram">High-Level Architecture Diagram</a></li>
-  </ul>
+<ul>
+<li>
+<ul>
+<li><a href="#what-is-service-catalog-puppet">What is Service Catalog Puppet</a></li>
+<li><a href="#high-level-architecture-diagram">High-Level Architecture Diagram</a></li>
+</ul></li>
+</ul>
 </nav>
     </div>
 </div>
@@ -837,20 +840,31 @@
 
 
 
-	<hr>
+	
+
+<hr />
+
 <h2 id="what-is-service-catalog-puppet">What is Service Catalog Puppet</h2>
+
 <p><strong>Service Catalog Puppet</strong> is part of a suite of open source Tools which have been built to compliment the AWS Service Catalog Service.</p>
+
 <p>Service Catalog Puppet enables you to provision AWS Service Catalog Products into multiple Accounts and Regions across your AWS Estate.</p>
+
 <p>The Tool reduces the Operational burden of engineering a solution to support Portfolio Sharing and Product Launches across a large Enterprise and allows you to focus on writing the Products you require to support your Organizations needs.</p>
+
 <p>Service Catalog Puppet makes use of a number of AWS Services including AWS CodePipeline, AWS CodeBuild and AWS CloudFormation to manage this for you.</p>
-<h2 id="highlevel-architecture-diagram">High-Level Architecture Diagram</h2>
+
+<h2 id="high-level-architecture-diagram">High-Level Architecture Diagram</h2>
+
 <p>You use an AWS CodeBuild project in a central <em>hub</em> account that provisions AWS
 Service Catalog Products into <em>spoke</em> accounts on your behalf.  The framework
 takes care of cross account sharing and cross region product replication for
 you.</p>
+
 <figure>
     <img src="./sc_puppet.png" width="800" height="600"/> 
 </figure>
+
 
 <p>User interaction with the Framework is via a YAML file. The YAML file contains the definition of the AWS Accounts you want to manage (using tags), the portfolios you want to share and the Products you want to launch.</p>
 

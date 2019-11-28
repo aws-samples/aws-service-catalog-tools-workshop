@@ -29,7 +29,7 @@ Step by step guide Here are the steps you need to follow to &amp;ldquo;Create th
       <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/100-task-1/200-provision-the-control.html</guid>
       <description>What are we going to do? We are going to perform the following steps:
  create a manifest file with our account in it provision the product aws-config-desired-instance-types into our account  Step by step guide Here are the steps you need to follow to provision the control. In the previous task, we created an AWS Service Catalog product but it has not yet been provisioned.
-Create a manifest file with our account in it   Navigate to the ServiceCatalogPuppet CodeCommit repository  Scroll down to the bottom of the page and hit the Create file button</description>
+Create a manifest file with our account in it  Navigate to the ServiceCatalogPuppet CodeCommit repository</description>
     </item>
     
   </channel>

@@ -8,7 +8,7 @@
     <meta property="og:url" content="https://cdkworkshop.com" />
     <meta property="og:image" content="https://cdkworkshop.com/images/new-cdk-logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <meta name="generator" content="Hugo 0.60.0" />
+    <meta name="generator" content="Hugo 0.59.0" />
     <meta name="description" content="AWS Service Catalog Tools Workshop">
 <meta name="author" content="Service Catalog Tools Team">
 
@@ -767,7 +767,7 @@
     <section id="footer">
       <left>
     <h5 class="copyright">&copy; 2018 Amazon Web Services, Inc. or its Affiliates. All rights reserved.</h5>
-    <h5 class="copyright">086c110 - Thu Nov 28 16:55:29 UTC 2019</h5>
+    <h5 class="copyright">0beb990 - Thu Nov 28 16:58:40 UTC 2019</h5>
 </left>
 
     </section>
@@ -826,15 +826,23 @@
                     <div class="progress">
     <div class="wrapper">
 <nav id="TableOfContents">
-  <ul>
-    <li><a href="#what-are-we-going-to-do">What are we going to do?</a></li>
-    <li><a href="#step-by-step-guide">Step by step guide</a>
-      <ul>
-        <li><a href="#create-a-manifest-file-with-our-account-in-it">Create a manifest file with our account in it</a></li>
-        <li><a href="#provision-the-product-awsconfigdesiredinstancetypes-into-a-spoke-account">Provision the product aws-config-desired-instance-types into a spoke account</a></li>
-      </ul>
-    </li>
-  </ul>
+<ul>
+<li>
+<ul>
+<li><a href="#what-are-we-going-to-do">What are we going to do?</a></li>
+<li><a href="#step-by-step-guide">Step by step guide</a>
+<ul>
+<li><a href="#create-a-manifest-file-with-our-account-in-it">Create a manifest file with our account in it</a></li>
+<li><a href="#provision-the-product-aws-config-desired-instance-types-into-a-spoke-account">Provision the product <em>aws-config-desired-instance-types</em> into a spoke account</a>
+<ul>
+<li><a href="#committing-the-manifest-file">Committing the manifest file</a></li>
+<li><a href="#what-did-we-just-do">What did we just do?</a></li>
+<li><a href="#verifying-the-provisioned-product">Verifying the provisioned product</a></li>
+<li><a href="#verify-that-the-aws-config-rule-is-enabled">Verify that the AWS Config rule is enabled</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
 </nav>
     </div>
 </div>
@@ -853,126 +861,247 @@
         
 
 
-<hr>
+
+
+<hr />
+
 <h2 id="what-are-we-going-to-do">What are we going to do?</h2>
+
 <p>We are going to perform the following steps:</p>
+
 <ul>
 <li>create a manifest file with our account in it</li>
 <li>provision the product <em>aws-config-desired-instance-types</em> into our account</li>
 </ul>
+
 <h2 id="step-by-step-guide">Step by step guide</h2>
+
 <p>Here are the steps you need to follow to provision the control. In the previous task, we created an AWS Service Catalog product but it has not yet been provisioned.</p>
+
 <h3 id="create-a-manifest-file-with-our-account-in-it">Create a manifest file with our account in it</h3>
+
 <ul>
-<li>
-<p>Navigate to the  <!-- raw HTML omitted -->ServiceCatalogPuppet CodeCommit repository<!-- raw HTML omitted --></p>
-</li>
-<li>
-<p>Scroll down to the bottom of the page and hit the <em>Create file</em> button</p>
-</li>
+<li><p>Navigate to the  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codecommit/repositories/ServiceCatalogPuppet/browse?region=eu-west-1' target='_blank'>ServiceCatalogPuppet CodeCommit repository</a></p></li>
+
+<li><p>Scroll down to the bottom of the page and hit the <em>Create file</em> button</p></li>
 </ul>
+
 <figure>
     <img src="../../../tasks/create_file.png"/> 
 </figure>
 
+
 <ul>
 <li>Copy the following snippet into the main input field and replace account_id to show your account id on the highlighted line:</li>
 </ul>
-<!-- raw HTML omitted -->
 
-<div class="notices note" ><p>You can find your Account Number in the <strong>top right</strong> drop down of the AWS Console page. It is a 12 digit number. Please <strong>do not</strong> include the hyphens ('-') in the manifest code.</p>
+<figure><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">accounts</span><span style="color:#f92672">:</span>
+<span style="display:block;width:100%;background-color:#3c3d38">  <span style="color:#f92672">-</span> <span style="color:#a6e22e">account_id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;&lt;YOUR_ACCOUNT_ID_WITHOUT_HYPHENS&gt;&#34;</span>
+</span>    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;puppet-account&#34;</span>
+    <span style="color:#a6e22e">default_region</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;eu-west-1&#34;</span>
+    <span style="color:#a6e22e">regions_enabled</span><span style="color:#f92672">:</span>
+      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;eu-west-1&#34;</span>
+      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;eu-west-2&#34;</span>
+    <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
+      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;type:prod&#34;</span>
+      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;partition:eu&#34;</span>
+</code></pre></div></figure>
+
+
+<div class="notices note" ><p>You can find your Account Number in the <strong>top right</strong> drop down of the AWS Console page. It is a 12 digit number. Please <strong>do not</strong> include the hyphens (&lsquo;-&rsquo;) in the manifest code.</p>
 </div>
+
 
 <figure>
     <img src="../../../tasks/FindMyAccountNumber.png"/> 
 </figure>
 
-<h3 id="provision-the-product-awsconfigdesiredinstancetypes-into-a-spoke-account">Provision the product <em>aws-config-desired-instance-types</em> into a spoke account</h3>
+
+<h3 id="provision-the-product-aws-config-desired-instance-types-into-a-spoke-account">Provision the product <em>aws-config-desired-instance-types</em> into a spoke account</h3>
+
 <ul>
-<li>Append the following snippet to the end of the main input field:</li>
+<li>Append the following snippet to the end of the main input field:
+
+<br /></li>
 </ul>
-<!-- raw HTML omitted -->
+
+<figure><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">launches</span><span style="color:#f92672">:</span>
+  <span style="color:#a6e22e">aws</span><span style="color:#f92672">-</span><span style="color:#a6e22e">config</span><span style="color:#f92672">-</span><span style="color:#a6e22e">desired</span><span style="color:#f92672">-</span><span style="color:#a6e22e">instance</span><span style="color:#f92672">-</span><span style="color:#a6e22e">types</span><span style="color:#f92672">:</span>
+    <span style="color:#a6e22e">portfolio</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;reinvent-cloud-engineering-governance&#34;</span>
+    <span style="color:#a6e22e">product</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;aws-config-desired-instance-types&#34;</span>
+    <span style="color:#a6e22e">version</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1&#34;</span>
+<span style="display:block;width:100%;background-color:#3c3d38">    <span style="color:#a6e22e">parameters</span><span style="color:#f92672">:</span>
+</span><span style="display:block;width:100%;background-color:#3c3d38">      <span style="color:#a6e22e">InstanceType</span><span style="color:#f92672">:</span>
+</span><span style="display:block;width:100%;background-color:#3c3d38">        <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;t2.medium, t2.large, t2.xlarge&#34;</span>
+</span>    <span style="color:#a6e22e">deploy_to</span><span style="color:#f92672">:</span>
+      <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
+        <span style="color:#f92672">-</span> <span style="color:#a6e22e">tag</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;type:prod&#34;</span>
+          <span style="color:#a6e22e">regions</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;default_region&#34;</span>
+</code></pre></div></figure>
+ 
+
 
 <div class="notices note" ><p>The CloudFormation template we used to create this product had a parameter named <em>InstanceType</em>. The highlighted lines
 show how we can use the framework to set a value for that parameter when provisioning it.</p>
 </div>
 
+
 <ul>
-<li>The main input field should look like this (remember to set your account_id):</li>
+<li>The main input field should look like this (remember to set your account_id):
+
+<br /></li>
 </ul>
-<!-- raw HTML omitted -->
+
+<figure><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">accounts</span><span style="color:#f92672">:</span>
+  <span style="color:#f92672">-</span> <span style="color:#a6e22e">account_id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;&lt;YOUR_ACCOUNT_ID_WITHOUT_HYPHENS&gt;&#34;</span>
+    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;puppet-account&#34;</span>
+    <span style="color:#a6e22e">default_region</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;eu-west-1&#34;</span>
+    <span style="color:#a6e22e">regions_enabled</span><span style="color:#f92672">:</span>
+      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;eu-west-1&#34;</span>
+      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;eu-west-2&#34;</span>
+    <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
+      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;type:prod&#34;</span>
+      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;partition:eu&#34;</span>
+<span style="color:#a6e22e">launches</span><span style="color:#f92672">:</span>
+  <span style="color:#a6e22e">aws</span><span style="color:#f92672">-</span><span style="color:#a6e22e">config</span><span style="color:#f92672">-</span><span style="color:#a6e22e">desired</span><span style="color:#f92672">-</span><span style="color:#a6e22e">instance</span><span style="color:#f92672">-</span><span style="color:#a6e22e">types</span><span style="color:#f92672">:</span>
+    <span style="color:#a6e22e">portfolio</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;reinvent-cloud-engineering-governance&#34;</span>
+    <span style="color:#a6e22e">product</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;aws-config-desired-instance-types&#34;</span>
+    <span style="color:#a6e22e">version</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1&#34;</span>
+    <span style="color:#a6e22e">parameters</span><span style="color:#f92672">:</span>
+      <span style="color:#a6e22e">InstanceType</span><span style="color:#f92672">:</span>
+        <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;t2.medium, t2.large, t2.xlarge&#34;</span>
+    <span style="color:#a6e22e">deploy_to</span><span style="color:#f92672">:</span>
+      <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
+        <span style="color:#f92672">-</span> <span style="color:#a6e22e">tag</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;type:prod&#34;</span>
+          <span style="color:#a6e22e">regions</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;default_region&#34;</span>
+</code></pre></div></figure>
+
 <h4 id="committing-the-manifest-file">Committing the manifest file</h4>
+
 <p><em>Now that we have written the manifest file we are ready to commit it.</em></p>
+
 <ul>
-<li>
-<p>Set the <em>File name</em> to <code>manifest.yaml</code></p>
-</li>
-<li>
-<p>Set your <em>Author name</em></p>
-</li>
-<li>
-<p>Set your <em>Email address</em></p>
-</li>
-<li>
-<p>Set your <em>Commit message</em></p>
-</li>
+<li><p>Set the <em>File name</em> to <code>manifest.yaml</code></p></li>
+
+<li><p>Set your <em>Author name</em></p></li>
+
+<li><p>Set your <em>Email address</em></p></li>
+
+<li><p>Set your <em>Commit message</em></p></li>
 </ul>
+
 
 <div class="notices tip" ><p>Using a good / unique commit message will help you understand what is going on later.</p>
 </div>
 
+
 <ul>
 <li>Click the <em>Commit changes</em> button:</li>
 </ul>
+
 <figure>
     <img src="../../../tasks/CommitChanges.png"/> 
 </figure>
 
+
 <h4 id="what-did-we-just-do">What did we just do?</h4>
+
 <p>The YAML file we created in the previous step told the framework to perform the following actions:</p>
+
 <ul>
 <li>provision a product named <em>aws-config-desired-instance-types</em> into each of the enabled regions of the account</li>
 </ul>
+
 <p>When you added the following:</p>
-<!-- raw HTML omitted -->
+
+<figure><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">launches</span><span style="color:#f92672">:</span>
+  <span style="color:#a6e22e">aws</span><span style="color:#f92672">-</span><span style="color:#a6e22e">config</span><span style="color:#f92672">-</span><span style="color:#a6e22e">desired</span><span style="color:#f92672">-</span><span style="color:#a6e22e">instance</span><span style="color:#f92672">-</span><span style="color:#a6e22e">types</span><span style="color:#f92672">:</span>
+    <span style="color:#a6e22e">portfolio</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;reinvent-cloud-engineering-governance&#34;</span>
+    <span style="color:#a6e22e">product</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;aws-config-desired-instance-types&#34;</span>
+    <span style="color:#a6e22e">version</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1&#34;</span>
+    <span style="color:#a6e22e">parameters</span><span style="color:#f92672">:</span>
+      <span style="color:#a6e22e">InstanceType</span><span style="color:#f92672">:</span>
+        <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;t2.medium, t2.large, t2.xlarge&#34;</span>
+    <span style="color:#a6e22e">deploy_to</span><span style="color:#f92672">:</span>
+      <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
+<span style="display:block;width:100%;background-color:#3c3d38">        <span style="color:#f92672">-</span> <span style="color:#a6e22e">tag</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;type:prod&#34;</span>
+</span><span style="display:block;width:100%;background-color:#3c3d38">          <span style="color:#a6e22e">regions</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;default_region&#34;</span>
+</span></code></pre></div></figure>
+
 <p>You told the framework to provision <em>v1</em> of <em>aws-config-desired-instance-types</em> from the portfolio
 <em>cloud-engineering-governance</em> into every account that has the tag <em>type:prod</em></p>
-<!-- raw HTML omitted -->
+
+<figure><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">accounts</span><span style="color:#f92672">:</span>
+  <span style="color:#f92672">-</span> <span style="color:#a6e22e">account_id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;&lt;YOUR_ACCOUNT_ID_WITHOUT_HYPHENS&gt;&#34;</span>
+    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;puppet-account&#34;</span>
+    <span style="color:#a6e22e">default_region</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;eu-west-1&#34;</span>
+    <span style="color:#a6e22e">regions_enabled</span><span style="color:#f92672">:</span>
+      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;eu-west-1&#34;</span>
+      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;eu-west-2&#34;</span>
+<span style="display:block;width:100%;background-color:#3c3d38">    <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
+</span><span style="display:block;width:100%;background-color:#3c3d38">      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;type:prod&#34;</span>
+</span><span style="display:block;width:100%;background-color:#3c3d38">      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;partition:eu&#34;</span>
+</span></code></pre></div></figure>
+
 <p>Within each account there will be a copy of the product provisioned into each of the regions listed in the
 regions_enabled section:</p>
-<!-- raw HTML omitted -->
+
+<figure><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">accounts</span><span style="color:#f92672">:</span>
+  <span style="color:#f92672">-</span> <span style="color:#a6e22e">account_id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;&lt;YOUR_ACCOUNT_ID_WITHOUT_HYPHENS&gt;&#34;</span>
+    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;puppet-account&#34;</span>
+    <span style="color:#a6e22e">default_region</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;eu-west-1&#34;</span>
+<span style="display:block;width:100%;background-color:#3c3d38">    <span style="color:#a6e22e">regions_enabled</span><span style="color:#f92672">:</span>
+</span><span style="display:block;width:100%;background-color:#3c3d38">      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;eu-west-1&#34;</span>
+</span><span style="display:block;width:100%;background-color:#3c3d38">      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;eu-west-2&#34;</span>
+</span>    <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
+      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;type:prod&#34;</span>
+      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;partition:eu&#34;</span>
+</code></pre></div></figure>
+
 
 <div class="notices note" ><p>In the workshop, you will only have permission to view the products in eu-west-1.</p>
 </div>
 
+
 <h4 id="verifying-the-provisioned-product">Verifying the provisioned product</h4>
-<p>Once you have made your changes the  <!-- raw HTML omitted -->ServiceCatalogPuppet Pipeline<!-- raw HTML omitted --> should have run. If you were quick in making the change, the pipeline
+
+<p>Once you have made your changes the  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/servicecatalog-puppet-pipeline/view?region=eu-west-1' target='_blank'>ServiceCatalogPuppet Pipeline</a> should have run. If you were quick in making the change, the pipeline
 may still be running.  If it has not yet started feel free to the hit the <em>Release change</em> button.</p>
+
 <p>Once it has completed it should show the <em>Source</em>, <em>Generate</em> and <em>Deploy</em> stages in green to indicate they have completed
 successfully:</p>
+
 <figure>
     <img src="../../../tasks/SuccessfulPuppetRun.png"/> 
 </figure>
 
 
+
 <div class="notices note" ><p>If this is failing please raise your hand for some assistance</p>
 </div>
 
-<p>Once you have verified the pipeline has run you can go to  <!-- raw HTML omitted -->Service Catalog provisioned products<!-- raw HTML omitted --> to view your
+
+<p>Once you have verified the pipeline has run you can go to  <a href='https://eu-west-1.console.aws.amazon.com/servicecatalog/home?region=eu-west-1#/stacks' target='_blank'>Service Catalog provisioned products</a> to view your
 provisioned product.  Please note when you arrive at the provisioned product page you will need to select account from
 the filter by drop down in the top right:</p>
+
 <figure>
     <img src="../../../tasks/FilterByAccount.png"/> 
 </figure>
 
 
+
 <div class="notices note" ><p>If you cannot see your product please raise your hand for some assistance</p>
 </div>
 
+
 <p>You have now successfully provisioned a product</p>
+
 <h4 id="verify-that-the-aws-config-rule-is-enabled">Verify that the AWS Config rule is enabled</h4>
-<p>To see the AWS Config rule enabled, navigate to  <!-- raw HTML omitted -->AWS Config rules<!-- raw HTML omitted -->.  Once there you should see the
+
+<p>To see the AWS Config rule enabled, navigate to  <a href='https://eu-west-1.console.aws.amazon.com/config/home?region=eu-west-1#/rules/view' target='_blank'>AWS Config rules</a>.  Once there you should see the
 following:</p>
+
 <figure>
     <img src="../../../tasks/aws-config-rule-enabled.png"/> 
 </figure>
