@@ -15,7 +15,9 @@ portfolio_name = "cloud-engineering-governance"
 
 We are going to perform the following steps:
 
-- provision the product _{{% param product_name %}}_ into a spoke account
+- provision the product _{{% param product_name %}}_ 
+
+For this workshop, we are using the same account as both the hub and spoke for simplicity; in a multi-account setup, products that are created in a hub account could be provisioned in multiple spoke accounts.
 
 ## Step by step guide
 

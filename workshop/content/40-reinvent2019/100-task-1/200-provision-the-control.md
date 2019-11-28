@@ -99,6 +99,8 @@ regions_enabled section:
 
 {{% code file="40-reinvent2019/100-task-1/artefacts/orchestrator/manifest-accounts-only.yaml" language="js" highlight="5-7" %}}
 
+For this workshop, we are creating and provisioning the product into the same AWS Account, but in a multi-account setup, you might choose to create a product in a "hub" account and provision it only to "spoke" accounts.
+
 #### Verifying the provisioned product
 
 
