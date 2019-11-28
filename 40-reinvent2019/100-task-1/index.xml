@@ -17,8 +17,7 @@
       
       <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/100-task-1/100-create-the-control.html</guid>
       <description>What are we going to do? We are going to perform the following steps:
- define a product with a version and a portfolio add the source code for the product provision that product into a spoke account  The &amp;ldquo;hub&amp;rdquo; AWS account is the source of truth for our AWS Service Catalog products. &amp;ldquo;Spoke&amp;rdquo; AWS accounts are consumers of these products.
-Step by step guide Here are the steps you need to follow to &amp;ldquo;Create the control&amp;rdquo;</description>
+ define a product with a version and a portfolio in a hub account add the source code for the product provision that product into a spoke account  The hub AWS Account is the source of truth for our AWS Service Catalog products. Spoke AWS accounts are consumers of these products, you can think of them as accounts that need governance controls applied.</description>
     </item>
     
     <item>

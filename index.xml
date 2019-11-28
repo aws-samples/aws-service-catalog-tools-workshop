@@ -39,8 +39,7 @@
       
       <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/100-task-1/100-create-the-control.html</guid>
       <description>What are we going to do? We are going to perform the following steps:
- define a product with a version and a portfolio add the source code for the product provision that product into a spoke account  The &amp;ldquo;hub&amp;rdquo; AWS account is the source of truth for our AWS Service Catalog products. &amp;ldquo;Spoke&amp;rdquo; AWS accounts are consumers of these products.
-Step by step guide Here are the steps you need to follow to &amp;ldquo;Create the control&amp;rdquo;</description>
+ define a product with a version and a portfolio in a hub account add the source code for the product provision that product into a spoke account  The hub AWS Account is the source of truth for our AWS Service Catalog products. Spoke AWS accounts are consumers of these products, you can think of them as accounts that need governance controls applied.</description>
     </item>
     
     <item>
@@ -83,11 +82,8 @@ Create a manifest file with our account in it  Navigate to the ServiceCatalogPup
       
       <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/150-task-2/200-provision-the-control.html</guid>
       <description>What are we going to do? We are going to perform the following steps:
- provision the product aws-config-rds-storage-encrypted into a spoke account  Step by step guide Here are the steps you need to follow to &amp;ldquo;Provision the control&amp;rdquo;
-Provision the product aws-config-rds-storage-encrypted into a spoke account  Navigate to the ServiceCatalogPuppet CodeCommit repository again
- Click on manifest.yaml
- Click Edit
- Append the following snippet to the end of the main input field:</description>
+ provision the product aws-config-rds-storage-encrypted  For this workshop, we are using the same account as both the hub and spoke for simplicity; in a multi-account setup, products that are created in a hub account could be provisioned in multiple spoke accounts.
+Step by step guide Here are the steps you need to follow to &amp;ldquo;Provision the control&amp;rdquo;</description>
     </item>
     
     <item>
@@ -108,7 +104,7 @@ Versions: - Name: &amp;#34;v1&amp;#34; Description: &amp;#34;v1 of aws-config-en
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/150-task-2/300-create-the-product.html</guid>
-      <description>What are we going to do? We previously provisioned a detective control to look for AWS RDS Instances that have don&amp;rsquo;t have encryption enabled. We can do better, and create an AWS Service Catalog product that meets the encryption requirement by default using service catalog tools. When users create a new RDS instance using this product, encryption at rest is enabled by default and no further configuration is required.</description>
+      <description>What are we going to do? We have provisioned a detective control to look for AWS RDS Instances that have don&amp;rsquo;t have encryption enabled. We can do better, and create an AWS Service Catalog product that meets the encryption requirement by default using service catalog tools. When users create a new RDS instance using this product, encryption at rest is enabled by default and no further configuration is required.</description>
     </item>
     
     <item>
