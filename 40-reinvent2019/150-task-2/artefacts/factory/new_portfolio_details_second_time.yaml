@@ -1,5 +1,5 @@
   - DisplayName: "cloud-engineering-self-service"
-    Description: "Portfolio containing the you can use to ensure you meet the governance guidelines"
+    Description: "Portfolio containing products that you can use to ensure you meet the governance guidelines"
     ProviderName: "cloud-engineering"
     Associations:
       - "arn:aws:iam::${AWS::AccountId}:role/TeamRole"

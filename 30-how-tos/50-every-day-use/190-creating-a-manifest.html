@@ -8,7 +8,7 @@
     <meta property="og:url" content="https://cdkworkshop.com" />
     <meta property="og:image" content="https://cdkworkshop.com/images/new-cdk-logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <meta name="generator" content="Hugo 0.59.1" />
+    <meta name="generator" content="Hugo 0.60.0" />
     <meta name="description" content="AWS Service Catalog Tools Workshop">
 <meta name="author" content="Service Catalog Tools Team">
 
@@ -767,7 +767,7 @@
     <section id="footer">
       <left>
     <h5 class="copyright">&copy; 2018 Amazon Web Services, Inc. or its Affiliates. All rights reserved.</h5>
-    <h5 class="copyright">78d784b - Wed Nov 27 12:28:39 UTC 2019</h5>
+    <h5 class="copyright">d31eded - Thu Nov 28 16:19:19 UTC 2019</h5>
 </left>
 
     </section>
@@ -826,17 +826,15 @@
                     <div class="progress">
     <div class="wrapper">
 <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#what-are-we-going-to-do">What are we going to do?</a></li>
-<li><a href="#step-by-step-guide">Step by step guide</a>
-<ul>
-<li><a href="#creating-the-manifest-file">Creating the manifest file</a></li>
-<li><a href="#committing-the-manifest-file">Committing the manifest file</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#what-are-we-going-to-do">What are we going to do?</a></li>
+    <li><a href="#step-by-step-guide">Step by step guide</a>
+      <ul>
+        <li><a href="#creating-the-manifest-file">Creating the manifest file</a></li>
+        <li><a href="#committing-the-manifest-file">Committing the manifest file</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
     </div>
 </div>
@@ -856,68 +854,56 @@
 
 
 
-	
-
-<hr />
-
+	<hr>
 <h2 id="what-are-we-going-to-do">What are we going to do?</h2>
-
 <p>This tutorial will walk you through &ldquo;Creating a manifest&rdquo;</p>
-
 <p>We will assume you have:</p>
-
 <ul>
 <li>installed Service Catalog Puppet correctly</li>
 </ul>
-
 <p>We are going to perform the following steps:</p>
-
 <ul>
 <li>create a manifest file</li>
 </ul>
-
 <p>During this process you will check your progress by verifying what the framework is doing at each step.</p>
-
 <h2 id="step-by-step-guide">Step by step guide</h2>
-
 <p>Here are the steps you need to follow to &ldquo;Creating a manifest&rdquo;</p>
-
 <h3 id="creating-the-manifest-file">Creating the manifest file</h3>
-
 <ul>
-<li><p>Navigate to the  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codecommit/repositories/ServiceCatalogPuppet/browse?region=eu-west-1' target='_blank'>ServiceCatalogPuppet CodeCommit repository</a></p></li>
-
-<li><p>Scroll down to the bottom of the page and hit the <em>Create file</em> button</p></li>
+<li>
+<p>Navigate to the  <!-- raw HTML omitted -->ServiceCatalogPuppet CodeCommit repository<!-- raw HTML omitted --></p>
+</li>
+<li>
+<p>Scroll down to the bottom of the page and hit the <em>Create file</em> button</p>
+</li>
 </ul>
-
 <figure>
     <img src="../../how-tos/creating-and-provisioning-a-product/create_file.png"/> 
 </figure>
 
-
 <h3 id="committing-the-manifest-file">Committing the manifest file</h3>
-
 <p><em>Now that we have written the manifest file we are ready to commit it.</em></p>
-
 <ul>
-<li><p>Set the <em>File name</em> to <code>manifest.yaml</code></p></li>
-
-<li><p>Set your <em>Author name</em></p></li>
-
-<li><p>Set your <em>Email address</em></p></li>
-
-<li><p>Set your <em>Commit message</em></p></li>
+<li>
+<p>Set the <em>File name</em> to <code>manifest.yaml</code></p>
+</li>
+<li>
+<p>Set your <em>Author name</em></p>
+</li>
+<li>
+<p>Set your <em>Email address</em></p>
+</li>
+<li>
+<p>Set your <em>Commit message</em></p>
+</li>
 </ul>
-
 
 <div class="notices tip" ><p>Using a good / unique commit message will help you understand what is going on later.</p>
 </div>
 
-
 <ul>
 <li>Click the <em>Commit changes</em> button:</li>
 </ul>
-
 <figure>
     <img src="../../how-tos/creating-and-provisioning-a-product/CommitChangesEmpty.png"/> 
 </figure>
