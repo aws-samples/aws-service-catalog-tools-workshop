@@ -28,10 +28,10 @@ Presenters:
 
 Workshop helpers:
 
-- Alex Nicot
-- Oli Leach
 - Ritesh Sinha
 - Thivan Visvanathan
+- Alex Nicot
+- Charles Roberts
 
 ### Lets get going
 
