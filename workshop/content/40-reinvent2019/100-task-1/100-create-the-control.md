@@ -14,11 +14,11 @@ portfolio_name = "cloud-engineering-governance"
 
 We are going to perform the following steps:
 
-- define a product with a version and a portfolio 
+- define a product with a version and a portfolio in a hub account
 - add the source code for the product
 - provision that product into a spoke account
 
-The "hub" AWS account is the source of truth for our AWS Service Catalog products. "Spoke" AWS accounts are consumers of these products.
+The hub AWS Account is the source of truth for our AWS Service Catalog products. Spoke AWS accounts are consumers of these products, you can think of them as accounts that need governance controls applied. For this workshop, we are using the same account as both the hub and spoke for simplicity; in a multi-account setup, these could be separate AWS Accounts and Regions. 
 
 ## Step by step guide
 
