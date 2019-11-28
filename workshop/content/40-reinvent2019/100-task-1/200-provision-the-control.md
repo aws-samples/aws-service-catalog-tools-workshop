@@ -101,6 +101,11 @@ regions_enabled section:
 
 For this workshop, we are creating and provisioning the product into the same AWS Account, but in a multi-account setup, you might choose to create a product in a "hub" account and provision it only to "spoke" accounts.
 
+
+{{% notice note %}}
+In the workshop, you will only have permission to view the products in eu-west-1.
+{{% /notice %}}
+
 #### Verifying the provisioned product
 
 

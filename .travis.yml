@@ -6,7 +6,8 @@ addons:
     packages:
     - git
   snaps:
-  - hugo
+  - name: hugo
+    channel: 0.59.0/stable
 
 language: python
 python:
