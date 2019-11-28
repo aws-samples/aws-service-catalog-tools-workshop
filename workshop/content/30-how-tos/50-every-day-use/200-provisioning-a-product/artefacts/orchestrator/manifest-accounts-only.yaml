@@ -8,4 +8,3 @@ accounts:
     tags:
       - "type:prod"
       - "partition:eu"
-      - "scope:pci"

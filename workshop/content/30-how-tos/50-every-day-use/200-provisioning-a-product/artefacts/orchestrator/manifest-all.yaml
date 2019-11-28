@@ -8,7 +8,6 @@ accounts:
     tags:
       - "type:prod"
       - "partition:eu"
-      - "scope:pci"
 launches:
   aws-config-enable-config:
     portfolio: "reinvent-cloud-engineering-governance"
