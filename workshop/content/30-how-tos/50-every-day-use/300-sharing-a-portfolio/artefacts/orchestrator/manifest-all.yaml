@@ -1,5 +1,5 @@
 accounts:
-  - account_id: "<YOUR_ACCOUNT_ID>"
+  - account_id: "<YOUR_ACCOUNT_ID_WITHOUT_HYPHENS>"
     name: "puppet-account"
     default_region: "eu-west-1"
     regions_enabled:
