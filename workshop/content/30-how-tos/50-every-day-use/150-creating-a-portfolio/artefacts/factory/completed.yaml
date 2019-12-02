@@ -1,12 +1,12 @@
 Schema: factory-2019-04-01
 Products:
   - Name: "aws-config-enable-config"
-    Owner: "data-governance@acme.com"
+    Owner: "data-governance@example.com"
     Description: "Enables AWS Config"
     Distributor: "cloud-engineering"
-    SupportDescription: "Speak to data-governance@acme.com about exceptions and speak to cloud-engineering@acme.com about implementation issues"
-    SupportEmail: "cloud-engineering@acme.com"
-    SupportUrl: "https://wiki.acme.com/cloud-engineering/governance/aws-config-enable-config"
+    SupportDescription: "Speak to data-governance@example.com about exceptions and speak to cloud-engineering@example.com about implementation issues"
+    SupportEmail: "cloud-engineering@example.com"
+    SupportUrl: "https://wiki.example.com/cloud-engineering/governance/aws-config-enable-config"
     Tags:
       - Key: "type"
         Value: "governance"
