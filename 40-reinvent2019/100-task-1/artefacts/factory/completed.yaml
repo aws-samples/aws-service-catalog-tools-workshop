@@ -1,12 +1,12 @@
 Schema: factory-2019-04-01
 Products:
   - Name: "aws-config-desired-instance-types"
-    Owner: "budget-and-cost-governance@acme.com"
+    Owner: "budget-and-cost-governance@example.com"
     Description: "Enables AWS Config rule - desired-instance-type with our RIs"
     Distributor: "cloud-engineering"
-    SupportDescription: "Speak to budget-and-cost-governance@acme.com about exceptions and speak to cloud-engineering@acme.com about implementation issues"
-    SupportEmail: "cloud-engineering@acme.com"
-    SupportUrl: "https://wiki.acme.com/cloud-engineering/budget-and-cost-governance/aws-config-desired-instance-types"
+    SupportDescription: "Speak to budget-and-cost-governance@example.com about exceptions and speak to cloud-engineering@example.com about implementation issues"
+    SupportEmail: "cloud-engineering@example.com"
+    SupportUrl: "https://wiki.example.com/cloud-engineering/budget-and-cost-governance/aws-config-desired-instance-types"
     Tags:
       - Key: "type"
         Value: "governance"
