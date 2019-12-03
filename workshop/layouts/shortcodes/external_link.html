@@ -1,0 +1,1 @@
+{{ $href := .Get 0 }}{{ $name := .Get 1 }} {{printf "<a href='%s' target='_blank'>%s</a>" $href $name | safeHTML }}
