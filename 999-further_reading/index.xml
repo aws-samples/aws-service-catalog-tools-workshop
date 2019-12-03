@@ -10,14 +10,5 @@
 	<atom:link href="https://aws-samples.github.io/aws-service-catalog-tools-workshop/999-further_reading/index.xml" rel="self" type="application/rss+xml" />
     
     
-    <item>
-      <title>Links and further reading</title>
-      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/999-further_reading/9999-links_and_further_reading.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/999-further_reading/9999-links_and_further_reading.html</guid>
-      <description></description>
-    </item>
-    
   </channel>
 </rss>

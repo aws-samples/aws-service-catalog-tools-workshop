@@ -200,14 +200,7 @@
 	"title": "Further Reading",
 	"tags": [],
 	"description": "",
-	"content": ""
-},
-{
-	"uri": "https://aws-samples.github.io/aws-service-catalog-tools-workshop/999-further_reading/9999-links_and_further_reading.html",
-	"title": "Links and further reading",
-	"tags": [],
-	"description": "",
-	"content": ""
+	"content": " From here you can find out more about the Service Catalog Tools the AWS managed services used in the tutorials and workshops presented on this site.\nService Catalog Tools The following links provide more information on the open source tools used in the tutorials and workshops presented on this site:\nService Catalog Factory  Github project page for Service Catalog Factory Documentation for Service Catalog Factory  Service Catalog Puppet  Github project page for Service Catalog Puppet Documentation for Service Catalog Puppet  Shared products  We have Service Catalog products that you can use with these tools. These products perform actions like setting up multi account AWS Config or AWS Security Hub and more. You can view them on their Github project page.  AWS Services The following links provide more information on the AWS managed services used in the tutorials and workshops presented on this site:\nAWS Service Catalog  AWS Service Catalog home page  "
 },
 {
 	"uri": "https://aws-samples.github.io/aws-service-catalog-tools-workshop/categories.html",
