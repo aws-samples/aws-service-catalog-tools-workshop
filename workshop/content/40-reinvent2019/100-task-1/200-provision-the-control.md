@@ -31,16 +31,18 @@ Here are the steps you need to follow to provision the control. In the previous 
 
 {{< figure src="/tasks/create_file.png" >}}
 
+
+- For the next step you will need to know your account id.  To find your account id you can check the console, in the __top right__ drop down. It is a 12 digit number. When using your account id please __do not__ include the hyphens ('-') and do not use the angle brackets ('<','>')  
+
+{{< figure src="/tasks/FindMyAccountNumber.png" >}}
+
 - Copy the following snippet into the main input field and replace account_id to show your account id on the highlighted line:
 
 {{% code file="40-reinvent2019/100-task-1/artefacts/orchestrator/manifest-accounts-only.yaml" language="js" highlight="2" %}}
 
-{{% notice note %}}
-You can find your Account Number in the __top right__ drop down of the AWS Console page. It is a 12 digit number. Please __do not__ include the hyphens ('-') in the manifest code.
-{{% /notice %}}
+it should look like the following - __but with your account id__ on the highlighted line:
 
-{{< figure src="/tasks/FindMyAccountNumber.png" >}}
-
+{{% code file="40-reinvent2019/100-task-1/artefacts/orchestrator/manifest-accounts-only-sample.yaml" language="js" highlight="2" %}}
 
 ### Provision the product _{{% param product_name %}}_ into a spoke account
  
