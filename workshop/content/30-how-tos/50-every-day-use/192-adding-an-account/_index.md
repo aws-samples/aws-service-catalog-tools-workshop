@@ -13,7 +13,7 @@ We will assume you have:
  
  - installed Service Catalog Puppet correctly
  - created a manifest
- - [bootstrapped a spoke](https://aws-service-catalog-puppet.readthedocs.io/en/latest/puppet/bootstrapping_spokes.html)
+ - bootstrapped a spoke
  
 We are going to perform the following steps:
 

@@ -12,7 +12,7 @@ This tutorial will walk you through "{{% param title %}}" with a spoke account.
 We will assume you have:
  
  - installed Service Catalog Puppet correctly
- - [bootstrapped a spoke](https://aws-service-catalog-puppet.readthedocs.io/en/latest/puppet/bootstrapping_spokes.html)
+ - bootstrapped a spoke
  - you have created a product
  - you have created a portfolio
 
