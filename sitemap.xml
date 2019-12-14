@@ -15,7 +15,19 @@
   </url>
   
   <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/30-how-tos/10-installation/30-service-catalog-puppet/20-bootstrapping/10-puppet-account.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/30-how-tos/10-installation/30-service-catalog-puppet/10-using-aws-organizations.html</loc>
+  </url>
+  
+  <url>
     <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/15-factory.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/30-how-tos/10-installation/30-service-catalog-puppet/20-bootstrapping.html</loc>
   </url>
   
   <url>
@@ -24,6 +36,14 @@
   
   <url>
     <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/20-puppet.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/30-how-tos/10-installation/30-service-catalog-puppet/20-bootstrapping/20-single-spokes.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/30-how-tos/10-installation/30-service-catalog-puppet/20-bootstrapping/30-groups-of-spokes.html</loc>
   </url>
   
   <url>
