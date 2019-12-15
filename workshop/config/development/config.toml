@@ -23,3 +23,8 @@ disableShortcutsTitle = true
 [outputs]
 home = [ "HTML", "AMP", "RSS", "JSON"]
 page = [ "HTML", "AMP"]
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
