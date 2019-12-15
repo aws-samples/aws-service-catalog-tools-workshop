@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>AWS Service Catalog Tools Intro Workshop on Service Catalog Tools Workshop</title>
@@ -18,7 +18,7 @@
       <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/30-how-tos/10-installation/30-service-catalog-puppet/20-bootstrapping/10-puppet-account.html</guid>
       <description>Navigate to CloudFormation  Select the CloudFormation Service.    Confirm you are in the eu-west-1 (Ireland) region.
  Create a new CloudFormation Stack  Select &amp;lsquo;Create Stack&amp;rsquo;    Note that the Factory Initialization Stack has been deployed. If yours has not refer to &amp;lsquo;Install Factory Process&amp;rsquo;
- Select the pre-configured CloudFormation Template Service Catalog Puppet can be installed via a pre-created CloudFormation Template stored in S3 under the following URL: &amp;gt; https://service-catalog-tools.</description>
+ Select the pre-configured CloudFormation Template Service Catalog Puppet can be installed via a pre-created CloudFormation Template stored in S3 under the following URL:</description>
     </item>
     
     <item>
@@ -39,8 +39,9 @@ What are we going to do? When enabling AWS Organizations you will need to provis
       
       <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/30-how-tos/10-installation/20-service-catalog-factory.html</guid>
       <description>Navigate to CloudFormation  Select the CloudFormation Service.    Confirm that you are in the eu-west-1 (Ireland) region.
- Create a new CloudFormation Stack  Select &amp;lsquo;Create Stack&amp;rsquo;    Select the pre-configured CloudFormation Template Service Catalog Factory can be installed via a pre-created CloudFormation template stored in S3 under the following URL: &amp;gt; https://service-catalog-tools.s3.eu-west-2.amazonaws.com/factory/latest/servicecatalog-factory-initialiser.template.yaml
- Paste this URL under &amp;lsquo;Amazon S3 URL&amp;rsquo;: Hit Next    Specify Stack Details  Specify the Stack details as follows:  Stack Name: factory-initialization-stack Enable Regions: eu-west-1  Hit Next    Create the CloudFormation Stack  Leave Defaults for &amp;lsquo;Configure Stack Options&amp;rsquo; Hit Next Acknowledge that the Stack will create an IAM Role Hit &amp;lsquo;Create Stack&amp;rsquo;     You will now see the Stack Status as &amp;lsquo;CREATE_IN_PROGRESS&amp;rsquo;     Wait for the Stack Status to go to CREATE_COMPLETE    What have we deployed?</description>
+ Create a new CloudFormation Stack  Select &amp;lsquo;Create Stack&amp;rsquo;    Select the pre-configured CloudFormation Template Service Catalog Factory can be installed via a pre-created CloudFormation template stored in S3 under the following URL:
+ https://service-catalog-tools.s3.eu-west-2.amazonaws.com/factory/latest/servicecatalog-factory-initialiser.template.yaml
+  Paste this URL under &amp;lsquo;Amazon S3 URL&amp;rsquo;: Hit Next    Specify Stack Details  Specify the Stack details as follows:  Stack Name: factory-initialization-stack Enable Regions: eu-west-1   Hit Next    Create the CloudFormation Stack  Leave Defaults for &amp;lsquo;Configure Stack Options&amp;rsquo; Hit Next Acknowledge that the Stack will create an IAM Role Hit &amp;lsquo;Create Stack&amp;rsquo;     You will now see the Stack Status as &amp;lsquo;CREATE_IN_PROGRESS&amp;rsquo;     Wait for the Stack Status to go to CREATE_COMPLETE    What have we deployed?</description>
     </item>
     
     <item>
@@ -63,8 +64,8 @@ Using the CLI The following steps should be executed using the Service Catalog P
       <description>What are we going to do? If you have enabled AWS Organizations support you may want to bootstrap all spokes within an organizational unit.
 Following these steps will allow you to bootstrap all accounts that exist within the same organizational unit.
 Using the CodeBuild Project In your account you can find an AWS CodeBuild project named: servicecatalog-puppet-bootstrap-an-ou
- Click start build
- Before you select start build again, expand the Environment variables override section.</description>
+  Click start build
+  Before you select start build again, expand the Environment variables override section.</description>
     </item>
     
     <item>
@@ -85,7 +86,7 @@ Using the CodeBuild Project In your account you can find an AWS CodeBuild projec
       <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/150-task-2/100-create-the-control.html</guid>
       <description>What are we going to do? We are going to perform the following steps:
  define another product with a version and add it to the existing cloud-engineering-governance portfolio add the source code for our product provision that product into a spoke account  Step by step guide Here are the steps you need to follow to &amp;ldquo;Create the control&amp;rdquo;
-Define a product with a version and a portfolio  Navigate to the ServiceCatalogFactory CodeCommit repository again</description>
+Define a product with a version and a portfolio   Navigate to the ServiceCatalogFactory CodeCommit repository again</description>
     </item>
     
     <item>
@@ -107,7 +108,7 @@ Create the portfolio file We need to tell the framework that a product exists.</
       <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/100-task-1/200-provision-the-control.html</guid>
       <description>What are we going to do? We are going to perform the following steps:
  create a manifest file with our account in it provision the product aws-config-desired-instance-types into our account  Step by step guide Here are the steps you need to follow to provision the control. In the previous task, we created an AWS Service Catalog product but it has not yet been provisioned.
-Create a manifest file with our account in it  Navigate to the ServiceCatalogPuppet CodeCommit repository</description>
+Create a manifest file with our account in it   Navigate to the ServiceCatalogPuppet CodeCommit repository</description>
     </item>
     
     <item>
@@ -139,7 +140,7 @@ Versions: - Name: &amp;#34;v1&amp;#34; Description: &amp;#34;v1 of aws-config-en
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/150-task-2/300-create-the-product.html</guid>
-      <description>What are we going to do? We have provisioned a detective control to look for AWS RDS Instances that have don&amp;rsquo;t have encryption enabled. We can do better, and create an AWS Service Catalog product that meets the encryption requirement by default using service catalog tools. When users create a new RDS instance using this product, encryption at rest is enabled by default and no further configuration is required.</description>
+      <description>What are we going to do? We have provisioned a detective control to look for AWS RDS Instances that have don&#39;t have encryption enabled. We can do better, and create an AWS Service Catalog product that meets the encryption requirement by default using service catalog tools. When users create a new RDS instance using this product, encryption at rest is enabled by default and no further configuration is required.</description>
     </item>
     
   </channel>

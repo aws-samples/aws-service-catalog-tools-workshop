@@ -8,7 +8,7 @@
     <meta property="og:url" content="https://cdkworkshop.com" />
     <meta property="og:image" content="https://cdkworkshop.com/images/new-cdk-logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <meta name="generator" content="Hugo 0.58.2" />
+    <meta name="generator" content="Hugo 0.61.0" />
     <meta name="description" content="AWS Service Catalog Tools Workshop">
 <meta name="author" content="Service Catalog Tools Team">
 
@@ -891,7 +891,7 @@
     <section id="footer">
       <left>
     <h5 class="copyright">&copy; 2018 Amazon Web Services, Inc. or its Affiliates. All rights reserved.</h5>
-    <h5 class="copyright">42ad607 - Sun Dec 15 02:28:10 UTC 2019</h5>
+    <h5 class="copyright">bb77d0c - Sun Dec 15 11:15:00 UTC 2019</h5>
 </left>
 
     </section>
@@ -950,17 +950,15 @@
                     <div class="progress">
     <div class="wrapper">
 <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#what-are-we-going-to-do">What are we going to do?</a></li>
-<li><a href="#step-by-step-guide">Step by step guide</a>
-<ul>
-<li><a href="#add-the-product-to-the-portfolio">Add the product to the portfolio</a></li>
-<li><a href="#verify-the-product-was-added-to-the-portfolio">Verify the product was added to the portfolio</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#what-are-we-going-to-do">What are we going to do?</a></li>
+    <li><a href="#step-by-step-guide">Step by step guide</a>
+      <ul>
+        <li><a href="#add-the-product-to-the-portfolio">Add the product to the portfolio</a></li>
+        <li><a href="#verify-the-product-was-added-to-the-portfolio">Verify the product was added to the portfolio</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
     </div>
 </div>
@@ -980,69 +978,52 @@
 
 
 
-	
-
-<hr />
-
+	<hr>
 <h2 id="what-are-we-going-to-do">What are we going to do?</h2>
-
 <p>This tutorial will walk you through &ldquo;Adding a product to a portfolio&rdquo; into a spoke account.</p>
-
 <p>We will assume you have:</p>
-
 <ul>
 <li>installed Service Catalog Puppet correctly</li>
 <li>you have created a product</li>
 <li>you have created a portfolio</li>
 </ul>
-
 <p>We are going to perform the following steps:</p>
-
 <ul>
 <li>add a product to a portfolio</li>
 </ul>
-
 <p>During this process you will check your progress by verifying what the framework is doing at each step.</p>
-
 <h2 id="step-by-step-guide">Step by step guide</h2>
-
 <p>Here are the steps you need to follow to &ldquo;Adding a product to a portfolio&rdquo;</p>
-
 <h3 id="add-the-product-to-the-portfolio">Add the product to the portfolio</h3>
-
 <ul>
-<li><p>Navigate to the  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codecommit/repositories/ServiceCatalogFactory/browse?region=eu-west-1' target='_blank'>ServiceCatalogFactory CodeCommit repository</a> again</p></li>
-
-<li><p>Click on <em>portfolios</em></p></li>
+<li>
+<p>Navigate to the  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codecommit/repositories/ServiceCatalogFactory/browse?region=eu-west-1' target='_blank'>ServiceCatalogFactory CodeCommit repository</a> again</p>
+</li>
+<li>
+<p>Click on <em>portfolios</em></p>
+</li>
 </ul>
-
 <figure>
     <img src="../../how-tos/creating-and-provisioning-a-product/ClickOnPortfolios.png"/> 
 </figure>
 
-
 <ul>
 <li>Click on <em>reinvent.yaml</em></li>
 </ul>
-
 <figure>
     <img src="../../how-tos/creating-and-provisioning-a-product/ClickOnreinvent.png"/> 
 </figure>
 
-
 <ul>
 <li>Click <em>Edit</em></li>
 </ul>
-
 <figure>
     <img src="../../how-tos/creating-and-provisioning-a-product/ClickEdit.png"/> 
 </figure>
 
-
 <ul>
 <li>Replace the contents of your file with this:</li>
 </ul>
-
 <figure><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">Schema</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">factory</span><span style="color:#f92672">-</span><span style="color:#ae81ff">2019</span><span style="color:#f92672">-</span><span style="color:#ae81ff">04</span><span style="color:#f92672">-</span><span style="color:#ae81ff">01</span>
 <span style="color:#a6e22e">Products</span><span style="color:#f92672">:</span>
   <span style="color:#f92672">-</span> <span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;aws-config-enable-config&#34;</span>
@@ -1084,62 +1065,47 @@
       <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cost-center&#34;</span>
         <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering&#34;</span>
 </code></pre></div></figure>
-
 <ul>
 <li>Take note of the highlighted lines 26 and 27.  We have added a portfolio to the product.</li>
 </ul>
-
 <p>Once you have updated the file fill in the fields for <em>Author name</em>, <em>Email address</em>, <em>Commit message</em> and hit
 <em>Commit changes</em></p>
-
 <figure>
     <img src="../../how-tos/creating-and-provisioning-a-product/CommitChanges.png"/> 
 </figure>
 
 
-
 <div class="notices tip" ><p>Using a good / unique commit message will help you understand what is going on later.</p>
 </div>
 
-
 <h3 id="verify-the-product-was-added-to-the-portfolio">Verify the product was added to the portfolio</h3>
-
 <p>Once you have made your changes the  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/servicecatalog-factory-pipeline/view?region=eu-west-1' target='_blank'>ServiceCatalogFactory Pipeline</a> should have run or if you were quick
 may still be running.  If it has not yet started feel free to the hit the <em>Release change</em> button.</p>
-
 <p>Once it has completed it should show the <em>Source</em> and <em>Build</em> stages in green to indicate they have completed
 successfully:</p>
-
 <figure>
     <img src="../../how-tos/creating-and-provisioning-a-product/SuccessfulFactoryRun.png"/> 
 </figure>
 
-
 <p>Once you have verified the pipeline has run you can go to  <a href='https://eu-west-1.console.aws.amazon.com/servicecatalog/console?region=eu-west-1#portfolios?' target='_blank'>Service Catalog portfolios</a> to view your
 portfolio.</p>
-
 <ul>
 <li>Click on <em>reinvent-cloud-engineering-governance</em></li>
 </ul>
-
 <figure>
     <img src="../../how-tos/creating-and-provisioning-a-product/PortfolioReinventCloudEngineeringGovernance.png"/> 
 </figure>
 
-
 <ul>
 <li>Click on the product <em>aws-config-enable-config</em></li>
 </ul>
-
 <figure>
     <img src="../../how-tos/creating-and-provisioning-a-product/ClickAwsConfigS3BucketServerSideEncryptionEnabled.png"/> 
 </figure>
 
-
 <ul>
 <li>Click on the version <em>v1</em></li>
 </ul>
-
 <figure>
     <img src="../../how-tos/creating-and-provisioning-a-product/ClickAwsConfigS3BucketServerSideEncryptionEnabledV1.png"/> 
 </figure>
@@ -1270,64 +1236,6 @@ portfolio.</p>
 
                     
                     
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
                     
 
                     
@@ -1344,129 +1252,6 @@ portfolio.</p>
 
                     
                     
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
                         
                     
                     
@@ -1484,57 +1269,6 @@ portfolio.</p>
                     
                     
 
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
                     
             
         

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Bootstrapping on Service Catalog Tools Workshop</title>
@@ -18,7 +18,7 @@
       <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/30-how-tos/10-installation/30-service-catalog-puppet/20-bootstrapping/10-puppet-account.html</guid>
       <description>Navigate to CloudFormation  Select the CloudFormation Service.    Confirm you are in the eu-west-1 (Ireland) region.
  Create a new CloudFormation Stack  Select &amp;lsquo;Create Stack&amp;rsquo;    Note that the Factory Initialization Stack has been deployed. If yours has not refer to &amp;lsquo;Install Factory Process&amp;rsquo;
- Select the pre-configured CloudFormation Template Service Catalog Puppet can be installed via a pre-created CloudFormation Template stored in S3 under the following URL: &amp;gt; https://service-catalog-tools.</description>
+ Select the pre-configured CloudFormation Template Service Catalog Puppet can be installed via a pre-created CloudFormation Template stored in S3 under the following URL:</description>
     </item>
     
     <item>
@@ -41,8 +41,8 @@ Using the CLI The following steps should be executed using the Service Catalog P
       <description>What are we going to do? If you have enabled AWS Organizations support you may want to bootstrap all spokes within an organizational unit.
 Following these steps will allow you to bootstrap all accounts that exist within the same organizational unit.
 Using the CodeBuild Project In your account you can find an AWS CodeBuild project named: servicecatalog-puppet-bootstrap-an-ou
- Click start build
- Before you select start build again, expand the Environment variables override section.</description>
+  Click start build
+  Before you select start build again, expand the Environment variables override section.</description>
     </item>
     
   </channel>

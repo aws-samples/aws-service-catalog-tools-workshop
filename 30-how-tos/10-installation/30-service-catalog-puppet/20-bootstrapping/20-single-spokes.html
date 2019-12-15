@@ -8,7 +8,7 @@
     <meta property="og:url" content="https://cdkworkshop.com" />
     <meta property="og:image" content="https://cdkworkshop.com/images/new-cdk-logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <meta name="generator" content="Hugo 0.58.2" />
+    <meta name="generator" content="Hugo 0.61.0" />
     <meta name="description" content="AWS Service Catalog Tools Workshop">
 <meta name="author" content="Service Catalog Tools Team">
 
@@ -891,7 +891,7 @@
     <section id="footer">
       <left>
     <h5 class="copyright">&copy; 2018 Amazon Web Services, Inc. or its Affiliates. All rights reserved.</h5>
-    <h5 class="copyright">42ad607 - Sun Dec 15 02:28:10 UTC 2019</h5>
+    <h5 class="copyright">bb77d0c - Sun Dec 15 11:15:00 UTC 2019</h5>
 </left>
 
     </section>
@@ -962,18 +962,16 @@
                     <div class="progress">
     <div class="wrapper">
 <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#what-are-we-going-to-do">What are we going to do?</a>
-<ul>
-<li><a href="#using-the-cli">Using the CLI</a></li>
-<li><a href="#restricting-spokes">Restricting spokes</a></li>
-<li><a href="#bootstrapping-a-spoke">Bootstrapping a spoke</a></li>
-<li><a href="#bootstrapping-a-spoke-as">Bootstrapping a spoke as</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#what-are-we-going-to-do">What are we going to do?</a>
+      <ul>
+        <li><a href="#using-the-cli">Using the CLI</a></li>
+        <li><a href="#restricting-spokes">Restricting spokes</a></li>
+        <li><a href="#bootstrapping-a-spoke">Bootstrapping a spoke</a></li>
+        <li><a href="#bootstrapping-a-spoke-as">Bootstrapping a spoke as</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
     </div>
 </div>
@@ -992,80 +990,48 @@
         
 
 
-
-
 <h2 id="what-are-we-going-to-do">What are we going to do?</h2>
-
 <p>You will need to bootstrap spoke accounts so you can share portfolios with them and provision products into them.</p>
-
 <p>Bootstrapping a spoke account will create an AWS CloudFormation stack in it.  This stack will contain the PuppetRole
 which is needed by framework to perform actions in the spoke account.</p>
-
 <h3 id="using-the-cli">Using the CLI</h3>
-
 <p>The following steps should be executed using the Service Catalog Puppet CLI which is an application built using Python 3.</p>
-
 <p>If you have not already installed the framework you can do so by following these steps:</p>
-
 <p>It is good practice to install Python libraries in isolated environments.</p>
-
 <p>You can create the a virtual environment using the following command:</p>
-
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">virtualenv --python<span style="color:#f92672">=</span>python3.7 venv
 source venv/bin/activate</code></pre></div>
-
 <p>Once you have decided where to install the library you can install the package:</p>
-
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pip install aws-service-catalog-puppet</code></pre></div>
-
 <p>This will install the library and all of the dependencies.</p>
-
 <h3 id="restricting-spokes">Restricting spokes</h3>
-
 <p>The PuppetRole created by the framework has an <em>AdministratorAccess</em> IAM managed policy attached to it.  If you are not
 happy you can provide an IAM Boundary for the Puppet role.</p>
-
 <p>This permission boundary you provide should permit the PuppetRole to interact with AWS Service Catalog to accept shares,
 manage portfolios and to add, provision and terminate products. In addition the role should allow the use of AWS SNS,
 AWS EventBridge, AWS OpsCenter if you are making use of those features.</p>
-
 <p>Providing your own permission boundary is recommend for experienced users only.</p>
-
 <p>In order to use a permission boundary you will need to append the following to your commands:</p>
-
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">--permission-boundary arn:aws:iam::aws:policy/AdministratorAccess</code></pre></div>
-
 <p>There will be an example of this for each command in these how tos.</p>
-
 <h3 id="bootstrapping-a-spoke">Bootstrapping a spoke</h3>
-
 <p>You should export the credentials for the spoke account or set your profile so that AWS CLI commands
 will execute as a role in the spoke account.</p>
-
 <p>Then you can run the following command:</p>
-
 <p><em>Without a boundary</em>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">servicecatalog-puppet bootstrap-spoke &lt;ACCOUNT_ID_OF_YOUR_PUPPET&gt;</code></pre></div></p>
-
 <p><em>With a boundary</em>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">servicecatalog-puppet bootstrap-spoke &lt;ACCOUNT_ID_OF_YOUR_PUPPET&gt; --permission-boundary arn:aws:iam::aws:policy/AdministratorAccess</code></pre></div></p>
-
 <p>Ensure you replace <em>&lt;ACCOUNT_ID_OF_YOUR_PUPPET&gt;</em> with the account id of the account you will be using as your
 puppet account.</p>
-
 <h3 id="bootstrapping-a-spoke-as">Bootstrapping a spoke as</h3>
-
 <p>If you want to assume a role into the spoke from your currently active role you can use the following command:</p>
-
 <p><em>Without a boundary</em>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">servicecatalog-puppet bootstrap-spoke-as &lt;ACCOUNT_ID_OF_YOUR_PUPPET&gt; &lt;ARN_OF_ASSUMABLE_ROLE_IN_SPOKE&gt;</code></pre></div></p>
-
 <p><em>With a boundary</em>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">servicecatalog-puppet bootstrap-spoke-as &lt;ACCOUNT_ID_OF_YOUR_PUPPET&gt; &lt;ARN_OF_ASSUMABLE_ROLE_IN_SPOKE&gt; --permission-boundary arn:aws:iam::aws:policy/AdministratorAccess</code></pre></div></p>
-
-<p>This will assume the role <ARN_OF_ASSUMABLE_ROLE_IN_SPOKE> before running boostrap-spoke.  This is useful if you do not
+<p>This will assume the role &lt;ARN_OF_ASSUMABLE_ROLE_IN_SPOKE&gt; before running boostrap-spoke.  This is useful if you do not
 want to perform the STS assume-role yourself.</p>
-
 <p>Ensure you replace <em>&lt;ACCOUNT_ID_OF_YOUR_PUPPET&gt;</em> with the account id of the account you will be using as your
 puppet account.</p>
 
@@ -1192,64 +1158,6 @@ puppet account.</p>
 
                     
                     
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
                     
 
                     
@@ -1261,137 +1169,6 @@ puppet account.</p>
             
                 
                     
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
                 
                 
 
@@ -1414,61 +1191,6 @@ puppet account.</p>
                     
                     
 
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
                     
             
         

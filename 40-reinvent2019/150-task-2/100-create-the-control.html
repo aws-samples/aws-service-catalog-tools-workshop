@@ -8,7 +8,7 @@
     <meta property="og:url" content="https://cdkworkshop.com" />
     <meta property="og:image" content="https://cdkworkshop.com/images/new-cdk-logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <meta name="generator" content="Hugo 0.58.2" />
+    <meta name="generator" content="Hugo 0.61.0" />
     <meta name="description" content="AWS Service Catalog Tools Workshop">
 <meta name="author" content="Service Catalog Tools Team">
 
@@ -891,7 +891,7 @@
     <section id="footer">
       <left>
     <h5 class="copyright">&copy; 2018 Amazon Web Services, Inc. or its Affiliates. All rights reserved.</h5>
-    <h5 class="copyright">42ad607 - Sun Dec 15 02:28:10 UTC 2019</h5>
+    <h5 class="copyright">bb77d0c - Sun Dec 15 11:15:00 UTC 2019</h5>
 </left>
 
     </section>
@@ -950,24 +950,15 @@
                     <div class="progress">
     <div class="wrapper">
 <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#what-are-we-going-to-do">What are we going to do?</a></li>
-<li><a href="#step-by-step-guide">Step by step guide</a>
-<ul>
-<li><a href="#define-a-product-with-a-version-and-a-portfolio">Define a product with a version and a portfolio</a>
-<ul>
-<li><a href="#what-did-we-just-do">What did we just do?</a></li>
-<li><a href="#verify-that-the-change-worked">Verify that the change worked</a></li>
-</ul></li>
-<li><a href="#add-the-source-code-for-our-product">Add the source code for our product</a>
-<ul>
-<li><a href="#verify-the-product-was-added-to-the-portfolio">Verify the product was added to the portfolio</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#what-are-we-going-to-do">What are we going to do?</a></li>
+    <li><a href="#step-by-step-guide">Step by step guide</a>
+      <ul>
+        <li><a href="#define-a-product-with-a-version-and-a-portfolio">Define a product with a version and a portfolio</a></li>
+        <li><a href="#add-the-source-code-for-our-product">Add the source code for our product</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
     </div>
 </div>
@@ -986,59 +977,46 @@
         
 
 
-
-
-<hr />
-
+<hr>
 <h2 id="what-are-we-going-to-do">What are we going to do?</h2>
-
 <p>We are going to perform the following steps:</p>
-
 <ul>
 <li>define another product with a version and add it to the existing <em>cloud-engineering-governance</em> portfolio</li>
 <li>add the source code for our product</li>
 <li>provision that product into a spoke account</li>
 </ul>
-
 <h2 id="step-by-step-guide">Step by step guide</h2>
-
 <p>Here are the steps you need to follow to &ldquo;Create the control&rdquo;</p>
-
 <h3 id="define-a-product-with-a-version-and-a-portfolio">Define a product with a version and a portfolio</h3>
-
 <ul>
-<li><p>Navigate to the  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codecommit/repositories/ServiceCatalogFactory/browse?region=eu-west-1' target='_blank'>ServiceCatalogFactory CodeCommit repository</a> again</p></li>
-
-<li><p>Click on <em>portfolios</em></p></li>
+<li>
+<p>Navigate to the  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codecommit/repositories/ServiceCatalogFactory/browse?region=eu-west-1' target='_blank'>ServiceCatalogFactory CodeCommit repository</a> again</p>
+</li>
+<li>
+<p>Click on <em>portfolios</em></p>
+</li>
 </ul>
-
 <figure>
     <img src="../../tasks/ClickOnPortfolios.png"/> 
 </figure>
 
-
 <ul>
 <li>Click on <em>reinvent.yaml</em></li>
 </ul>
-
 <figure>
     <img src="../../tasks/ClickOnreinvent.png"/> 
 </figure>
 
-
 <ul>
 <li>Click <em>Edit</em></li>
 </ul>
-
 <figure>
     <img src="../../tasks/ClickEdit.png"/> 
 </figure>
 
-
 <ul>
 <li>We will need to insert the following to the products section:</li>
 </ul>
-
 <figure><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#f92672">-</span> <span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;aws-config-rds-storage-encrypted&#34;</span>
   <span style="color:#a6e22e">Owner</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;data-governance@example.com&#34;</span>
   <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Enables AWS Config rule - aws-config-rds-storage-encrypted&#34;</span>
@@ -1065,11 +1043,9 @@
   <span style="color:#a6e22e">Portfolios</span><span style="color:#f92672">:</span>
     <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;cloud-engineering-governance&#34;</span>
 </code></pre></div></figure>
-
 <ul>
 <li>Once completed it should like look this:</li>
 </ul>
-
 <figure><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">Schema</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">factory</span><span style="color:#f92672">-</span><span style="color:#ae81ff">2019</span><span style="color:#f92672">-</span><span style="color:#ae81ff">04</span><span style="color:#f92672">-</span><span style="color:#ae81ff">01</span>
 <span style="color:#a6e22e">Products</span><span style="color:#f92672">:</span>
   <span style="color:#f92672">-</span> <span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;aws-config-desired-instance-types&#34;</span>
@@ -1097,101 +1073,83 @@
             <span style="color:#a6e22e">BranchName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;master&#34;</span>
     <span style="color:#a6e22e">Portfolios</span><span style="color:#f92672">:</span>
       <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;cloud-engineering-governance&#34;</span>
-
-  <span style="color:#f92672">-</span> <span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;aws-config-rds-storage-encrypted&#34;</span>
-    <span style="color:#a6e22e">Owner</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;data-governance@example.com&#34;</span>
-    <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Enables AWS Config rule - aws-config-rds-storage-encrypted&#34;</span>
-    <span style="color:#a6e22e">Distributor</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering&#34;</span>
-    <span style="color:#a6e22e">SupportDescription</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Speak to data-governance@example.com about exceptions and speak to cloud-engineering@example.com about implementation issues&#34;</span>
-    <span style="color:#a6e22e">SupportEmail</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering@example.com&#34;</span>
-    <span style="color:#a6e22e">SupportUrl</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;https://wiki.example.com/cloud-engineering/data-governance/aws-config-rds-storage-encrypted&#34;</span>
-    <span style="color:#a6e22e">Tags</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;type&#34;</span>
-        <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;governance&#34;</span>
-      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;creator&#34;</span>
-        <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering&#34;</span>
-      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cost-center&#34;</span>
-        <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;governance&#34;</span>
-    <span style="color:#a6e22e">Versions</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1&#34;</span>
-        <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1 of aws-config-rds-storage-encrypted&#34;</span>
-        <span style="color:#a6e22e">Active</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">True</span>
-        <span style="color:#a6e22e">Source</span><span style="color:#f92672">:</span>
-          <span style="color:#a6e22e">Provider</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;CodeCommit&#34;</span>
-          <span style="color:#a6e22e">Configuration</span><span style="color:#f92672">:</span>
-            <span style="color:#a6e22e">RepositoryName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;aws-config-rds-storage-encrypted&#34;</span>
-            <span style="color:#a6e22e">BranchName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;master&#34;</span>
-    <span style="color:#a6e22e">Portfolios</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;cloud-engineering-governance&#34;</span>
-
+<p><span style="color:#f92672">-</span> <span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&quot;aws-config-rds-storage-encrypted&quot;</span>
+<span style="color:#a6e22e">Owner</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&quot;data-governance@example.com&quot;</span>
+<span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&quot;Enables AWS Config rule - aws-config-rds-storage-encrypted&quot;</span>
+<span style="color:#a6e22e">Distributor</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&quot;cloud-engineering&quot;</span>
+<span style="color:#a6e22e">SupportDescription</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&quot;Speak to <a href="mailto:data-governance@example.com">data-governance@example.com</a> about exceptions and speak to <a href="mailto:cloud-engineering@example.com">cloud-engineering@example.com</a> about implementation issues&quot;</span>
+<span style="color:#a6e22e">SupportEmail</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&quot;cloud-engineering@example.com&quot;</span>
+<span style="color:#a6e22e">SupportUrl</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&quot;https://wiki.example.com/cloud-engineering/data-governance/aws-config-rds-storage-encrypted&quot;</span>
+<span style="color:#a6e22e">Tags</span><span style="color:#f92672">:</span>
+<span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&quot;type&quot;</span>
+<span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&quot;governance&quot;</span>
+<span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&quot;creator&quot;</span>
+<span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&quot;cloud-engineering&quot;</span>
+<span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&quot;cost-center&quot;</span>
+<span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&quot;governance&quot;</span>
+<span style="color:#a6e22e">Versions</span><span style="color:#f92672">:</span>
+<span style="color:#f92672">-</span> <span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&quot;v1&quot;</span>
+<span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&quot;v1 of aws-config-rds-storage-encrypted&quot;</span>
+<span style="color:#a6e22e">Active</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">True</span>
+<span style="color:#a6e22e">Source</span><span style="color:#f92672">:</span>
+<span style="color:#a6e22e">Provider</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&quot;CodeCommit&quot;</span>
+<span style="color:#a6e22e">Configuration</span><span style="color:#f92672">:</span>
+<span style="color:#a6e22e">RepositoryName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&quot;aws-config-rds-storage-encrypted&quot;</span>
+<span style="color:#a6e22e">BranchName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&quot;master&quot;</span>
 <span style="color:#a6e22e">Portfolios</span><span style="color:#f92672">:</span>
-  <span style="color:#f92672">-</span> <span style="color:#a6e22e">DisplayName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering-governance&#34;</span>
-    <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Portfolio containing the products needed to govern AWS accounts&#34;</span>
-    <span style="color:#a6e22e">ProviderName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering&#34;</span>
-    <span style="color:#a6e22e">Associations</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;arn:aws:iam::${AWS::AccountId}:role/TeamRole&#34;</span>
-    <span style="color:#a6e22e">Tags</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;type&#34;</span>
-        <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;governance&#34;</span>
-      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;creator&#34;</span>
-        <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering&#34;</span>
-      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cost-center&#34;</span>
-        <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;governance&#34;</span>
-</code></pre></div></figure>
- 
-
+<span style="color:#f92672">-</span> <span style="color:#e6db74">&quot;cloud-engineering-governance&quot;</span></p>
+<p><span style="color:#a6e22e">Portfolios</span><span style="color:#f92672">:</span>
+<span style="color:#f92672">-</span> <span style="color:#a6e22e">DisplayName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&quot;cloud-engineering-governance&quot;</span>
+<span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&quot;Portfolio containing the products needed to govern AWS accounts&quot;</span>
+<span style="color:#a6e22e">ProviderName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&quot;cloud-engineering&quot;</span>
+<span style="color:#a6e22e">Associations</span><span style="color:#f92672">:</span>
+<span style="color:#f92672">-</span> <span style="color:#e6db74">&quot;arn:aws:iam::${AWS::AccountId}:role/TeamRole&quot;</span>
+<span style="color:#a6e22e">Tags</span><span style="color:#f92672">:</span>
+<span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&quot;type&quot;</span>
+<span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&quot;governance&quot;</span>
+<span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&quot;creator&quot;</span>
+<span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&quot;cloud-engineering&quot;</span>
+<span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&quot;cost-center&quot;</span>
+<span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&quot;governance&quot;</span>
+</code></pre></div></figure></p>
 <ul>
 <li>Set your <em>Author name</em></li>
 <li>Set your <em>Email address</em></li>
 <li>Set your <em>Commit message</em></li>
 </ul>
 
-
 <div class="notices tip" ><p>Using a good / unique commit message will help you understand what is going on later.</p>
 </div>
-
 
 <ul>
 <li>Click the <em>Commit changes</em> button:</li>
 </ul>
-
 <figure>
     <img src="../../tasks/CommitChanges.png"/> 
 </figure>
 
-
 <h4 id="what-did-we-just-do">What did we just do?</h4>
-
 <p>The YAML we pasted in the previous step told the framework to perform several actions:</p>
-
 <ul>
 <li>create a product named <em>aws-config-rds-storage-encrypted</em></li>
 <li>add a <em>v1</em> of our product</li>
 <li>add the product: <em>aws-config-rds-storage-encrypted</em> to the portfolio: <em>cloud-engineering-governance</em></li>
 </ul>
-
 <h4 id="verify-that-the-change-worked">Verify that the change worked</h4>
-
 <p>Once you have made your changes the  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/servicecatalog-factory-pipeline/view?region=eu-west-1' target='_blank'>ServiceCatalogFactory Pipeline</a> should have run. If you were very quick, the pipeline
 may still be running.  If it has not yet started feel free to the hit the <em>Release change</em> button.</p>
-
 <p>Once it has completed it should show the <em>Source</em> and <em>Build</em> stages in green to indicate they have completed
 successfully:</p>
-
 <figure>
     <img src="../../tasks/SuccessfulFactoryRun.png"/> 
 </figure>
 
 
-
 <div class="notices note" ><p>If this is failing please raise your hand for some assistance</p>
 </div>
 
-
 <h3 id="add-the-source-code-for-our-product">Add the source code for our product</h3>
-
 <p>When you configured your product version, you specified the following version:</p>
-
 <figure><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">    <span style="color:#a6e22e">Versions</span><span style="color:#f92672">:</span>
       <span style="color:#f92672">-</span> <span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1&#34;</span>
         <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1 of aws-config-rds-storage-encrypted&#34;</span>
@@ -1202,97 +1160,86 @@ successfully:</p>
             <span style="color:#a6e22e">RepositoryName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;aws-config-rds-storage-encrypted&#34;</span>
             <span style="color:#a6e22e">BranchName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;master&#34;</span>
 </code></pre></div></figure>
-
 <p>This tells the framework the source code for the product comes from the <em>master</em> branch of a
 <em>CodeCommit</em> repository of the name <em>aws-config-rds-storage-encrypted</em>.</p>
-
 <p>We now need to create the CodeCommit repository and add the CloudFormation template we are going to use for our
 product.</p>
-
 <ul>
-<li><p>Navigate to  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codecommit/repositories?region=eu-west-1' target='_blank'>AWS CodeCommit</a></p></li>
-
-<li><p>Click <em>Create repository</em></p></li>
+<li>
+<p>Navigate to  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codecommit/repositories?region=eu-west-1' target='_blank'>AWS CodeCommit</a></p>
+</li>
+<li>
+<p>Click <em>Create repository</em></p>
+</li>
 </ul>
-
 <figure>
     <img src="../../tasks/CreateRepository.png"/> 
 </figure>
 
-
 <ul>
 <li>Input the name <code>aws-config-rds-storage-encrypted</code></li>
 </ul>
-
 <figure>
     <img src="../../tasks/InputTheName.png"/> 
 </figure>
 
-
 <ul>
 <li>Click <em>Create</em></li>
 </ul>
-
 <figure>
     <img src="../../tasks/ClickCreate.png"/> 
 </figure>
 
-
 <ul>
 <li>Scroll down to the bottom of the page and hit the <em>Create file</em> button</li>
 </ul>
-
 <figure>
     <img src="../../tasks/create_file.png"/> 
 </figure>
 
-
 <ul>
 <li>Copy the following snippet into the main input field:</li>
 </ul>
-
 <figure><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">AWSTemplateFormatVersion</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;2010-09-09&#39;</span>
 <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Create an AWS Config rule ensuring RDS instances use encrypted storage&#34;</span>
-
-<span style="color:#a6e22e">Resources</span><span style="color:#f92672">:</span>
-  <span style="color:#a6e22e">AWSConfigRule</span><span style="color:#f92672">:</span>
-    <span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">AWS</span><span style="color:#f92672">::</span><span style="color:#a6e22e">Config</span><span style="color:#f92672">::</span><span style="color:#a6e22e">ConfigRule</span>
-    <span style="color:#a6e22e">Properties</span><span style="color:#f92672">:</span>
-      <span style="color:#a6e22e">ConfigRuleName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;rds-storage-encrypted&#34;</span>
-      <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Checks whether storage encryption is enabled for your RDS DB instances.&#34;</span>
-      <span style="color:#a6e22e">Scope</span><span style="color:#f92672">:</span>
-        <span style="color:#a6e22e">ComplianceResourceTypes</span><span style="color:#f92672">:</span>
-          <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;AWS::RDS::DBInstance&#34;</span>
-      <span style="color:#a6e22e">Source</span><span style="color:#f92672">:</span>
-        <span style="color:#a6e22e">Owner</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">AWS</span>
-        <span style="color:#a6e22e">SourceIdentifier</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">RDS_STORAGE_ENCRYPTED</span>
-</code></pre></div></figure>
-
+<p><span style="color:#a6e22e">Resources</span><span style="color:#f92672">:</span>
+<span style="color:#a6e22e">AWSConfigRule</span><span style="color:#f92672">:</span>
+<span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">AWS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">Config</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">ConfigRule</span>
+<span style="color:#a6e22e">Properties</span><span style="color:#f92672">:</span>
+<span style="color:#a6e22e">ConfigRuleName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&quot;rds-storage-encrypted&quot;</span>
+<span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&quot;Checks whether storage encryption is enabled for your RDS DB instances.&quot;</span>
+<span style="color:#a6e22e">Scope</span><span style="color:#f92672">:</span>
+<span style="color:#a6e22e">ComplianceResourceTypes</span><span style="color:#f92672">:</span>
+<span style="color:#f92672">-</span> <span style="color:#e6db74">&quot;AWS::RDS::DBInstance&quot;</span>
+<span style="color:#a6e22e">Source</span><span style="color:#f92672">:</span>
+<span style="color:#a6e22e">Owner</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">AWS</span>
+<span style="color:#a6e22e">SourceIdentifier</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">RDS_STORAGE_ENCRYPTED</span>
+</code></pre></div></figure></p>
 <ul>
-<li><p>Set the <em>File name</em> to <code>product.template.yaml</code></p></li>
-
-<li><p>Set your <em>Author name</em></p></li>
-
-<li><p>Set your <em>Email address</em></p></li>
-
-<li><p>Set your <em>Commit message</em></p></li>
+<li>
+<p>Set the <em>File name</em> to <code>product.template.yaml</code></p>
+</li>
+<li>
+<p>Set your <em>Author name</em></p>
+</li>
+<li>
+<p>Set your <em>Email address</em></p>
+</li>
+<li>
+<p>Set your <em>Commit message</em></p>
+</li>
 </ul>
-
 
 <div class="notices tip" ><p>Using a good / unique commit message will help you understand what is going on later.</p>
 </div>
 
-
 <p>Creating that file should trigger your
-  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/aws-config-rds-storage-encrypted-v1-pipeline/view?region=eu-west-1' target='_blank'>aws-config-rds-storage-encrypted-v1-pipeline</a>.</p>
-
+<a href='https://eu-west-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/aws-config-rds-storage-encrypted-v1-pipeline/view?region=eu-west-1' target='_blank'>aws-config-rds-storage-encrypted-v1-pipeline</a>.</p>
 <p>Once the pipeline has completed it should show the <em>Source</em>, <em>Package</em>, <em>Package</em> and <em>Deploy</em> stages in green to indicate they have
 completed successfully:</p>
-
 <figure>
     <img src="../../tasks/SuccessfulFactoryProductRun.png"/> 
 </figure>
-
 
 
 <div class="notices tip" ><p>You should see your commit message on this screen, it will help you know which version of ServiceCatalogFactory repository the
@@ -1300,55 +1247,44 @@ pipeline is processing.</p>
 </div>
 
 
-
 <div class="notices note" ><p>If this is failing please raise your hand for some assistance</p>
 </div>
 
-
 <p>Once you have verified the pipeline has run you can go to  <a href='https://eu-west-1.console.aws.amazon.com/servicecatalog/console?region=eu-west-1#admin-products' target='_blank'>Service Catalog products</a> to view your newly
 created version.</p>
-
 <p>You should see the product you created listed:</p>
-
 <figure>
     <img src="../../tasks/SeeYourTask1Product.png"/> 
 </figure>
 
-
 <p>Click on the product and verify <em>v1</em> is there</p>
-
 <figure>
     <img src="../../tasks/SeeYourTask1ProductVersion1.png"/> 
 </figure>
 
 
-
 <div class="notices note" ><p>If you cannot see your version please raise your hand for some assistance</p>
 </div>
 
-
 <p>You have now successfully created a version for your product!</p>
-
 <h4 id="verify-the-product-was-added-to-the-portfolio">Verify the product was added to the portfolio</h4>
-
 <p>Now that you have verified the pipeline has run you can go to  <a href='https://eu-west-1.console.aws.amazon.com/servicecatalog/console?region=eu-west-1#portfolios?' target='_blank'>Service Catalog portfolios</a> to view your
 portfolio.</p>
-
 <ul>
 <li>Click on <em>reinvent-cloud-engineering-governance</em></li>
 </ul>
-
 <figure>
     <img src="../../tasks/PortfolioReinventCloudEngineeringGovernance.png"/> 
 </figure>
 
-
 <ul>
-<li><p>Click on the product <em><em>aws-config-rds-storage-encrypted</em></em></p></li>
-
-<li><p>Click on the version <em><em>v1</em></em></p></li>
+<li>
+<p>Click on the product <em><em>aws-config-rds-storage-encrypted</em></em></p>
+</li>
+<li>
+<p>Click on the version <em><em>v1</em></em></p>
+</li>
 </ul>
-
 <figure>
     <img src="../../tasks/ClickAwsConfigS3BucketServerSideEncryptionEnabledV1.png"/> 
 </figure>
@@ -1477,64 +1413,6 @@ portfolio.</p>
 
                     
                     
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
                     
 
                     
@@ -1551,129 +1429,6 @@ portfolio.</p>
 
                     
                     
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
                         
                     
                     
@@ -1691,57 +1446,6 @@ portfolio.</p>
                     
                     
 
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
                     
             
         

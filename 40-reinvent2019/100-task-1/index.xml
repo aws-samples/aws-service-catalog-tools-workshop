@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Budget &amp; Cost governance on Service Catalog Tools Workshop</title>
@@ -28,7 +28,7 @@
       <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/100-task-1/200-provision-the-control.html</guid>
       <description>What are we going to do? We are going to perform the following steps:
  create a manifest file with our account in it provision the product aws-config-desired-instance-types into our account  Step by step guide Here are the steps you need to follow to provision the control. In the previous task, we created an AWS Service Catalog product but it has not yet been provisioned.
-Create a manifest file with our account in it  Navigate to the ServiceCatalogPuppet CodeCommit repository</description>
+Create a manifest file with our account in it   Navigate to the ServiceCatalogPuppet CodeCommit repository</description>
     </item>
     
   </channel>

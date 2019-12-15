@@ -8,7 +8,7 @@
     <meta property="og:url" content="https://cdkworkshop.com" />
     <meta property="og:image" content="https://cdkworkshop.com/images/new-cdk-logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <meta name="generator" content="Hugo 0.58.2" />
+    <meta name="generator" content="Hugo 0.61.0" />
     <meta name="description" content="AWS Service Catalog Tools Workshop">
 <meta name="author" content="Service Catalog Tools Team">
 
@@ -891,7 +891,7 @@
     <section id="footer">
       <left>
     <h5 class="copyright">&copy; 2018 Amazon Web Services, Inc. or its Affiliates. All rights reserved.</h5>
-    <h5 class="copyright">42ad607 - Sun Dec 15 02:28:10 UTC 2019</h5>
+    <h5 class="copyright">bb77d0c - Sun Dec 15 11:15:00 UTC 2019</h5>
 </left>
 
     </section>
@@ -956,17 +956,15 @@
                     <div class="progress">
     <div class="wrapper">
 <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#what-are-we-going-to-do">What are we going to do?</a>
-<ul>
-<li><a href="#using-the-cli">Using the CLI</a></li>
-<li><a href="#creating-the-puppetorgroleforexpands-iam-role">Creating the PuppetOrgRoleForExpands IAM Role</a></li>
-<li><a href="#setting-the-org-iam-role-arn">Setting the Org IAM role ARN</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#what-are-we-going-to-do">What are we going to do?</a>
+      <ul>
+        <li><a href="#using-the-cli">Using the CLI</a></li>
+        <li><a href="#creating-the-puppetorgroleforexpands-iam-role">Creating the PuppetOrgRoleForExpands IAM Role</a></li>
+        <li><a href="#setting-the-org-iam-role-arn">Setting the Org IAM role ARN</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
     </div>
 </div>
@@ -985,63 +983,37 @@
         
 
 
-
-
 <p>You can use Service Catalog Puppet with AWS Organizations.  Using it will allow you describe all accounts within an
 organizational unit as a single entity.  This provides a quicker way to get started and an easier way of managing
 multiple account environments.</p>
-
 <p>If you do not want to use Organizations please skip to the next section of this how to.</p>
-
 <h2 id="what-are-we-going-to-do">What are we going to do?</h2>
-
 <p>When enabling AWS Organizations you will need to provision an IAM Role in the Organizations master account and you will
 then need to provide the ARN of that role to your puppet account as an AWS SSM parameter.</p>
-
 <p>The role provisioned in the Organizations master account is only used to list accounts.  It has no write access.</p>
-
 <p>You can use the CLI to enable AWS Organizations.</p>
-
 <h3 id="using-the-cli">Using the CLI</h3>
-
 <p>The following steps should be executed using the Service Catalog Puppet CLI which is an application built using Python 3.</p>
-
 <p>If you have not already installed the framework you can do so by following these steps:</p>
-
 <p>It is good practice to install Python libraries in isolated environments.</p>
-
 <p>You can create the a virtual environment using the following command:</p>
-
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">virtualenv --python<span style="color:#f92672">=</span>python3.7 venv
 source venv/bin/activate</code></pre></div>
-
 <p>Once you have decided where to install the library you can install the package:</p>
-
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pip install aws-service-catalog-puppet</code></pre></div>
-
 <p>This will install the library and all of the dependencies.</p>
-
 <h3 id="creating-the-puppetorgroleforexpands-iam-role">Creating the PuppetOrgRoleForExpands IAM Role</h3>
-
 <p>You should export the credentials for your organizations master account or set your profile so that AWS CLI commands
 will execute as a role in your organization master account.</p>
-
 <p>Then you can run the following command:</p>
-
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">servicecatalog-puppet bootstrap-org-master &lt;ACCOUNT_ID_OF_YOUR_PUPPET&gt;</code></pre></div>
-
 <p>Ensure you replace <em>&lt;ACCOUNT_ID_OF_YOUR_PUPPET&gt;</em> with the account id of the account you will be using as your
 puppet account.  Please note you can have multiple puppet accounts in your organization.</p>
-
 <p>Running this command will return an ARN.  This ARN should be used when setting the Org IAM role ARN.</p>
-
 <h3 id="setting-the-org-iam-role-arn">Setting the Org IAM role ARN</h3>
-
 <p>You should export the credentials for your puppet account or set your profile so that AWS CLI commands will execute as a
 role in your puppet account.</p>
-
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">servicecatalog-puppet set-org-iam-role-arn &lt;THE_ARN_YOU_WANT_TO_USE&gt;</code></pre></div>
-
 <p>Ensure you replace <em>&lt;THE_ARN_YOU_WANT_TO_USE&gt;</em> with the ARN returned when you created the <em>PuppetOrgRoleForExpands</em></p>
 
 
@@ -1167,31 +1139,16 @@ role in your puppet account.</p>
 
                     
                     
-                        
-                    
                     
 
                     
-                        
             
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
+        
                     
                         
             
             
                 
-                    
                     
                 
                 
@@ -1208,21 +1165,6 @@ role in your puppet account.</p>
             
                 
                     
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -1240,214 +1182,8 @@ role in your puppet account.</p>
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
                         
                         
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
                     
                 
                 

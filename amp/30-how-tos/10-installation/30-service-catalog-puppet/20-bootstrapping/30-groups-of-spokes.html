@@ -8,7 +8,7 @@
     <meta property="og:url" content="https://cdkworkshop.com" />
     <meta property="og:image" content="https://cdkworkshop.com/images/new-cdk-logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <meta name="generator" content="Hugo 0.58.2" />
+    <meta name="generator" content="Hugo 0.61.0" />
     <meta name="description" content="AWS Service Catalog Tools Workshop">
 <meta name="author" content="Service Catalog Tools Team">
 
@@ -891,7 +891,7 @@
     <section id="footer">
       <left>
     <h5 class="copyright">&copy; 2018 Amazon Web Services, Inc. or its Affiliates. All rights reserved.</h5>
-    <h5 class="copyright">42ad607 - Sun Dec 15 02:28:10 UTC 2019</h5>
+    <h5 class="copyright">bb77d0c - Sun Dec 15 11:15:00 UTC 2019</h5>
 </left>
 
     </section>
@@ -962,19 +962,14 @@
                     <div class="progress">
     <div class="wrapper">
 <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#what-are-we-going-to-do">What are we going to do?</a>
-<ul>
-<li><a href="#using-the-codebuild-project">Using the CodeBuild Project</a></li>
-<li><a href="#using-the-cli">Using the CLI</a>
-<ul>
-<li><a href="#bootstrapping-spokes-in-ou">Bootstrapping spokes in ou</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#what-are-we-going-to-do">What are we going to do?</a>
+      <ul>
+        <li><a href="#using-the-codebuild-project">Using the CodeBuild Project</a></li>
+        <li><a href="#using-the-cli">Using the CLI</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
     </div>
 </div>
@@ -993,70 +988,53 @@
         
 
 
-
-
 <h2 id="what-are-we-going-to-do">What are we going to do?</h2>
-
 <p>If you have enabled AWS Organizations support you may want to bootstrap all spokes within an organizational unit.</p>
-
 <p>Following these steps will allow you to bootstrap all accounts that exist within the same organizational unit.</p>
-
 <h3 id="using-the-codebuild-project">Using the CodeBuild Project</h3>
-
 <p>In your account you can find an AWS CodeBuild project named: servicecatalog-puppet-bootstrap-an-ou</p>
-
 <ul>
-<li><p>Click start build</p></li>
-
-<li><p>Before you select start build again, expand the <em>Environment variables override</em> section.</p></li>
-
-<li><p>Set OU_OR_PATH to the OU path or organizational unit id that contains all of the spokes you want to bootstrap</p></li>
-
-<li><p>Set IAM_ROLE_NAME to the name of the IAM Role that is assumable in the spoke accounts - this must be the same name in all accounts</p></li>
-
-<li><p>Set IAM_ROLE_ARNS to the ARNs you want to assume before assuming before the IAM_ROLE_NAME.  This is should you need to assume a role with cross account permissions.</p></li>
-
-<li><p>Click start build again</p></li>
+<li>
+<p>Click start build</p>
+</li>
+<li>
+<p>Before you select start build again, expand the <em>Environment variables override</em> section.</p>
+</li>
+<li>
+<p>Set OU_OR_PATH to the OU path or organizational unit id that contains all of the spokes you want to bootstrap</p>
+</li>
+<li>
+<p>Set IAM_ROLE_NAME to the name of the IAM Role that is assumable in the spoke accounts - this must be the same name in all accounts</p>
+</li>
+<li>
+<p>Set IAM_ROLE_ARNS to the ARNs you want to assume before assuming before the IAM_ROLE_NAME.  This is should you need to assume a role with cross account permissions.</p>
+</li>
+<li>
+<p>Click start build again</p>
+</li>
 </ul>
-
 <h3 id="using-the-cli">Using the CLI</h3>
-
 <p>The following steps should be executed using the Service Catalog Puppet CLI which is an application built using Python 3.</p>
-
 <p>If you have not already installed the framework you can do so by following these steps:</p>
-
 <p>It is good practice to install Python libraries in isolated environments.</p>
-
 <p>You can create the a virtual environment using the following command:</p>
-
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">virtualenv --python<span style="color:#f92672">=</span>python3.7 venv
 source venv/bin/activate</code></pre></div>
-
 <p>Once you have decided where to install the library you can install the package:</p>
-
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pip install aws-service-catalog-puppet</code></pre></div>
-
 <p>This will install the library and all of the dependencies.</p>
-
 <h4 id="bootstrapping-spokes-in-ou">Bootstrapping spokes in ou</h4>
-
 <p>You should export the credentials for the account that allows you to list accounts in the org and assume a role in each
 of the spokes.</p>
-
 <p>Then you can run the following command:</p>
-
 <p><em>Without a boundary</em>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">servicecatalog-puppet bootstrap-spokes-in-ou /dev DevOpsAdminRole</code></pre></div></p>
-
 <p>In this example /dev is the ou path and DevOpsAdminRole is the name of the assumable role in each spoke account.</p>
-
 <p><em>With a boundary</em>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">servicecatalog-puppet bootstrap-spokes-in-ou /dev DevOpsAdminRole --permission-boundary arn:aws:iam::aws:policy/AdministratorAccess</code></pre></div></p>
-
 <p>If your current role does not allow you to list accounts in the org or allow you to assume role cross account you can
 specify an ARN of a role that does. When you do so the framework will assume that role first and then perform the
 bootstrapping.</p>
-
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">servicecatalog-puppet bootstrap-spokes-in-ou /dev DevOpsAdminRole arn:aws:iam::0123456789010:role/OrgRoleThatAllowsListAndAssumeRole</code></pre></div>
 
 
@@ -1182,25 +1160,11 @@ bootstrapping.</p>
 
                     
                     
-                        
-                    
                     
 
                     
-                        
             
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
+        
                     
                         
             
@@ -1213,19 +1177,6 @@ bootstrapping.</p>
                     
                     
                         
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
                     
                     
 
@@ -1250,223 +1201,6 @@ bootstrapping.</p>
             
             
                 
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
                     
                 
                 

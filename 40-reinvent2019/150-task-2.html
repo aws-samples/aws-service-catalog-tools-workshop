@@ -8,7 +8,7 @@
     <meta property="og:url" content="https://cdkworkshop.com" />
     <meta property="og:image" content="https://cdkworkshop.com/images/new-cdk-logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <meta name="generator" content="Hugo 0.58.2" />
+    <meta name="generator" content="Hugo 0.61.0" />
     <meta name="description" content="AWS Service Catalog Tools Workshop">
 <meta name="author" content="Service Catalog Tools Team">
 
@@ -891,7 +891,7 @@
     <section id="footer">
       <left>
     <h5 class="copyright">&copy; 2018 Amazon Web Services, Inc. or its Affiliates. All rights reserved.</h5>
-    <h5 class="copyright">42ad607 - Sun Dec 15 02:28:10 UTC 2019</h5>
+    <h5 class="copyright">bb77d0c - Sun Dec 15 11:15:00 UTC 2019</h5>
 </left>
 
     </section>
@@ -944,13 +944,10 @@
                     <div class="progress">
     <div class="wrapper">
 <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#the-ask">The ask</a></li>
-<li><a href="#the-plan">The plan</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#the-ask">The ask</a></li>
+    <li><a href="#the-plan">The plan</a></li>
+  </ul>
 </nav>
     </div>
 </div>
@@ -970,35 +967,23 @@
 
 
 
-	
-
-<hr />
-
+	<hr>
 <h2 id="the-ask">The ask</h2>
-
 <p>Example Corp now has a number of development and test workloads in AWS. Many of these workloads make use of data storage services such as Amazon RDS and Amazon S3.  The customer has recently established a dedicated data governance team, who have been tasked with identifying controls for workloads that process data classified as confidential or internal-use only.</p>
-
 <p>The data governance team has recently issued guidelines around the use of encryption for data at rest and in transit in the cloud. We have below an excerpt from the data governance standard:</p>
-
 <blockquote>
 <p>3.1.1 All cloud data storage systems must be configured to support encryption at rest and in transit using industry supported encryption algorithms for data classified as Confidential, or Internal-Use only. For a list of approved encryption algorithms and key-lengths please see Appendix A.</p>
 </blockquote>
-
 <p>From these guidelines there are two new requirements:</p>
-
 <ul>
 <li>The data governance team at Example Corp wants to get visibility into resources where encryption at rest is not being used</li>
 <li>The team wants to use AWS Service Catalog to make it easy for development teams to comply with the encryption-at-rest requirement, without having to set it up themselves.</li>
 </ul>
-
 <p>These requirements will shape the work that goes into building additional data governance controls as development teams look to use additional AWS services to store production or material data.</p>
-
 <h2 id="the-plan">The plan</h2>
-
 <p>We are going to create and deploy a data governance control using an AWS Config managed rule to ensure the teams are using
 encryption when creating an RDS instance.  We will then create a self service Service Catalog product so the teams can create
 compliant resources.</p>
-
 
 
 
@@ -1192,64 +1177,6 @@ compliant resources.</p>
 
                     
                     
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
                     
 
                     
@@ -1266,129 +1193,6 @@ compliant resources.</p>
 
                     
                     
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
                         
                     
                     
@@ -1406,57 +1210,6 @@ compliant resources.</p>
                     
                     
 
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
                     
             
         
