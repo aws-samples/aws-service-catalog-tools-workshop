@@ -1,33 +1,38 @@
 +++
-title = "Adding a product to a portfolio"
-weight = 180
+title = "Creating a portfolio"
+weight = 150
 home_region = "eu-west-1"
+
 +++
 ---
 
+
 ## What are we going to do?
 
-This tutorial will walk you through "{{% param title %}}" into a spoke account.
+This tutorial will walk you through "{{% param title %}}" with a spoke account.
 
 We will assume you have:
  
  - installed Service Catalog Puppet correctly
- - you have created a product
- - you have created a portfolio
 
 We are going to perform the following steps:
 
-- add a product to a portfolio
+- create a portfolio file
+- define a product
+- define a version for our product
+- commit our portfolio file
+- verify the framework has create an AWS CodePipeline for our product version
 
 During this process you will check your progress by verifying what the framework is doing at each step.
+
 
 ## Step by step guide
 
 Here are the steps you need to follow to "{{% param title %}}"
 
-### Add the product to the portfolio
+### Adding the portfolio to the framework
 
-- Navigate to the {{% service_catalog_factory_code_commit_repo_link %}} again
+- Navigate to the {{% service_catalog_factory_code_commit_repo_link %}} 
 
 - Click on *portfolios*
 
@@ -41,11 +46,13 @@ Here are the steps you need to follow to "{{% param title %}}"
 
 {{< figure src="/how-tos/creating-and-provisioning-a-product/ClickEdit.png" >}}
 
-- Replace the contents of your file with this:
+- Add the following to the end of the file (be careful with your indentation):
 
-{{% code file="30-how-tos/50-every-day-use/180-adding-a-product-to-a-portfolio/artefacts/factory/completed.yaml" language="js" highlight="26-27" %}}
+{{% code file="every-day-use/150-creating-a-portfolio/artefacts/factory/create-the-portfolio--portfolio_only.yaml" language="js" %}}
+ 
+- Verify the contents of your file matches this:
 
-- Take note of the highlighted lines 26 and 27.  We have added a portfolio to the product.
+{{% code file="every-day-use/150-creating-a-portfolio/artefacts/factory/create-the-portfolio--portfolio_product_and_version.yaml" language="js" %}}
 
 Once you have updated the file fill in the fields for *Author name*, *Email address*, *Commit message* and hit 
 *Commit changes*
@@ -56,7 +63,8 @@ Once you have updated the file fill in the fields for *Author name*, *Email addr
 Using a good / unique commit message will help you understand what is going on later.
 {{% /notice %}}
 
-### Verify the product was added to the portfolio
+
+### Verify the portfolio was created
 
 Once you have made your changes the {{% service_catalog_factory_pipeline_link %}} should have run or if you were quick 
 may still be running.  If it has not yet started feel free to the hit the *Release change* button.
@@ -69,15 +77,9 @@ successfully:
 Once you have verified the pipeline has run you can go to {{% service_catalog_portfolios_list_link %}} to view your
 portfolio.
 
-- Click on *reinvent-cloud-engineering-governance*
+You should see the portfolio you just created listed:
 
-{{< figure src="/how-tos/creating-and-provisioning-a-product/PortfolioReinventCloudEngineeringGovernance.png" >}}
+{{< figure src="/how-tos/creating-and-provisioning-a-product/SeeYourPortfolio.png" >}}
 
+You have now successfully created a portfolio!
 
-- Click on the product *aws-config-enable-config*
-
-{{< figure src="/how-tos/creating-and-provisioning-a-product/ClickAwsConfigS3BucketServerSideEncryptionEnabled.png" >}}
-
-- Click on the version *v1*
-
-{{< figure src="/how-tos/creating-and-provisioning-a-product/ClickAwsConfigS3BucketServerSideEncryptionEnabledV1.png" >}}

@@ -20,7 +20,7 @@ Here are the steps you need to follow to "{{% param title %}}"
 ### Add the source code for your product
 When you configured your product version, you specified the following: 
 
-{{% code file="30-how-tos/50-every-day-use/100-creating-a-product/artefacts/factory/create-the-version--version-only.yaml" language="js" %}}
+{{% code file="every-day-use/100-creating-a-product/artefacts/factory/create-the-version--version-only.yaml" language="js" %}}
 
 We now need to create the CodeCommit repository and add the AWS CloudFormation template we are going to use for our
 product into that repository.
@@ -47,7 +47,7 @@ product into that repository.
 - Copy the following snippet into the main input field:
 
  {{% code 
-    file="30-how-tos/50-every-day-use/100-creating-a-product/artefacts/product.template.yaml" 
+    file="every-day-use/100-creating-a-product/artefacts/product.template.yaml" 
     language="js" 
  %}}
 

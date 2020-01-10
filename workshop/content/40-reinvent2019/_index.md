@@ -1,7 +1,7 @@
 +++
 title = "AWS re:Invent 2019"
 chapter = false
-weight = 200
+weight = 40
 url = "reInvent2019"
 +++
 

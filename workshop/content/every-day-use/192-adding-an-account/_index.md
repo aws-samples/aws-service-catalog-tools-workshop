@@ -39,7 +39,7 @@ Here are the steps you need to follow to "{{% param title %}}"
 
 - Copy the following snippet into the main input field:
 
- {{% code file="30-how-tos/50-every-day-use/192-adding-an-account/artefacts/orchestrator/manifest-accounts-only.yaml" language="js" %}}
+ {{% code file="every-day-use/192-adding-an-account/artefacts/orchestrator/manifest-accounts-only.yaml" language="js" %}}
  
 - Update account_id on line to show the account id of the account you have bootstrapped
 

@@ -34,7 +34,7 @@ Here is how we do this:
 
 - Copy the following snippet into the main input field:
 
- {{% code file="30-how-tos/50-every-day-use/100-creating-a-product/artefacts/factory/create-the-product--product-only.yaml" language="js" %}}
+ {{% code file="every-day-use/100-creating-a-product/artefacts/factory/create-the-product--product-only.yaml" language="js" %}}
  
 - Set the *File name* to `portfolios/reinvent.yaml`
 
@@ -74,11 +74,11 @@ We now need to tell the framework we want to create a new version of our product
 
 - Add the following to the end of the file (be careful with your indentation):
 
- {{% code file="30-how-tos/50-every-day-use/100-creating-a-product/artefacts/factory/create-the-version--version-only.yaml" language="js" %}}
+ {{% code file="every-day-use/100-creating-a-product/artefacts/factory/create-the-version--version-only.yaml" language="js" %}}
  
 - Verify the contents of your file matches this:
 
- {{% code file="30-how-tos/50-every-day-use/100-creating-a-product/artefacts/factory/create-the-version--product_and_version.yaml" language="js" %}}
+ {{% code file="every-day-use/100-creating-a-product/artefacts/factory/create-the-version--product_and_version.yaml" language="js" %}}
 
 Once you have updated the file fill in the fields for *Author name*, *Email address*, *Commit message* and hit *Commit changes*
 

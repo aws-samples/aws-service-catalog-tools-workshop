@@ -1,7 +1,7 @@
 +++
 title = "Every day use"
 chapter = true
-weight = 50
+weight = 31
 +++
 
 # Welcome builders
