@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Multi Account Strategy on Service Catalog Tools Workshop</title>
+    <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/design-considerations/multi-account-strategy.html</link>
+    <description>Recent content in Multi Account Strategy on Service Catalog Tools Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://aws-samples.github.io/aws-service-catalog-tools-workshop/design-considerations/multi-account-strategy/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Starter framework</title>
+      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/design-considerations/multi-account-strategy/starter-framework.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/design-considerations/multi-account-strategy/starter-framework.html</guid>
+      <description>What are we going to do? This article will explain the starter multi account framework
+Starter framework Within your AWS Organization there are two types of Organizational units - foundational and additional.
+The Foundational OUs group the shared accounts needed to manage the your overall AWS environment. The areas considered Foundational are security, networking and security logs. Each of the Accounts within the Foundational OUs are grouped into production and non-production environments in order to clearly distinguish between production and non production policies.</description>
+    </item>
+    
+  </channel>
+</rss>

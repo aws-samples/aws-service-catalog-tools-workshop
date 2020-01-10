@@ -7,47 +7,47 @@
   </url>
   
   <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/10-servicecatalog.html</loc>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/servicecatalog.html</loc>
   </url>
   
   <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/30-how-tos/10-installation.html</loc>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/installation/30-service-catalog-puppet/20-bootstrapping/10-puppet-account.html</loc>
   </url>
   
   <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/30-how-tos/10-installation/30-service-catalog-puppet/20-bootstrapping/10-puppet-account.html</loc>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/design-considerations/multi-account-strategy/starter-framework.html</loc>
   </url>
   
   <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/30-how-tos/10-installation/30-service-catalog-puppet/10-using-aws-organizations.html</loc>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/installation/30-service-catalog-puppet/10-using-aws-organizations.html</loc>
   </url>
   
   <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/15-factory.html</loc>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/tools.html</loc>
   </url>
   
   <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/30-how-tos/10-installation/30-service-catalog-puppet/20-bootstrapping.html</loc>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/installation/30-service-catalog-puppet/20-bootstrapping.html</loc>
   </url>
   
   <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/30-how-tos/10-installation/20-service-catalog-factory.html</loc>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/design-considerations.html</loc>
   </url>
   
   <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/20-puppet.html</loc>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/installation.html</loc>
   </url>
   
   <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/30-how-tos/10-installation/30-service-catalog-puppet/20-bootstrapping/20-single-spokes.html</loc>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/installation/20-service-catalog-factory.html</loc>
   </url>
   
   <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/30-how-tos/10-installation/30-service-catalog-puppet/20-bootstrapping/30-groups-of-spokes.html</loc>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/installation/30-service-catalog-puppet/20-bootstrapping/20-single-spokes.html</loc>
   </url>
   
   <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/30-how-tos.html</loc>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/installation/30-service-catalog-puppet/20-bootstrapping/30-groups-of-spokes.html</loc>
   </url>
   
   <url>
@@ -55,11 +55,15 @@
   </url>
   
   <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/30-how-tos/10-installation/30-service-catalog-puppet.html</loc>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/installation/30-service-catalog-puppet.html</loc>
   </url>
   
   <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/30-how-tos/50-every-day-use.html</loc>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/every-day-use.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/reinvent2019/</loc>
   </url>
   
   <url>
@@ -75,15 +79,15 @@
   </url>
   
   <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/30-how-tos/50-every-day-use/100-creating-a-product.html</loc>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/every-day-use/100-creating-a-product.html</loc>
   </url>
   
   <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/30-how-tos/50-every-day-use/100-creating-a-product/100-define-the-product.html</loc>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/every-day-use/100-creating-a-product/100-define-the-product.html</loc>
   </url>
   
   <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/30-how-tos/50-every-day-use/150-creating-a-portfolio.html</loc>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/every-day-use/150-creating-a-portfolio.html</loc>
   </url>
   
   <url>
@@ -91,23 +95,23 @@
   </url>
   
   <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/30-how-tos/50-every-day-use/180-adding-a-product-to-a-portfolio.html</loc>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/every-day-use/180-adding-a-product-to-a-portfolio.html</loc>
   </url>
   
   <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/30-how-tos/50-every-day-use/190-creating-a-manifest.html</loc>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/every-day-use/190-creating-a-manifest.html</loc>
   </url>
   
   <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/30-how-tos/50-every-day-use/192-adding-an-account.html</loc>
-  </url>
-  
-  <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/reinvent2019/</loc>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/every-day-use/192-adding-an-account.html</loc>
   </url>
   
   <url>
     <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/conclusion/</loc>
+  </url>
+  
+  <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/design-considerations/multi-account-strategy.html</loc>
   </url>
   
   <url>
@@ -119,11 +123,15 @@
   </url>
   
   <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/30-how-tos/50-every-day-use/200-provisioning-a-product.html</loc>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/every-day-use/200-provisioning-a-product.html</loc>
   </url>
   
   <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/30-how-tos/50-every-day-use/100-creating-a-product/300-add-the-source-code.html</loc>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/design-considerations/selecting-a-factory-account.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/every-day-use/100-creating-a-product/300-add-the-source-code.html</loc>
   </url>
   
   <url>
@@ -131,7 +139,7 @@
   </url>
   
   <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/30-how-tos/50-every-day-use/300-sharing-a-portfolio.html</loc>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/every-day-use/300-sharing-a-portfolio.html</loc>
   </url>
   
   <url>
