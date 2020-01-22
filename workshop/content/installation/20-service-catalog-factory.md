@@ -10,8 +10,6 @@ aliases = [
 ]
 +++
 
-
-
 ### Navigate to CloudFormation
 
 - Select the CloudFormation Service.
