@@ -4,6 +4,10 @@ chapter = false
 weight = 20
 home_region = 'eu-west-1'
 home_region_name = 'Ireland'
+aliases = [
+    "/30-how-tos/10-installation/20-service-catalog-factory.html",
+    "/installation/20-service-catalog-factory.html"
+]
 +++
 
 

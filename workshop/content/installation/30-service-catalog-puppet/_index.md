@@ -1,6 +1,10 @@
 +++
 title = "Service Catalog Puppet"
 weight = 30
+aliases = [
+    "/30-how-tos/10-installation/30-service-catalog-puppet.html",
+    "/installation/30-service-catalog-puppet.html"
+]
 +++
 
 
