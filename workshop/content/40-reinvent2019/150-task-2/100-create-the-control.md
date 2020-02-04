@@ -44,7 +44,82 @@ Here are the steps you need to follow to "{{% param title %}}"
 
 - Once completed it should like look this: 
 
-{{% code file="40-reinvent2019/150-task-2/artefacts/factory/completed.yaml" language="js" %}}
+ <figure>
+  {{< highlight js >}}
+ 
+ Schema: factory-2019-04-01
+ Products:
+   - Name: "aws-config-desired-instance-types"
+     Owner: "budget-and-cost-governance@example.com"
+     Description: "Enables AWS Config rule - desired-instance-type with our RIs"
+     Distributor: "cloud-engineering"
+     SupportDescription: "Speak to budget-and-cost-governance@example.com about exceptions and speak to cloud-engineering@example.com about implementation issues"
+     SupportEmail: "cloud-engineering@example.com"
+     SupportUrl: "https://wiki.example.com/cloud-engineering/budget-and-cost-governance/aws-config-desired-instance-types"
+     Tags:
+       - Key: "type"
+         Value: "governance"
+       - Key: "creator"
+         Value: "cloud-engineering"
+       - Key: "cost-center"
+         Value: "governance"
+     Versions:
+       - Name: "v1"
+         Description: "v1 of aws-config-desired-instance-types"
+         Active: True
+         Source:
+           Provider: "CodeCommit"
+           Configuration:
+             RepositoryName: "aws-config-desired-instance-types"
+             BranchName: "master"
+     Portfolios:
+       - "cloud-engineering-governance"
+ 
+   - Name: "aws-config-rds-storage-encrypted"
+     Owner: "data-governance@example.com"
+     Description: "Enables AWS Config rule - aws-config-rds-storage-encrypted"
+     Distributor: "cloud-engineering"
+     SupportDescription: "Speak to data-governance@example.com about exceptions and speak to cloud-engineering@example.com about implementation issues"
+     SupportEmail: "cloud-engineering@example.com"
+     SupportUrl: "https://wiki.example.com/cloud-engineering/data-governance/aws-config-rds-storage-encrypted"
+     Tags:
+       - Key: "type"
+         Value: "governance"
+       - Key: "creator"
+         Value: "cloud-engineering"
+       - Key: "cost-center"
+         Value: "governance"
+     Versions:
+       - Name: "v1"
+         Description: "v1 of aws-config-rds-storage-encrypted"
+         Active: True
+         Source:
+           Provider: "CodeCommit"
+           Configuration:
+             RepositoryName: "aws-config-rds-storage-encrypted"
+             BranchName: "master"
+     Portfolios:
+       - "cloud-engineering-governance"
+ 
+ Portfolios:
+   - DisplayName: "cloud-engineering-governance"
+     Description: "Portfolio containing the products needed to govern AWS accounts"
+     ProviderName: "cloud-engineering"
+     Associations:
+       - "arn:aws:iam::${AWS::AccountId}:role/TeamRole"
+     Tags:
+       - Key: "type"
+         Value: "governance"
+       - Key: "creator"
+         Value: "cloud-engineering"
+       - Key: "cost-center"
+         Value: "governance"
+
+ 
+ {{< / highlight >}}
+ </figure>
+ 
+ 
  
 - Set your *Author name*
 - Set your *Email address*
