@@ -37,7 +37,44 @@ Here are the steps you need to follow to "{{% param title %}}"
 
 - The main input field should look like this (remember to set your account_id):
 
- {{% code file="40-reinvent2019/150-task-2/artefacts/orchestrator/manifest-all.yaml" language="js" %}}
+ <figure>
+  {{< highlight js >}}
+
+accounts:
+  - account_id: "<YOUR_ACCOUNT_ID_WITHOUT_HYPHENS>"
+    name: "puppet-account"
+    default_region: "eu-west-1"
+    regions_enabled:
+      - "eu-west-1"
+      - "eu-west-2"
+    tags:
+      - "type:prod"
+      - "partition:eu"
+
+launches:
+  aws-config-desired-instance-types:
+    portfolio: "reinvent-cloud-engineering-governance"
+    product: "aws-config-desired-instance-types"
+    version: "v1"
+    parameters:
+      InstanceType:
+        default: "t2.medium, t2.large, t2.xlarge"
+    deploy_to:
+      tags:
+        - tag: "type:prod"
+          regions: "default_region"
+  aws-config-rds-storage-encrypted:
+    portfolio: "reinvent-cloud-engineering-governance"
+    product: "aws-config-rds-storage-encrypted"
+    version: "v1"
+    deploy_to:
+      tags:
+        - tag: "type:prod"
+          regions: "default_region"
+
+ {{< / highlight >}}
+ </figure>
+
 
 
 #### AWS Committing the manifest file
