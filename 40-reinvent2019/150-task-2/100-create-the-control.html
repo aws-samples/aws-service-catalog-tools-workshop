@@ -942,7 +942,7 @@
     <section id="footer">
       <left>
     <h5 class="copyright">&copy; 2018 Amazon Web Services, Inc. or its Affiliates. All rights reserved.</h5>
-    <h5 class="copyright">cad1a1f - Tue Feb 4 12:53:00 UTC 2020</h5>
+    <h5 class="copyright">ba2ec52 - Tue Feb 4 12:56:27 UTC 2020</h5>
 </left>
 
     </section>
@@ -1259,21 +1259,26 @@ product.</p>
 <ul>
 <li>Copy the following snippet into the main input field:</li>
 </ul>
-<figure><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">AWSTemplateFormatVersion</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;2010-09-09&#39;</span>
+ <figure>
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">AWSTemplateFormatVersion</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;2010-09-09&#39;</span>
 <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Create an AWS Config rule ensuring RDS instances use encrypted storage&#34;</span>
-<p><span style="color:#a6e22e">Resources</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">AWSConfigRule</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">AWS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">Config</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">ConfigRule</span>
-<span style="color:#a6e22e">Properties</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">ConfigRuleName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&quot;rds-storage-encrypted&quot;</span>
-<span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&quot;Checks whether storage encryption is enabled for your RDS DB instances.&quot;</span>
-<span style="color:#a6e22e">Scope</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">ComplianceResourceTypes</span><span style="color:#f92672">:</span>
-<span style="color:#f92672">-</span> <span style="color:#e6db74">&quot;AWS::RDS::DBInstance&quot;</span>
-<span style="color:#a6e22e">Source</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">Owner</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">AWS</span>
-<span style="color:#a6e22e">SourceIdentifier</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">RDS_STORAGE_ENCRYPTED</span>
-</code></pre></div></figure></p>
+
+<span style="color:#a6e22e">Resources</span><span style="color:#f92672">:</span>
+  <span style="color:#a6e22e">AWSConfigRule</span><span style="color:#f92672">:</span>
+    <span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">AWS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">Config</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">ConfigRule</span>
+    <span style="color:#a6e22e">Properties</span><span style="color:#f92672">:</span>
+      <span style="color:#a6e22e">ConfigRuleName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;rds-storage-encrypted&#34;</span>
+      <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Checks whether storage encryption is enabled for your RDS DB instances.&#34;</span>
+      <span style="color:#a6e22e">Scope</span><span style="color:#f92672">:</span>
+        <span style="color:#a6e22e">ComplianceResourceTypes</span><span style="color:#f92672">:</span>
+          <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;AWS::RDS::DBInstance&#34;</span>
+      <span style="color:#a6e22e">Source</span><span style="color:#f92672">:</span>
+        <span style="color:#a6e22e">Owner</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">AWS</span>
+        <span style="color:#a6e22e">SourceIdentifier</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">RDS_STORAGE_ENCRYPTED</span>
+
+ 
+</code></pre></div>
+ </figure>
 <ul>
 <li>
 <p>Set the <em>File name</em> to <code>product.template.yaml</code></p>
