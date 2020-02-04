@@ -108,10 +108,37 @@ product.
 
 - Copy the following snippet into the main input field:
 
- {{% code 
-    file="40-reinvent2019/100-task-1/artefacts/product.template.yaml" 
-    language="js" 
- %}}
+ <figure>
+ {{< highlight js >}}
+ 
+ AWSTemplateFormatVersion: "2010-09-09"
+ Description: "Create an AWS Config rule ensuring the given instance types are the only instance types used"
+ 
+ Parameters:
+   InstanceType:
+     Type: String
+     Description: "Comma separated list of EC2 instance types (for example, 't2.small, m4.large')."
+     Default: "t2.micro, t2.small"
+ 
+ Resources:
+   AWSConfigRule:
+     Type: AWS::Config::ConfigRule
+     Properties:
+       ConfigRuleName: "desired-instance-type"
+       Description: "Checks whether your EC2 instances are of the specified instance types."
+       InputParameters:
+         instanceType: !Ref InstanceType
+       Scope:
+         ComplianceResourceTypes:
+           - "AWS::EC2::Instance"
+       Source:
+         Owner: AWS
+         SourceIdentifier: DESIRED_INSTANCE_TYPE
+ 
+ {{< / highlight >}}
+</figure>
+
+ 
 
 - Set the *File name* to `product.template.yaml`
 
