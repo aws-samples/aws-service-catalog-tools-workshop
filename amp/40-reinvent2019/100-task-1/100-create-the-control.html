@@ -942,7 +942,7 @@
     <section id="footer">
       <left>
     <h5 class="copyright">&copy; 2018 Amazon Web Services, Inc. or its Affiliates. All rights reserved.</h5>
-    <h5 class="copyright">4718e3d - Wed Jan 22 12:25:13 UTC 2020</h5>
+    <h5 class="copyright">441dbca - Tue Feb 4 12:18:55 UTC 2020</h5>
 </left>
 
     </section>
@@ -1194,28 +1194,35 @@ product.</p>
 <ul>
 <li>Copy the following snippet into the main input field:</li>
 </ul>
-<figure><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">AWSTemplateFormatVersion</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;2010-09-09&#34;</span>
-<span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Create an AWS Config rule ensuring the given instance types are the only instance types used&#34;</span>
-<p><span style="color:#a6e22e">Parameters</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">InstanceType</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> String
-<span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&quot;Comma separated list of EC2 instance types (for example, 't2.small, m4.large').&quot;</span>
-<span style="color:#a6e22e">Default</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&quot;t2.micro, t2.small&quot;</span></p>
-<p><span style="color:#a6e22e">Resources</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">AWSConfigRule</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">AWS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">Config</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">ConfigRule</span>
-<span style="color:#a6e22e">Properties</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">ConfigRuleName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&quot;desired-instance-type&quot;</span>
-<span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&quot;Checks whether your EC2 instances are of the specified instance types.&quot;</span>
-<span style="color:#a6e22e">InputParameters</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">instanceType</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Ref</span> <span style="color:#a6e22e">InstanceType</span>
-<span style="color:#a6e22e">Scope</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">ComplianceResourceTypes</span><span style="color:#f92672">:</span>
-<span style="color:#f92672">-</span> <span style="color:#e6db74">&quot;AWS::EC2::Instance&quot;</span>
-<span style="color:#a6e22e">Source</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">Owner</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">AWS</span>
-<span style="color:#a6e22e">SourceIdentifier</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">DESIRED_INSTANCE_TYPE</span>
-</code></pre></div></figure></p>
+ <figure>
+ <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"> 
+ <span style="color:#a6e22e">AWSTemplateFormatVersion</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;2010-09-09&#34;</span>
+ <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Create an AWS Config rule ensuring the given instance types are the only instance types used&#34;</span>
+ 
+ <span style="color:#a6e22e">Parameters</span><span style="color:#f92672">:</span>
+   <span style="color:#a6e22e">InstanceType</span><span style="color:#f92672">:</span>
+     <span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> String
+     <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Comma separated list of EC2 instance types (for example, &#39;t2.small, m4.large&#39;).&#34;</span>
+     <span style="color:#a6e22e">Default</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;t2.micro, t2.small&#34;</span>
+ 
+ <span style="color:#a6e22e">Resources</span><span style="color:#f92672">:</span>
+   <span style="color:#a6e22e">AWSConfigRule</span><span style="color:#f92672">:</span>
+     <span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">AWS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">Config</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">ConfigRule</span>
+     <span style="color:#a6e22e">Properties</span><span style="color:#f92672">:</span>
+       <span style="color:#a6e22e">ConfigRuleName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;desired-instance-type&#34;</span>
+       <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Checks whether your EC2 instances are of the specified instance types.&#34;</span>
+       <span style="color:#a6e22e">InputParameters</span><span style="color:#f92672">:</span>
+         <span style="color:#a6e22e">instanceType</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Ref</span> <span style="color:#a6e22e">InstanceType</span>
+       <span style="color:#a6e22e">Scope</span><span style="color:#f92672">:</span>
+         <span style="color:#a6e22e">ComplianceResourceTypes</span><span style="color:#f92672">:</span>
+           <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;AWS::EC2::Instance&#34;</span>
+       <span style="color:#a6e22e">Source</span><span style="color:#f92672">:</span>
+         <span style="color:#a6e22e">Owner</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">AWS</span>
+         <span style="color:#a6e22e">SourceIdentifier</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">DESIRED_INSTANCE_TYPE</span>
+ 
+ 
+</code></pre></div>
+</figure>
 <ul>
 <li>
 <p>Set the <em>File name</em> to <code>product.template.yaml</code></p>
