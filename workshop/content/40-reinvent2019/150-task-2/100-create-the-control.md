@@ -188,7 +188,28 @@ product.
 
 - Copy the following snippet into the main input field:
 
-{{% code  file="40-reinvent2019/150-task-2/artefacts/product.template.yaml" language="js" %}}
+ <figure>
+  {{< highlight js >}}
+
+AWSTemplateFormatVersion: '2010-09-09'
+Description: "Create an AWS Config rule ensuring RDS instances use encrypted storage"
+
+Resources:
+  AWSConfigRule:
+    Type: AWS::Config::ConfigRule
+    Properties:
+      ConfigRuleName: "rds-storage-encrypted"
+      Description: "Checks whether storage encryption is enabled for your RDS DB instances."
+      Scope:
+        ComplianceResourceTypes:
+          - "AWS::RDS::DBInstance"
+      Source:
+        Owner: AWS
+        SourceIdentifier: RDS_STORAGE_ENCRYPTED
+
+ {{< / highlight >}}
+ </figure>
+ 
 
 - Set the *File name* to `product.template.yaml`
 
