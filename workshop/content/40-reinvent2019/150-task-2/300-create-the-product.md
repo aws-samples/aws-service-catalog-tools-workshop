@@ -245,7 +245,128 @@ product.
 
 - Copy the following snippet into the main input field:
 
-{{% code file="40-reinvent2019/150-task-2/artefacts/product_second_time.template.yaml" language="js" %}}
+ <figure>
+  {{< highlight js >}}
+
+AWSTemplateFormatVersion: 2010-09-09
+Description: "RDS Storage Encrypted"
+
+Parameters:
+  RdsDbMasterUsername:
+    Description: RdsDbMasterUsername
+    Type: String
+    Default: someuser
+
+  RdsDbMasterUserPassword:
+      Description: RdsDbMasterUserPassword
+      Type: String
+      NoEcho: true
+
+  RdsDbDatabaseName:
+    Description: DbDatabaseName
+    Type: String
+    Default: mysql57_database
+
+Resources:
+  VPC:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: 10.0.0.0/16
+      EnableDnsSupport: 'false'
+      EnableDnsHostnames: 'false'
+
+  Subnet1:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId:
+        Ref: VPC
+      CidrBlock: 10.0.0.0/24
+      AvailabilityZone: !Select [0, !GetAZs {Ref: 'AWS::Region'}]
+
+  Subnet2:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId:
+        Ref: VPC
+      CidrBlock: 10.0.1.0/24
+      AvailabilityZone: !Select [1, !GetAZs {Ref: 'AWS::Region'}]
+
+  RdsDbSubnetGroup:
+    Type: AWS::RDS::DBSubnetGroup
+    Properties:
+      DBSubnetGroupDescription: Database subnets for RDS
+      SubnetIds:
+        - !Ref Subnet1
+        - !Ref Subnet2
+
+  RdsSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Description: Used to grant access to and from the VPC
+    Properties:
+      VpcId: !Ref VPC
+      GroupDescription: Allow MySQL (TCP3306) access to and from the VPC
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 3306
+          ToPort: 3306
+          CidrIp: 10.0.0.0/32
+      SecurityGroupEgress:
+        - IpProtocol: tcp
+          FromPort: 3306
+          ToPort: 3306
+          CidrIp: 10.0.0.0/32
+
+  RdsDbClusterParameterGroup:
+    Type: AWS::RDS::DBClusterParameterGroup
+    Properties:
+      Description: CloudFormation Aurora Cluster Parameter Group
+      Family: aurora-mysql5.7
+      Parameters:
+        server_audit_logging: 0
+        server_audit_events: 'CONNECT,QUERY,QUERY_DCL,QUERY_DDL,QUERY_DML,TABLE'
+
+  RdsDbCluster:
+    Type: AWS::RDS::DBCluster
+    Properties:
+      DBSubnetGroupName: !Ref RdsDbSubnetGroup
+      MasterUsername: !Ref RdsDbMasterUsername
+      MasterUserPassword: !Ref RdsDbMasterUserPassword
+      DatabaseName: !Ref RdsDbDatabaseName
+      Engine: aurora-mysql
+      VpcSecurityGroupIds:
+        - !Ref RdsSecurityGroup
+      DBClusterIdentifier : !Sub '${AWS::StackName}-dbcluster'
+      DBClusterParameterGroupName: !Ref RdsDbClusterParameterGroup
+      PreferredBackupWindow: 18:05-18:35
+
+  RdsDbParameterGroup:
+    Type: AWS::RDS::DBParameterGroup
+    Properties:
+      Description: CloudFormation Aurora Parameter Group
+      Family: aurora-mysql5.7
+      Parameters:
+        aurora_lab_mode: 0
+        general_log: 1
+        slow_query_log: 1
+        long_query_time: 10
+
+  RdsDbInstance:
+    Type: AWS::RDS::DBInstance
+    Properties:
+      DBSubnetGroupName: !Ref RdsDbSubnetGroup
+      DBParameterGroupName: !Ref RdsDbParameterGroup
+      Engine: aurora-mysql
+      DBClusterIdentifier: !Ref RdsDbCluster
+      AutoMinorVersionUpgrade: 'true'
+      PubliclyAccessible: 'false'
+      PreferredMaintenanceWindow: Thu:19:05-Thu:19:35
+      AvailabilityZone: !Select [0, !GetAZs {Ref: 'AWS::Region'}]
+      DBInstanceClass: 'db.t2.small'
+
+ {{< / highlight >}}
+ </figure>
+
+
 
 - Set the *File name* to `product.template.yaml`
 
