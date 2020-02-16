@@ -15,7 +15,7 @@
     <link rel="shortcut icon" href="../images/favicon.png" type="image/png" />
 <link rel="icon" href="../images/favicon.png" type="image/png" />
 
-    <title>Creating a product :: Service Catalog Tools Workshop</title>
+    <title>Account Tagging :: Service Catalog Tools Workshop</title>
 
     
     <link href="../css/nucleus.css" rel="stylesheet">
@@ -43,7 +43,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/every-day-use/100-creating-a-product.html">
+  <body class="" data-url="/design-considerations/account-tagging.html">
     <nav id="sidebar" class="">
 
 
@@ -112,7 +112,7 @@
   
     
     <li data-nav-id="/design-considerations.html" title="Design considerations" class="dd-item 
-        
+        parent
         
         
         ">
@@ -240,8 +240,8 @@
   
     
     <li data-nav-id="/design-considerations/account-tagging.html" title="Account Tagging" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="../design-considerations/account-tagging.html">
@@ -470,7 +470,7 @@
   
     
     <li data-nav-id="/every-day-use.html" title="Every day use" class="dd-item 
-        parent
+        
         
         
         ">
@@ -497,8 +497,8 @@
   
     
     <li data-nav-id="/every-day-use/100-creating-a-product.html" title="Creating a product" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="../every-day-use/100-creating-a-product.html">
@@ -1030,7 +1030,7 @@
             
           
           
-            <a href='../'>AWS Service Catalog Tools Intro Workshop</a> > <a href='../every-day-use.html'>Every day use</a> > Creating a product
+            <a href='../'>AWS Service Catalog Tools Intro Workshop</a> > <a href='../design-considerations.html'>Design considerations</a> > Account Tagging
           
         
           
@@ -1042,7 +1042,13 @@
                 
                     <div class="progress">
     <div class="wrapper">
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#what-are-we-going-to-do">What are we going to do?</a></li>
+    <li><a href="#how-does-service-catalog-tools-use-account-tags">How does Service Catalog Tools use account tags?</a></li>
+    <li><a href="#how-you-can-make-best-use-of-them">How you can make best use of them</a></li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -1054,7 +1060,7 @@
         
         <div id="body-inner">
           
-            <h1>Creating a product</h1>
+            <h1>Account Tagging</h1>
           
 
         
@@ -1062,64 +1068,95 @@
 
 
 	<hr>
-<p>This tutorial will walk you through &ldquo;Creating a product&rdquo;</p>
-<p>We will assume you have:</p>
+<h2 id="what-are-we-going-to-do">What are we going to do?</h2>
+<p>This article will explain how tags are used by the Service Catalog Tools and will make some recommendations on which
+tags you should be thinking about using.</p>
+<h2 id="how-does-service-catalog-tools-use-account-tags">How does Service Catalog Tools use account tags?</h2>
+<p>When writing your manifest you can specify tags for AWS Accounts:</p>
+<figure>
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">accounts</span><span style="color:#f92672">:</span>
+  <span style="color:#f92672">-</span> <span style="color:#a6e22e">account_id</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">012345678910</span><span style="color:#e6db74">&#34;
+</span><span style="color:#e6db74">    name: &#34;</span><span style="color:#a6e22e">prod</span><span style="color:#f92672">-</span><span style="color:#a6e22e">member</span><span style="color:#f92672">-</span><span style="color:#a6e22e">service</span><span style="color:#f92672">-</span><span style="color:#ae81ff">9</span><span style="color:#e6db74">&#34;
+</span><span style="color:#e6db74">    default_region: &#34;</span><span style="color:#a6e22e">eu</span><span style="color:#f92672">-</span><span style="color:#a6e22e">west</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#34;
+</span><span style="color:#e6db74">    regions_enabled:
+</span><span style="color:#e6db74">      - &#34;</span><span style="color:#a6e22e">eu</span><span style="color:#f92672">-</span><span style="color:#a6e22e">west</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#34;
+</span><span style="color:#e6db74">      - &#34;</span><span style="color:#a6e22e">eu</span><span style="color:#f92672">-</span><span style="color:#a6e22e">west</span><span style="color:#f92672">-</span><span style="color:#ae81ff">2</span><span style="color:#e6db74">&#34;
+</span><span style="color:#e6db74">    tags:
+</span><span style="display:block;width:100%;background-color:#3c3d38"><span style="color:#e6db74">      - &#34;</span><span style="color:#a6e22e">type</span><span style="color:#f92672">:</span><span style="color:#a6e22e">prod</span><span style="color:#e6db74">&#34;
+</span></span><span style="display:block;width:100%;background-color:#3c3d38"><span style="color:#e6db74">      - &#34;</span><span style="color:#a6e22e">partition</span><span style="color:#f92672">:</span><span style="color:#a6e22e">eu</span><span style="color:#960050;background-color:#1e0010">&#34;</span>
+</span>  
+</code></pre></div>
+ </figure>
+<p>The tags assigned to this account are <em>type:prod</em> and <em>partition:eu</em>.</p>
+<p>These tags are later used in the launch and spoke-portfolio-shares sections of the manifest file to choose which
+accounts should have produces provisioned into them and which accounts should have portfolios shared with them:</p>
+<figure>
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">launches</span><span style="color:#f92672">:</span>
+  <span style="color:#a6e22e">aws</span><span style="color:#f92672">-</span><span style="color:#a6e22e">config</span><span style="color:#f92672">-</span><span style="color:#a6e22e">rds</span><span style="color:#f92672">-</span><span style="color:#a6e22e">storage</span><span style="color:#f92672">-</span><span style="color:#a6e22e">encrypted</span><span style="color:#f92672">:</span>
+    <span style="color:#a6e22e">portfolio</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;reinvent-cloud-engineering-governance&#34;</span>
+    <span style="color:#a6e22e">product</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;aws-config-rds-storage-encrypted&#34;</span>
+    <span style="color:#a6e22e">version</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1&#34;</span>
+    <span style="color:#a6e22e">deploy_to</span><span style="color:#f92672">:</span>
+      <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
+<span style="display:block;width:100%;background-color:#3c3d38">        <span style="color:#f92672">-</span> <span style="color:#a6e22e">tag</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;type:prod&#34;</span>
+</span>          <span style="color:#a6e22e">regions</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;default_region&#34;</span>
+
+<span style="color:#a6e22e">spoke</span><span style="color:#f92672">-</span><span style="color:#a6e22e">local</span><span style="color:#f92672">-</span><span style="color:#a6e22e">portfolios</span><span style="color:#f92672">:</span>
+  <span style="color:#a6e22e">cloud</span><span style="color:#f92672">-</span><span style="color:#a6e22e">engineering</span><span style="color:#f92672">-</span><span style="color:#a6e22e">self</span><span style="color:#f92672">-</span><span style="color:#a6e22e">service</span><span style="color:#f92672">:</span>
+    <span style="color:#a6e22e">portfolio</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;reinvent-cloud-engineering-self-service&#34;</span>
+    <span style="color:#a6e22e">deploy_to</span><span style="color:#f92672">:</span>
+      <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
+<span style="display:block;width:100%;background-color:#3c3d38">        <span style="color:#f92672">-</span> <span style="color:#a6e22e">tag</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;type:prod&#34;</span>
+</span>          <span style="color:#a6e22e">regions</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;default_region&#34;</span>
+  
+</code></pre></div>
+ </figure>          
+<p>The Service Catalog Tools looks through the launches and the spoke-local-portfolios.  For each launch and
+spoke-local-portfolio found the framework will look through the tags specified in the tags section.  For each tag found
+the Service Catalog Tools will look through the list of accounts for an account with the same tag.  When the tag is found
+the product is provisioned if the tag was found in the launch section otherwise the portfolio specified will be shared if
+the tag was found in a spoke-local-portfolio.</p>
+<h2 id="how-you-can-make-best-use-of-them">How you can make best use of them</h2>
+<p>Having the right number of tags is essential.  Too few tags will cause you to have less flexibility but having too many
+may lead to a larger than needed manifest file or feeling overwhelmed.</p>
+<p>To begin with, we recommend using foundation and additional tags to align to the multi account strategy best practice:</p>
 <ul>
-<li>installed Service Catalog Factory correctly</li>
+<li>outype:foundational</li>
+<li>outype:additional</li>
 </ul>
-<p>In the tutorial you will:</p>
-
-
-
-
-
-
-
-<ul class="children children-li">
-	
-
-	
-		
-	
-
-	
-
-	
-		
-	
-		
-			
-				
-<li>
-<a href="../every-day-use/100-creating-a-product/100-define-the-product.html" >Define the product</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="../every-day-use/100-creating-a-product/300-add-the-source-code.html" >Add the source code</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-
-	
+<p>We then recommend describing which ou the accounts are in:</p>
+<ul>
+<li>ou:sharedservices</li>
+<li>ou:networking</li>
+<li>ou:securityreadonly</li>
 </ul>
+<p>We then recommend the following tags based on the type of the workloads that exist in the AWS account:</p>
+<ul>
+<li>type:prod</li>
+<li>type:test</li>
+<li>type:dev</li>
+<li>type:sandbox</li>
+<li>type:suspended</li>
+</ul>
+<p>We then recommend using a set of scope tags to help explain the governance needs of the accounts:</p>
+<ul>
+<li>scope:gdpr</li>
+<li>scope:pci</li>
+<li>scope:pii</li>
+<li>scope:hipaa</li>
+</ul>
+<p>It may also be convenient to tag the accounts with the team or business unit:</p>
+<ul>
+<li>team:ccoe</li>
+<li>team:member-services</li>
+<li>team:mobile-banking</li>
+<li>businessunit:security</li>
+</ul>
+<p>The tags you specify within the manifest are not applied to the accounts using AWS Organizations - they only exist
+within the manifest file.  You can change them at any time and renaming them will not result in changes.</p>
 
-<p>During this process you will check your progress by verifying what the framework is doing.</p>
-
-
+<div class="notices note" ><p>If you would like to share your tagging patterns raise a github issue to share</p>
+</div>
 
 
 
@@ -1275,39 +1312,6 @@
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -1320,10 +1324,16 @@
             
         
                     
+            
+        
+                    
                         
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1361,6 +1371,37 @@
 
                     
                     
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
                     
 
                     
@@ -1441,7 +1482,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -1454,9 +1494,6 @@
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -1774,10 +1811,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="../every-day-use.html" title="Every day use"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="../design-considerations/portfolio-management.html" title="Portfolio Management"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="../every-day-use/100-creating-a-product/100-define-the-product.html" title="Define the product" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="../installation.html" title="Installation" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
