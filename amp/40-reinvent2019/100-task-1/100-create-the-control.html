@@ -208,6 +208,30 @@
 
             
           
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/design-considerations/portfolio-management.html" title="Portfolio Management" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../../design-considerations/portfolio-management.html">
+          Portfolio Management
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
         
         </ul>
               
@@ -942,7 +966,7 @@
     <section id="footer">
       <left>
     <h5 class="copyright">&copy; 2018 Amazon Web Services, Inc. or its Affiliates. All rights reserved.</h5>
-    <h5 class="copyright">8427d80 - Tue Feb 4 13:06:43 UTC 2020</h5>
+    <h5 class="copyright">9edfaaa - Sun Feb 16 20:33:09 UTC 2020</h5>
 </left>
 
     </section>
@@ -1053,9 +1077,10 @@
 </figure>
 
 <ul>
-<li>Copy the following snippet into the main input field:</li>
-</ul>
-<figure><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">Schema</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">factory</span><span style="color:#f92672">-</span><span style="color:#ae81ff">2019</span><span style="color:#f92672">-</span><span style="color:#ae81ff">04</span><span style="color:#f92672">-</span><span style="color:#ae81ff">01</span>
+<li>
+<p>Copy the following snippet into the main input field:</p>
+<figure>
+ <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">Schema</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">factory</span><span style="color:#f92672">-</span><span style="color:#ae81ff">2019</span><span style="color:#f92672">-</span><span style="color:#ae81ff">04</span><span style="color:#f92672">-</span><span style="color:#ae81ff">01</span>
 <span style="color:#a6e22e">Products</span><span style="color:#f92672">:</span>
   <span style="color:#f92672">-</span> <span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;aws-config-desired-instance-types&#34;</span>
     <span style="color:#a6e22e">Owner</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;budget-and-cost-governance@example.com&#34;</span>
@@ -1095,8 +1120,10 @@
         <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering&#34;</span>
       <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cost-center&#34;</span>
         <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;governance&#34;</span>
-</code></pre></div></figure>
-<ul>
+   
+</code></pre></div>
+</figure>
+</li>
 <li>
 <p>Set the <em>File name</em> to <code>portfolios/reinvent.yaml</code></p>
 </li>
@@ -1144,7 +1171,8 @@ successfully:</p>
 
 <h3 id="add-the-source-code-for-our-product">Add the source code for our product</h3>
 <p>When you configured your product version, you specified the following version:</p>
-<figure><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">    <span style="color:#a6e22e">Versions</span><span style="color:#f92672">:</span>
+ <figure>
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">    <span style="color:#a6e22e">Versions</span><span style="color:#f92672">:</span>
       <span style="color:#f92672">-</span> <span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1&#34;</span>
         <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1 of aws-config-desired-instance-types&#34;</span>
         <span style="color:#a6e22e">Active</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">True</span>
@@ -1153,7 +1181,9 @@ successfully:</p>
           <span style="color:#a6e22e">Configuration</span><span style="color:#f92672">:</span>
             <span style="color:#a6e22e">RepositoryName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;aws-config-desired-instance-types&#34;</span>
             <span style="color:#a6e22e">BranchName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;master&#34;</span>
-</code></pre></div></figure>
+  
+</code></pre></div>
+ </figure>
 <p>This tells the framework the source code for the product comes from the <em>master</em> branch of a
 <em>CodeCommit</em> repository of the name <em>aws-config-desired-instance-types</em>.</p>
 <p>We now need to create the CodeCommit repository and add the AWS CloudFormation template we are going to use for our
@@ -1195,8 +1225,7 @@ product.</p>
 <li>Copy the following snippet into the main input field:</li>
 </ul>
  <figure>
- <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"> 
- <span style="color:#a6e22e">AWSTemplateFormatVersion</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;2010-09-09&#34;</span>
+ <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"> <span style="color:#a6e22e">AWSTemplateFormatVersion</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;2010-09-09&#34;</span>
  <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Create an AWS Config rule ensuring the given instance types are the only instance types used&#34;</span>
  
  <span style="color:#a6e22e">Parameters</span><span style="color:#f92672">:</span>
@@ -1219,7 +1248,6 @@ product.</p>
        <span style="color:#a6e22e">Source</span><span style="color:#f92672">:</span>
          <span style="color:#a6e22e">Owner</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">AWS</span>
          <span style="color:#a6e22e">SourceIdentifier</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">DESIRED_INSTANCE_TYPE</span>
- 
  
 </code></pre></div>
 </figure>
@@ -1408,6 +1436,22 @@ portfolio.</p>
                     
             
         
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
                     
             
         

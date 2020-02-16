@@ -208,6 +208,30 @@
 
             
           
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/design-considerations/portfolio-management.html" title="Portfolio Management" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../design-considerations/portfolio-management.html">
+          Portfolio Management
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
         
         </ul>
               
@@ -942,7 +966,7 @@
     <section id="footer">
       <left>
     <h5 class="copyright">&copy; 2018 Amazon Web Services, Inc. or its Affiliates. All rights reserved.</h5>
-    <h5 class="copyright">8427d80 - Tue Feb 4 13:06:43 UTC 2020</h5>
+    <h5 class="copyright">9edfaaa - Sun Feb 16 20:33:09 UTC 2020</h5>
 </left>
 
     </section>
@@ -1037,7 +1061,8 @@
 <p>Here are the steps you need to follow to &ldquo;Add the source code&rdquo;</p>
 <h3 id="add-the-source-code-for-your-product">Add the source code for your product</h3>
 <p>When you configured your product version, you specified the following:</p>
-<figure><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">    <span style="color:#a6e22e">Versions</span><span style="color:#f92672">:</span>
+ <figure>
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">    <span style="color:#a6e22e">Versions</span><span style="color:#f92672">:</span>
       <span style="color:#f92672">-</span> <span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1&#34;</span>
         <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1 of aws-config-enable-config&#34;</span>
         <span style="color:#a6e22e">Active</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">True</span>
@@ -1046,7 +1071,9 @@
           <span style="color:#a6e22e">Configuration</span><span style="color:#f92672">:</span>
             <span style="color:#a6e22e">RepositoryName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;aws-config-enable-config&#34;</span>
             <span style="color:#a6e22e">BranchName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;master&#34;</span>
-</code></pre></div></figure>
+  
+</code></pre></div>
+ </figure>
 <p>We now need to create the CodeCommit repository and add the AWS CloudFormation template we are going to use for our
 product into that repository.</p>
 <ul>
@@ -1083,101 +1110,109 @@ product into that repository.</p>
 </figure>
 
 <ul>
-<li>Copy the following snippet into the main input field:</li>
-</ul>
-<figure><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">AWSTemplateFormatVersion</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2010</span><span style="color:#f92672">-</span><span style="color:#ae81ff">09</span><span style="color:#f92672">-</span><span style="color:#ae81ff">09</span>
+<li>
+<p>Copy the following snippet into the main input field:</p>
+<figure>
+ <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">AWSTemplateFormatVersion</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2010</span><span style="color:#f92672">-</span><span style="color:#ae81ff">09</span><span style="color:#f92672">-</span><span style="color:#ae81ff">09</span>
 <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#f92672">|</span>
   <span style="color:#a6e22e">This</span> <span style="color:#a6e22e">template</span> <span style="color:#a6e22e">creates</span> <span style="color:#a6e22e">a</span> <span style="color:#a6e22e">Config</span> <span style="color:#a6e22e">Recorder</span> <span style="color:#a6e22e">and</span> <span style="color:#a6e22e">an</span> <span style="color:#a6e22e">Amazon</span> <span style="color:#a6e22e">S3</span> <span style="color:#a6e22e">bucket</span> <span style="color:#a6e22e">where</span> <span style="color:#a6e22e">logs</span> <span style="color:#a6e22e">are</span> <span style="color:#a6e22e">published</span>.
-<p><span style="color:#a6e22e">Resources</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">ConfigRole</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">'AWS::IAM::Role'</span>
-<span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">The</span> <span style="color:#a6e22e">IAM</span> <span style="color:#a6e22e">role</span> <span style="color:#a6e22e">used</span> <span style="color:#a6e22e">to</span> <span style="color:#a6e22e">configure</span> <span style="color:#a6e22e">AWS</span> <span style="color:#a6e22e">Config</span>
-<span style="color:#a6e22e">Properties</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">AssumeRolePolicyDocument</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">Version</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2012</span><span style="color:#f92672">-</span><span style="color:#ae81ff">10</span><span style="color:#f92672">-</span><span style="color:#ae81ff">17</span>
-<span style="color:#a6e22e">Statement</span><span style="color:#f92672">:</span>
-<span style="color:#f92672">-</span> <span style="color:#a6e22e">Effect</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Allow</span>
-<span style="color:#a6e22e">Principal</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">Service</span><span style="color:#f92672">:</span>
-<span style="color:#f92672">-</span> <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">amazonaws</span>.<span style="color:#a6e22e">com</span>
-<span style="color:#a6e22e">Action</span><span style="color:#f92672">:</span>
-<span style="color:#f92672">-</span> <span style="color:#e6db74">'sts:AssumeRole'</span>
-<span style="color:#a6e22e">ManagedPolicyArns</span><span style="color:#f92672">:</span>
-<span style="color:#f92672">-</span> <span style="color:#a6e22e">arn</span><span style="color:#f92672">:</span><span style="color:#a6e22e">aws</span><span style="color:#f92672">:</span><span style="color:#a6e22e">iam</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">aws</span><span style="color:#f92672">:</span><span style="color:#a6e22e">policy</span><span style="color:#f92672">/</span><span style="color:#a6e22e">service</span><span style="color:#f92672">-</span><span style="color:#a6e22e">role</span><span style="color:#f92672">/</span><span style="color:#a6e22e">AWSConfigRole</span>
-<span style="color:#a6e22e">Policies</span><span style="color:#f92672">:</span>
-<span style="color:#f92672">-</span> <span style="color:#a6e22e">PolicyName</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">root</span>
-<span style="color:#a6e22e">PolicyDocument</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">Version</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2012</span><span style="color:#f92672">-</span><span style="color:#ae81ff">10</span><span style="color:#f92672">-</span><span style="color:#ae81ff">17</span>
-<span style="color:#a6e22e">Statement</span><span style="color:#f92672">:</span>
-<span style="color:#f92672">-</span> <span style="color:#a6e22e">Effect</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Allow</span>
-<span style="color:#a6e22e">Action</span><span style="color:#f92672">:</span> <span style="color:#e6db74">'s3:GetBucketAcl'</span>
-<span style="color:#a6e22e">Resource</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Sub</span> <span style="color:#a6e22e">arn</span><span style="color:#f92672">:</span><span style="color:#a6e22e">aws</span><span style="color:#f92672">:</span><span style="color:#a6e22e">s3</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">$</span>{<span style="color:#a6e22e">S3ConfigBucket</span>}
-<span style="color:#f92672">-</span> <span style="color:#a6e22e">Effect</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Allow</span>
-<span style="color:#a6e22e">Action</span><span style="color:#f92672">:</span> <span style="color:#e6db74">'s3:PutObject'</span>
-<span style="color:#a6e22e">Resource</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Sub</span> <span style="color:#a6e22e">arn</span><span style="color:#f92672">:</span><span style="color:#a6e22e">aws</span><span style="color:#f92672">:</span><span style="color:#a6e22e">s3</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">$</span>{<span style="color:#a6e22e">S3ConfigBucket</span>}<span style="color:#f92672">/</span><span style="color:#a6e22e">AWSLogs</span><span style="color:#f92672">/</span><span style="color:#a6e22e">$</span>{<span style="color:#a6e22e">AWS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">AccountId</span>}<span style="color:#f92672">/</span><span style="color:#a6e22e">$</span>{<span style="color:#a6e22e">AWS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">Region</span>}
-<span style="color:#a6e22e">Condition</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">StringEquals</span><span style="color:#f92672">:</span>
-<span style="color:#e6db74">'s3:x-amz-acl'</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">bucket</span><span style="color:#f92672">-</span><span style="color:#a6e22e">owner</span><span style="color:#f92672">-</span><span style="color:#a6e22e">full</span><span style="color:#f92672">-</span><span style="color:#a6e22e">control</span>
-<span style="color:#f92672">-</span> <span style="color:#a6e22e">Effect</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Allow</span>
-<span style="color:#a6e22e">Action</span><span style="color:#f92672">:</span> <span style="color:#e6db74">'config:Put*'</span>
-<span style="color:#a6e22e">Resource</span><span style="color:#f92672">:</span> <span style="color:#e6db74">'*'</span>
-<span style="color:#a6e22e">ConfigRecorder</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">'AWS::Config::ConfigurationRecorder'</span>
-<span style="color:#a6e22e">DependsOn</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">ConfigRole</span>
-<span style="color:#a6e22e">Properties</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">default</span>
-<span style="color:#a6e22e">RoleARN</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">GetAtt</span> <span style="color:#a6e22e">ConfigRole</span>.<span style="color:#a6e22e">Arn</span></p>
-<p><span style="color:#a6e22e">DeliveryChannel</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">'AWS::Config::DeliveryChannel'</span>
-<span style="color:#a6e22e">Properties</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">ConfigSnapshotDeliveryProperties</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">DeliveryFrequency</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Six_Hours</span>
-<span style="color:#a6e22e">S3BucketName</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Ref</span> <span style="color:#a6e22e">S3ConfigBucket</span></p>
-<p><span style="color:#a6e22e">S3ConfigBucket</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">DeletionPolicy</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Retain</span>
-<span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">S3</span> <span style="color:#a6e22e">bucket</span> <span style="color:#66d9ef">with</span> <span style="color:#a6e22e">AES256</span> <span style="color:#a6e22e">Encryption</span> <span style="color:#a6e22e">set</span>
-<span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">AWS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">S3</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">Bucket</span>
-<span style="color:#a6e22e">Properties</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">BucketName</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Sub</span> <span style="color:#a6e22e">config</span><span style="color:#f92672">-</span><span style="color:#a6e22e">bucket</span><span style="color:#f92672">-</span><span style="color:#a6e22e">$</span>{<span style="color:#a6e22e">AWS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">AccountId</span>}
-<span style="color:#a6e22e">PublicAccessBlockConfiguration</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">BlockPublicAcls</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">True</span>
-<span style="color:#a6e22e">BlockPublicPolicy</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">True</span>
-<span style="color:#a6e22e">IgnorePublicAcls</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">True</span>
-<span style="color:#a6e22e">RestrictPublicBuckets</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">True</span>
-<span style="color:#a6e22e">BucketEncryption</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">ServerSideEncryptionConfiguration</span><span style="color:#f92672">:</span>
-<span style="color:#f92672">-</span> <span style="color:#a6e22e">ServerSideEncryptionByDefault</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">SSEAlgorithm</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">AES256</span></p>
-<p><span style="color:#a6e22e">S3ConfigBucketPolicy</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">AWS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">S3</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">BucketPolicy</span>
-<span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">S3</span> <span style="color:#a6e22e">bucket</span> <span style="color:#a6e22e">policy</span>
-<span style="color:#a6e22e">Properties</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">Bucket</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Ref</span> <span style="color:#a6e22e">S3ConfigBucket</span>
-<span style="color:#a6e22e">PolicyDocument</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">Version</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2012</span><span style="color:#f92672">-</span><span style="color:#ae81ff">10</span><span style="color:#f92672">-</span><span style="color:#ae81ff">17</span>
-<span style="color:#a6e22e">Statement</span><span style="color:#f92672">:</span>
-<span style="color:#f92672">-</span> <span style="color:#a6e22e">Sid</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">AWSBucketPermissionsCheck</span>
-<span style="color:#a6e22e">Effect</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Allow</span>
-<span style="color:#a6e22e">Principal</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">Service</span><span style="color:#f92672">:</span>
-<span style="color:#f92672">-</span> <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">amazonaws</span>.<span style="color:#a6e22e">com</span>
-<span style="color:#a6e22e">Action</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">s3</span><span style="color:#f92672">:</span><span style="color:#a6e22e">GetBucketAcl</span>
-<span style="color:#a6e22e">Resource</span><span style="color:#f92672">:</span>
-<span style="color:#f92672">-</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Sub</span> <span style="color:#e6db74">&quot;arn:aws:s3:::${S3ConfigBucket}&quot;</span>
-<span style="color:#f92672">-</span> <span style="color:#a6e22e">Sid</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">AWSBucketDelivery</span>
-<span style="color:#a6e22e">Effect</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Allow</span>
-<span style="color:#a6e22e">Principal</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">Service</span><span style="color:#f92672">:</span>
-<span style="color:#f92672">-</span> <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">amazonaws</span>.<span style="color:#a6e22e">com</span>
-<span style="color:#a6e22e">Action</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">s3</span><span style="color:#f92672">:</span><span style="color:#a6e22e">PutObject</span>
-<span style="color:#a6e22e">Resource</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Sub</span> <span style="color:#e6db74">&quot;arn:aws:s3:::${S3ConfigBucket}/AWSLogs/<em>/</em>&quot;</span></p>
-<p><span style="color:#a6e22e">Outputs</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">ConfigRoleArn</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">GetAtt</span> <span style="color:#a6e22e">ConfigRole</span>.<span style="color:#a6e22e">Arn</span>
-<span style="color:#a6e22e">S3ConfigBucketArn</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">GetAtt</span> <span style="color:#a6e22e">S3ConfigBucket</span>.<span style="color:#a6e22e">Arn</span></p>
-<p></code></pre></div></figure></p>
-<ul>
+
+<span style="color:#a6e22e">Resources</span><span style="color:#f92672">:</span>
+  <span style="color:#a6e22e">ConfigRole</span><span style="color:#f92672">:</span>
+    <span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;AWS::IAM::Role&#39;</span>
+    <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">The</span> <span style="color:#a6e22e">IAM</span> <span style="color:#a6e22e">role</span> <span style="color:#a6e22e">used</span> <span style="color:#a6e22e">to</span> <span style="color:#a6e22e">configure</span> <span style="color:#a6e22e">AWS</span> <span style="color:#a6e22e">Config</span>
+    <span style="color:#a6e22e">Properties</span><span style="color:#f92672">:</span>
+      <span style="color:#a6e22e">AssumeRolePolicyDocument</span><span style="color:#f92672">:</span>
+        <span style="color:#a6e22e">Version</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2012</span><span style="color:#f92672">-</span><span style="color:#ae81ff">10</span><span style="color:#f92672">-</span><span style="color:#ae81ff">17</span>
+        <span style="color:#a6e22e">Statement</span><span style="color:#f92672">:</span>
+          <span style="color:#f92672">-</span> <span style="color:#a6e22e">Effect</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Allow</span>
+            <span style="color:#a6e22e">Principal</span><span style="color:#f92672">:</span>
+              <span style="color:#a6e22e">Service</span><span style="color:#f92672">:</span>
+                <span style="color:#f92672">-</span> <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">amazonaws</span>.<span style="color:#a6e22e">com</span>
+            <span style="color:#a6e22e">Action</span><span style="color:#f92672">:</span>
+              <span style="color:#f92672">-</span> <span style="color:#e6db74">&#39;sts:AssumeRole&#39;</span>
+      <span style="color:#a6e22e">ManagedPolicyArns</span><span style="color:#f92672">:</span>
+        <span style="color:#f92672">-</span> <span style="color:#a6e22e">arn</span><span style="color:#f92672">:</span><span style="color:#a6e22e">aws</span><span style="color:#f92672">:</span><span style="color:#a6e22e">iam</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">aws</span><span style="color:#f92672">:</span><span style="color:#a6e22e">policy</span><span style="color:#f92672">/</span><span style="color:#a6e22e">service</span><span style="color:#f92672">-</span><span style="color:#a6e22e">role</span><span style="color:#f92672">/</span><span style="color:#a6e22e">AWSConfigRole</span>
+      <span style="color:#a6e22e">Policies</span><span style="color:#f92672">:</span>
+        <span style="color:#f92672">-</span> <span style="color:#a6e22e">PolicyName</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">root</span>
+          <span style="color:#a6e22e">PolicyDocument</span><span style="color:#f92672">:</span>
+            <span style="color:#a6e22e">Version</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2012</span><span style="color:#f92672">-</span><span style="color:#ae81ff">10</span><span style="color:#f92672">-</span><span style="color:#ae81ff">17</span>
+            <span style="color:#a6e22e">Statement</span><span style="color:#f92672">:</span>
+              <span style="color:#f92672">-</span> <span style="color:#a6e22e">Effect</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Allow</span>
+                <span style="color:#a6e22e">Action</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;s3:GetBucketAcl&#39;</span>
+                <span style="color:#a6e22e">Resource</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Sub</span> <span style="color:#a6e22e">arn</span><span style="color:#f92672">:</span><span style="color:#a6e22e">aws</span><span style="color:#f92672">:</span><span style="color:#a6e22e">s3</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">$</span>{<span style="color:#a6e22e">S3ConfigBucket</span>}
+              <span style="color:#f92672">-</span> <span style="color:#a6e22e">Effect</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Allow</span>
+                <span style="color:#a6e22e">Action</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;s3:PutObject&#39;</span>
+                <span style="color:#a6e22e">Resource</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Sub</span> <span style="color:#a6e22e">arn</span><span style="color:#f92672">:</span><span style="color:#a6e22e">aws</span><span style="color:#f92672">:</span><span style="color:#a6e22e">s3</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">$</span>{<span style="color:#a6e22e">S3ConfigBucket</span>}<span style="color:#f92672">/</span><span style="color:#a6e22e">AWSLogs</span><span style="color:#f92672">/</span><span style="color:#a6e22e">$</span>{<span style="color:#a6e22e">AWS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">AccountId</span>}<span style="color:#f92672">/</span><span style="color:#a6e22e">$</span>{<span style="color:#a6e22e">AWS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">Region</span>}
+                <span style="color:#a6e22e">Condition</span><span style="color:#f92672">:</span>
+                  <span style="color:#a6e22e">StringEquals</span><span style="color:#f92672">:</span>
+                    <span style="color:#e6db74">&#39;s3:x-amz-acl&#39;</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">bucket</span><span style="color:#f92672">-</span><span style="color:#a6e22e">owner</span><span style="color:#f92672">-</span><span style="color:#a6e22e">full</span><span style="color:#f92672">-</span><span style="color:#a6e22e">control</span>
+              <span style="color:#f92672">-</span> <span style="color:#a6e22e">Effect</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Allow</span>
+                <span style="color:#a6e22e">Action</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;config:Put*&#39;</span>
+                <span style="color:#a6e22e">Resource</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;*&#39;</span>
+  <span style="color:#a6e22e">ConfigRecorder</span><span style="color:#f92672">:</span>
+    <span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;AWS::Config::ConfigurationRecorder&#39;</span>
+    <span style="color:#a6e22e">DependsOn</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">ConfigRole</span>
+    <span style="color:#a6e22e">Properties</span><span style="color:#f92672">:</span>
+      <span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">default</span>
+      <span style="color:#a6e22e">RoleARN</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">GetAtt</span> <span style="color:#a6e22e">ConfigRole</span>.<span style="color:#a6e22e">Arn</span>
+
+  <span style="color:#a6e22e">DeliveryChannel</span><span style="color:#f92672">:</span>
+    <span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;AWS::Config::DeliveryChannel&#39;</span>
+    <span style="color:#a6e22e">Properties</span><span style="color:#f92672">:</span>
+      <span style="color:#a6e22e">ConfigSnapshotDeliveryProperties</span><span style="color:#f92672">:</span>
+        <span style="color:#a6e22e">DeliveryFrequency</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Six_Hours</span>
+      <span style="color:#a6e22e">S3BucketName</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Ref</span> <span style="color:#a6e22e">S3ConfigBucket</span>
+
+  <span style="color:#a6e22e">S3ConfigBucket</span><span style="color:#f92672">:</span>
+    <span style="color:#a6e22e">DeletionPolicy</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Retain</span>
+    <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">S3</span> <span style="color:#a6e22e">bucket</span> <span style="color:#66d9ef">with</span> <span style="color:#a6e22e">AES256</span> <span style="color:#a6e22e">Encryption</span> <span style="color:#a6e22e">set</span>
+    <span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">AWS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">S3</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">Bucket</span>
+    <span style="color:#a6e22e">Properties</span><span style="color:#f92672">:</span>
+      <span style="color:#a6e22e">BucketName</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Sub</span> <span style="color:#a6e22e">config</span><span style="color:#f92672">-</span><span style="color:#a6e22e">bucket</span><span style="color:#f92672">-</span><span style="color:#a6e22e">$</span>{<span style="color:#a6e22e">AWS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">AccountId</span>}
+      <span style="color:#a6e22e">PublicAccessBlockConfiguration</span><span style="color:#f92672">:</span>
+        <span style="color:#a6e22e">BlockPublicAcls</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">True</span>
+        <span style="color:#a6e22e">BlockPublicPolicy</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">True</span>
+        <span style="color:#a6e22e">IgnorePublicAcls</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">True</span>
+        <span style="color:#a6e22e">RestrictPublicBuckets</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">True</span>
+      <span style="color:#a6e22e">BucketEncryption</span><span style="color:#f92672">:</span>
+        <span style="color:#a6e22e">ServerSideEncryptionConfiguration</span><span style="color:#f92672">:</span>
+          <span style="color:#f92672">-</span> <span style="color:#a6e22e">ServerSideEncryptionByDefault</span><span style="color:#f92672">:</span>
+              <span style="color:#a6e22e">SSEAlgorithm</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">AES256</span>
+
+  <span style="color:#a6e22e">S3ConfigBucketPolicy</span><span style="color:#f92672">:</span>
+    <span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">AWS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">S3</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">BucketPolicy</span>
+    <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">S3</span> <span style="color:#a6e22e">bucket</span> <span style="color:#a6e22e">policy</span>
+    <span style="color:#a6e22e">Properties</span><span style="color:#f92672">:</span>
+      <span style="color:#a6e22e">Bucket</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Ref</span> <span style="color:#a6e22e">S3ConfigBucket</span>
+      <span style="color:#a6e22e">PolicyDocument</span><span style="color:#f92672">:</span>
+        <span style="color:#a6e22e">Version</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2012</span><span style="color:#f92672">-</span><span style="color:#ae81ff">10</span><span style="color:#f92672">-</span><span style="color:#ae81ff">17</span>
+        <span style="color:#a6e22e">Statement</span><span style="color:#f92672">:</span>
+          <span style="color:#f92672">-</span> <span style="color:#a6e22e">Sid</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">AWSBucketPermissionsCheck</span>
+            <span style="color:#a6e22e">Effect</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Allow</span>
+            <span style="color:#a6e22e">Principal</span><span style="color:#f92672">:</span>
+              <span style="color:#a6e22e">Service</span><span style="color:#f92672">:</span>
+                <span style="color:#f92672">-</span> <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">amazonaws</span>.<span style="color:#a6e22e">com</span>
+            <span style="color:#a6e22e">Action</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">s3</span><span style="color:#f92672">:</span><span style="color:#a6e22e">GetBucketAcl</span>
+            <span style="color:#a6e22e">Resource</span><span style="color:#f92672">:</span>
+              <span style="color:#f92672">-</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Sub</span> <span style="color:#e6db74">&#34;arn:aws:s3:::${S3ConfigBucket}&#34;</span>
+          <span style="color:#f92672">-</span> <span style="color:#a6e22e">Sid</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">AWSBucketDelivery</span>
+            <span style="color:#a6e22e">Effect</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Allow</span>
+            <span style="color:#a6e22e">Principal</span><span style="color:#f92672">:</span>
+              <span style="color:#a6e22e">Service</span><span style="color:#f92672">:</span>
+                <span style="color:#f92672">-</span> <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">amazonaws</span>.<span style="color:#a6e22e">com</span>
+            <span style="color:#a6e22e">Action</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">s3</span><span style="color:#f92672">:</span><span style="color:#a6e22e">PutObject</span>
+            <span style="color:#a6e22e">Resource</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Sub</span> <span style="color:#e6db74">&#34;arn:aws:s3:::${S3ConfigBucket}/AWSLogs/*/*&#34;</span>
+
+<span style="color:#a6e22e">Outputs</span><span style="color:#f92672">:</span>
+  <span style="color:#a6e22e">ConfigRoleArn</span><span style="color:#f92672">:</span>
+    <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">GetAtt</span> <span style="color:#a6e22e">ConfigRole</span>.<span style="color:#a6e22e">Arn</span>
+  <span style="color:#a6e22e">S3ConfigBucketArn</span><span style="color:#f92672">:</span>
+    <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">GetAtt</span> <span style="color:#a6e22e">S3ConfigBucket</span>.<span style="color:#a6e22e">Arn</span>
+   
+</code></pre></div>
+</figure>
+</li>
 <li>
 <p>Set the <em>File name</em> to <code>product.template.yaml</code></p>
 </li>
@@ -1332,6 +1367,22 @@ created version.</p>
                     
             
         
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
                     
             
         

@@ -1,25 +1,25 @@
-- Name: "aws-config-rds-storage-encrypted"
-  Owner: "data-governance@example.com"
-  Description: "Enables AWS Config rule - aws-config-rds-storage-encrypted"
-  Distributor: "cloud-engineering"
-  SupportDescription: "Speak to data-governance@example.com about exceptions and speak to cloud-engineering@example.com about implementation issues"
-  SupportEmail: "cloud-engineering@example.com"
-  SupportUrl: "https://wiki.example.com/cloud-engineering/data-governance/aws-config-rds-storage-encrypted"
-  Tags:
-    - Key: "type"
-      Value: "governance"
-    - Key: "creator"
-      Value: "cloud-engineering"
-    - Key: "cost-center"
-      Value: "governance"
-  Versions:
-    - Name: "v1"
-      Description: "v1 of aws-config-rds-storage-encrypted"
-      Active: True
-      Source:
-        Provider: "CodeCommit"
-        Configuration:
-          RepositoryName: "aws-config-rds-storage-encrypted"
-          BranchName: "master"
+  - Name: "aws-config-rds-storage-encrypted"
+    Owner: "data-governance@example.com"
+    Description: "Enables AWS Config rule - aws-config-rds-storage-encrypted"
+    Distributor: "cloud-engineering"
+    SupportDescription: "Speak to data-governance@example.com about exceptions and speak to cloud-engineering@example.com about implementation issues"
+    SupportEmail: "cloud-engineering@example.com"
+    SupportUrl: "https://wiki.example.com/cloud-engineering/data-governance/aws-config-rds-storage-encrypted"
+    Tags:
+      - Key: "type"
+        Value: "governance"
+      - Key: "creator"
+        Value: "cloud-engineering"
+      - Key: "cost-center"
+        Value: "governance"
+    Versions:
+      - Name: "v1"
+        Description: "v1 of aws-config-rds-storage-encrypted"
+        Active: True
+        Source:
+          Provider: "CodeCommit"
+          Configuration:
+            RepositoryName: "aws-config-rds-storage-encrypted"
+            BranchName: "master"
   Portfolios:
     - "cloud-engineering-governance"

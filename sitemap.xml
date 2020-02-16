@@ -67,6 +67,10 @@
   </url>
   
   <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/design-considerations/multi-account-strategy.html</loc>
+  </url>
+  
+  <url>
     <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/100-task-1.html</loc>
   </url>
   
@@ -84,6 +88,10 @@
   
   <url>
     <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/every-day-use/100-creating-a-product/100-define-the-product.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/design-considerations/selecting-a-factory-account.html</loc>
   </url>
   
   <url>
@@ -111,7 +119,7 @@
   </url>
   
   <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/design-considerations/multi-account-strategy.html</loc>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/design-considerations/portfolio-management.html</loc>
   </url>
   
   <url>
@@ -124,10 +132,6 @@
   
   <url>
     <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/every-day-use/200-provisioning-a-product.html</loc>
-  </url>
-  
-  <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/design-considerations/selecting-a-factory-account.html</loc>
   </url>
   
   <url>

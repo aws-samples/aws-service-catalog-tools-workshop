@@ -208,6 +208,30 @@
 
             
           
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/design-considerations/portfolio-management.html" title="Portfolio Management" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../design-considerations/portfolio-management.html">
+          Portfolio Management
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
         
         </ul>
               
@@ -942,7 +966,7 @@
     <section id="footer">
       <left>
     <h5 class="copyright">&copy; 2018 Amazon Web Services, Inc. or its Affiliates. All rights reserved.</h5>
-    <h5 class="copyright">8427d80 - Tue Feb 4 13:06:43 UTC 2020</h5>
+    <h5 class="copyright">9edfaaa - Sun Feb 16 20:33:09 UTC 2020</h5>
 </left>
 
     </section>
@@ -1070,36 +1094,40 @@
 <ul>
 <li>Add the following to the products section:</li>
 </ul>
-<figure><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#f92672">-</span> <span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;rds-instance&#34;</span>
-  <span style="color:#a6e22e">Owner</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;data-governance@example.com&#34;</span>
-  <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;A compliant RDS Instance you can use that meets data governance standards&#34;</span>
-  <span style="color:#a6e22e">Distributor</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering&#34;</span>
-  <span style="color:#a6e22e">SupportDescription</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Speak to data-governance@example.com about exceptions and speak to cloud-engineering@example.com about implementation issues&#34;</span>
-  <span style="color:#a6e22e">SupportEmail</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering@example.com&#34;</span>
-  <span style="color:#a6e22e">SupportUrl</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;https://wiki.example.com/cloud-engineering/data-governance/rds-instance&#34;</span>
-  <span style="color:#a6e22e">Options</span><span style="color:#f92672">:</span>
-    <span style="color:#a6e22e">ShouldCFNNag</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">True</span>
-  <span style="color:#a6e22e">Tags</span><span style="color:#f92672">:</span>
-    <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;type&#34;</span>
-      <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;governance&#34;</span>
-    <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;creator&#34;</span>
-      <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering&#34;</span>
-  <span style="color:#a6e22e">Versions</span><span style="color:#f92672">:</span>
-    <span style="color:#f92672">-</span> <span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1&#34;</span>
-      <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1 of rds-instance&#34;</span>
-      <span style="color:#a6e22e">Active</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">True</span>
-      <span style="color:#a6e22e">Source</span><span style="color:#f92672">:</span>
-        <span style="color:#a6e22e">Provider</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;CodeCommit&#34;</span>
-        <span style="color:#a6e22e">Configuration</span><span style="color:#f92672">:</span>
-          <span style="color:#a6e22e">RepositoryName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;rds-instance&#34;</span>
-          <span style="color:#a6e22e">BranchName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;master&#34;</span>
+ <figure>
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">    <span style="color:#f92672">-</span> <span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;rds-instance&#34;</span>
+      <span style="color:#a6e22e">Owner</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;data-governance@example.com&#34;</span>
+      <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;A compliant RDS Instance you can use that meets data governance standards&#34;</span>
+      <span style="color:#a6e22e">Distributor</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering&#34;</span>
+      <span style="color:#a6e22e">SupportDescription</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Speak to data-governance@example.com about exceptions and speak to cloud-engineering@example.com about implementation issues&#34;</span>
+      <span style="color:#a6e22e">SupportEmail</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering@example.com&#34;</span>
+      <span style="color:#a6e22e">SupportUrl</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;https://wiki.example.com/cloud-engineering/data-governance/rds-instance&#34;</span>
+      <span style="color:#a6e22e">Options</span><span style="color:#f92672">:</span>
+        <span style="color:#a6e22e">ShouldCFNNag</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">True</span>
+      <span style="color:#a6e22e">Tags</span><span style="color:#f92672">:</span>
+        <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;type&#34;</span>
+          <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;governance&#34;</span>
+        <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;creator&#34;</span>
+          <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering&#34;</span>
+      <span style="color:#a6e22e">Versions</span><span style="color:#f92672">:</span>
+        <span style="color:#f92672">-</span> <span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1&#34;</span>
+          <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1 of rds-instance&#34;</span>
+          <span style="color:#a6e22e">Active</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">True</span>
+          <span style="color:#a6e22e">Source</span><span style="color:#f92672">:</span>
+            <span style="color:#a6e22e">Provider</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;CodeCommit&#34;</span>
+            <span style="color:#a6e22e">Configuration</span><span style="color:#f92672">:</span>
+              <span style="color:#a6e22e">RepositoryName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;rds-instance&#34;</span>
+              <span style="color:#a6e22e">BranchName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;master&#34;</span>
   <span style="color:#a6e22e">Portfolios</span><span style="color:#f92672">:</span>
     <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;cloud-engineering-self-service&#34;</span>
-</code></pre></div></figure>
+  
+</code></pre></div>
+ </figure>
 <ul>
 <li>Add the following to the portfolios section:</li>
 </ul>
-<figure><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">  <span style="color:#f92672">-</span> <span style="color:#a6e22e">DisplayName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering-self-service&#34;</span>
+ <figure>
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">  <span style="color:#f92672">-</span> <span style="color:#a6e22e">DisplayName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering-self-service&#34;</span>
     <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Portfolio containing products that you can use to ensure you meet the governance guidelines&#34;</span>
     <span style="color:#a6e22e">ProviderName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering&#34;</span>
     <span style="color:#a6e22e">Associations</span><span style="color:#f92672">:</span>
@@ -1109,7 +1137,9 @@
         <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;governance&#34;</span>
       <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;creator&#34;</span>
         <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering&#34;</span>
-</code></pre></div></figure>
+  
+</code></pre></div>
+ </figure>
 <ul>
 <li>Once completed it should like look this:</li>
 </ul>
@@ -1218,7 +1248,6 @@
         <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;governance&#34;</span>
       <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;creator&#34;</span>
         <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering&#34;</span>
-
  
 </code></pre></div>
  </figure>
@@ -1272,7 +1301,8 @@ successfully:</p>
 
 <h3 id="add-the-source-code-for-our-product">Add the source code for our product</h3>
 <p>When you configured your product version, you specified the following version:</p>
-<figure><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">    <span style="color:#a6e22e">Versions</span><span style="color:#f92672">:</span>
+ <figure>
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">    <span style="color:#a6e22e">Versions</span><span style="color:#f92672">:</span>
       <span style="color:#f92672">-</span> <span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1&#34;</span>
         <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1 of rds-instance&#34;</span>
         <span style="color:#a6e22e">Active</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">True</span>
@@ -1281,7 +1311,9 @@ successfully:</p>
           <span style="color:#a6e22e">Configuration</span><span style="color:#f92672">:</span>
             <span style="color:#a6e22e">RepositoryName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;rds-instance&#34;</span>
             <span style="color:#a6e22e">BranchName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;master&#34;</span>
-</code></pre></div></figure>
+ 
+</code></pre></div>
+ </figure>
 <p>This tells the framework the source code for the product comes from the <em>master</em> branch of a
 <em>CodeCommit</em> repository of the name <em>rds-instance</em>.</p>
 <p>We now need to create the CodeCommit repository and add the AWS CloudFormation template we are going to use for our
@@ -1437,7 +1469,6 @@ product.</p>
       <span style="color:#a6e22e">PreferredMaintenanceWindow</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Thu</span><span style="color:#f92672">:</span><span style="color:#ae81ff">19</span><span style="color:#f92672">:</span><span style="color:#ae81ff">05</span><span style="color:#f92672">-</span><span style="color:#a6e22e">Thu</span><span style="color:#f92672">:</span><span style="color:#ae81ff">19</span><span style="color:#f92672">:</span><span style="color:#ae81ff">35</span>
       <span style="color:#a6e22e">AvailabilityZone</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Select</span> [<span style="color:#ae81ff">0</span>, <span style="color:#f92672">!</span><span style="color:#a6e22e">GetAZs</span> {<span style="color:#a6e22e">Ref</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;AWS::Region&#39;</span>}]
       <span style="color:#a6e22e">DBInstanceClass</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;db.t2.small&#39;</span>
-
  
 </code></pre></div>
  </figure>
@@ -1497,112 +1528,126 @@ guidelines and so we need to fix it.</p>
 <p>Replace the contents with this:</p>
 </li>
 </ul>
-<figure><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">AWSTemplateFormatVersion</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2010</span><span style="color:#f92672">-</span><span style="color:#ae81ff">09</span><span style="color:#f92672">-</span><span style="color:#ae81ff">09</span>
+ <figure>
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">AWSTemplateFormatVersion</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2010</span><span style="color:#f92672">-</span><span style="color:#ae81ff">09</span><span style="color:#f92672">-</span><span style="color:#ae81ff">09</span>
 <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;RDS Storage Encrypted&#34;</span>
-<p><span style="color:#a6e22e">Parameters</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">RdsDbMasterUsername</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">RdsDbMasterUsername</span>
-<span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> String
-<span style="color:#a6e22e">Default</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">someuser</span></p>
-<p><span style="color:#a6e22e">RdsDbMasterUserPassword</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">RdsDbMasterUserPassword</span>
-<span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> String
-<span style="color:#a6e22e">NoEcho</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span></p>
-<p><span style="color:#a6e22e">RdsDbDatabaseName</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">DbDatabaseName</span>
-<span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> String
-<span style="color:#a6e22e">Default</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">mysql57_database</span></p>
-<p><span style="color:#a6e22e">Resources</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">VPC</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">AWS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">EC2</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">VPC</span>
-<span style="color:#a6e22e">Properties</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">CidrBlock</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">10.0</span><span style="color:#ae81ff">.0</span><span style="color:#ae81ff">.0</span><span style="color:#f92672">/</span><span style="color:#ae81ff">16</span>
-<span style="color:#a6e22e">EnableDnsSupport</span><span style="color:#f92672">:</span> <span style="color:#e6db74">'false'</span>
-<span style="color:#a6e22e">EnableDnsHostnames</span><span style="color:#f92672">:</span> <span style="color:#e6db74">'false'</span></p>
-<p><span style="color:#a6e22e">Subnet1</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">AWS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">EC2</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">Subnet</span>
-<span style="color:#a6e22e">Properties</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">VpcId</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">Ref</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">VPC</span>
-<span style="color:#a6e22e">CidrBlock</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">10.0</span><span style="color:#ae81ff">.0</span><span style="color:#ae81ff">.0</span><span style="color:#f92672">/</span><span style="color:#ae81ff">24</span>
-<span style="color:#a6e22e">AvailabilityZone</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Select</span> [<span style="color:#ae81ff">0</span>, <span style="color:#f92672">!</span><span style="color:#a6e22e">GetAZs</span> {<span style="color:#a6e22e">Ref</span><span style="color:#f92672">:</span> <span style="color:#e6db74">'AWS::Region'</span>}]</p>
-<p><span style="color:#a6e22e">Subnet2</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">AWS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">EC2</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">Subnet</span>
-<span style="color:#a6e22e">Properties</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">VpcId</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">Ref</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">VPC</span>
-<span style="color:#a6e22e">CidrBlock</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">10.0</span><span style="color:#ae81ff">.1</span><span style="color:#ae81ff">.0</span><span style="color:#f92672">/</span><span style="color:#ae81ff">24</span>
-<span style="color:#a6e22e">AvailabilityZone</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Select</span> [<span style="color:#ae81ff">1</span>, <span style="color:#f92672">!</span><span style="color:#a6e22e">GetAZs</span> {<span style="color:#a6e22e">Ref</span><span style="color:#f92672">:</span> <span style="color:#e6db74">'AWS::Region'</span>}]</p>
-<p><span style="color:#a6e22e">RdsDbSubnetGroup</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">AWS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">RDS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">DBSubnetGroup</span>
-<span style="color:#a6e22e">Properties</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">DBSubnetGroupDescription</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Database</span> <span style="color:#a6e22e">subnets</span> <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">RDS</span>
-<span style="color:#a6e22e">SubnetIds</span><span style="color:#f92672">:</span>
-<span style="color:#f92672">-</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Ref</span> <span style="color:#a6e22e">Subnet1</span>
-<span style="color:#f92672">-</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Ref</span> <span style="color:#a6e22e">Subnet2</span></p>
-<p><span style="color:#a6e22e">RdsSecurityGroup</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">AWS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">EC2</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">SecurityGroup</span>
-<span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Used</span> <span style="color:#a6e22e">to</span> <span style="color:#a6e22e">grant</span> <span style="color:#a6e22e">access</span> <span style="color:#a6e22e">to</span> <span style="color:#a6e22e">and</span> <span style="color:#a6e22e">from</span> <span style="color:#a6e22e">the</span> <span style="color:#a6e22e">VPC</span>
-<span style="color:#a6e22e">Properties</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">VpcId</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Ref</span> <span style="color:#a6e22e">VPC</span>
-<span style="color:#a6e22e">GroupDescription</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Allow</span> <span style="color:#a6e22e">MySQL</span> (<span style="color:#a6e22e">TCP3306</span>) <span style="color:#a6e22e">access</span> <span style="color:#a6e22e">to</span> <span style="color:#a6e22e">and</span> <span style="color:#a6e22e">from</span> <span style="color:#a6e22e">the</span> <span style="color:#a6e22e">VPC</span>
-<span style="color:#a6e22e">SecurityGroupIngress</span><span style="color:#f92672">:</span>
-<span style="color:#f92672">-</span> <span style="color:#a6e22e">IpProtocol</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">tcp</span>
-<span style="color:#a6e22e">FromPort</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">3306</span>
-<span style="color:#a6e22e">ToPort</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">3306</span>
-<span style="color:#a6e22e">CidrIp</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">10.0</span><span style="color:#ae81ff">.0</span><span style="color:#ae81ff">.0</span><span style="color:#f92672">/</span><span style="color:#ae81ff">32</span>
-<span style="color:#a6e22e">SecurityGroupEgress</span><span style="color:#f92672">:</span>
-<span style="color:#f92672">-</span> <span style="color:#a6e22e">IpProtocol</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">tcp</span>
-<span style="color:#a6e22e">FromPort</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">3306</span>
-<span style="color:#a6e22e">ToPort</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">3306</span>
-<span style="color:#a6e22e">CidrIp</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">10.0</span><span style="color:#ae81ff">.0</span><span style="color:#ae81ff">.0</span><span style="color:#f92672">/</span><span style="color:#ae81ff">32</span></p>
-<p><span style="color:#a6e22e">RdsDbClusterParameterGroup</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">AWS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">RDS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">DBClusterParameterGroup</span>
-<span style="color:#a6e22e">Properties</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">CloudFormation</span> <span style="color:#a6e22e">Aurora</span> <span style="color:#a6e22e">Cluster</span> <span style="color:#a6e22e">Parameter</span> <span style="color:#a6e22e">Group</span>
-<span style="color:#a6e22e">Family</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">aurora</span><span style="color:#f92672">-</span><span style="color:#a6e22e">mysql5</span><span style="color:#ae81ff">.7</span>
+
 <span style="color:#a6e22e">Parameters</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">server_audit_logging</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>
-<span style="color:#a6e22e">server_audit_events</span><span style="color:#f92672">:</span> <span style="color:#e6db74">'CONNECT,QUERY,QUERY_DCL,QUERY_DDL,QUERY_DML,TABLE'</span></p>
-<p><span style="color:#a6e22e">RdsDbCluster</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">AWS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">RDS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">DBCluster</span>
-<span style="color:#a6e22e">Properties</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">DBSubnetGroupName</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Ref</span> <span style="color:#a6e22e">RdsDbSubnetGroup</span>
-<span style="color:#a6e22e">MasterUsername</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Ref</span> <span style="color:#a6e22e">RdsDbMasterUsername</span>
-<span style="color:#a6e22e">MasterUserPassword</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Ref</span> <span style="color:#a6e22e">RdsDbMasterUserPassword</span>
-<span style="color:#a6e22e">DatabaseName</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Ref</span> <span style="color:#a6e22e">RdsDbDatabaseName</span>
-<span style="color:#a6e22e">Engine</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">aurora</span><span style="color:#f92672">-</span><span style="color:#a6e22e">mysql</span>
-<span style="color:#a6e22e">VpcSecurityGroupIds</span><span style="color:#f92672">:</span>
-<span style="color:#f92672">-</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Ref</span> <span style="color:#a6e22e">RdsSecurityGroup</span>
-<span style="color:#a6e22e">DBClusterIdentifier</span> <span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Sub</span> <span style="color:#e6db74">'${AWS::StackName}-dbcluster'</span>
-<span style="color:#a6e22e">DBClusterParameterGroupName</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Ref</span> <span style="color:#a6e22e">RdsDbClusterParameterGroup</span>
-<span style="color:#a6e22e">PreferredBackupWindow</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">18</span><span style="color:#f92672">:</span><span style="color:#ae81ff">05</span><span style="color:#f92672">-</span><span style="color:#ae81ff">18</span><span style="color:#f92672">:</span><span style="color:#ae81ff">35</span>
+  <span style="color:#a6e22e">RdsDbMasterUsername</span><span style="color:#f92672">:</span>
+    <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">RdsDbMasterUsername</span>
+    <span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> String
+    <span style="color:#a6e22e">Default</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">someuser</span>
+
+  <span style="color:#a6e22e">RdsDbMasterUserPassword</span><span style="color:#f92672">:</span>
+      <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">RdsDbMasterUserPassword</span>
+      <span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> String
+      <span style="color:#a6e22e">NoEcho</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>
+
+  <span style="color:#a6e22e">RdsDbDatabaseName</span><span style="color:#f92672">:</span>
+    <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">DbDatabaseName</span>
+    <span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> String
+    <span style="color:#a6e22e">Default</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">mysql57_database</span>
+
+<span style="color:#a6e22e">Resources</span><span style="color:#f92672">:</span>
+  <span style="color:#a6e22e">VPC</span><span style="color:#f92672">:</span>
+    <span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">AWS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">EC2</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">VPC</span>
+    <span style="color:#a6e22e">Properties</span><span style="color:#f92672">:</span>
+      <span style="color:#a6e22e">CidrBlock</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">10.0</span><span style="color:#ae81ff">.0</span><span style="color:#ae81ff">.0</span><span style="color:#f92672">/</span><span style="color:#ae81ff">16</span>
+      <span style="color:#a6e22e">EnableDnsSupport</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;false&#39;</span>
+      <span style="color:#a6e22e">EnableDnsHostnames</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;false&#39;</span>
+
+  <span style="color:#a6e22e">Subnet1</span><span style="color:#f92672">:</span>
+    <span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">AWS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">EC2</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">Subnet</span>
+    <span style="color:#a6e22e">Properties</span><span style="color:#f92672">:</span>
+      <span style="color:#a6e22e">VpcId</span><span style="color:#f92672">:</span>
+        <span style="color:#a6e22e">Ref</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">VPC</span>
+      <span style="color:#a6e22e">CidrBlock</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">10.0</span><span style="color:#ae81ff">.0</span><span style="color:#ae81ff">.0</span><span style="color:#f92672">/</span><span style="color:#ae81ff">24</span>
+      <span style="color:#a6e22e">AvailabilityZone</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Select</span> [<span style="color:#ae81ff">0</span>, <span style="color:#f92672">!</span><span style="color:#a6e22e">GetAZs</span> {<span style="color:#a6e22e">Ref</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;AWS::Region&#39;</span>}]
+
+  <span style="color:#a6e22e">Subnet2</span><span style="color:#f92672">:</span>
+    <span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">AWS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">EC2</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">Subnet</span>
+    <span style="color:#a6e22e">Properties</span><span style="color:#f92672">:</span>
+      <span style="color:#a6e22e">VpcId</span><span style="color:#f92672">:</span>
+        <span style="color:#a6e22e">Ref</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">VPC</span>
+      <span style="color:#a6e22e">CidrBlock</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">10.0</span><span style="color:#ae81ff">.1</span><span style="color:#ae81ff">.0</span><span style="color:#f92672">/</span><span style="color:#ae81ff">24</span>
+      <span style="color:#a6e22e">AvailabilityZone</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Select</span> [<span style="color:#ae81ff">1</span>, <span style="color:#f92672">!</span><span style="color:#a6e22e">GetAZs</span> {<span style="color:#a6e22e">Ref</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;AWS::Region&#39;</span>}]
+
+  <span style="color:#a6e22e">RdsDbSubnetGroup</span><span style="color:#f92672">:</span>
+    <span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">AWS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">RDS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">DBSubnetGroup</span>
+    <span style="color:#a6e22e">Properties</span><span style="color:#f92672">:</span>
+      <span style="color:#a6e22e">DBSubnetGroupDescription</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Database</span> <span style="color:#a6e22e">subnets</span> <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">RDS</span>
+      <span style="color:#a6e22e">SubnetIds</span><span style="color:#f92672">:</span>
+        <span style="color:#f92672">-</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Ref</span> <span style="color:#a6e22e">Subnet1</span>
+        <span style="color:#f92672">-</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Ref</span> <span style="color:#a6e22e">Subnet2</span>
+
+  <span style="color:#a6e22e">RdsSecurityGroup</span><span style="color:#f92672">:</span>
+    <span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">AWS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">EC2</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">SecurityGroup</span>
+    <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Used</span> <span style="color:#a6e22e">to</span> <span style="color:#a6e22e">grant</span> <span style="color:#a6e22e">access</span> <span style="color:#a6e22e">to</span> <span style="color:#a6e22e">and</span> <span style="color:#a6e22e">from</span> <span style="color:#a6e22e">the</span> <span style="color:#a6e22e">VPC</span>
+    <span style="color:#a6e22e">Properties</span><span style="color:#f92672">:</span>
+      <span style="color:#a6e22e">VpcId</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Ref</span> <span style="color:#a6e22e">VPC</span>
+      <span style="color:#a6e22e">GroupDescription</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Allow</span> <span style="color:#a6e22e">MySQL</span> (<span style="color:#a6e22e">TCP3306</span>) <span style="color:#a6e22e">access</span> <span style="color:#a6e22e">to</span> <span style="color:#a6e22e">and</span> <span style="color:#a6e22e">from</span> <span style="color:#a6e22e">the</span> <span style="color:#a6e22e">VPC</span>
+      <span style="color:#a6e22e">SecurityGroupIngress</span><span style="color:#f92672">:</span>
+        <span style="color:#f92672">-</span> <span style="color:#a6e22e">IpProtocol</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">tcp</span>
+          <span style="color:#a6e22e">FromPort</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">3306</span>
+          <span style="color:#a6e22e">ToPort</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">3306</span>
+          <span style="color:#a6e22e">CidrIp</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">10.0</span><span style="color:#ae81ff">.0</span><span style="color:#ae81ff">.0</span><span style="color:#f92672">/</span><span style="color:#ae81ff">32</span>
+      <span style="color:#a6e22e">SecurityGroupEgress</span><span style="color:#f92672">:</span>
+        <span style="color:#f92672">-</span> <span style="color:#a6e22e">IpProtocol</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">tcp</span>
+          <span style="color:#a6e22e">FromPort</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">3306</span>
+          <span style="color:#a6e22e">ToPort</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">3306</span>
+          <span style="color:#a6e22e">CidrIp</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">10.0</span><span style="color:#ae81ff">.0</span><span style="color:#ae81ff">.0</span><span style="color:#f92672">/</span><span style="color:#ae81ff">32</span>
+
+  <span style="color:#a6e22e">RdsDbClusterParameterGroup</span><span style="color:#f92672">:</span>
+    <span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">AWS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">RDS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">DBClusterParameterGroup</span>
+    <span style="color:#a6e22e">Properties</span><span style="color:#f92672">:</span>
+      <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">CloudFormation</span> <span style="color:#a6e22e">Aurora</span> <span style="color:#a6e22e">Cluster</span> <span style="color:#a6e22e">Parameter</span> <span style="color:#a6e22e">Group</span>
+      <span style="color:#a6e22e">Family</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">aurora</span><span style="color:#f92672">-</span><span style="color:#a6e22e">mysql5</span><span style="color:#ae81ff">.7</span>
+      <span style="color:#a6e22e">Parameters</span><span style="color:#f92672">:</span>
+        <span style="color:#a6e22e">server_audit_logging</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>
+        <span style="color:#a6e22e">server_audit_events</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;CONNECT,QUERY,QUERY_DCL,QUERY_DDL,QUERY_DML,TABLE&#39;</span>
+
+  <span style="color:#a6e22e">RdsDbCluster</span><span style="color:#f92672">:</span>
+    <span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">AWS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">RDS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">DBCluster</span>
+    <span style="color:#a6e22e">Properties</span><span style="color:#f92672">:</span>
+      <span style="color:#a6e22e">DBSubnetGroupName</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Ref</span> <span style="color:#a6e22e">RdsDbSubnetGroup</span>
+      <span style="color:#a6e22e">MasterUsername</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Ref</span> <span style="color:#a6e22e">RdsDbMasterUsername</span>
+      <span style="color:#a6e22e">MasterUserPassword</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Ref</span> <span style="color:#a6e22e">RdsDbMasterUserPassword</span>
+      <span style="color:#a6e22e">DatabaseName</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Ref</span> <span style="color:#a6e22e">RdsDbDatabaseName</span>
+      <span style="color:#a6e22e">Engine</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">aurora</span><span style="color:#f92672">-</span><span style="color:#a6e22e">mysql</span>
+      <span style="color:#a6e22e">VpcSecurityGroupIds</span><span style="color:#f92672">:</span>
+        <span style="color:#f92672">-</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Ref</span> <span style="color:#a6e22e">RdsSecurityGroup</span>
+      <span style="color:#a6e22e">DBClusterIdentifier</span> <span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Sub</span> <span style="color:#e6db74">&#39;${AWS::StackName}-dbcluster&#39;</span>
+      <span style="color:#a6e22e">DBClusterParameterGroupName</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Ref</span> <span style="color:#a6e22e">RdsDbClusterParameterGroup</span>
+      <span style="color:#a6e22e">PreferredBackupWindow</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">18</span><span style="color:#f92672">:</span><span style="color:#ae81ff">05</span><span style="color:#f92672">-</span><span style="color:#ae81ff">18</span><span style="color:#f92672">:</span><span style="color:#ae81ff">35</span>
 <span style="display:block;width:100%;background-color:#3c3d38">      <span style="color:#a6e22e">StorageEncrypted</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">True</span>
 </span>
-<span style="color:#a6e22e">RdsDbParameterGroup</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">AWS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">RDS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">DBParameterGroup</span>
-<span style="color:#a6e22e">Properties</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">CloudFormation</span> <span style="color:#a6e22e">Aurora</span> <span style="color:#a6e22e">Parameter</span> <span style="color:#a6e22e">Group</span>
-<span style="color:#a6e22e">Family</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">aurora</span><span style="color:#f92672">-</span><span style="color:#a6e22e">mysql5</span><span style="color:#ae81ff">.7</span>
-<span style="color:#a6e22e">Parameters</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">aurora_lab_mode</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>
-<span style="color:#a6e22e">general_log</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>
-<span style="color:#a6e22e">slow_query_log</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>
-<span style="color:#a6e22e">long_query_time</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">10</span></p>
-<p><span style="color:#a6e22e">RdsDbInstance</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">AWS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">RDS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">DBInstance</span>
-<span style="color:#a6e22e">Properties</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">DBSubnetGroupName</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Ref</span> <span style="color:#a6e22e">RdsDbSubnetGroup</span>
-<span style="color:#a6e22e">DBParameterGroupName</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Ref</span> <span style="color:#a6e22e">RdsDbParameterGroup</span>
-<span style="color:#a6e22e">Engine</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">aurora</span><span style="color:#f92672">-</span><span style="color:#a6e22e">mysql</span>
-<span style="color:#a6e22e">DBClusterIdentifier</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Ref</span> <span style="color:#a6e22e">RdsDbCluster</span>
-<span style="color:#a6e22e">AutoMinorVersionUpgrade</span><span style="color:#f92672">:</span> <span style="color:#e6db74">'true'</span>
-<span style="color:#a6e22e">PubliclyAccessible</span><span style="color:#f92672">:</span> <span style="color:#e6db74">'false'</span>
-<span style="color:#a6e22e">PreferredMaintenanceWindow</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Thu</span><span style="color:#f92672">:</span><span style="color:#ae81ff">19</span><span style="color:#f92672">:</span><span style="color:#ae81ff">05</span><span style="color:#f92672">-</span><span style="color:#a6e22e">Thu</span><span style="color:#f92672">:</span><span style="color:#ae81ff">19</span><span style="color:#f92672">:</span><span style="color:#ae81ff">35</span>
-<span style="color:#a6e22e">AvailabilityZone</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Select</span> [<span style="color:#ae81ff">0</span>, <span style="color:#f92672">!</span><span style="color:#a6e22e">GetAZs</span> {<span style="color:#a6e22e">Ref</span><span style="color:#f92672">:</span> <span style="color:#e6db74">'AWS::Region'</span>}]
-<span style="color:#a6e22e">DBInstanceClass</span><span style="color:#f92672">:</span> <span style="color:#e6db74">'db.t2.small'</span>
+  <span style="color:#a6e22e">RdsDbParameterGroup</span><span style="color:#f92672">:</span>
+    <span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">AWS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">RDS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">DBParameterGroup</span>
+    <span style="color:#a6e22e">Properties</span><span style="color:#f92672">:</span>
+      <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">CloudFormation</span> <span style="color:#a6e22e">Aurora</span> <span style="color:#a6e22e">Parameter</span> <span style="color:#a6e22e">Group</span>
+      <span style="color:#a6e22e">Family</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">aurora</span><span style="color:#f92672">-</span><span style="color:#a6e22e">mysql5</span><span style="color:#ae81ff">.7</span>
+      <span style="color:#a6e22e">Parameters</span><span style="color:#f92672">:</span>
+        <span style="color:#a6e22e">aurora_lab_mode</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>
+        <span style="color:#a6e22e">general_log</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>
+        <span style="color:#a6e22e">slow_query_log</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>
+        <span style="color:#a6e22e">long_query_time</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">10</span>
+
+  <span style="color:#a6e22e">RdsDbInstance</span><span style="color:#f92672">:</span>
+    <span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">AWS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">RDS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">DBInstance</span>
+    <span style="color:#a6e22e">Properties</span><span style="color:#f92672">:</span>
+      <span style="color:#a6e22e">DBSubnetGroupName</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Ref</span> <span style="color:#a6e22e">RdsDbSubnetGroup</span>
+      <span style="color:#a6e22e">DBParameterGroupName</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Ref</span> <span style="color:#a6e22e">RdsDbParameterGroup</span>
+      <span style="color:#a6e22e">Engine</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">aurora</span><span style="color:#f92672">-</span><span style="color:#a6e22e">mysql</span>
+      <span style="color:#a6e22e">DBClusterIdentifier</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Ref</span> <span style="color:#a6e22e">RdsDbCluster</span>
+      <span style="color:#a6e22e">AutoMinorVersionUpgrade</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;true&#39;</span>
+      <span style="color:#a6e22e">PubliclyAccessible</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;false&#39;</span>
+      <span style="color:#a6e22e">PreferredMaintenanceWindow</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Thu</span><span style="color:#f92672">:</span><span style="color:#ae81ff">19</span><span style="color:#f92672">:</span><span style="color:#ae81ff">05</span><span style="color:#f92672">-</span><span style="color:#a6e22e">Thu</span><span style="color:#f92672">:</span><span style="color:#ae81ff">19</span><span style="color:#f92672">:</span><span style="color:#ae81ff">35</span>
+      <span style="color:#a6e22e">AvailabilityZone</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Select</span> [<span style="color:#ae81ff">0</span>, <span style="color:#f92672">!</span><span style="color:#a6e22e">GetAZs</span> {<span style="color:#a6e22e">Ref</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;AWS::Region&#39;</span>}]
+      <span style="color:#a6e22e">DBInstanceClass</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;db.t2.small&#39;</span>
 <span style="display:block;width:100%;background-color:#3c3d38">      <span style="color:#a6e22e">StorageEncrypted</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">True</span>
-</span></code></pre></div></figure></p>
+</span>  
+</code></pre></div>
+ </figure>
 <p>Please observe the highlighted lines showing where we have made a change.  We have added:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">      <span style="color:#a6e22e">StorageEncrypted</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">True</span>
 </code></pre></div><ul>
@@ -1690,18 +1735,22 @@ portfolio.</p>
 <ul>
 <li>Append the following snippet to the YAML document in the main input field (be careful with your indentation):</li>
 </ul>
-<figure><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">spoke</span><span style="color:#f92672">-</span><span style="color:#a6e22e">local</span><span style="color:#f92672">-</span><span style="color:#a6e22e">portfolios</span><span style="color:#f92672">:</span>
+ <figure>
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">spoke</span><span style="color:#f92672">-</span><span style="color:#a6e22e">local</span><span style="color:#f92672">-</span><span style="color:#a6e22e">portfolios</span><span style="color:#f92672">:</span>
   <span style="color:#a6e22e">cloud</span><span style="color:#f92672">-</span><span style="color:#a6e22e">engineering</span><span style="color:#f92672">-</span><span style="color:#a6e22e">self</span><span style="color:#f92672">-</span><span style="color:#a6e22e">service</span><span style="color:#f92672">:</span>
     <span style="color:#a6e22e">portfolio</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;reinvent-cloud-engineering-self-service&#34;</span>
     <span style="color:#a6e22e">deploy_to</span><span style="color:#f92672">:</span>
       <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
         <span style="color:#f92672">-</span> <span style="color:#a6e22e">tag</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;type:prod&#34;</span>
           <span style="color:#a6e22e">regions</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;default_region&#34;</span>
-</code></pre></div></figure>
+  
+</code></pre></div>
+ </figure>
 <ul>
 <li>The main input field should look like this:</li>
 </ul>
-<figure><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">accounts</span><span style="color:#f92672">:</span>
+ <figure>
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">accounts</span><span style="color:#f92672">:</span>
   <span style="color:#f92672">-</span> <span style="color:#a6e22e">account_id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;&lt;YOUR_ACCOUNT_ID_WITHOUT_HYPHENS&gt;&#34;</span>
     <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;puppet-account&#34;</span>
     <span style="color:#a6e22e">default_region</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;eu-west-1&#34;</span>
@@ -1711,34 +1760,38 @@ portfolio.</p>
     <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
       <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;type:prod&#34;</span>
       <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;partition:eu&#34;</span>
-<p><span style="color:#a6e22e">launches</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">aws</span><span style="color:#f92672">-</span><span style="color:#a6e22e">config</span><span style="color:#f92672">-</span><span style="color:#a6e22e">desired</span><span style="color:#f92672">-</span><span style="color:#a6e22e">instance</span><span style="color:#f92672">-</span><span style="color:#a6e22e">types</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">portfolio</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&quot;reinvent-cloud-engineering-governance&quot;</span>
-<span style="color:#a6e22e">product</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&quot;aws-config-desired-instance-types&quot;</span>
-<span style="color:#a6e22e">version</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&quot;v1&quot;</span>
-<span style="color:#a6e22e">parameters</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">InstanceType</span><span style="color:#f92672">:</span>
-<span style="color:#66d9ef">default</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&quot;t2.medium, t2.large, t2.xlarge&quot;</span>
-<span style="color:#a6e22e">deploy_to</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
-<span style="color:#f92672">-</span> <span style="color:#a6e22e">tag</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&quot;type:prod&quot;</span>
-<span style="color:#a6e22e">regions</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&quot;default_region&quot;</span>
-<span style="color:#a6e22e">aws</span><span style="color:#f92672">-</span><span style="color:#a6e22e">config</span><span style="color:#f92672">-</span><span style="color:#a6e22e">rds</span><span style="color:#f92672">-</span><span style="color:#a6e22e">storage</span><span style="color:#f92672">-</span><span style="color:#a6e22e">encrypted</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">portfolio</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&quot;reinvent-cloud-engineering-governance&quot;</span>
-<span style="color:#a6e22e">product</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&quot;aws-config-rds-storage-encrypted&quot;</span>
-<span style="color:#a6e22e">version</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&quot;v1&quot;</span>
-<span style="color:#a6e22e">deploy_to</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
-<span style="color:#f92672">-</span> <span style="color:#a6e22e">tag</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&quot;type:prod&quot;</span>
-<span style="color:#a6e22e">regions</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&quot;default_region&quot;</span></p>
-<p><span style="color:#a6e22e">spoke</span><span style="color:#f92672">-</span><span style="color:#a6e22e">local</span><span style="color:#f92672">-</span><span style="color:#a6e22e">portfolios</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">cloud</span><span style="color:#f92672">-</span><span style="color:#a6e22e">engineering</span><span style="color:#f92672">-</span><span style="color:#a6e22e">self</span><span style="color:#f92672">-</span><span style="color:#a6e22e">service</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">portfolio</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&quot;reinvent-cloud-engineering-self-service&quot;</span>
-<span style="color:#a6e22e">deploy_to</span><span style="color:#f92672">:</span>
-<span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
-<span style="color:#f92672">-</span> <span style="color:#a6e22e">tag</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&quot;type:prod&quot;</span>
-<span style="color:#a6e22e">regions</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&quot;default_region&quot;</span>
-</code></pre></div></figure></p>
+
+<span style="color:#a6e22e">launches</span><span style="color:#f92672">:</span>
+  <span style="color:#a6e22e">aws</span><span style="color:#f92672">-</span><span style="color:#a6e22e">config</span><span style="color:#f92672">-</span><span style="color:#a6e22e">desired</span><span style="color:#f92672">-</span><span style="color:#a6e22e">instance</span><span style="color:#f92672">-</span><span style="color:#a6e22e">types</span><span style="color:#f92672">:</span>
+    <span style="color:#a6e22e">portfolio</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;reinvent-cloud-engineering-governance&#34;</span>
+    <span style="color:#a6e22e">product</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;aws-config-desired-instance-types&#34;</span>
+    <span style="color:#a6e22e">version</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1&#34;</span>
+    <span style="color:#a6e22e">parameters</span><span style="color:#f92672">:</span>
+      <span style="color:#a6e22e">InstanceType</span><span style="color:#f92672">:</span>
+        <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;t2.medium, t2.large, t2.xlarge&#34;</span>
+    <span style="color:#a6e22e">deploy_to</span><span style="color:#f92672">:</span>
+      <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
+        <span style="color:#f92672">-</span> <span style="color:#a6e22e">tag</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;type:prod&#34;</span>
+          <span style="color:#a6e22e">regions</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;default_region&#34;</span>
+  <span style="color:#a6e22e">aws</span><span style="color:#f92672">-</span><span style="color:#a6e22e">config</span><span style="color:#f92672">-</span><span style="color:#a6e22e">rds</span><span style="color:#f92672">-</span><span style="color:#a6e22e">storage</span><span style="color:#f92672">-</span><span style="color:#a6e22e">encrypted</span><span style="color:#f92672">:</span>
+    <span style="color:#a6e22e">portfolio</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;reinvent-cloud-engineering-governance&#34;</span>
+    <span style="color:#a6e22e">product</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;aws-config-rds-storage-encrypted&#34;</span>
+    <span style="color:#a6e22e">version</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1&#34;</span>
+    <span style="color:#a6e22e">deploy_to</span><span style="color:#f92672">:</span>
+      <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
+        <span style="color:#f92672">-</span> <span style="color:#a6e22e">tag</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;type:prod&#34;</span>
+          <span style="color:#a6e22e">regions</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;default_region&#34;</span>
+
+<span style="color:#a6e22e">spoke</span><span style="color:#f92672">-</span><span style="color:#a6e22e">local</span><span style="color:#f92672">-</span><span style="color:#a6e22e">portfolios</span><span style="color:#f92672">:</span>
+  <span style="color:#a6e22e">cloud</span><span style="color:#f92672">-</span><span style="color:#a6e22e">engineering</span><span style="color:#f92672">-</span><span style="color:#a6e22e">self</span><span style="color:#f92672">-</span><span style="color:#a6e22e">service</span><span style="color:#f92672">:</span>
+    <span style="color:#a6e22e">portfolio</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;reinvent-cloud-engineering-self-service&#34;</span>
+    <span style="color:#a6e22e">deploy_to</span><span style="color:#f92672">:</span>
+      <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
+        <span style="color:#f92672">-</span> <span style="color:#a6e22e">tag</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;type:prod&#34;</span>
+          <span style="color:#a6e22e">regions</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;default_region&#34;</span>
+  
+</code></pre></div>
+ </figure>
 <h4 id="committing-the-manifest-file">Committing the manifest file</h4>
 <ul>
 <li>
@@ -1894,6 +1947,22 @@ as the factory account it will not share the portfolio as it is not needed.</p>
                     
             
         
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
                     
             
         

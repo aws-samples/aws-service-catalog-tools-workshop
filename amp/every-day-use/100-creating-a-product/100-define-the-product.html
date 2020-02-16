@@ -208,6 +208,30 @@
 
             
           
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/design-considerations/portfolio-management.html" title="Portfolio Management" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../../design-considerations/portfolio-management.html">
+          Portfolio Management
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
         
         </ul>
               
@@ -942,7 +966,7 @@
     <section id="footer">
       <left>
     <h5 class="copyright">&copy; 2018 Amazon Web Services, Inc. or its Affiliates. All rights reserved.</h5>
-    <h5 class="copyright">8427d80 - Tue Feb 4 13:06:43 UTC 2020</h5>
+    <h5 class="copyright">9edfaaa - Sun Feb 16 20:33:09 UTC 2020</h5>
 </left>
 
     </section>
@@ -1054,9 +1078,10 @@ products details there.</p>
 </figure>
 
 <ul>
-<li>Copy the following snippet into the main input field:</li>
-</ul>
-<figure><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">Schema</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">factory</span><span style="color:#f92672">-</span><span style="color:#ae81ff">2019</span><span style="color:#f92672">-</span><span style="color:#ae81ff">04</span><span style="color:#f92672">-</span><span style="color:#ae81ff">01</span>
+<li>
+<p>Copy the following snippet into the main input field:</p>
+<figure>
+ <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">Schema</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">factory</span><span style="color:#f92672">-</span><span style="color:#ae81ff">2019</span><span style="color:#f92672">-</span><span style="color:#ae81ff">04</span><span style="color:#f92672">-</span><span style="color:#ae81ff">01</span>
 <span style="color:#a6e22e">Products</span><span style="color:#f92672">:</span>
   <span style="color:#f92672">-</span> <span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;aws-config-enable-config&#34;</span>
     <span style="color:#a6e22e">Owner</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;data-governance@example.com&#34;</span>
@@ -1072,8 +1097,10 @@ products details there.</p>
         <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering&#34;</span>
       <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cost-center&#34;</span>
         <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering&#34;</span>
-</code></pre></div></figure>
-<ul>
+   
+</code></pre></div>
+</figure>
+</li>
 <li>
 <p>Set the <em>File name</em> to <code>portfolios/reinvent.yaml</code></p>
 </li>
@@ -1129,9 +1156,10 @@ it will not appear in AWS Service Catalog yet.</p>
 </figure>
 
 <ul>
-<li>Add the following to the end of the file (be careful with your indentation):</li>
-</ul>
-<figure><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">    <span style="color:#a6e22e">Versions</span><span style="color:#f92672">:</span>
+<li>
+<p>Add the following to the end of the file (be careful with your indentation):</p>
+<figure>
+ <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">    <span style="color:#a6e22e">Versions</span><span style="color:#f92672">:</span>
       <span style="color:#f92672">-</span> <span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1&#34;</span>
         <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1 of aws-config-enable-config&#34;</span>
         <span style="color:#a6e22e">Active</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">True</span>
@@ -1140,11 +1168,14 @@ it will not appear in AWS Service Catalog yet.</p>
           <span style="color:#a6e22e">Configuration</span><span style="color:#f92672">:</span>
             <span style="color:#a6e22e">RepositoryName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;aws-config-enable-config&#34;</span>
             <span style="color:#a6e22e">BranchName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;master&#34;</span>
-</code></pre></div></figure>
-<ul>
-<li>Verify the contents of your file matches this:</li>
-</ul>
-<figure><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">Schema</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">factory</span><span style="color:#f92672">-</span><span style="color:#ae81ff">2019</span><span style="color:#f92672">-</span><span style="color:#ae81ff">04</span><span style="color:#f92672">-</span><span style="color:#ae81ff">01</span>
+   
+</code></pre></div>
+</figure>
+</li>
+<li>
+<p>Verify the contents of your file matches this:</p>
+<figure>
+ <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">Schema</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">factory</span><span style="color:#f92672">-</span><span style="color:#ae81ff">2019</span><span style="color:#f92672">-</span><span style="color:#ae81ff">04</span><span style="color:#f92672">-</span><span style="color:#ae81ff">01</span>
 <span style="color:#a6e22e">Products</span><span style="color:#f92672">:</span>
   <span style="color:#f92672">-</span> <span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;aws-config-enable-config&#34;</span>
     <span style="color:#a6e22e">Owner</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;data-governance@example.com&#34;</span>
@@ -1169,7 +1200,11 @@ it will not appear in AWS Service Catalog yet.</p>
           <span style="color:#a6e22e">Configuration</span><span style="color:#f92672">:</span>
             <span style="color:#a6e22e">RepositoryName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;aws-config-enable-config&#34;</span>
             <span style="color:#a6e22e">BranchName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;master&#34;</span>
-</code></pre></div></figure>
+   
+</code></pre></div>
+</figure>
+</li>
+</ul>
 <p>Once you have updated the file fill in the fields for <em>Author name</em>, <em>Email address</em>, <em>Commit message</em> and hit <em>Commit changes</em></p>
 <figure>
     <img src="../../../how-tos/creating-and-provisioning-a-product/CommitChanges.png"/> 
@@ -1307,6 +1342,22 @@ the pipeline is processing.</p>
                     
             
         
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
                     
             
         
