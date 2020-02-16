@@ -10,23 +10,57 @@ weight = 200
 This article will help you understand AWS Service Catalog portfolios, what they are, how they are used by the service and
 how you can best make use of them whilst using the Service Catalog Tools.
 
-## Selecting how many factory accounts to have
+## What is a portfolio?
 
-Currently, you can only have one factory per account but you can create multiple accounts each with their own factory.
+Within AWS Service Catalog a portfolio is a logical grouping of products.
 
-If multiple teams want to make use of Service Catalog Factory the default recommendation would be that each team have 
-their own instance.  The teams are then independent and can operate without impact of each other.  There is also a 
-separation of concerns if there is a security factory account and a networking factory account.  This reduces the blast
-radius should there be an incident and it enables easier billing calculations.
+It makes sense to group products that provision similar or complimentary resources together but this may not give you 
+the flexibility you need:
 
-If your organization has a central cloud engineering team who work to deliver the requirements of these other teams it 
-may be easier to manage all of the provisioning from a single factory account.
+- Within Service Catalog you set associations at the portfolio level so by default when you grant access to a portfolio 
+all products can be seen.
+- Within Service Catalog you can share portfolios with other accounts.  You cannot share just a single product form a 
+portfolio. 
 
+## How you can make best use of them
 
-## Selecting a factory account
+When using the Service Catalog Tools we recommend you think about how your products will be consumed.  If you are going
+to offer a 'service catalog' or build a vending machine we recommend grouping those products together into a portfolio.
 
+When using the Service Catalog Tools to provision resources into an account we recommend grouping those products into a 
+portfolio.
 
-In order to select a factory account we need to consider how you are going to be using the framework.
+When you have multiple teams building products we recommend each team having their own portfolios.
 
-A common use case is where teams use the framework to build and provision security controls into 
+This normally results in at least two portfolios per team:
 
+- team a
+  - self service offering 
+  - other products 
+- team b
+  - self service offering 
+  - other products 
+  
+The teams we have worked with normally group the products into mandatory products and self service products.  For 
+example, if the team using Service Catalog Tools is a cloud engineering / CCOE team they would provision products like
+AWS Security Hub enabler into an account - this would be mandatory.  If the same team had some optional products like
+Encrypted S3 Bucket then this would go into an optional portfolio.  This results in the following structure:
+
+- team a
+  - mandatory 
+  - optional 
+
+The names of the portfolios are for you to chose as you know your audience better than we do but we have found the 
+following names work well:
+
+- mandatory
+- optional
+- vending-machine
+- networking-self-service
+- well-governed-vending-machine
+- well-architected-vending-machine
+- compulsory
+
+{{% notice note %}}
+If you would like to share your portfolio names raise a github issue to share it
+{{% /notice %}}
