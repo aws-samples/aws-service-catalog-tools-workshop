@@ -62,5 +62,5 @@ following names work well:
 - compulsory
 
 {{% notice note %}}
-If you would like to share your portfolio names raise a github issue to share it
+If you would like to share your portfolio names raise a github issue to share
 {{% /notice %}}
