@@ -40,5 +40,5 @@ then maybe the product needs to be split into smaller pieces.  There are feature
 products into smaller pieces.
 
 {{% notice note %}}
-If you would like to share your tagging patterns raise a github issue to share
+If you would like to share your SDLC process please raise a github issue to share
 {{% /notice %}}
