@@ -39,7 +39,21 @@ Here are the steps you need to follow to "{{% param title %}}"
 
 - Copy the following snippet into the main input field:
 
- {{% code file="every-day-use/192-adding-an-account/artefacts/orchestrator/manifest-accounts-only.yaml" language="js" %}}
+  <figure>
+   {{< highlight js >}}
+accounts:
+  - account_id: "<YOUR_ACCOUNT_ID_WITHOUT_HYPHENS>"
+    name: "puppet-account"
+    default_region: "eu-west-1"
+    regions_enabled:
+      - "eu-west-1"
+      - "eu-west-2"
+    tags:
+      - "type:prod"
+      - "partition:eu"
+   {{< / highlight >}}
+  </figure>
+
  
 - Update account_id on line to show the account id of the account you have bootstrapped
 

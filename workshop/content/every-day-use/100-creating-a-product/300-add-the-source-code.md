@@ -20,7 +20,20 @@ Here are the steps you need to follow to "{{% param title %}}"
 ### Add the source code for your product
 When you configured your product version, you specified the following: 
 
-{{% code file="every-day-use/100-creating-a-product/artefacts/factory/create-the-version--version-only.yaml" language="js" %}}
+ <figure>
+  {{< highlight js >}}
+    Versions:
+      - Name: "v1"
+        Description: "v1 of aws-config-enable-config"
+        Active: True
+        Source:
+          Provider: "CodeCommit"
+          Configuration:
+            RepositoryName: "aws-config-enable-config"
+            BranchName: "master"
+  {{< / highlight >}}
+ </figure>
+
 
 We now need to create the CodeCommit repository and add the AWS CloudFormation template we are going to use for our
 product into that repository.
@@ -45,11 +58,108 @@ product into that repository.
 {{< figure src="/how-tos/creating-and-provisioning-a-product/create_file.png" >}}
 
 - Copy the following snippet into the main input field:
+ 
+  <figure>
+   {{< highlight js >}}
+AWSTemplateFormatVersion: 2010-09-09
+Description: |
+  This template creates a Config Recorder and an Amazon S3 bucket where logs are published.
 
- {{% code 
-    file="every-day-use/100-creating-a-product/artefacts/product.template.yaml" 
-    language="js" 
- %}}
+Resources:
+  ConfigRole:
+    Type: 'AWS::IAM::Role'
+    Description: The IAM role used to configure AWS Config
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+                - config.amazonaws.com
+            Action:
+              - 'sts:AssumeRole'
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSConfigRole
+      Policies:
+        - PolicyName: root
+          PolicyDocument:
+            Version: 2012-10-17
+            Statement:
+              - Effect: Allow
+                Action: 's3:GetBucketAcl'
+                Resource: !Sub arn:aws:s3:::${S3ConfigBucket}
+              - Effect: Allow
+                Action: 's3:PutObject'
+                Resource: !Sub arn:aws:s3:::${S3ConfigBucket}/AWSLogs/${AWS::AccountId}/${AWS::Region}
+                Condition:
+                  StringEquals:
+                    's3:x-amz-acl': bucket-owner-full-control
+              - Effect: Allow
+                Action: 'config:Put*'
+                Resource: '*'
+  ConfigRecorder:
+    Type: 'AWS::Config::ConfigurationRecorder'
+    DependsOn: ConfigRole
+    Properties:
+      Name: default
+      RoleARN: !GetAtt ConfigRole.Arn
+
+  DeliveryChannel:
+    Type: 'AWS::Config::DeliveryChannel'
+    Properties:
+      ConfigSnapshotDeliveryProperties:
+        DeliveryFrequency: Six_Hours
+      S3BucketName: !Ref S3ConfigBucket
+
+  S3ConfigBucket:
+    DeletionPolicy: Retain
+    Description: S3 bucket with AES256 Encryption set
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub config-bucket-${AWS::AccountId}
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: True
+        BlockPublicPolicy: True
+        IgnorePublicAcls: True
+        RestrictPublicBuckets: True
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+
+  S3ConfigBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Description: S3 bucket policy
+    Properties:
+      Bucket: !Ref S3ConfigBucket
+      PolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Sid: AWSBucketPermissionsCheck
+            Effect: Allow
+            Principal:
+              Service:
+                - config.amazonaws.com
+            Action: s3:GetBucketAcl
+            Resource:
+              - !Sub "arn:aws:s3:::${S3ConfigBucket}"
+          - Sid: AWSBucketDelivery
+            Effect: Allow
+            Principal:
+              Service:
+                - config.amazonaws.com
+            Action: s3:PutObject
+            Resource: !Sub "arn:aws:s3:::${S3ConfigBucket}/AWSLogs/*/*"
+
+Outputs:
+  ConfigRoleArn:
+    Value: !GetAtt ConfigRole.Arn
+  S3ConfigBucketArn:
+    Value: !GetAtt S3ConfigBucket.Arn
+   {{< / highlight >}}
+  </figure>
+
 
 - Set the *File name* to `product.template.yaml`
 

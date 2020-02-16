@@ -42,19 +42,59 @@ Here are the steps you need to follow to "{{% param title %}}"
 
 - Add the following to the products section:
 
-{{% code file="40-reinvent2019/150-task-2/artefacts/factory/new_product_details_second_time.yaml" language="js" %}}
+ <figure>
+  {{< highlight js >}}
+    - Name: "rds-instance"
+      Owner: "data-governance@example.com"
+      Description: "A compliant RDS Instance you can use that meets data governance standards"
+      Distributor: "cloud-engineering"
+      SupportDescription: "Speak to data-governance@example.com about exceptions and speak to cloud-engineering@example.com about implementation issues"
+      SupportEmail: "cloud-engineering@example.com"
+      SupportUrl: "https://wiki.example.com/cloud-engineering/data-governance/rds-instance"
+      Options:
+        ShouldCFNNag: True
+      Tags:
+        - Key: "type"
+          Value: "governance"
+        - Key: "creator"
+          Value: "cloud-engineering"
+      Versions:
+        - Name: "v1"
+          Description: "v1 of rds-instance"
+          Active: True
+          Source:
+            Provider: "CodeCommit"
+            Configuration:
+              RepositoryName: "rds-instance"
+              BranchName: "master"
+  Portfolios:
+    - "cloud-engineering-self-service"
+  {{< / highlight >}}
+ </figure>
+
 
 - Add the following to the portfolios section:
 
-{{% code file="40-reinvent2019/150-task-2/artefacts/factory/new_portfolio_details_second_time.yaml" language="js" %}}
+ <figure>
+  {{< highlight js >}}
+  - DisplayName: "cloud-engineering-self-service"
+    Description: "Portfolio containing products that you can use to ensure you meet the governance guidelines"
+    ProviderName: "cloud-engineering"
+    Associations:
+      - "arn:aws:iam::${AWS::AccountId}:role/TeamRole"
+    Tags:
+      - Key: "type"
+        Value: "governance"
+      - Key: "creator"
+        Value: "cloud-engineering"
+  {{< / highlight >}}
+ </figure>
+
 
 - Once completed it should like look this: 
 
-
-
  <figure>
   {{< highlight js "hl_lines=62-63"  >}}
-
 Schema: factory-2019-04-01
 Products:
   - Name: "aws-config-desired-instance-types"
@@ -159,7 +199,6 @@ Portfolios:
         Value: "governance"
       - Key: "creator"
         Value: "cloud-engineering"
-
  {{< / highlight >}}
  </figure>
 
@@ -217,7 +256,20 @@ If this is failing please raise your hand for some assistance
 
 When you configured your product version, you specified the following version: 
 
-{{% code file="40-reinvent2019/150-task-2/artefacts/factory/create-the-version--version-only_second_time.yaml" language="js" %}}
+ <figure>
+  {{< highlight js >}}
+    Versions:
+      - Name: "v1"
+        Description: "v1 of rds-instance"
+        Active: True
+        Source:
+          Provider: "CodeCommit"
+          Configuration:
+            RepositoryName: "rds-instance"
+            BranchName: "master"
+ {{< / highlight >}}
+ </figure>
+
 
 This tells the framework the source code for the product comes from the _{{% param codecommit_repo_branch %}}_ branch of a
 _CodeCommit_ repository of the name _{{% param codecommit_repo_name %}}_. 
@@ -247,7 +299,6 @@ product.
 
  <figure>
   {{< highlight js >}}
-
 AWSTemplateFormatVersion: 2010-09-09
 Description: "RDS Storage Encrypted"
 
@@ -362,7 +413,6 @@ Resources:
       PreferredMaintenanceWindow: Thu:19:05-Thu:19:35
       AvailabilityZone: !Select [0, !GetAZs {Ref: 'AWS::Region'}]
       DBInstanceClass: 'db.t2.small'
-
  {{< / highlight >}}
  </figure>
 
@@ -412,7 +462,127 @@ guidelines and so we need to fix it.
 
 - Replace the contents with this:
 
-{{% code file="40-reinvent2019/150-task-2/artefacts/product_third_time.template.yaml" language="js" highlight="91 116" %}}
+ <figure>
+  {{< highlight js "hl_lines=91 116" >}}
+AWSTemplateFormatVersion: 2010-09-09
+Description: "RDS Storage Encrypted"
+
+Parameters:
+  RdsDbMasterUsername:
+    Description: RdsDbMasterUsername
+    Type: String
+    Default: someuser
+
+  RdsDbMasterUserPassword:
+      Description: RdsDbMasterUserPassword
+      Type: String
+      NoEcho: true
+
+  RdsDbDatabaseName:
+    Description: DbDatabaseName
+    Type: String
+    Default: mysql57_database
+
+Resources:
+  VPC:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: 10.0.0.0/16
+      EnableDnsSupport: 'false'
+      EnableDnsHostnames: 'false'
+
+  Subnet1:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId:
+        Ref: VPC
+      CidrBlock: 10.0.0.0/24
+      AvailabilityZone: !Select [0, !GetAZs {Ref: 'AWS::Region'}]
+
+  Subnet2:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId:
+        Ref: VPC
+      CidrBlock: 10.0.1.0/24
+      AvailabilityZone: !Select [1, !GetAZs {Ref: 'AWS::Region'}]
+
+  RdsDbSubnetGroup:
+    Type: AWS::RDS::DBSubnetGroup
+    Properties:
+      DBSubnetGroupDescription: Database subnets for RDS
+      SubnetIds:
+        - !Ref Subnet1
+        - !Ref Subnet2
+
+  RdsSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Description: Used to grant access to and from the VPC
+    Properties:
+      VpcId: !Ref VPC
+      GroupDescription: Allow MySQL (TCP3306) access to and from the VPC
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 3306
+          ToPort: 3306
+          CidrIp: 10.0.0.0/32
+      SecurityGroupEgress:
+        - IpProtocol: tcp
+          FromPort: 3306
+          ToPort: 3306
+          CidrIp: 10.0.0.0/32
+
+  RdsDbClusterParameterGroup:
+    Type: AWS::RDS::DBClusterParameterGroup
+    Properties:
+      Description: CloudFormation Aurora Cluster Parameter Group
+      Family: aurora-mysql5.7
+      Parameters:
+        server_audit_logging: 0
+        server_audit_events: 'CONNECT,QUERY,QUERY_DCL,QUERY_DDL,QUERY_DML,TABLE'
+
+  RdsDbCluster:
+    Type: AWS::RDS::DBCluster
+    Properties:
+      DBSubnetGroupName: !Ref RdsDbSubnetGroup
+      MasterUsername: !Ref RdsDbMasterUsername
+      MasterUserPassword: !Ref RdsDbMasterUserPassword
+      DatabaseName: !Ref RdsDbDatabaseName
+      Engine: aurora-mysql
+      VpcSecurityGroupIds:
+        - !Ref RdsSecurityGroup
+      DBClusterIdentifier : !Sub '${AWS::StackName}-dbcluster'
+      DBClusterParameterGroupName: !Ref RdsDbClusterParameterGroup
+      PreferredBackupWindow: 18:05-18:35
+      StorageEncrypted: True
+
+  RdsDbParameterGroup:
+    Type: AWS::RDS::DBParameterGroup
+    Properties:
+      Description: CloudFormation Aurora Parameter Group
+      Family: aurora-mysql5.7
+      Parameters:
+        aurora_lab_mode: 0
+        general_log: 1
+        slow_query_log: 1
+        long_query_time: 10
+
+  RdsDbInstance:
+    Type: AWS::RDS::DBInstance
+    Properties:
+      DBSubnetGroupName: !Ref RdsDbSubnetGroup
+      DBParameterGroupName: !Ref RdsDbParameterGroup
+      Engine: aurora-mysql
+      DBClusterIdentifier: !Ref RdsDbCluster
+      AutoMinorVersionUpgrade: 'true'
+      PubliclyAccessible: 'false'
+      PreferredMaintenanceWindow: Thu:19:05-Thu:19:35
+      AvailabilityZone: !Select [0, !GetAZs {Ref: 'AWS::Region'}]
+      DBInstanceClass: 'db.t2.small'
+      StorageEncrypted: True
+  {{< / highlight >}}
+ </figure>
+
 
 Please observe the highlighted lines showing where we have made a change.  We have added:
 
@@ -492,11 +662,65 @@ portfolio.
 
 - Append the following snippet to the YAML document in the main input field (be careful with your indentation):
 
-{{% code file="40-reinvent2019/150-task-2/artefacts/orchestrator/manifest-shares-addition.yaml" language="js" %}}
+ <figure>
+  {{< highlight js >}}
+spoke-local-portfolios:
+  cloud-engineering-self-service:
+    portfolio: "reinvent-cloud-engineering-self-service"
+    deploy_to:
+      tags:
+        - tag: "type:prod"
+          regions: "default_region"
+  {{< / highlight >}}
+ </figure>
+
  
 - The main input field should look like this:
 
-{{% code file="40-reinvent2019/150-task-2/artefacts/orchestrator/manifest-all-second_time.yaml" language="js" %}}
+ <figure>
+  {{< highlight js >}}
+accounts:
+  - account_id: "<YOUR_ACCOUNT_ID_WITHOUT_HYPHENS>"
+    name: "puppet-account"
+    default_region: "eu-west-1"
+    regions_enabled:
+      - "eu-west-1"
+      - "eu-west-2"
+    tags:
+      - "type:prod"
+      - "partition:eu"
+
+launches:
+  aws-config-desired-instance-types:
+    portfolio: "reinvent-cloud-engineering-governance"
+    product: "aws-config-desired-instance-types"
+    version: "v1"
+    parameters:
+      InstanceType:
+        default: "t2.medium, t2.large, t2.xlarge"
+    deploy_to:
+      tags:
+        - tag: "type:prod"
+          regions: "default_region"
+  aws-config-rds-storage-encrypted:
+    portfolio: "reinvent-cloud-engineering-governance"
+    product: "aws-config-rds-storage-encrypted"
+    version: "v1"
+    deploy_to:
+      tags:
+        - tag: "type:prod"
+          regions: "default_region"
+
+spoke-local-portfolios:
+  cloud-engineering-self-service:
+    portfolio: "reinvent-cloud-engineering-self-service"
+    deploy_to:
+      tags:
+        - tag: "type:prod"
+          regions: "default_region"
+  {{< / highlight >}}
+ </figure>
+
 
 
 #### Committing the manifest file

@@ -43,7 +43,51 @@ Here are the steps you need to follow to "{{% param title %}}"
 
 - Replace the contents of your file with this:
 
-{{% code file="every-day-use/180-adding-a-product-to-a-portfolio/artefacts/factory/completed.yaml" language="js" highlight="26-27" %}}
+ <figure>
+  {{< highlight js "hl_lines=26-27" >}}
+Schema: factory-2019-04-01
+Products:
+  - Name: "aws-config-enable-config"
+    Owner: "data-governance@example.com"
+    Description: "Enables AWS Config"
+    Distributor: "cloud-engineering"
+    SupportDescription: "Speak to data-governance@example.com about exceptions and speak to cloud-engineering@example.com about implementation issues"
+    SupportEmail: "cloud-engineering@example.com"
+    SupportUrl: "https://wiki.example.com/cloud-engineering/governance/aws-config-enable-config"
+    Tags:
+      - Key: "type"
+        Value: "governance"
+      - Key: "creator"
+        Value: "cloud-engineering"
+      - Key: "cost-center"
+        Value: "cloud-engineering"
+    Versions:
+      - Name: "v1"
+        Description: "v1 of aws-config-enable-config"
+        Active: True
+        Source:
+          Provider: "CodeCommit"
+          Configuration:
+            RepositoryName: "aws-config-enable-config"
+            BranchName: "master"
+    Portfolios:
+      - "cloud-engineering-governance"
+Portfolios:
+  - DisplayName: "cloud-engineering-governance"
+    Description: "Portfolio containing the products needed to govern AWS accounts"
+    ProviderName: "cloud-engineering"
+    Associations:
+      - "arn:aws:iam::${AWS::AccountId}:role/TeamRole"
+    Tags:
+      - Key: "type"
+        Value: "governance"
+      - Key: "creator"
+        Value: "cloud-engineering"
+      - Key: "cost-center"
+        Value: "cloud-engineering"  
+  {{< / highlight >}}
+ </figure>
+
 
 - Take note of the highlighted lines 26 and 27.  We have added a portfolio to the product.
 

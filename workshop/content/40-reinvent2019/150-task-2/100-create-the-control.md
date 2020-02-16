@@ -40,13 +40,41 @@ Here are the steps you need to follow to "{{% param title %}}"
 
 - We will need to insert the following to the products section:
 
-{{% code file="40-reinvent2019/150-task-2/artefacts/factory/new_product_details.yaml" language="js" %}}
+ <figure>
+  {{< highlight js >}}
+  - Name: "aws-config-rds-storage-encrypted"
+    Owner: "data-governance@example.com"
+    Description: "Enables AWS Config rule - aws-config-rds-storage-encrypted"
+    Distributor: "cloud-engineering"
+    SupportDescription: "Speak to data-governance@example.com about exceptions and speak to cloud-engineering@example.com about implementation issues"
+    SupportEmail: "cloud-engineering@example.com"
+    SupportUrl: "https://wiki.example.com/cloud-engineering/data-governance/aws-config-rds-storage-encrypted"
+    Tags:
+      - Key: "type"
+        Value: "governance"
+      - Key: "creator"
+        Value: "cloud-engineering"
+      - Key: "cost-center"
+        Value: "governance"
+    Versions:
+      - Name: "v1"
+        Description: "v1 of aws-config-rds-storage-encrypted"
+        Active: True
+        Source:
+          Provider: "CodeCommit"
+          Configuration:
+            RepositoryName: "aws-config-rds-storage-encrypted"
+            BranchName: "master"
+  Portfolios:
+    - "cloud-engineering-governance"
+  {{< / highlight >}}
+ </figure>
+
 
 - Once completed it should like look this: 
 
  <figure>
   {{< highlight js >}}
- 
  Schema: factory-2019-04-01
  Products:
    - Name: "aws-config-desired-instance-types"
@@ -114,8 +142,6 @@ Here are the steps you need to follow to "{{% param title %}}"
          Value: "cloud-engineering"
        - Key: "cost-center"
          Value: "governance"
-
- 
  {{< / highlight >}}
  </figure>
  
@@ -160,7 +186,20 @@ If this is failing please raise your hand for some assistance
 
 When you configured your product version, you specified the following version: 
 
-{{% code file="40-reinvent2019/150-task-2/artefacts/factory/create-the-version--version-only.yaml" language="js" %}}
+ <figure>
+  {{< highlight js >}}
+    Versions:
+      - Name: "v1"
+        Description: "v1 of aws-config-rds-storage-encrypted"
+        Active: True
+        Source:
+          Provider: "CodeCommit"
+          Configuration:
+            RepositoryName: "aws-config-rds-storage-encrypted"
+            BranchName: "master"
+  {{< / highlight >}}
+ </figure>
+
 
 This tells the framework the source code for the product comes from the _{{% param codecommit_repo_branch %}}_ branch of a
 _CodeCommit_ repository of the name _{{% param codecommit_repo_name %}}_. 
@@ -190,7 +229,6 @@ product.
 
  <figure>
   {{< highlight js >}}
-
 AWSTemplateFormatVersion: '2010-09-09'
 Description: "Create an AWS Config rule ensuring RDS instances use encrypted storage"
 
@@ -206,7 +244,6 @@ Resources:
       Source:
         Owner: AWS
         SourceIdentifier: RDS_STORAGE_ENCRYPTED
-
  {{< / highlight >}}
  </figure>
  

@@ -1,7 +1,0 @@
-{{ $file := .Get "file" | readFile | safeHTML }} {{ $lang := .Get "language" }}
-{{ $highlightLines := .Get "highlight" | default "0" }}
-{{ $codeOptions := printf "hl_lines=%s" $highlightLines }}
-
-<figure>
-	{{- highlight $file $lang $codeOptions -}}
-</figure>

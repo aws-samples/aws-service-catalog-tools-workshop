@@ -33,8 +33,52 @@ Here are the steps you need to follow to "{{% param title %}}"
 {{< figure src="/tasks/create_file.png" >}}
 
 - Copy the following snippet into the main input field:
+ 
+  <figure>
+   {{< highlight js >}}
+Schema: factory-2019-04-01
+Products:
+  - Name: "aws-config-desired-instance-types"
+    Owner: "budget-and-cost-governance@example.com"
+    Description: "Enables AWS Config rule - desired-instance-type with our RIs"
+    Distributor: "cloud-engineering"
+    SupportDescription: "Speak to budget-and-cost-governance@example.com about exceptions and speak to cloud-engineering@example.com about implementation issues"
+    SupportEmail: "cloud-engineering@example.com"
+    SupportUrl: "https://wiki.example.com/cloud-engineering/budget-and-cost-governance/aws-config-desired-instance-types"
+    Tags:
+      - Key: "type"
+        Value: "governance"
+      - Key: "creator"
+        Value: "cloud-engineering"
+      - Key: "cost-center"
+        Value: "governance"
+    Versions:
+      - Name: "v1"
+        Description: "v1 of aws-config-desired-instance-types"
+        Active: True
+        Source:
+          Provider: "CodeCommit"
+          Configuration:
+            RepositoryName: "aws-config-desired-instance-types"
+            BranchName: "master"
+    Portfolios:
+      - "cloud-engineering-governance"
+Portfolios:
+  - DisplayName: "cloud-engineering-governance"
+    Description: "Portfolio containing the products needed to govern AWS accounts"
+    ProviderName: "cloud-engineering"
+    Associations:
+      - "arn:aws:iam::${AWS::AccountId}:role/TeamRole"
+    Tags:
+      - Key: "type"
+        Value: "governance"
+      - Key: "creator"
+        Value: "cloud-engineering"
+      - Key: "cost-center"
+        Value: "governance"
+   {{< / highlight >}}
+  </figure>
 
- {{% code file="40-reinvent2019/100-task-1/artefacts/factory/completed.yaml" language="js" %}}
  
 - Set the *File name* to `portfolios/reinvent.yaml`
 
@@ -80,7 +124,20 @@ If this is failing please raise your hand for some assistance
 
 When you configured your product version, you specified the following version: 
 
-{{% code file="40-reinvent2019/100-task-1/artefacts/factory/create-the-version--version-only.yaml" language="js" %}}
+ <figure>
+  {{< highlight js >}}
+    Versions:
+      - Name: "v1"
+        Description: "v1 of aws-config-desired-instance-types"
+        Active: True
+        Source:
+          Provider: "CodeCommit"
+          Configuration:
+            RepositoryName: "aws-config-desired-instance-types"
+            BranchName: "master"
+  {{< / highlight >}}
+ </figure>
+
 
 This tells the framework the source code for the product comes from the _{{% param codecommit_repo_branch %}}_ branch of a
 _CodeCommit_ repository of the name _{{% param codecommit_repo_name %}}_. 
@@ -110,7 +167,6 @@ product.
 
  <figure>
  {{< highlight js >}}
- 
  AWSTemplateFormatVersion: "2010-09-09"
  Description: "Create an AWS Config rule ensuring the given instance types are the only instance types used"
  
@@ -134,7 +190,6 @@ product.
        Source:
          Owner: AWS
          SourceIdentifier: DESIRED_INSTANCE_TYPE
- 
  {{< / highlight >}}
 </figure>
 

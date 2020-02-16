@@ -40,7 +40,21 @@ Here are the steps you need to follow to "{{% param title %}}"
 
 - Copy the following snippet into the main input field:
 
- {{% code file="every-day-use/200-provisioning-a-product/artefacts/orchestrator/manifest-accounts-only.yaml" language="js" %}}
+  <figure>
+   {{< highlight js >}}
+accounts:
+  - account_id: "<YOUR_ACCOUNT_ID_WITHOUT_HYPHENS>"
+    name: "puppet-account"
+    default_region: "eu-west-1"
+    regions_enabled:
+      - "eu-west-1"
+      - "eu-west-2"
+    tags:
+      - "type:prod"
+      - "partition:eu"
+   {{< / highlight >}}
+  </figure>
+
  
 - Update account_id on line to show your account id
 
@@ -50,11 +64,46 @@ _Now we are ready to add a product to the manifest file._
 
 - Add the following snippet to the end of the main input field:
 
- {{% code file="every-day-use/200-provisioning-a-product/artefacts/orchestrator/manifest-launches-only.yaml" language="js" %}}
+ <figure>
+  {{< highlight js >}}
+launches:
+  aws-config-enable-config:
+    portfolio: "reinvent-cloud-engineering-governance"
+    product: "aws-config-enable-config"
+    version: "v1"
+    deploy_to:
+      tags:
+        - tag: "type:prod"
+          regions: "default_region"  
+  {{< / highlight >}}
+ </figure>
+
 
 - The main input field should look like this:
 
- {{% code file="every-day-use/200-provisioning-a-product/artefacts/orchestrator/manifest-all.yaml" language="js" %}}
+ <figure>
+  {{< highlight js >}}
+accounts:
+  - account_id: "<YOUR_ACCOUNT_ID_WITHOUT_HYPHENS>"
+    name: "puppet-account"
+    default_region: "eu-west-1"
+    regions_enabled:
+      - "eu-west-1"
+      - "eu-west-2"
+    tags:
+      - "type:prod"
+      - "partition:eu"
+launches:
+  aws-config-enable-config:
+    portfolio: "reinvent-cloud-engineering-governance"
+    product: "aws-config-enable-config"
+    version: "v1"
+    deploy_to:
+      tags:
+        - tag: "type:prod"
+          regions: "default_region"
+  {{< / highlight >}}
+ </figure>
 
 
 ### Committing the manifest file

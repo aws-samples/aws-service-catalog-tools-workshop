@@ -1,25 +1,25 @@
-- Name: "rds-instance"
-  Owner: "data-governance@example.com"
-  Description: "A compliant RDS Instance you can use that meets data governance standards"
-  Distributor: "cloud-engineering"
-  SupportDescription: "Speak to data-governance@example.com about exceptions and speak to cloud-engineering@example.com about implementation issues"
-  SupportEmail: "cloud-engineering@example.com"
-  SupportUrl: "https://wiki.example.com/cloud-engineering/data-governance/rds-instance"
-  Options:
-    ShouldCFNNag: True
-  Tags:
-    - Key: "type"
-      Value: "governance"
-    - Key: "creator"
-      Value: "cloud-engineering"
-  Versions:
-    - Name: "v1"
-      Description: "v1 of rds-instance"
-      Active: True
-      Source:
-        Provider: "CodeCommit"
-        Configuration:
-          RepositoryName: "rds-instance"
-          BranchName: "master"
+  - Name: "rds-instance"
+    Owner: "data-governance@example.com"
+    Description: "A compliant RDS Instance you can use that meets data governance standards"
+    Distributor: "cloud-engineering"
+    SupportDescription: "Speak to data-governance@example.com about exceptions and speak to cloud-engineering@example.com about implementation issues"
+    SupportEmail: "cloud-engineering@example.com"
+    SupportUrl: "https://wiki.example.com/cloud-engineering/data-governance/rds-instance"
+    Options:
+      ShouldCFNNag: True
+    Tags:
+      - Key: "type"
+        Value: "governance"
+      - Key: "creator"
+        Value: "cloud-engineering"
+    Versions:
+      - Name: "v1"
+        Description: "v1 of rds-instance"
+        Active: True
+        Source:
+          Provider: "CodeCommit"
+          Configuration:
+            RepositoryName: "rds-instance"
+            BranchName: "master"
   Portfolios:
     - "cloud-engineering-self-service"

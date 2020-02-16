@@ -38,17 +38,61 @@ Here are the steps you need to follow to provision the control. In the previous 
 
 - Copy the following snippet into the main input field and replace account_id to show your account id on the highlighted line:
 
-{{% code file="40-reinvent2019/100-task-1/artefacts/orchestrator/manifest-accounts-only.yaml" language="js" highlight="2" %}}
+ <figure>
+  {{< highlight js "hl_lines=2" >}}
+accounts:
+  - account_id: "<YOUR_ACCOUNT_ID_WITHOUT_HYPHENS>"
+    name: "puppet-account"
+    default_region: "eu-west-1"
+    regions_enabled:
+      - "eu-west-1"
+      - "eu-west-2"
+    tags:
+      - "type:prod"
+      - "partition:eu"
+  {{< / highlight >}}
+ </figure>
+
+
 
 it should look like the following - __but with your account id__ on the highlighted line:
 
-{{% code file="40-reinvent2019/100-task-1/artefacts/orchestrator/manifest-accounts-only-sample.yaml" language="js" highlight="2" %}}
+ <figure>
+  {{< highlight js "hl_lines=2" >}}
+accounts:
+  - account_id: "012345678910"
+    name: "puppet-account"
+    default_region: "eu-west-1"
+    regions_enabled:
+      - "eu-west-1"
+      - "eu-west-2"
+    tags:
+      - "type:prod"
+      - "partition:eu"
+  {{< / highlight >}}
+ </figure>
 
 ### Provision the product _{{% param product_name %}}_ into a spoke account
  
 - Append the following snippet to the end of the main input field:
 
- {{% code file="40-reinvent2019/100-task-1/artefacts/orchestrator/manifest-launches-only.yaml" language="js" highlight="6-8" %}}
+  <figure>
+   {{< highlight js "hl_lines=6-8" >}}
+launches:
+  aws-config-desired-instance-types:
+    portfolio: "reinvent-cloud-engineering-governance"
+    product: "aws-config-desired-instance-types"
+    version: "v1"
+    parameters:
+      InstanceType:
+        default: "t2.medium, t2.large, t2.xlarge"
+    deploy_to:
+      tags:
+        - tag: "type:prod"
+          regions: "default_region"
+   {{< / highlight >}}
+  </figure>
+
  
 {{% notice note %}}
 The CloudFormation template we used to create this product had a parameter named _InstanceType_. The highlighted lines 
@@ -58,7 +102,32 @@ show how we can use the framework to set a value for that parameter when provisi
 
 - The main input field should look like this (remember to set your account_id):
 
- {{% code file="40-reinvent2019/100-task-1/artefacts/orchestrator/manifest-all.yaml" language="js" %}}
+ <figure>
+  {{< highlight js >}}
+accounts:
+  - account_id: "<YOUR_ACCOUNT_ID_WITHOUT_HYPHENS>"
+    name: "puppet-account"
+    default_region: "eu-west-1"
+    regions_enabled:
+      - "eu-west-1"
+      - "eu-west-2"
+    tags:
+      - "type:prod"
+      - "partition:eu"
+launches:
+  aws-config-desired-instance-types:
+    portfolio: "reinvent-cloud-engineering-governance"
+    product: "aws-config-desired-instance-types"
+    version: "v1"
+    parameters:
+      InstanceType:
+        default: "t2.medium, t2.large, t2.xlarge"
+    deploy_to:
+      tags:
+        - tag: "type:prod"
+          regions: "default_region"
+  {{< / highlight >}}
+ </figure>
 
 
 #### Committing the manifest file
@@ -89,17 +158,61 @@ The YAML file we created in the previous step told the framework to perform the 
 
 When you added the following:
 
-{{% code file="40-reinvent2019/100-task-1/artefacts/orchestrator/manifest-launches-only.yaml" language="js" highlight="11-12" %}}
+ <figure>
+  {{< highlight js "hl_lines=11-12" >}}
+launches:
+  aws-config-desired-instance-types:
+    portfolio: "reinvent-cloud-engineering-governance"
+    product: "aws-config-desired-instance-types"
+    version: "v1"
+    parameters:
+      InstanceType:
+        default: "t2.medium, t2.large, t2.xlarge"
+    deploy_to:
+      tags:
+        - tag: "type:prod"
+          regions: "default_region"
+  {{< / highlight >}}
+ </figure>
+
 
 You told the framework to provision _{{% param product_version %}}_ of _{{% param product_name %}}_ from the portfolio 
 _{{% param portfolio_name %}}_ into every account that has the tag _type:prod_
 
-{{% code file="40-reinvent2019/100-task-1/artefacts/orchestrator/manifest-accounts-only.yaml" language="js" highlight="8-11" %}}
+ <figure>
+  {{< highlight js "hl_lines=8-11" >}}
+accounts:
+  - account_id: "<YOUR_ACCOUNT_ID_WITHOUT_HYPHENS>"
+    name: "puppet-account"
+    default_region: "eu-west-1"
+    regions_enabled:
+      - "eu-west-1"
+      - "eu-west-2"
+    tags:
+      - "type:prod"
+      - "partition:eu"
+  {{< / highlight >}}
+ </figure>
+
 
 Within each account there will be a copy of the product provisioned into each of the regions listed in the 
 regions_enabled section:
 
-{{% code file="40-reinvent2019/100-task-1/artefacts/orchestrator/manifest-accounts-only.yaml" language="js" highlight="5-7" %}}
+ <figure>
+  {{< highlight js "hl_lines=5-7" >}}
+accounts:
+  - account_id: "<YOUR_ACCOUNT_ID_WITHOUT_HYPHENS>"
+    name: "puppet-account"
+    default_region: "eu-west-1"
+    regions_enabled:
+      - "eu-west-1"
+      - "eu-west-2"
+    tags:
+      - "type:prod"
+      - "partition:eu"
+  {{< / highlight >}}
+ </figure>
+
 
 For this workshop, we are creating and provisioning the product into the same AWS Account, but in a multi-account setup, you might choose to create a product in a "hub" account and provision it only to "spoke" accounts.
 

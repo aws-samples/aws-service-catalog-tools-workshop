@@ -34,8 +34,27 @@ Here is how we do this:
 
 - Copy the following snippet into the main input field:
 
- {{% code file="every-day-use/100-creating-a-product/artefacts/factory/create-the-product--product-only.yaml" language="js" %}}
- 
+  <figure>
+   {{< highlight js >}}
+Schema: factory-2019-04-01
+Products:
+  - Name: "aws-config-enable-config"
+    Owner: "data-governance@example.com"
+    Description: "Enables AWS Config"
+    Distributor: "cloud-engineering"
+    SupportDescription: "Speak to data-governance@example.com about exceptions and speak to cloud-engineering@example.com about implementation issues"
+    SupportEmail: "cloud-engineering@example.com"
+    SupportUrl: "https://wiki.example.com/cloud-engineering/governance/aws-config-enable-config"
+    Tags:
+      - Key: "type"
+        Value: "governance"
+      - Key: "creator"
+        Value: "cloud-engineering"
+      - Key: "cost-center"
+        Value: "cloud-engineering"
+   {{< / highlight >}}
+  </figure>
+
 - Set the *File name* to `portfolios/reinvent.yaml`
 
 - Set your *Author name*
@@ -74,11 +93,54 @@ We now need to tell the framework we want to create a new version of our product
 
 - Add the following to the end of the file (be careful with your indentation):
 
- {{% code file="every-day-use/100-creating-a-product/artefacts/factory/create-the-version--version-only.yaml" language="js" %}}
+  <figure>
+   {{< highlight js >}}
+    Versions:
+      - Name: "v1"
+        Description: "v1 of aws-config-enable-config"
+        Active: True
+        Source:
+          Provider: "CodeCommit"
+          Configuration:
+            RepositoryName: "aws-config-enable-config"
+            BranchName: "master"
+   {{< / highlight >}}
+  </figure>
+
  
 - Verify the contents of your file matches this:
 
- {{% code file="every-day-use/100-creating-a-product/artefacts/factory/create-the-version--product_and_version.yaml" language="js" %}}
+
+  <figure>
+   {{< highlight js >}}
+Schema: factory-2019-04-01
+Products:
+  - Name: "aws-config-enable-config"
+    Owner: "data-governance@example.com"
+    Description: "Enables AWS Config"
+    Distributor: "cloud-engineering"
+    SupportDescription: "Speak to data-governance@example.com about exceptions and speak to cloud-engineering@example.com about implementation issues"
+    SupportEmail: "cloud-engineering@example.com"
+    SupportUrl: "https://wiki.example.com/cloud-engineering/governance/aws-config-enable-config"
+    Tags:
+      - Key: "type"
+        Value: "governance"
+      - Key: "creator"
+        Value: "cloud-engineering"
+      - Key: "cost-center"
+        Value: "cloud-engineering"
+    Versions:
+      - Name: "v1"
+        Description: "v1 of aws-config-enable-config"
+        Active: True
+        Source:
+          Provider: "CodeCommit"
+          Configuration:
+            RepositoryName: "aws-config-enable-config"
+            BranchName: "master"
+   {{< / highlight >}}
+  </figure>
+
 
 Once you have updated the file fill in the fields for *Author name*, *Email address*, *Commit message* and hit *Commit changes*
 

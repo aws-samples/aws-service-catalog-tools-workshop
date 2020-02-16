@@ -48,11 +48,70 @@ Here are the steps you need to follow to "{{% param title %}}"
 
 - Add the following to the end of the file (be careful with your indentation):
 
-{{% code file="every-day-use/150-creating-a-portfolio/artefacts/factory/create-the-portfolio--portfolio_only.yaml" language="js" %}}
+ <figure>
+  {{< highlight js >}}
+Portfolios:
+  - DisplayName: "cloud-engineering-governance"
+    Description: "Portfolio containing the products needed to govern AWS accounts"
+    ProviderName: "cloud-engineering"
+    Associations:
+      - "arn:aws:iam::${AWS::AccountId}:role/TeamRole"
+    Tags:
+      - Key: "type"
+        Value: "governance"
+      - Key: "creator"
+        Value: "cloud-engineering"
+      - Key: "cost-center"
+        Value: "cloud-engineering"
+  {{< / highlight >}}
+ </figure>
+
  
 - Verify the contents of your file matches this:
 
-{{% code file="every-day-use/150-creating-a-portfolio/artefacts/factory/create-the-portfolio--portfolio_product_and_version.yaml" language="js" %}}
+ <figure>
+  {{< highlight js >}}
+Schema: factory-2019-04-01
+Products:
+  - Name: "aws-config-enable-config"
+    Owner: "data-governance@example.com"
+    Description: "Enables AWS Config"
+    Distributor: "cloud-engineering"
+    SupportDescription: "Speak to data-governance@example.com about exceptions and speak to cloud-engineering@example.com about implementation issues"
+    SupportEmail: "cloud-engineering@example.com"
+    SupportUrl: 'https://wiki.example.com/cloud-engineering/governance/aws-config-enable-config'
+    Tags:
+      - Key: "type"
+        Value: "governance"
+      - Key: "creator"
+        Value: "cloud-engineering"
+      - Key: "cost-center"
+        Value: "cloud-engineering"
+    Versions:
+      - Name: "v1"
+        Description: "v1 of aws-config-enable-config"
+        Active: True
+        Source:
+          Provider: "CodeCommit"
+          Configuration:
+            RepositoryName: "aws-config-enable-config"
+            BranchName: "master"
+Portfolios:
+  - DisplayName: "cloud-engineering-governance"
+    Description: "Portfolio containing the products needed to govern AWS accounts"
+    ProviderName: "cloud-engineering"
+    Associations:
+      - "arn:aws:iam::${AWS::AccountId}:role/TeamRole"
+    Tags:
+      - Key: "type"
+        Value: "governance"
+      - Key: "creator"
+        Value: "cloud-engineering"
+      - Key: "cost-center"
+        Value: "cloud-engineering"
+  {{< / highlight >}}
+ </figure>
+
 
 Once you have updated the file fill in the fields for *Author name*, *Email address*, *Commit message* and hit 
 *Commit changes*

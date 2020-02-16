@@ -1,20 +1,14 @@
 +++
-title = "Selecting a factory account"
-weight = 100
+title = "Portfolio Management"
+weight = 200
 
 +++
 ---
 
 ## What are we going to do?
 
-This article will help you choose which AWS account is most suitable to use for the Service Catalog Tools
-
-
-## Recommended background reading?
-
-It is recommended that you have read the following:
- 
-- <a href="{{< relref "/design-considerations/multi-account-strategy" >}}">Multi Account Strategy</a>
+This article will help you understand AWS Service Catalog portfolios, what they are, how they are used by the service and
+how you can best make use of them whilst using the Service Catalog Tools.
 
 ## Selecting how many factory accounts to have
 

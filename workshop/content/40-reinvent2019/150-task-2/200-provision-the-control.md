@@ -33,13 +33,24 @@ Here are the steps you need to follow to "{{% param title %}}"
  
 - Append the following snippet to the end of the main input field:
 
- {{% code file="40-reinvent2019/150-task-2/artefacts/orchestrator/manifest-launches-only.yaml" language="js" %}}
+ <figure>
+  {{< highlight js >}}
+  aws-config-rds-storage-encrypted:
+    portfolio: "reinvent-cloud-engineering-governance"
+    product: "aws-config-rds-storage-encrypted"
+    version: "v1"
+    deploy_to:
+      tags:
+        - tag: "type:prod"
+          regions: "default_region"
+  {{< / highlight >}}
+ </figure>
+
 
 - The main input field should look like this (remember to set your account_id):
 
  <figure>
   {{< highlight js >}}
-
 accounts:
   - account_id: "<YOUR_ACCOUNT_ID_WITHOUT_HYPHENS>"
     name: "puppet-account"
@@ -71,7 +82,6 @@ launches:
       tags:
         - tag: "type:prod"
           regions: "default_region"
-
  {{< / highlight >}}
  </figure>
 
