@@ -31,8 +31,8 @@ accounts:
  
  The tags assigned to this account are *type:prod* and *partition:eu*.
 
-These tags are later used in the launch and spoke-portfolio-shares sections of the manifest file to choose which 
-accounts should have produces provisioned into them and which accounts should have portfolios shared with them:
+These tags are later used in the `launches` and `spoke-portfolio-shares` sections of the manifest file to choose which 
+AWS Accounts should have products provisioned into them and which AWS Accounts should have portfolios shared with them:
 
 <figure>
   {{< highlight js "hl_lines=8 16" >}}
@@ -56,23 +56,23 @@ spoke-local-portfolios:
   {{< / highlight >}}
  </figure>          
  
-The Service Catalog Tools looks through the launches and the spoke-local-portfolios.  For each launch and 
-spoke-local-portfolio found the framework will look through the tags specified in the tags section.  For each tag found
+The Service Catalog Tools looks through the `launches` and the `spoke-local-portfolios`.  For each `launch` and 
+`spoke-local-portfolio` found the framework will look through the tags specified in the tags section.  For each tag found
 the Service Catalog Tools will look through the list of accounts for an account with the same tag.  When the tag is found
 the product is provisioned if the tag was found in the launch section otherwise the portfolio specified will be shared if
-the tag was found in a spoke-local-portfolio.
+the tag was found in a `spoke-local-portfolio`.
 
 ## How you can make best use of them
 
 Having the right number of tags is essential.  Too few tags will cause you to have less flexibility but having too many
 may lead to a larger than needed manifest file or feeling overwhelmed.
 
-To begin with, we recommend using foundation and additional tags to align to the multi account strategy best practice:
+To begin with, we recommend using `foundation` and `additional` tags to align to the multi-account strategy best practice:
 
 - outype:foundational
 - outype:additional
 
-We then recommend describing which ou the accounts are in:
+We then recommend describing which OU the AWS Accounts are in:
 
 - ou:sharedservices
 - ou:networking
@@ -88,7 +88,6 @@ We then recommend the following tags based on the type of the workloads that exi
 
 We then recommend using a set of scope tags to help explain the governance needs of the accounts:
 
-- scope:gdpr
 - scope:pci
 - scope:pii
 - scope:hipaa
@@ -104,5 +103,5 @@ The tags you specify within the manifest are not applied to the accounts using A
 within the manifest file.  You can change them at any time and renaming them will not result in changes.
 
 {{% notice note %}}
-If you would like to share your tagging patterns raise a github issue to share
+If you would like to share your tagging patterns raise a [github issue](https://github.com/aws-samples/aws-service-catalog-tools-workshop/issues) to share
 {{% /notice %}}

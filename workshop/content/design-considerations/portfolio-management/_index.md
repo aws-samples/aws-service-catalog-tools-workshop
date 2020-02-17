@@ -14,12 +14,12 @@ how you can best make use of them whilst using the Service Catalog Tools.
 
 Within AWS Service Catalog a portfolio is a logical grouping of products.
 
-It makes sense to group products that provision similar or complimentary resources together but this may not give you 
+It makes sense to group products that provision similar or complimentary resources together, but this may not give you 
 the flexibility you need:
 
-- Within Service Catalog you set associations at the portfolio level so by default when you grant access to a portfolio 
+- Within AWS Service Catalog you set associations at the portfolio level so by default when you grant access to a portfolio 
 all products can be seen.
-- Within Service Catalog you can share portfolios with other accounts.  You cannot share just a single product form a 
+- Within AWS Service Catalog you can share portfolios with other accounts.  You cannot share just a single product from a 
 portfolio. 
 
 ## How you can make best use of them
@@ -43,7 +43,7 @@ This normally results in at least two portfolios per team:
   
 The teams we have worked with normally group the products into mandatory products and self service products.  For 
 example, if the team using Service Catalog Tools is a cloud engineering / CCOE team they would provision products like
-AWS Security Hub enabler into an account - this would be mandatory.  If the same team had some optional products like
+AWS Security Hub Enabler into an account - this would be mandatory.  If the same team had some optional products like
 Encrypted S3 Bucket then this would go into an optional portfolio.  This results in the following structure:
 
 - team a
@@ -62,5 +62,5 @@ following names work well:
 - compulsory
 
 {{% notice note %}}
-If you would like to share your portfolio names raise a github issue to share
+If you would like to share your portfolio names raise a [github issue](https://github.com/aws-samples/aws-service-catalog-tools-workshop/issues) to share
 {{% /notice %}}

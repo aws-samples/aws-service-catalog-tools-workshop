@@ -9,9 +9,7 @@ home_region = "eu-west-1"
 
 This tutorial will walk you through "{{% param title %}}" 
 
-We will assume you have:
- 
- - installed Service Catalog Puppet correctly
+We will assume you have installed Service Catalog Puppet correctly.
  
 We are going to perform the following steps:
 
