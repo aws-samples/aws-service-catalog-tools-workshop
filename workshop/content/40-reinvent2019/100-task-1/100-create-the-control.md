@@ -80,7 +80,7 @@ Portfolios:
   </figure>
 
  
-- Set the *File name* to `portfolios/reinvent.yaml`
+- Set the *File name* to *portfolios/reinvent.yaml*
 
 - Set your *Author name*
 - Set your *Email address*

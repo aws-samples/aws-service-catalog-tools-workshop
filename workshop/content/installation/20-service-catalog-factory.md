@@ -53,11 +53,11 @@ Service Catalog Factory can be installed via a pre-created AWS CloudFormation te
 
 {{< figure src="/how-tos/installation/acknowledge_create.png" height="250" width="900">}}
 
-- You will now see the stack status as `CREATE_IN_PROGRESS`
+- You will now see the stack status as *CREATE_IN_PROGRESS*
 
 {{< figure src="/how-tos/installation/create_in_progress_factory.png" height="200" width="900">}}
 
-- Wait for the stack status to go to `CREATE_COMPLETE`
+- Wait for the stack status to go to *CREATE_COMPLETE*
 
 {{< figure src="/how-tos/installation/create_complete_factory.png" height="200" width="900">}}
 

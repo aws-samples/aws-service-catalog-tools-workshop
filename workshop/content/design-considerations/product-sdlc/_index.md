@@ -33,8 +33,8 @@ We recommend you do not modify a product version that you have shared or provisi
 then you should change the version name.
 
 We have seen [gitflow](https://github.com/nvie/gitflow) working well with product development.  Whilst building a product the developer uses a develop
-branch in git.  That `develop` version gets provisioned into the canary account for testing.  Once the testing is complete
-the branch in merged to `master` and then rebranched from `master` to create a new version.  This worked well for teams
+branch in git.  That *develop* version gets provisioned into the canary account for testing.  Once the testing is complete
+the branch in merged to *master* and then rebranched from *master* to create a new version.  This worked well for teams
 where a single developer was building a single product.  If you have a product that is too big for a single developer
 then maybe the product needs to be split into smaller pieces.  There are features in the tools that allow you split
 products into smaller pieces.

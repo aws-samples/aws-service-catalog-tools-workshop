@@ -9,7 +9,7 @@ weight = 20
 
 You will need to bootstrap spoke accounts so you can share portfolios with them and provision products into them.
 
-Bootstrapping a spoke account will create an AWS CloudFormation stack in it.  This stack will contain the Puppet IAM Role (`PuppetRole`)
+Bootstrapping a spoke account will create an AWS CloudFormation stack in it.  This stack will contain the Puppet IAM Role (*PuppetRole*)
 which is needed by framework to perform actions in the spoke account.  
 
 ### Using the CLI
@@ -41,9 +41,9 @@ This will install the library and all of the dependencies.
 
 ### Restricting spokes
 
-The `PuppetRole` created by the framework has the *AdministratorAccess* IAM managed policy attached to it.  It is reccommended that you can define an [IAM Permission Boundary](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html) for the `PuppetRole` for any production applications of this framework.
+The *PuppetRole* created by the framework has the *AdministratorAccess* IAM managed policy attached to it.  It is reccommended that you can define an [IAM Permission Boundary](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html) for the *PuppetRole* for any production applications of this framework.
 
-The IAM Permission Boundary you provide should permit the `PuppetRole` to interact with AWS Service Catalog to accept shares, 
+The IAM Permission Boundary you provide should permit the *PuppetRole* to interact with AWS Service Catalog to accept shares, 
 manage portfolios and to add, provision and terminate products. In addition the IAM Role should allow the use of AWS SNS, 
 AWS EventBridge, AWS OpsCenter if you are making use of those features.  
 
@@ -92,7 +92,7 @@ _With a boundary_
 servicecatalog-puppet bootstrap-spoke-as <ACCOUNT_ID_OF_YOUR_PUPPET> <ARN_OF_ASSUMABLE_ROLE_IN_SPOKE> --permission-boundary arn:aws:iam::aws:policy/AdministratorAccess
 {{< / highlight >}}
 
-This will assume the role <ARN_OF_ASSUMABLE_ROLE_IN_SPOKE> before running `boostrap-spoke`.  This is useful if you do not 
+This will assume the role <ARN_OF_ASSUMABLE_ROLE_IN_SPOKE> before running *boostrap-spoke*.  This is useful if you do not 
 want to perform the AWS STS assume-role yourself. 
 
 Ensure you replace *&lt;ACCOUNT_ID_OF_YOUR_PUPPET&gt;* with the account id of the account you will be using as your 

@@ -19,11 +19,11 @@ In your AWS Account you can find an AWS CodeBuild project named: `servicecatalog
 
 - Before you select _Start Build_ again, expand the _Environment variables override_ section. 
 
-- Set `OU_OR_PATH` to the OU path or AWS Organizational Unit ID that contains all of the spokes you want to bootstrap
+- Set *OU_OR_PATH* to the OU path or AWS Organizational Unit ID that contains all of the spokes you want to bootstrap
 
-- Set `IAM_ROLE_NAME` to the name of the IAM Role that is assumable in the spoke accounts - this must be the same name in all accounts
+- Set *IAM_ROLE_NAME* to the name of the IAM Role that is assumable in the spoke accounts - this must be the same name in all accounts
 
-- Set `IAM_ROLE_ARNS` to the ARNs you want to assume before assuming before the `IAM_ROLE_NAME`.  This is should you need to assume a role with cross account permissions.
+- Set *IAM_ROLE_ARNS* to the ARNs you want to assume before assuming before the *IAM_ROLE_NAME*.  This is should you need to assume a role with cross account permissions.
 
 - Click _Start Build_ again
 
@@ -74,7 +74,7 @@ servicecatalog-puppet bootstrap-spokes-in-ou /dev DevOpsAdminRole --permission-b
 {{< / highlight >}}
 
 
-If your current role does not allow you to list accounts in the AWS Organization or allow you to `assume-role` across AWS accounts you can 
+If your current role does not allow you to list accounts in the AWS Organization or allow you to *assume-role* across AWS accounts you can 
 specify an ARN of an IAM role that does. When you do so the framework will assume that IAM Role first and then perform the 
 bootstrapping.
 
