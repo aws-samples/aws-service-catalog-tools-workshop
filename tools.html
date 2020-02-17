@@ -1014,7 +1014,7 @@
     <section id="footer">
       <left>
     <h5 class="copyright">&copy; 2018 Amazon Web Services, Inc. or its Affiliates. All rights reserved.</h5>
-    <h5 class="copyright">66ccfb2 - Sun Feb 16 21:18:24 UTC 2020</h5>
+    <h5 class="copyright">6ceb1bb - Mon Feb 17 17:11:43 UTC 2020</h5>
 </left>
 
     </section>
@@ -1089,15 +1089,14 @@
 
 	<hr>
 <h2 id="what-are-the-service-catalog-tools">What are the Service Catalog Tools</h2>
-<p>The Service Catalog Tools are a collection of open source tools authored to accelerate your use as AWS Service Catalog.</p>
+<p>The Service Catalog Tools are a collection of open source tools authored to accelerate your use as <a href="https://aws.amazon.com/servicecatalog/">AWS Service Catalog</a>.</p>
 <p>To find out more about the tools please read through the following:</p>
 <h2 id="what-is-service-catalog-factory">What is Service Catalog Factory</h2>
 <p><strong>Service Catalog Factory</strong> is part of a suite of open source Tools which have been built to compliment the AWS Service Catalog Service.</p>
-<p>Service Catalog Factory enables you to quickly build AWS CodePipelines that will create Service Catalog portfolios and populate them with products across multiple regions of your AWS Account.  You specify where in git the source code is for your products and you specify which regions you would like your products to exist and the framework will perform all of the undifferentiated heavy lifting for you.</p>
+<p>Service Catalog Factory enables you to quickly build AWS CodePipelines that will create AWS Service Catalog portfolios and populate them with products across multiple regions of your AWS Account.  You specify where in git the source code is for your products and you specify which regions you would like your products to exist and the framework will perform all of the undifferentiated heavy lifting for you.</p>
 <p>In addition, the pipelines the framework creates can perform functional tests and static
-analysis on your templates to help you with your SDLC.</p>
-<p>Service Catalog Factory allows you to define Service Catalog portfolios and products using YAML. You can version your products and specify where the source
-code for them can be found.</p>
+analysis on your templates to help you with your <a href="https://en.wikipedia.org/wiki/Systems_development_life_cycle">Software Development Life-Cycle</a> (SDLC).</p>
+<p>Service Catalog Factory allows you to define AWS Service Catalog portfolios and products using <a href="https://en.wikipedia.org/wiki/YAML">YAML</a>. You can version your products and specify where the source code for them can be found.</p>
 <p>You can configure the frameowrk to publish the portfolios, products and versions in each of your required AWS Regions.</p>
 <h2 id="high-level-architecture-diagram">High level architecture diagram</h2>
 <p>You build products in a central hub account using AWS CodePipeline and AWS CodeBuild, you then deploy them into AWS
@@ -1106,22 +1105,22 @@ Service Catalog in every enabled region of your hub account using AWS CodePipeli
     <img src="./sc_factory.png" width="700" height="600"/> 
 </figure>
 
-<p>User interaction with the Framework is via a YAML file. The YAML file contains the definition of the Portfolios and Products you want to manage. Updates to the YAML file in AWS CodeCommit triggers the AWS CodePipeline to manage execute the tasks required.</p>
+<p>User interaction with the framework is via a YAML file. The YAML file contains the definition of the portfolios and products you want to manage. Updates to the YAML file in AWS CodeCommit triggers the AWS CodePipeline to manage execute the tasks required.</p>
 <h2 id="what-is-service-catalog-puppet">What is Service Catalog Puppet</h2>
-<p><strong>Service Catalog Puppet</strong> is part of a suite of open source Tools which have been built to compliment the AWS Service Catalog Service.</p>
-<p>Service Catalog Puppet enables you to provision AWS Service Catalog Products into multiple Accounts and Regions across your AWS Estate.</p>
-<p>The Tool reduces the Operational burden of engineering a solution to support Portfolio Sharing and Product Launches across a large Enterprise and allows you to focus on writing the Products you require to support your Organizations needs.</p>
-<p>Service Catalog Puppet makes use of a number of AWS Services including AWS CodePipeline, AWS CodeBuild and AWS CloudFormation to manage this for you.</p>
+<p><strong>Service Catalog Puppet</strong> is part of a suite of open source tools which have been built to compliment the AWS Service Catalog Service.</p>
+<p>Service Catalog Puppet enables you to provision AWS Service Catalog Products into multiple AWS Accounts and Regions across your AWS estate.</p>
+<p>The Tool reduces the operational burden of engineering a solution to support portfolio sharing and product launches across an enterprise and allows you to focus on writing the products you require to support your organization's needs.</p>
+<p>Service Catalog Puppet makes use of a number of AWS services including AWS CodePipeline, AWS CodeBuild and AWS CloudFormation to manage this for you.</p>
 <h2 id="high-level-architecture-diagram-1">High-Level Architecture Diagram</h2>
 <p>You use an AWS CodeBuild project in a central <em>hub</em> account that provisions AWS
 Service Catalog Products into <em>spoke</em> accounts on your behalf.  The framework
-takes care of cross account sharing and cross region product replication for
+takes care of cross-account sharing and cross region product replication for
 you.</p>
 <figure>
     <img src="./sc_puppet.png" width="800" height="600"/> 
 </figure>
 
-<p>User interaction with the Framework is via a YAML file. The YAML file contains the definition of the AWS Accounts you want to manage (using tags), the portfolios you want to share and the Products you want to launch.</p>
+<p>User interaction with the framework is via a YAML file. The YAML file contains the definition of the AWS Accounts you want to manage (using tags), the portfolios you want to share and the products you want to launch.</p>
 
 
 

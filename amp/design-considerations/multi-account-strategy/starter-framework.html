@@ -1014,7 +1014,7 @@
     <section id="footer">
       <left>
     <h5 class="copyright">&copy; 2018 Amazon Web Services, Inc. or its Affiliates. All rights reserved.</h5>
-    <h5 class="copyright">66ccfb2 - Sun Feb 16 21:18:25 UTC 2020</h5>
+    <h5 class="copyright">6ceb1bb - Mon Feb 17 17:11:44 UTC 2020</h5>
 </left>
 
     </section>
@@ -1102,14 +1102,14 @@
 
 <hr>
 <h2 id="what-are-we-going-to-do">What are we going to do?</h2>
-<p>This article will explain the starter multi account framework</p>
+<p>This article will explain the starter multi-account framework</p>
 <h2 id="starter-framework">Starter framework</h2>
-<p>Within your AWS Organization there are two types of Organizational units - foundational and additional.</p>
+<p>Within your AWS Organization there are two types of Organizational Units (OUs) - foundational and additional.</p>
 <p>The Foundational OUs group the shared accounts needed to manage the your overall AWS environment. The areas
-considered Foundational are security, networking and security logs. Each of the Accounts within the Foundational OUs are
+considered foundational are security, networking and logs. Each of the AWS Accounts within the foundational OUs are
 grouped into production and non-production environments in order to clearly distinguish between production and non
 production policies.</p>
-<p>The Additional OUs group the accounts directly related to the software development lifecycle. This includes the accounts
+<p>The additional OUs group the accounts directly related to the software development lifecycle. This includes the accounts
 for development (development sandboxes, source code and continuous delivery) and the accounts for the staging process
 from earliest testing to production.</p>
 <figure>
@@ -1133,12 +1133,12 @@ account roles for making changes to resources in other accounts.  It would be us
 extremely limited access, almost never be used and have an alert on login.</p>
 <h5 id="tooling">Tooling</h5>
 <p>This account / these accounts would typically be owned by the security team and used to enable security operations. It
-would would be used for tools such as AWS Guard Duty, AWS Security Hub, AWS Config aggregation or Cloud Custodian.<br>
+would would be used for tools such as AWS Guard Duty, AWS Security Hub, AWS Config aggregation or <a href="https://github.com/cloud-custodian/cloud-custodian">Cloud Custodian</a>.<br>
 There could be more than one tooling account.</p>
 <h4 id="infrastructure">Infrastructure</h4>
 <p>Infrastructure is intended for shared infrastructure services such as networking and optionally any shared hosted
 infrastructure services.</p>
-<p>Accounts in other Foundational and Additional OUs should only depend on the infrastructure/prod OU accounts.</p>
+<p>Accounts in other foundational and additional OUs should only depend on the infrastructure/prod OU accounts.</p>
 <h5 id="shared-services">Shared Services</h5>
 <p>This account / these accounts would typically host the following shared services consumed by others:</p>
 <ul>
@@ -1157,7 +1157,7 @@ infrastructure services.</p>
 <li>Shared Services VPC</li>
 </ul>
 <h3 id="additional">Additional</h3>
-<p>The Additional OUs group the accounts directly related to the software development lifecycle. This includes the accounts
+<p>The Additional OUs group the accounts directly related to the SDLC. This includes the accounts
 for development (development sandboxes, source code and continuous delivery) and the accounts for the staging process
 from earliest testing to production.</p>
 

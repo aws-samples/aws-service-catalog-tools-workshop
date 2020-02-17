@@ -16,9 +16,9 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/design-considerations/multi-account-strategy/starter-framework.html</guid>
-      <description>What are we going to do? This article will explain the starter multi account framework
-Starter framework Within your AWS Organization there are two types of Organizational units - foundational and additional.
-The Foundational OUs group the shared accounts needed to manage the your overall AWS environment. The areas considered Foundational are security, networking and security logs. Each of the Accounts within the Foundational OUs are grouped into production and non-production environments in order to clearly distinguish between production and non production policies.</description>
+      <description>What are we going to do? This article will explain the starter multi-account framework
+Starter framework Within your AWS Organization there are two types of Organizational Units (OUs) - foundational and additional.
+The Foundational OUs group the shared accounts needed to manage the your overall AWS environment. The areas considered foundational are security, networking and logs. Each of the AWS Accounts within the foundational OUs are grouped into production and non-production environments in order to clearly distinguish between production and non production policies.</description>
     </item>
     
   </channel>

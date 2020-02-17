@@ -1014,7 +1014,7 @@
     <section id="footer">
       <left>
     <h5 class="copyright">&copy; 2018 Amazon Web Services, Inc. or its Affiliates. All rights reserved.</h5>
-    <h5 class="copyright">66ccfb2 - Sun Feb 16 21:18:25 UTC 2020</h5>
+    <h5 class="copyright">6ceb1bb - Mon Feb 17 17:11:44 UTC 2020</h5>
 </left>
 
     </section>
@@ -1112,8 +1112,8 @@ tags you should be thinking about using.</p>
 </code></pre></div>
  </figure>
 <p>The tags assigned to this account are <em>type:prod</em> and <em>partition:eu</em>.</p>
-<p>These tags are later used in the launch and spoke-portfolio-shares sections of the manifest file to choose which
-accounts should have produces provisioned into them and which accounts should have portfolios shared with them:</p>
+<p>These tags are later used in the <em>launches</em> and <em>spoke-portfolio-shares</em> sections of the manifest file to choose which
+AWS Accounts should have products provisioned into them and which AWS Accounts should have portfolios shared with them:</p>
 <figure>
   <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">launches</span><span style="color:#f92672">:</span>
   <span style="color:#a6e22e">aws</span><span style="color:#f92672">-</span><span style="color:#a6e22e">config</span><span style="color:#f92672">-</span><span style="color:#a6e22e">rds</span><span style="color:#f92672">-</span><span style="color:#a6e22e">storage</span><span style="color:#f92672">-</span><span style="color:#a6e22e">encrypted</span><span style="color:#f92672">:</span>
@@ -1135,20 +1135,20 @@ accounts should have produces provisioned into them and which accounts should ha
   
 </code></pre></div>
  </figure>          
-<p>The Service Catalog Tools looks through the launches and the spoke-local-portfolios.  For each launch and
-spoke-local-portfolio found the framework will look through the tags specified in the tags section.  For each tag found
+<p>The Service Catalog Tools looks through the <em>launches</em> and the <em>spoke-local-portfolios</em>.  For each <em>launch</em> and
+<em>spoke-local-portfolio</em> found the framework will look through the tags specified in the tags section.  For each tag found
 the Service Catalog Tools will look through the list of accounts for an account with the same tag.  When the tag is found
 the product is provisioned if the tag was found in the launch section otherwise the portfolio specified will be shared if
-the tag was found in a spoke-local-portfolio.</p>
+the tag was found in a <em>spoke-local-portfolio</em>.</p>
 <h2 id="how-you-can-make-best-use-of-them">How you can make best use of them</h2>
 <p>Having the right number of tags is essential.  Too few tags will cause you to have less flexibility but having too many
 may lead to a larger than needed manifest file or feeling overwhelmed.</p>
-<p>To begin with, we recommend using foundation and additional tags to align to the multi account strategy best practice:</p>
+<p>To begin with, we recommend using <em>foundation</em> and <em>additional</em> tags to align to the multi-account strategy best practice:</p>
 <ul>
 <li>outype:foundational</li>
 <li>outype:additional</li>
 </ul>
-<p>We then recommend describing which ou the accounts are in:</p>
+<p>We then recommend describing which OU the AWS Accounts are in:</p>
 <ul>
 <li>ou:sharedservices</li>
 <li>ou:networking</li>
@@ -1164,7 +1164,6 @@ may lead to a larger than needed manifest file or feeling overwhelmed.</p>
 </ul>
 <p>We then recommend using a set of scope tags to help explain the governance needs of the accounts:</p>
 <ul>
-<li>scope:gdpr</li>
 <li>scope:pci</li>
 <li>scope:pii</li>
 <li>scope:hipaa</li>
@@ -1179,7 +1178,7 @@ may lead to a larger than needed manifest file or feeling overwhelmed.</p>
 <p>The tags you specify within the manifest are not applied to the accounts using AWS Organizations - they only exist
 within the manifest file.  You can change them at any time and renaming them will not result in changes.</p>
 
-<div class="notices note" ><p>If you would like to share your tagging patterns raise a github issue to share</p>
+<div class="notices note" ><p>If you would like to share your tagging patterns raise a <a href="https://github.com/aws-samples/aws-service-catalog-tools-workshop/issues">github issue</a> to share</p>
 </div>
 
 

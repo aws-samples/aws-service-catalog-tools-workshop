@@ -16,10 +16,10 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/installation/20-service-catalog-factory.html</guid>
-      <description>Navigate to CloudFormation  Select the CloudFormation Service.    Confirm that you are in the eu-west-1 (Ireland) region.
- Create a new CloudFormation Stack  Select &amp;lsquo;Create Stack&amp;rsquo;    Select the pre-configured CloudFormation Template Service Catalog Factory can be installed via a pre-created CloudFormation template stored in S3 under the following URL:
+      <description>Navigate to CloudFormation  Select the AWS CloudFormation Service.    Confirm that you are in the eu-west-1 (Ireland) region.
+ Create a new CloudFormation Stack  Select &amp;lsquo;Create Stack&amp;rsquo;    Select the pre-configured CloudFormation Template Service Catalog Factory can be installed via a pre-created AWS CloudFormation template stored in Amazon S3 under the following URL:
  https://service-catalog-tools.s3.eu-west-2.amazonaws.com/factory/latest/servicecatalog-factory-initialiser.template.yaml
-  Paste this URL under &amp;lsquo;Amazon S3 URL&amp;rsquo;: Hit Next    Specify Stack Details  Specify the Stack details as follows:  Stack Name: factory-initialization-stack Enable Regions: eu-west-1   Hit Next    Create the CloudFormation Stack  Leave Defaults for &amp;lsquo;Configure Stack Options&amp;rsquo; Hit Next Acknowledge that the Stack will create an IAM Role Hit &amp;lsquo;Create Stack&amp;rsquo;     You will now see the Stack Status as &amp;lsquo;CREATE_IN_PROGRESS&amp;rsquo;     Wait for the Stack Status to go to CREATE_COMPLETE    What have we deployed?</description>
+  Paste this URL under &amp;lsquo;Amazon S3 URL&amp;rsquo;: Hit Next    Specify Stack Details  Specify the Stack details as follows:  Stack Name: factory-initialization-stack Enable Regions: eu-west-1   Hit Next    Create the CloudFormation Stack  Leave Defaults for &amp;lsquo;Configure Stack Options&amp;rsquo; Hit Next Acknowledge that the Stack will create an IAM Role Hit &amp;lsquo;Create Stack&amp;rsquo;     You will now see the stack status as CREATE_IN_PROGRESS     Wait for the stack status to go to CREATE_COMPLETE    What have we deployed?</description>
     </item>
     
   </channel>

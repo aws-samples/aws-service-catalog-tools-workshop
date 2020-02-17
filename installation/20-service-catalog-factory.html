@@ -1014,7 +1014,7 @@
     <section id="footer">
       <left>
     <h5 class="copyright">&copy; 2018 Amazon Web Services, Inc. or its Affiliates. All rights reserved.</h5>
-    <h5 class="copyright">66ccfb2 - Sun Feb 16 21:18:24 UTC 2020</h5>
+    <h5 class="copyright">6ceb1bb - Mon Feb 17 17:11:43 UTC 2020</h5>
 </left>
 
     </section>
@@ -1099,7 +1099,7 @@
 
 <h3 id="navigate-to-cloudformation">Navigate to CloudFormation</h3>
 <ul>
-<li>Select the CloudFormation Service.</li>
+<li>Select the AWS CloudFormation Service.</li>
 </ul>
 <figure>
     <img src="../how-tos/installation/select_cloudformation.png" width="900" height="450"/> 
@@ -1118,7 +1118,7 @@
 </figure>
 
 <h3 id="select-the-pre-configured-cloudformation-template">Select the pre-configured CloudFormation Template</h3>
-<p>Service Catalog Factory can be installed via a pre-created CloudFormation template stored in S3 under the following URL:</p>
+<p>Service Catalog Factory can be installed via a pre-created AWS CloudFormation template stored in Amazon S3 under the following URL:</p>
 <blockquote>
 <p><code>https://service-catalog-tools.s3.eu-west-2.amazonaws.com/factory/latest/servicecatalog-factory-initialiser.template.yaml</code></p>
 </blockquote>
@@ -1156,14 +1156,14 @@
 </figure>
 
 <ul>
-<li>You will now see the Stack Status as &lsquo;CREATE_IN_PROGRESS&rsquo;</li>
+<li>You will now see the stack status as <em>CREATE_IN_PROGRESS</em></li>
 </ul>
 <figure>
     <img src="../how-tos/installation/create_in_progress_factory.png" width="900" height="200"/> 
 </figure>
 
 <ul>
-<li>Wait for the Stack Status to go to CREATE_COMPLETE</li>
+<li>Wait for the stack status to go to <em>CREATE_COMPLETE</em></li>
 </ul>
 <figure>
     <img src="../how-tos/installation/create_complete_factory.png" width="900" height="200"/> 
@@ -1171,8 +1171,8 @@
 
 <h3 id="what-have-we-deployed">What have we deployed?</h3>
 <p>The following AWS resources have just been deployed into your AWS Account:</p>
-<h4 id="cloudformation-stacks">CloudFormation Stacks</h4>
-<p>The CodeBuild job created 2 CloudFormation Stacks which in turn deployed the resources listed below:</p>
+<h4 id="aws-cloudformation-stacks">AWS CloudFormation stacks</h4>
+<p>The AWS CodeBuild job created two AWS CloudFormation stacks which in turn deployed the resources listed below:</p>
 <blockquote>
 <p>URL: <a href="https://eu-west-1.console.aws.amazon.com/cloudformation/home?region=eu-west-1">https://eu-west-1.console.aws.amazon.com/cloudformation/home?region=eu-west-1</a></p>
 </blockquote>
@@ -1180,8 +1180,8 @@
     <img src="../how-tos/installation/factory_cloudformation.png" width="900" height="200"/> 
 </figure>
 
-<h4 id="factory-codecommit-repository">Factory CodeCommit Repository</h4>
-<p>This repository holds the Service Catalog Factory YAML files which are used to configure AWS Service Catalog Portfolios and Products.</p>
+<h4 id="factory-aws-codecommit-repository">Factory AWS CodeCommit repository</h4>
+<p>This repository holds the Service Catalog Factory YAML files which are used to configure AWS Service Catalog portfolios and products.</p>
 <blockquote>
 <p>URL: <a href="https://eu-west-1.console.aws.amazon.com/codesuite/codecommit/repositories?region=eu-west-1">https://eu-west-1.console.aws.amazon.com/codesuite/codecommit/repositories?region=eu-west-1</a></p>
 </blockquote>
@@ -1189,8 +1189,8 @@
     <img src="../how-tos/installation/factory_codecommit.png" width="900" height="200"/> 
 </figure>
 
-<h4 id="factory-codepipeline">Factory CodePipeline</h4>
-<p>This CodePipeline is triggered by updates to the CodeCommit Repository. When run, it will create the Service Catalog Portfolios and Products defined in the portfolio files.</p>
+<h4 id="factory-aws-codepipeline">Factory AWS CodePipeline</h4>
+<p>This AWS CodePipeline is triggered by updates to the AWS CodeCommit repository. When run, it will create the AWS Service Catalog portfolios and products defined in the portfolio files.</p>
 <blockquote>
 <p>URL: <a href="https://eu-west-1.console.aws.amazon.com/codesuite/codepipeline/pipelines?region=eu-west-1">https://eu-west-1.console.aws.amazon.com/codesuite/codepipeline/pipelines?region=eu-west-1</a></p>
 </blockquote>
@@ -1198,8 +1198,8 @@
     <img src="../how-tos/installation/factory_codepipeline.png" width="900" height="200"/> 
 </figure>
 
-<h4 id="s3-buckets">S3 Buckets</h4>
-<p>An S3 Bucket was created to store artifacts for Service Catalog factory.</p>
+<h4 id="amazon-s3-buckets">Amazon S3 Buckets</h4>
+<p>An Amazon S3 Bucket was created to store artifacts for Service Catalog factory.</p>
 <blockquote>
 <p>URL: <a href="https://s3.console.aws.amazon.com/s3/home?region=eu-west-1">https://s3.console.aws.amazon.com/s3/home?region=eu-west-1</a></p>
 </blockquote>

@@ -16,9 +16,9 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/installation/30-service-catalog-puppet/20-bootstrapping/10-puppet-account.html</guid>
-      <description>Navigate to CloudFormation  Select the CloudFormation Service.    Confirm you are in the eu-west-1 (Ireland) region.
- Create a new CloudFormation Stack  Select &amp;lsquo;Create Stack&amp;rsquo;    Note that the Factory Initialization Stack has been deployed. If yours has not refer to &amp;lsquo;Install Factory Process&amp;rsquo;
- Select the pre-configured CloudFormation Template Service Catalog Puppet can be installed via a pre-created CloudFormation Template stored in S3 under the following URL:</description>
+      <description>Navigate to CloudFormation  Select the AWS CloudFormation service.    Confirm you are in the eu-west-1 (Ireland) region.
+ Create a new AWS CloudFormation stack  Select &amp;lsquo;Create Stack&amp;rsquo;    Note that the Factory Initialization Stack has been deployed. If yours has not refer to &amp;lsquo;Install Factory Process&amp;rsquo;
+ Select the pre-configured AWS CloudFormation template Service Catalog Puppet can be installed via a pre-created AWS CloudFormation template stored in Amazon S3 under the following URL:</description>
     </item>
     
     <item>
@@ -27,9 +27,9 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/design-considerations/multi-account-strategy/starter-framework.html</guid>
-      <description>What are we going to do? This article will explain the starter multi account framework
-Starter framework Within your AWS Organization there are two types of Organizational units - foundational and additional.
-The Foundational OUs group the shared accounts needed to manage the your overall AWS environment. The areas considered Foundational are security, networking and security logs. Each of the Accounts within the Foundational OUs are grouped into production and non-production environments in order to clearly distinguish between production and non production policies.</description>
+      <description>What are we going to do? This article will explain the starter multi-account framework
+Starter framework Within your AWS Organization there are two types of Organizational Units (OUs) - foundational and additional.
+The Foundational OUs group the shared accounts needed to manage the your overall AWS environment. The areas considered foundational are security, networking and logs. Each of the AWS Accounts within the foundational OUs are grouped into production and non-production environments in order to clearly distinguish between production and non production policies.</description>
     </item>
     
     <item>
@@ -49,10 +49,10 @@ What are we going to do? When enabling AWS Organizations you will need to provis
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/installation/20-service-catalog-factory.html</guid>
-      <description>Navigate to CloudFormation  Select the CloudFormation Service.    Confirm that you are in the eu-west-1 (Ireland) region.
- Create a new CloudFormation Stack  Select &amp;lsquo;Create Stack&amp;rsquo;    Select the pre-configured CloudFormation Template Service Catalog Factory can be installed via a pre-created CloudFormation template stored in S3 under the following URL:
+      <description>Navigate to CloudFormation  Select the AWS CloudFormation Service.    Confirm that you are in the eu-west-1 (Ireland) region.
+ Create a new CloudFormation Stack  Select &amp;lsquo;Create Stack&amp;rsquo;    Select the pre-configured CloudFormation Template Service Catalog Factory can be installed via a pre-created AWS CloudFormation template stored in Amazon S3 under the following URL:
  https://service-catalog-tools.s3.eu-west-2.amazonaws.com/factory/latest/servicecatalog-factory-initialiser.template.yaml
-  Paste this URL under &amp;lsquo;Amazon S3 URL&amp;rsquo;: Hit Next    Specify Stack Details  Specify the Stack details as follows:  Stack Name: factory-initialization-stack Enable Regions: eu-west-1   Hit Next    Create the CloudFormation Stack  Leave Defaults for &amp;lsquo;Configure Stack Options&amp;rsquo; Hit Next Acknowledge that the Stack will create an IAM Role Hit &amp;lsquo;Create Stack&amp;rsquo;     You will now see the Stack Status as &amp;lsquo;CREATE_IN_PROGRESS&amp;rsquo;     Wait for the Stack Status to go to CREATE_COMPLETE    What have we deployed?</description>
+  Paste this URL under &amp;lsquo;Amazon S3 URL&amp;rsquo;: Hit Next    Specify Stack Details  Specify the Stack details as follows:  Stack Name: factory-initialization-stack Enable Regions: eu-west-1   Hit Next    Create the CloudFormation Stack  Leave Defaults for &amp;lsquo;Configure Stack Options&amp;rsquo; Hit Next Acknowledge that the Stack will create an IAM Role Hit &amp;lsquo;Create Stack&amp;rsquo;     You will now see the stack status as CREATE_IN_PROGRESS     Wait for the stack status to go to CREATE_COMPLETE    What have we deployed?</description>
     </item>
     
     <item>
@@ -62,7 +62,7 @@ What are we going to do? When enabling AWS Organizations you will need to provis
       
       <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/installation/30-service-catalog-puppet/20-bootstrapping/20-single-spokes.html</guid>
       <description>What are we going to do? You will need to bootstrap spoke accounts so you can share portfolios with them and provision products into them.
-Bootstrapping a spoke account will create an AWS CloudFormation stack in it. This stack will contain the PuppetRole which is needed by framework to perform actions in the spoke account.
+Bootstrapping a spoke account will create an AWS CloudFormation stack in it. This stack will contain the Puppet IAM Role (PuppetRole) which is needed by framework to perform actions in the spoke account.
 Using the CLI The following steps should be executed using the Service Catalog Puppet CLI which is an application built using Python 3.</description>
     </item>
     
@@ -73,10 +73,10 @@ Using the CLI The following steps should be executed using the Service Catalog P
       
       <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/installation/30-service-catalog-puppet/20-bootstrapping/30-groups-of-spokes.html</guid>
       <description>What are we going to do? If you have enabled AWS Organizations support you may want to bootstrap all spokes within an organizational unit.
-Following these steps will allow you to bootstrap all accounts that exist within the same organizational unit.
-Using the CodeBuild Project In your account you can find an AWS CodeBuild project named: servicecatalog-puppet-bootstrap-an-ou
-  Click start build
-  Before you select start build again, expand the Environment variables override section.</description>
+Following these steps will allow you to bootstrap all AWS Accounts that exist within the same organizational unit.
+Using the CodeBuild Project In your AWS Account you can find an AWS CodeBuild project named: servicecatalog-puppet-bootstrap-an-ou
+  Click Start Build
+  Before you select Start Build again, expand the Environment variables override section.</description>
     </item>
     
     <item>
@@ -140,9 +140,9 @@ Step by step guide Here are the steps you need to follow to &amp;ldquo;Provision
       
       <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/every-day-use/100-creating-a-product/300-add-the-source-code.html</guid>
       <description>What are we going to do? We are going to perform the following steps:
- Add the source code for the version of the product we have just created  Step by step guide Here are the steps you need to follow to &amp;ldquo;Add the source code&amp;rdquo;
+ Add the source code for the version of the AWS Service Catalog product we have just created  Step by step guide Here are the steps you need to follow to &amp;ldquo;Add the source code&amp;rdquo;
 Add the source code for your product When you configured your product version, you specified the following:
- Versions: - Name: &amp;#34;v1&amp;#34; Description: &amp;#34;v1 of aws-config-enable-config&amp;#34; Active: True Source: Provider: &amp;#34;CodeCommit&amp;#34; Configuration: RepositoryName: &amp;#34;aws-config-enable-config&amp;#34; BranchName: &amp;#34;master&amp;#34;   We now need to create the CodeCommit repository and add the AWS CloudFormation template we are going to use for our product into that repository.</description>
+ Versions: - Name: &amp;#34;v1&amp;#34; Description: &amp;#34;v1 of aws-config-enable-config&amp;#34; Active: True Source: Provider: &amp;#34;CodeCommit&amp;#34; Configuration: RepositoryName: &amp;#34;aws-config-enable-config&amp;#34; BranchName: &amp;#34;master&amp;#34;   We now need to create the AWS CodeCommit repository and add the AWS CloudFormation template we are going to use for our product into that repository.</description>
     </item>
     
     <item>
