@@ -7,20 +7,20 @@ weight = 10
 
 ## What are we going to do?
 
-This article will explain the starter multi account framework
+This article will explain the starter multi-account framework
 
 
 ## Starter framework
 
-Within your AWS Organization there are two types of Organizational units - foundational and additional.  
+Within your AWS Organization there are two types of Organizational Units (OUs) - foundational and additional.  
 
 The Foundational OUs group the shared accounts needed to manage the your overall AWS environment. The areas 
-considered Foundational are security, networking and security logs. Each of the Accounts within the Foundational OUs are 
+considered foundational are security, networking and logs. Each of the AWS Accounts within the foundational OUs are 
 grouped into production and non-production environments in order to clearly distinguish between production and non 
 production policies.
  
 
-The Additional OUs group the accounts directly related to the software development lifecycle. This includes the accounts
+The additional OUs group the accounts directly related to the software development lifecycle. This includes the accounts
 for development (development sandboxes, source code and continuous delivery) and the accounts for the staging process 
 from earliest testing to production.
 
@@ -51,7 +51,7 @@ extremely limited access, almost never be used and have an alert on login.
 
 ##### Tooling
 This account / these accounts would typically be owned by the security team and used to enable security operations. It 
-would would be used for tools such as AWS Guard Duty, AWS Security Hub, AWS Config aggregation or Cloud Custodian.  
+would would be used for tools such as AWS Guard Duty, AWS Security Hub, AWS Config aggregation or [Cloud Custodian](https://github.com/cloud-custodian/cloud-custodian).  
 There could be more than one tooling account.
 
 #### Infrastructure
@@ -59,7 +59,7 @@ There could be more than one tooling account.
 Infrastructure is intended for shared infrastructure services such as networking and optionally any shared hosted 
 infrastructure services.
 
-Accounts in other Foundational and Additional OUs should only depend on the infrastructure/prod OU accounts.
+Accounts in other foundational and additional OUs should only depend on the infrastructure/prod OU accounts.
 
 ##### Shared Services
 
@@ -79,7 +79,7 @@ This account / these accounts would typically host the following networking serv
 
 ### Additional
 
-The Additional OUs group the accounts directly related to the software development lifecycle. This includes the accounts
+The Additional OUs group the accounts directly related to the SDLC. This includes the accounts
 for development (development sandboxes, source code and continuous delivery) and the accounts for the staging process 
 from earliest testing to production.
 

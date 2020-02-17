@@ -9,7 +9,7 @@ home_region = "eu-west-1"
 
 We are going to perform the following steps:
 
-- Add the source code for the version of the product we have just created
+- Add the source code for the version of the AWS Service Catalog product we have just created
 
 
 ## Step by step guide
@@ -35,7 +35,7 @@ When you configured your product version, you specified the following:
  </figure>
 
 
-We now need to create the CodeCommit repository and add the AWS CloudFormation template we are going to use for our
+We now need to create the AWS CodeCommit repository and add the AWS CloudFormation template we are going to use for our
 product into that repository.
 
 - Navigate to {{% codecommit_link %}}

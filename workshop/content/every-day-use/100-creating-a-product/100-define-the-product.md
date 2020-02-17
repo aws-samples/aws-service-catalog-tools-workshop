@@ -70,7 +70,7 @@ Using a good / unique commit message will help you understand what is going on l
 
 {{< figure src="/how-tos/creating-and-provisioning-a-product/CommitChanges.png" >}}
 
-We have just told the framework there is a product named aws-config-enable-config.  This product has no versions and so 
+We have just told the framework there is a product named `aws-config-enable-config`.  This product has no versions and so 
 it will not appear in AWS Service Catalog yet.
 
 ### Create the version
@@ -161,11 +161,11 @@ successfully:
 {{< figure src="/how-tos/creating-and-provisioning-a-product/SuccessfulFactoryRun.png" >}}
 
 {{% notice tip %}}
-You should see your commit message on this screen, it will help you know which version of ServiceCatalogFactory repo
+You should see your commit message on this screen, it will help you know which version of *ServiceCatalogFactory* repo
 the pipeline is processing.
 {{% /notice %}}
 
 Now that your *ServiceCatalogFactory* pipeline has completed you can view the newly created pipeline: 
 {{% codepipeline_pipeline_link "aws-config-enable-config-v1-pipeline" %}}
 
-You can safely ignore aws-config-enable-config-v1-pipeline has failed.  For the pipeline to succeed, we need to add the source code for it to work which we will do in the next step.
+You can safely ignore the `aws-config-enable-config-v1-pipeline has failed` warning.  For the pipeline to succeed, we need to add the source code for it to work which we will do in the next step.
