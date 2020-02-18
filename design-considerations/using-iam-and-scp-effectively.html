@@ -15,7 +15,7 @@
     <link rel="shortcut icon" href="../images/favicon.png" type="image/png" />
 <link rel="icon" href="../images/favicon.png" type="image/png" />
 
-    <title>Creating a portfolio :: Service Catalog Tools Workshop</title>
+    <title>Using IAM and SCP Effectively :: Service Catalog Tools Workshop</title>
 
     
     <link href="../css/nucleus.css" rel="stylesheet">
@@ -43,7 +43,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/every-day-use/150-creating-a-portfolio.html">
+  <body class="" data-url="/design-considerations/using-iam-and-scp-effectively.html">
     <nav id="sidebar" class="">
 
 
@@ -112,7 +112,7 @@
   
     
     <li data-nav-id="/design-considerations.html" title="Design considerations" class="dd-item 
-        
+        parent
         
         
         ">
@@ -288,8 +288,8 @@
   
     
     <li data-nav-id="/design-considerations/using-iam-and-scp-effectively.html" title="Using IAM and SCP Effectively" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="../design-considerations/using-iam-and-scp-effectively.html">
@@ -518,7 +518,7 @@
   
     
     <li data-nav-id="/every-day-use.html" title="Every day use" class="dd-item 
-        parent
+        
         
         
         ">
@@ -617,8 +617,8 @@
   
     
     <li data-nav-id="/every-day-use/150-creating-a-portfolio.html" title="Creating a portfolio" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="../every-day-use/150-creating-a-portfolio.html">
@@ -1078,7 +1078,7 @@
             
           
           
-            <a href='../'>AWS Service Catalog Tools Intro Workshop</a> > <a href='../every-day-use.html'>Every day use</a> > Creating a portfolio
+            <a href='../'>AWS Service Catalog Tools Intro Workshop</a> > <a href='../design-considerations.html'>Design considerations</a> > Using IAM and SCP Effectively
           
         
           
@@ -1093,12 +1093,8 @@
 <nav id="TableOfContents">
   <ul>
     <li><a href="#what-are-we-going-to-do">What are we going to do?</a></li>
-    <li><a href="#step-by-step-guide">Step by step guide</a>
-      <ul>
-        <li><a href="#adding-the-portfolio-to-the-framework">Adding the portfolio to the framework</a></li>
-        <li><a href="#verify-the-portfolio-was-created">Verify the portfolio was created</a></li>
-      </ul>
-    </li>
+    <li><a href="#using-launch-constraints">Using launch constraints</a></li>
+    <li><a href="#resource-naming-conventions-along-with-conditional-iam-and-scp-statements">Resource naming conventions along with conditional IAM and SCP statements</a></li>
   </ul>
 </nav>
     </div>
@@ -1112,7 +1108,7 @@
         
         <div id="body-inner">
           
-            <h1>Creating a portfolio</h1>
+            <h1>Using IAM and SCP Effectively</h1>
           
 
         
@@ -1121,138 +1117,29 @@
 
 	<hr>
 <h2 id="what-are-we-going-to-do">What are we going to do?</h2>
-<p>This tutorial will walk you through &ldquo;Creating a portfolio&rdquo; with a spoke account.</p>
-<p>We will assume you have installed Service Catalog Puppet correctly.</p>
-<p>We are going to perform the following steps:</p>
-<ul>
-<li>create a portfolio file</li>
-<li>define a product</li>
-<li>define a version for our product</li>
-<li>commit our portfolio file</li>
-<li>verify the framework has create an AWS CodePipeline for our product version</li>
-</ul>
-<p>During this process you will check your progress by verifying what the framework is doing at each step.</p>
-<h2 id="step-by-step-guide">Step by step guide</h2>
-<p>Here are the steps you need to follow to &ldquo;Creating a portfolio&rdquo;</p>
-<h3 id="adding-the-portfolio-to-the-framework">Adding the portfolio to the framework</h3>
-<ul>
-<li>
-<p>Navigate to the  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codecommit/repositories/ServiceCatalogFactory/browse?region=eu-west-1' target='_blank'>ServiceCatalogFactory CodeCommit repository</a></p>
-</li>
-<li>
-<p>Click on <em>portfolios</em></p>
-</li>
-</ul>
-<figure>
-    <img src="../how-tos/creating-and-provisioning-a-product/ClickOnPortfolios.png"/> 
-</figure>
+<p>This article will explain how to restrict access to the AWS services for your users but still allow them to provision
+resources using <em>launch constraints</em>.</p>
+<p>It will also cover how you can use resource naming conventions and conditional IAM and SCP statements to ensure
+users cannot modify AWS Service Catalog products or the resources within them.</p>
+<h2 id="using-launch-constraints">Using launch constraints</h2>
+<p>You may wish to use a service catalog to provide a set of approved resource templates for consumption.  In this instance,
+you may want to allow consumers to provision a product that contains an AWS S3 bucket but you may not want to allow these
+users to provision AWS S3 buckets directly via the console or cli.</p>
+<p>To achieve this, you could use a launch constraint and an IAM role assumable by the AWS Service Catalog service.  The IAM
+role you provide as a launch constraint is used to provision the resources in the product.  The role provisioning the product
+must have the <em>iam:passrole</em> permission.</p>
+<h2 id="resource-naming-conventions-along-with-conditional-iam-and-scp-statements">Resource naming conventions along with conditional IAM and SCP statements</h2>
+<p>When writing your AWS Service Catalog products you can have a parameter to all of your products that is used as a prefix
+to the names of the resources provisioned.  You can then use IAM boundaries to prohibit the modifying of all resources
+that have the given prefix or you can use a conditional SCP to prohibit the modifying of all resources that have the given
+prefix except for the <em>PuppetRole</em>.</p>
+<p>Within the Service Catalog Tools all provisioning occurs using an IAM role <em>/servicecatalog-puppet/PuppetRole</em>.</p>
+<p>When writing your products you should use globally unique parameter names to avoid clashes.  If you use the same name for
+the resource prefixes you can set the parameter value once in the manifest file as a <a href="https://aws-service-catalog-puppet.readthedocs.io/en/latest/puppet/designing_your_manifest.html#parameters">global parameter</a>.</p>
 
-<ul>
-<li>Click on <em>reinvent.yaml</em></li>
-</ul>
-<figure>
-    <img src="../how-tos/creating-and-provisioning-a-product/ClickOnreinvent.png"/> 
-</figure>
-
-<ul>
-<li>Click <em>Edit</em></li>
-</ul>
-<figure>
-    <img src="../how-tos/creating-and-provisioning-a-product/ClickEdit.png"/> 
-</figure>
-
-<ul>
-<li>Add the following to the end of the file (be careful with your indentation):</li>
-</ul>
- <figure>
-  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">Portfolios</span><span style="color:#f92672">:</span>
-  <span style="color:#f92672">-</span> <span style="color:#a6e22e">DisplayName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering-governance&#34;</span>
-    <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Portfolio containing the products needed to govern AWS accounts&#34;</span>
-    <span style="color:#a6e22e">ProviderName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering&#34;</span>
-    <span style="color:#a6e22e">Associations</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;arn:aws:iam::${AWS::AccountId}:role/TeamRole&#34;</span>
-    <span style="color:#a6e22e">Tags</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;type&#34;</span>
-        <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;governance&#34;</span>
-      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;creator&#34;</span>
-        <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering&#34;</span>
-      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cost-center&#34;</span>
-        <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering&#34;</span>
-  
-</code></pre></div>
- </figure>
-<ul>
-<li>Verify the contents of your file matches this:</li>
-</ul>
- <figure>
-  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">Schema</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">factory</span><span style="color:#f92672">-</span><span style="color:#ae81ff">2019</span><span style="color:#f92672">-</span><span style="color:#ae81ff">04</span><span style="color:#f92672">-</span><span style="color:#ae81ff">01</span>
-<span style="color:#a6e22e">Products</span><span style="color:#f92672">:</span>
-  <span style="color:#f92672">-</span> <span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;aws-config-enable-config&#34;</span>
-    <span style="color:#a6e22e">Owner</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;data-governance@example.com&#34;</span>
-    <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Enables AWS Config&#34;</span>
-    <span style="color:#a6e22e">Distributor</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering&#34;</span>
-    <span style="color:#a6e22e">SupportDescription</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Speak to data-governance@example.com about exceptions and speak to cloud-engineering@example.com about implementation issues&#34;</span>
-    <span style="color:#a6e22e">SupportEmail</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering@example.com&#34;</span>
-    <span style="color:#a6e22e">SupportUrl</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;https://wiki.example.com/cloud-engineering/governance/aws-config-enable-config&#39;</span>
-    <span style="color:#a6e22e">Tags</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;type&#34;</span>
-        <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;governance&#34;</span>
-      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;creator&#34;</span>
-        <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering&#34;</span>
-      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cost-center&#34;</span>
-        <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering&#34;</span>
-    <span style="color:#a6e22e">Versions</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1&#34;</span>
-        <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1 of aws-config-enable-config&#34;</span>
-        <span style="color:#a6e22e">Active</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">True</span>
-        <span style="color:#a6e22e">Source</span><span style="color:#f92672">:</span>
-          <span style="color:#a6e22e">Provider</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;CodeCommit&#34;</span>
-          <span style="color:#a6e22e">Configuration</span><span style="color:#f92672">:</span>
-            <span style="color:#a6e22e">RepositoryName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;aws-config-enable-config&#34;</span>
-            <span style="color:#a6e22e">BranchName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;master&#34;</span>
-<span style="color:#a6e22e">Portfolios</span><span style="color:#f92672">:</span>
-  <span style="color:#f92672">-</span> <span style="color:#a6e22e">DisplayName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering-governance&#34;</span>
-    <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Portfolio containing the products needed to govern AWS accounts&#34;</span>
-    <span style="color:#a6e22e">ProviderName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering&#34;</span>
-    <span style="color:#a6e22e">Associations</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;arn:aws:iam::${AWS::AccountId}:role/TeamRole&#34;</span>
-    <span style="color:#a6e22e">Tags</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;type&#34;</span>
-        <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;governance&#34;</span>
-      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;creator&#34;</span>
-        <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering&#34;</span>
-      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cost-center&#34;</span>
-        <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering&#34;</span>
-  
-</code></pre></div>
- </figure>
-<p>Once you have updated the file fill in the fields for <em>Author name</em>, <em>Email address</em>, <em>Commit message</em> and hit
-<em>Commit changes</em></p>
-<figure>
-    <img src="../how-tos/creating-and-provisioning-a-product/CommitChanges.png"/> 
-</figure>
-
-
-<div class="notices tip" ><p>Using a good / unique commit message will help you understand what is going on later.</p>
+<div class="notices note" ><p>If you would like to share your experiences please raise a <a href="https://github.com/aws-samples/aws-service-catalog-tools-workshop/issues">github issue</a></p>
 </div>
 
-<h3 id="verify-the-portfolio-was-created">Verify the portfolio was created</h3>
-<p>Once you have made your changes the  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/servicecatalog-factory-pipeline/view?region=eu-west-1' target='_blank'>ServiceCatalogFactory Pipeline</a> should have run or if you were quick
-may still be running.  If it has not yet started feel free to the hit the <em>Release change</em> button.</p>
-<p>Once it has completed it should show the <em>Source</em> and <em>Build</em> stages in green to indicate they have completed
-successfully:</p>
-<figure>
-    <img src="../how-tos/creating-and-provisioning-a-product/SuccessfulFactoryRun.png"/> 
-</figure>
-
-<p>Once you have verified the pipeline has run you can go to  <a href='https://eu-west-1.console.aws.amazon.com/servicecatalog/console?region=eu-west-1#portfolios?' target='_blank'>Service Catalog portfolios</a> to view your
-portfolio.</p>
-<p>You should see the portfolio you just created listed:</p>
-<figure>
-    <img src="../how-tos/creating-and-provisioning-a-product/SeeYourPortfolio.png"/> 
-</figure>
-
-<p>You have now successfully created a portfolio!</p>
 
 
 
@@ -1439,39 +1326,6 @@ portfolio.</p>
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -1484,10 +1338,16 @@ portfolio.</p>
             
         
                     
+            
+        
+                    
                         
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1525,6 +1385,8 @@ portfolio.</p>
 
                     
                     
+                        
+                    
                     
 
                     
@@ -1543,62 +1405,6 @@ portfolio.</p>
                     
             
         
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
                     
                         
             
@@ -1645,6 +1451,28 @@ portfolio.</p>
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
             
         
                     
@@ -1653,6 +1481,33 @@ portfolio.</p>
             
                 
                     
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -1670,8 +1525,40 @@ portfolio.</p>
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
                         
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
                         
+            
+            
+                
                     
                 
                 
@@ -1938,10 +1825,10 @@ portfolio.</p>
 	 
 	 
 		
-			<a class="nav nav-prev" href="../every-day-use/100-creating-a-product/300-add-the-source-code.html" title="Add the source code"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="../design-considerations/product-sdlc.html" title="Product SDLC"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="../every-day-use/180-adding-a-product-to-a-portfolio.html" title="Adding a product to a portfolio" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="../installation.html" title="Installation" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
