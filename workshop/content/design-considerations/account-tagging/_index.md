@@ -92,6 +92,12 @@ We then recommend using a set of scope tags to help explain the governance needs
 - scope:pii
 - scope:hipaa
 
+We may also want to classify the account by the confidentiality of the data within it
+
+- confidentiality:highly
+- confidentiality:medium
+- confidentiality:public
+
 It may also be convenient to tag the accounts with the team or business unit:
 
 - team:ccoe 
