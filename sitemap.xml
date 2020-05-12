@@ -91,7 +91,15 @@
   </url>
   
   <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/every-day-use/110-deleting-a-product/100-disabling-the-product-versions.html</loc>
+  </url>
+  
+  <url>
     <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/design-considerations/selecting-a-factory-account.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/every-day-use/110-deleting-a-product.html</loc>
   </url>
   
   <url>
@@ -144,6 +152,10 @@
   
   <url>
     <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/150-task-2/300-create-the-product.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/every-day-use/110-deleting-a-product/300-deleting-the-product.html</loc>
   </url>
   
   <url>
