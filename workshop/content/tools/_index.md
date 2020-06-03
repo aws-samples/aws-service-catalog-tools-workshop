@@ -14,17 +14,16 @@ To find out more about the tools please read through the following:
 
 ## What is Service Catalog Factory
 
-**Service Catalog Factory** is part of a suite of open source Tools which have been built to compliment the AWS Service Catalog Service.
+**Service Catalog Factory** is part of a suite of open source tools which have been built to complement the AWS Service Catalog Service.
 
 Service Catalog Factory enables you to quickly build AWS CodePipelines that will create AWS Service Catalog portfolios and populate them with products across multiple regions of your AWS Account.  You specify where in git the source code is for your products and you specify which regions you would like your products to exist and the framework will perform all of the undifferentiated heavy lifting for you.  
 
-In addition, the pipelines the framework creates can perform functional tests and static
-analysis on your templates to help you with your [Software Development Life-Cycle](https://en.wikipedia.org/wiki/Systems_development_life_cycle) (SDLC).
+In addition, the pipelines that the framework creates can perform functional tests and static code analysis on your templates to help you with your [Software Development Life-Cycle](https://en.wikipedia.org/wiki/Systems_development_life_cycle) (SDLC).
 
 
 Service Catalog Factory allows you to define AWS Service Catalog portfolios and products using [YAML](https://en.wikipedia.org/wiki/YAML). You can version your products and specify where the source code for them can be found. 
 
-You can configure the frameowrk to publish the portfolios, products and versions in each of your required AWS Regions.
+You can configure the framework to publish the portfolios, products and versions in every AWS Region that you specify.
 
 ## High level architecture diagram
 
@@ -38,11 +37,11 @@ User interaction with the framework is via a YAML file. The YAML file contains t
 
 ## What is Service Catalog Puppet
 
-**Service Catalog Puppet** is part of a suite of open source tools which have been built to compliment the AWS Service Catalog Service.
+**Service Catalog Puppet** is part of a suite of open source tools which have been built to complement the AWS Service Catalog Service.
 
 Service Catalog Puppet enables you to provision AWS Service Catalog Products into multiple AWS Accounts and Regions across your AWS estate.
 
-The Tool reduces the operational burden of engineering a solution to support portfolio sharing and product launches across an enterprise and allows you to focus on writing the products you require to support your organization's needs.
+The tool reduces the operational burden of engineering a solution to support portfolio sharing and product launches across an enterprise and allows you to focus on writing the products you require to support your organization's needs.
 
 Service Catalog Puppet makes use of a number of AWS services including AWS CodePipeline, AWS CodeBuild and AWS CloudFormation to manage this for you.
 
