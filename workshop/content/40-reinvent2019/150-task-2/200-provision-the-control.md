@@ -57,7 +57,6 @@ accounts:
     default_region: "eu-west-1"
     regions_enabled:
       - "eu-west-1"
-      - "eu-west-2"
     tags:
       - "type:prod"
       - "partition:eu"
