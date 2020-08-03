@@ -79,7 +79,7 @@ puppet account.
 
 ### Bootstrapping a spoke as
 
-If you want to assume a role into the spoke from your currently active role you can use the following command:
+If you want to assume a role into the spoke from your currently active role you can use the following command.
 
 _Without a boundary_
 {{< highlight bash >}}
@@ -97,3 +97,54 @@ want to perform the AWS STS assume-role yourself.
 
 Ensure you replace *&lt;ACCOUNT_ID_OF_YOUR_PUPPET&gt;* with the account id of the account you will be using as your 
 puppet account.  
+
+You can use the following AWS CloudFormation template to provision the needed role:
+
+{{< highlight yaml >}}
+# Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: Apache-2.0
+
+AWSTemplateFormatVersion: '2010-09-09'
+Description: IAM Role needed to use AWS Organizations to assume role into member AWS Accounts.
+
+Parameters:
+  ServiceCatalogFactoryAccountId:
+    Description: The account you will be installing AWS Service Catalog Factory into
+    Type: String
+
+  OrganizationAccountAccessRole:
+    Description: Name of the IAM role used to access cross accounts for AWS Orgs usage
+    Default: OrganizationAccountAccessRole
+    Type: String
+
+Resources:
+  RoleForBootstrappingSpokes:
+    Type: AWS::IAM::Role
+    Description: |
+      IAM Role needed by the account vending machine so it can create and move accounts
+    Properties:
+      Path: /servicecatalog-puppet/
+      Policies:
+        - PolicyName: Organizations
+          PolicyDocument:
+            Version: 2012-10-17
+            Statement:
+              - Effect: Allow
+                Action:
+                  - sts:AssumeRole
+                Resource: !Sub "arn:aws:iam::*:role/${OrganizationAccountAccessRole}"
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: "Allow"
+            Principal:
+              AWS: !Sub "arn:aws:iam::${ServiceCatalogFactoryAccountId}:root"
+            Action:
+              - "sts:AssumeRole"
+
+Outputs:
+  RoleForBootstrappingSpokesArn:
+    Description: The ARN for your Assumable role in root account
+    Value: !GetAtt RoleForBootstrappingSpokes.Arn
+{{< / highlight >}}
+
