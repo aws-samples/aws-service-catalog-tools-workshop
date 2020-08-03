@@ -1139,7 +1139,7 @@
     <section id="footer">
       <left>
     <h5 class="copyright">&copy; 2018 Amazon Web Services, Inc. or its Affiliates. All rights reserved.</h5>
-    <h5 class="copyright">2945e84 - Fri Jul 17 21:06:24 UTC 2020</h5>
+    <h5 class="copyright">42164ff - Mon Aug 3 21:24:32 UTC 2020</h5>
 </left>
 
     </section>
@@ -1267,7 +1267,7 @@ will execute as a role in the spoke account.</p>
 <p>Ensure you replace <em>&lt;ACCOUNT_ID_OF_YOUR_PUPPET&gt;</em> with the AWS Account id of the AWS Account you will be using as your
 puppet account.</p>
 <h3 id="bootstrapping-a-spoke-as">Bootstrapping a spoke as</h3>
-<p>If you want to assume a role into the spoke from your currently active role you can use the following command:</p>
+<p>If you want to assume a role into the spoke from your currently active role you can use the following command.</p>
 <p><em>Without a boundary</em>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">servicecatalog-puppet bootstrap-spoke-as &lt;ACCOUNT_ID_OF_YOUR_PUPPET&gt; &lt;ARN_OF_ASSUMABLE_ROLE_IN_SPOKE&gt;</code></pre></div></p>
 <p><em>With a boundary</em>
@@ -1276,6 +1276,52 @@ puppet account.</p>
 want to perform the AWS STS assume-role yourself.</p>
 <p>Ensure you replace <em>&lt;ACCOUNT_ID_OF_YOUR_PUPPET&gt;</em> with the account id of the account you will be using as your
 puppet account.</p>
+<p>You can use the following AWS CloudFormation template to provision the needed role:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#75715e"># Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.</span>
+<span style="color:#75715e"># SPDX-License-Identifier: Apache-2.0</span>
+
+AWSTemplateFormatVersion: <span style="color:#e6db74">&#39;2010-09-09&#39;</span>
+Description: IAM Role needed to use AWS Organizations to assume role into member AWS Accounts.
+
+Parameters:
+  ServiceCatalogFactoryAccountId:
+    Description: The account you will be installing AWS Service Catalog Factory into
+    Type: String
+
+  OrganizationAccountAccessRole:
+    Description: Name of the IAM role used to access cross accounts for AWS Orgs usage
+    Default: OrganizationAccountAccessRole
+    Type: String
+
+Resources:
+  RoleForBootstrappingSpokes:
+    Type: AWS::IAM::Role
+    Description: <span style="color:#e6db74">|
+</span><span style="color:#e6db74">     </span><span style="color:#e6db74"> </span><span style="color:#e6db74">IAM Role needed by the account vending machine so it can create and move accounts</span>
+    Properties:
+      Path: /servicecatalog-puppet/
+      Policies:
+        - PolicyName: Organizations
+          PolicyDocument:
+            Version: <span style="color:#e6db74">2012-10-17</span>
+            Statement:
+              - Effect: Allow
+                Action:
+                  - sts:AssumeRole
+                Resource: !Sub <span style="color:#e6db74">&#34;arn:aws:iam::*:role/${OrganizationAccountAccessRole}&#34;</span>
+      AssumeRolePolicyDocument:
+        Version: <span style="color:#e6db74">&#34;2012-10-17&#34;</span>
+        Statement:
+          - Effect: <span style="color:#e6db74">&#34;Allow&#34;</span>
+            Principal:
+              AWS: !Sub <span style="color:#e6db74">&#34;arn:aws:iam::${ServiceCatalogFactoryAccountId}:root&#34;</span>
+            Action:
+              - <span style="color:#e6db74">&#34;sts:AssumeRole&#34;</span>
+
+Outputs:
+  RoleForBootstrappingSpokesArn:
+    Description: The ARN for your Assumable role in root account
+    Value: !GetAtt RoleForBootstrappingSpokes.Arn</code></pre></div>
 
 
 <footer class=" footline" >
