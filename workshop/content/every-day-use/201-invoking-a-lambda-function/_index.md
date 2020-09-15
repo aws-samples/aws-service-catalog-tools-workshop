@@ -71,7 +71,7 @@ During this process you will check your progress by verifying what the framework
 
 ### Creating the sample lambda function
 
-- You should save the following into a file named *sample-lambda.yaml*
+- You should save the following into a file named *create-iam-group-lambda.yaml*
 
   <figure>
    {{< highlight js >}}
@@ -171,7 +171,7 @@ Outputs:
   </figure>
 
 
-- You should then use AWS CloudFormation to create a stack named *sample-lambda* using the template you just created
+- You should then use AWS CloudFormation to create a stack named *create-iam-group-lambda* using the template you just created
 
 #### What did we just do?
 
@@ -225,6 +225,9 @@ lambda-invocations:
     function_name: create-iam-group
     qualifier: $LATEST
     invocation_type: Event
+    parameters:
+        RoleName:
+            default: "ToolsAccountAccessRole"
     invoke_for:
       tags:
         - regions: "default_region"
@@ -261,7 +264,7 @@ successfully:
 
 {{< figure src="/how-tos/creating-and-provisioning-a-product/SuccessfulPuppetRun.png" >}}
 
-Once you have verified the pipeline has run you can go to {{% iam_groups_link %}} to view the IAM Group created by the lambda invoke labeled *sc-tools-invoke-lambda-test-group*.
+Once you have verified the pipeline has run you can go to {{% iam_groups_link %}} in the spoke account to view the IAM Group created by the lambda invoke labeled *sc-tools-invoke-lambda-test-group*.
 
 {{< figure src="/how-tos/invoking-a-lambda-function/iam_groups.png" >}}
 
