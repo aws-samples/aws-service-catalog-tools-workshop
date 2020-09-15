@@ -198,6 +198,9 @@ lambda-invocations:
     function_name: create-iam-group
     qualifier: $LATEST
     invocation_type: Event
+    parameters:
+        RoleName:
+            default: "ToolsAccountAccessRole"
     invoke_for:
       tags:
         - regions: "default_region"
