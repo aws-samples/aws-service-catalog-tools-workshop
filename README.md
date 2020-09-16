@@ -9,12 +9,13 @@ This library is licensed under the Apache 2.0 License.
 
 ## How to build
 
-To build a local version for development:
+To build a local version for development using docker you will need to build the image and then run a container:
 ```shell
-make
+make docker-build docker
 ```
 
 To build the gh-pages:
 ```shell
 make gh-pages
 ```
+ 
