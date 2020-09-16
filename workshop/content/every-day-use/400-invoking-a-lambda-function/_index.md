@@ -1,13 +1,13 @@
 +++
 title = "Invoking a Lambda Function"
-weight = 201
+weight = 400
 home_region = "eu-west-1"
 +++
 ---
 
 ## What are we going to do?
 
-This tutorial will walk you through "{{% param title %}}" within a spoke account.
+This tutorial will walk you through how to use the "{{% param title %}}" feature.
 
 We will assume you have:
  
@@ -16,21 +16,39 @@ We will assume you have:
  - created a manifest file
  - added an account to the manifest file
  
-This guide also assumes that a role exists within the spoke account that can be assumed by the Service Catalog Tools account. The name of this role would need to be the same across all spoke accounts, and the role would need permissions appropriate for your lambda function(s) to be able to complete its tasks. For the purpose of this example, a CloudFormation template has been provided that you can use to create the role in the spoke account that will allow our sample lambda function to run successfully.
+ 
+We are going to perform the following steps to "{{% param title %}}":
+
+- set up an AWS IAM role in the spoke account
+- create a sample lambda function
+- add a lambda invoke to the manifest file
+
+During this process you will check your progress by verifying what the framework is doing at each step.
+
+## Step by step guide
+
+Here are the steps you need to follow to "{{% param title %}}"
+
+### Set Up an AWS IAM Role in the Spoke Account
+ 
+This guide assumes that a role exists within the spoke account that can be assumed by the Service Catalog Tools account. 
+The name of this role would need to be the same across all spoke accounts, and the role would need permissions 
+appropriate for your lambda function(s) to be able to complete its tasks. For the purpose of this example, a 
+CloudFormation template has been provided that you can use to create the role in the spoke account that will allow our 
+sample lambda function to run successfully.
 
  <figure>
   {{< highlight js >}}
 AWSTemplateFormatVersion: '2010-09-09'
-Description: IAM Role in spoke accounts that will have trust relationship with Service Catalog Tools account.
+Description: "IAM Role in spoke accounts that will have trust relationship with Service Catalog Tools account."
 
 Parameters:
   ToolsAccountId:
-    Description: The Service Catalog Tools Account ID
+    Description: "The Service Catalog Tools AWS Account ID"
     Type: String
-    Default: '<REPLACE_ME>'
 
   ToolsAccountAccessRole:
-    Description: Name of the IAM role that the master account will be allowed to assume
+    Description: "Name of the IAM role that the master account will be allowed to assume"
     Default: ToolsAccountAccessRole
     Type: String
 
@@ -60,16 +78,13 @@ Resources:
   {{< / highlight >}}
  </figure>
 
-## Step by step guide
-
-We are going to perform the following steps to "{{% param title %}}":
-
-- create a sample lambda function
-- add a lambda invoke to the manifest file
-
-During this process you will check your progress by verifying what the framework is doing at each step.
 
 ### Creating the sample lambda function
+
+We will need to create the AWS Lambda function that will be executed by the framework.  This function will exist in the 
+account where you have installed the Service Catalog Tools.  When you want to perform an action in a spoke account
+you should read the *account_id* and *region* properties from the event object.  If you want to use parameters they
+are available using the *parameters* attribute in the event object. 
 
 - You should save the following into a file named *create-iam-group-lambda.yaml*
 
@@ -171,7 +186,8 @@ Outputs:
   </figure>
 
 
-- You should then use AWS CloudFormation to create a stack named *create-iam-group-lambda* using the template you just created
+- You should then use AWS CloudFormation to create a stack named *create-iam-group-lambda* using the template you just 
+created
 
 #### What did we just do?
 
@@ -267,7 +283,8 @@ successfully:
 
 {{< figure src="/how-tos/creating-and-provisioning-a-product/SuccessfulPuppetRun.png" >}}
 
-Once you have verified the pipeline has run you can go to {{% iam_groups_link %}} in the spoke account to view the IAM Group created by the lambda invoke labeled *sc-tools-invoke-lambda-test-group*.
+Once you have verified the pipeline has run you can go to {{% iam_groups_link %}} in the spoke account to view the IAM 
+Group created by the lambda invoke labeled *sc-tools-invoke-lambda-test-group*.
 
 {{< figure src="/how-tos/invoking-a-lambda-function/iam_groups.png" >}}
 
