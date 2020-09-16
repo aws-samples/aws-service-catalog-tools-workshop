@@ -1,0 +1,2249 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-US" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta property="og:title" content="service-catalog-tools-workshop.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://service-catalog-tools-workshop.com/" />
+    <meta property="og:image" content="https://service-catalog-tools-workshop.com/Amazon_Web_Services_Logo.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="generator" content="Hugo 0.61.0" />
+    <meta name="description" content="AWS Service Catalog Tools Workshop">
+<meta name="author" content="Service Catalog Tools Team">
+
+    <link rel="shortcut icon" href="../../../images/favicon.png" type="image/png" />
+<link rel="icon" href="../../../images/favicon.png" type="image/png" />
+
+    <title>Provision the control :: Service Catalog Tools Workshop</title>
+
+    
+    <link href="../../../css/nucleus.css" rel="stylesheet">
+    <link href="../../../css/fontawesome-all.min.css" rel="stylesheet">
+    <link href="../../../css/hybrid.css" rel="stylesheet">
+    <link href="../../../css/featherlight.min.css" rel="stylesheet">
+    <link href="../../../css/perfect-scrollbar.min.css" rel="stylesheet">
+    <link href="../../../css/auto-complete.css" rel="stylesheet">
+    <link href="../../../css/theme.css" rel="stylesheet">
+    <link href="../../../css/hugo-theme.css" rel="stylesheet">
+    <link href="../../../css/jquery-ui.min.css" rel="stylesheet">
+    
+      <link href="../../../css/theme-mine.css" rel="stylesheet">
+    
+
+    <script src="../../../js/jquery-3.3.1.min.js"></script>
+    <script src="../../../js/jquery-ui-1.12.1.min.js"></script>
+
+
+    <style type="text/css">
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/workshops/40-reinvent2019/150-task-2/200-provision-the-control.html">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a href="../../../" title="Go home"><svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 30" width="60%" style="padding:20px 0px;"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#f90;fill-rule:evenodd;}</style></defs><title>AWS-Logo_White-Color</title><path class="cls-1" d="M14.09,10.85a4.7,4.7,0,0,0,.19,1.48,7.73,7.73,0,0,0,.54,1.19.77.77,0,0,1,.12.38.64.64,0,0,1-.32.49l-1,.7a.83.83,0,0,1-.44.15.69.69,0,0,1-.49-.23,3.8,3.8,0,0,1-.6-.77q-.25-.42-.51-1a6.14,6.14,0,0,1-4.89,2.3,4.54,4.54,0,0,1-3.32-1.19,4.27,4.27,0,0,1-1.22-3.2A4.28,4.28,0,0,1,3.61,7.75,6.06,6.06,0,0,1,7.69,6.46a12.47,12.47,0,0,1,1.76.13q.92.13,1.91.36V5.73a3.65,3.65,0,0,0-.79-2.66A3.81,3.81,0,0,0,7.86,2.3a7.71,7.71,0,0,0-1.79.22,12.78,12.78,0,0,0-1.79.57,4.55,4.55,0,0,1-.58.22l-.26,0q-.35,0-.35-.52V2a1.09,1.09,0,0,1,.12-.58,1.2,1.2,0,0,1,.47-.35A10.88,10.88,0,0,1,5.77.32,10.19,10.19,0,0,1,8.36,0a6,6,0,0,1,4.35,1.35,5.49,5.49,0,0,1,1.38,4.09ZM7.34,13.38a5.36,5.36,0,0,0,1.72-.31A3.63,3.63,0,0,0,10.63,12,2.62,2.62,0,0,0,11.19,11a5.63,5.63,0,0,0,.16-1.44v-.7a14.35,14.35,0,0,0-1.53-.28,12.37,12.37,0,0,0-1.56-.1,3.84,3.84,0,0,0-2.47.67A2.34,2.34,0,0,0,5,11a2.35,2.35,0,0,0,.61,1.76A2.4,2.4,0,0,0,7.34,13.38Zm13.35,1.8a1,1,0,0,1-.64-.16,1.3,1.3,0,0,1-.35-.65L15.81,1.51a3,3,0,0,1-.15-.67.36.36,0,0,1,.41-.41H17.7a1,1,0,0,1,.65.16,1.4,1.4,0,0,1,.33.65l2.79,11,2.59-11A1.17,1.17,0,0,1,24.39.6a1.1,1.1,0,0,1,.67-.16H26.4a1.1,1.1,0,0,1,.67.16,1.17,1.17,0,0,1,.32.65L30,12.39,32.88,1.25A1.39,1.39,0,0,1,33.22.6a1,1,0,0,1,.65-.16h1.54a.36.36,0,0,1,.41.41,1.36,1.36,0,0,1,0,.26,3.64,3.64,0,0,1-.12.41l-4,12.86a1.3,1.3,0,0,1-.35.65,1,1,0,0,1-.64.16H29.25a1,1,0,0,1-.67-.17,1.26,1.26,0,0,1-.32-.67L25.67,3.64,23.11,14.34a1.26,1.26,0,0,1-.32.67,1,1,0,0,1-.67.17Zm21.36.44a11.28,11.28,0,0,1-2.56-.29,7.44,7.44,0,0,1-1.92-.67,1,1,0,0,1-.61-.93v-.84q0-.52.38-.52a.9.9,0,0,1,.31.06l.42.17a8.77,8.77,0,0,0,1.83.58,9.78,9.78,0,0,0,2,.2,4.48,4.48,0,0,0,2.43-.55,1.76,1.76,0,0,0,.86-1.57,1.61,1.61,0,0,0-.45-1.16A4.29,4.29,0,0,0,43,9.22l-2.41-.76A5.15,5.15,0,0,1,38,6.78a3.94,3.94,0,0,1-.83-2.41,3.7,3.7,0,0,1,.45-1.85,4.47,4.47,0,0,1,1.19-1.37A5.27,5.27,0,0,1,40.51.29,7.4,7.4,0,0,1,42.6,0a8.87,8.87,0,0,1,1.12.07q.57.07,1.08.19t.95.26a4.27,4.27,0,0,1,.7.29,1.59,1.59,0,0,1,.49.41.94.94,0,0,1,.15.55v.79q0,.52-.38.52a1.76,1.76,0,0,1-.64-.2,7.74,7.74,0,0,0-3.2-.64,4.37,4.37,0,0,0-2.21.47,1.6,1.6,0,0,0-.79,1.48,1.58,1.58,0,0,0,.49,1.18,4.94,4.94,0,0,0,1.83.92L44.55,7a5.08,5.08,0,0,1,2.57,1.6A3.76,3.76,0,0,1,47.9,11a4.21,4.21,0,0,1-.44,1.93,4.4,4.4,0,0,1-1.21,1.47,5.43,5.43,0,0,1-1.85.93A8.25,8.25,0,0,1,42.05,15.62Z"></path><path class="cls-2" d="M45.19,23.81C39.72,27.85,31.78,30,25,30A36.64,36.64,0,0,1,.22,20.57c-.51-.46-.06-1.09.56-.74A49.78,49.78,0,0,0,25.53,26.4,49.23,49.23,0,0,0,44.4,22.53C45.32,22.14,46.1,23.14,45.19,23.81Z"></path><path class="cls-2" d="M47.47,21.21c-.7-.9-4.63-.42-6.39-.21-.53.06-.62-.4-.14-.74,3.13-2.2,8.27-1.57,8.86-.83s-.16,5.89-3.09,8.35c-.45.38-.88.18-.68-.32C46.69,25.8,48.17,22.11,47.47,21.21Z"></path></svg></a>
+
+    </div>
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/servicecatalog.html" title="AWS Service Catalog" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../../servicecatalog.html">
+          AWS Service Catalog
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/tools.html" title="Service Catalog Tools" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../../tools.html">
+          Service Catalog Tools
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/design-considerations.html" title="Design considerations" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../../design-considerations.html">
+          Design considerations
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/design-considerations/multi-account-strategy.html" title="Multi Account Strategy" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../../design-considerations/multi-account-strategy.html">
+          Multi Account Strategy
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/design-considerations/multi-account-strategy/starter-framework.html" title="Starter framework" class="dd-item ">
+        <a href="../../../design-considerations/multi-account-strategy/starter-framework.html">
+        Starter framework
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/design-considerations/selecting-a-factory-account.html" title="Selecting a factory account" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../../design-considerations/selecting-a-factory-account.html">
+          Selecting a factory account
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/design-considerations/portfolio-management.html" title="Portfolio Management" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../../design-considerations/portfolio-management.html">
+          Portfolio Management
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/design-considerations/account-tagging.html" title="Account Tagging" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../../design-considerations/account-tagging.html">
+          Account Tagging
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/design-considerations/product-sdlc.html" title="Product SDLC" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../../design-considerations/product-sdlc.html">
+          Product SDLC
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/design-considerations/using-iam-and-scp-effectively.html" title="Using IAM and SCP Effectively" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../../design-considerations/using-iam-and-scp-effectively.html">
+          Using IAM and SCP Effectively
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/installation.html" title="Installation" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../../installation.html">
+          Installation
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/installation/20-service-catalog-factory.html" title="Service Catalog Factory" class="dd-item ">
+        <a href="../../../installation/20-service-catalog-factory.html">
+        Service Catalog Factory
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/installation/30-service-catalog-puppet.html" title="Service Catalog Puppet" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../../installation/30-service-catalog-puppet.html">
+          Service Catalog Puppet
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/installation/30-service-catalog-puppet/10-using-aws-organizations.html" title="Using AWS Organizations" class="dd-item ">
+        <a href="../../../installation/30-service-catalog-puppet/10-using-aws-organizations.html">
+        Using AWS Organizations
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/installation/30-service-catalog-puppet/20-bootstrapping.html" title="Bootstrapping" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../../installation/30-service-catalog-puppet/20-bootstrapping.html">
+          Bootstrapping
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/installation/30-service-catalog-puppet/20-bootstrapping/10-puppet-account.html" title="Puppet account" class="dd-item ">
+        <a href="../../../installation/30-service-catalog-puppet/20-bootstrapping/10-puppet-account.html">
+        Puppet account
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/installation/30-service-catalog-puppet/20-bootstrapping/20-single-spokes.html" title="Single spokes" class="dd-item ">
+        <a href="../../../installation/30-service-catalog-puppet/20-bootstrapping/20-single-spokes.html">
+        Single spokes
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/installation/30-service-catalog-puppet/20-bootstrapping/30-groups-of-spokes.html" title="Groups of spokes" class="dd-item ">
+        <a href="../../../installation/30-service-catalog-puppet/20-bootstrapping/30-groups-of-spokes.html">
+        Groups of spokes
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/every-day-use.html" title="Every day use" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../../every-day-use.html">
+          Every day use
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/every-day-use/100-creating-a-product.html" title="Creating a product" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../../every-day-use/100-creating-a-product.html">
+          Creating a product
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/every-day-use/100-creating-a-product/100-define-the-product.html" title="Define the product" class="dd-item ">
+        <a href="../../../every-day-use/100-creating-a-product/100-define-the-product.html">
+        Define the product
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/every-day-use/100-creating-a-product/300-add-the-source-code.html" title="Add the source code" class="dd-item ">
+        <a href="../../../every-day-use/100-creating-a-product/300-add-the-source-code.html">
+        Add the source code
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/every-day-use/110-deleting-a-product.html" title="Deleting a product" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../../every-day-use/110-deleting-a-product.html">
+          Deleting a product
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/every-day-use/110-deleting-a-product/100-disabling-the-product-versions.html" title="Disabling the product versions" class="dd-item ">
+        <a href="../../../every-day-use/110-deleting-a-product/100-disabling-the-product-versions.html">
+        Disabling the product versions
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/every-day-use/110-deleting-a-product/300-deleting-the-product.html" title="Deleting the product" class="dd-item ">
+        <a href="../../../every-day-use/110-deleting-a-product/300-deleting-the-product.html">
+        Deleting the product
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/every-day-use/150-creating-a-portfolio.html" title="Creating a portfolio" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../../every-day-use/150-creating-a-portfolio.html">
+          Creating a portfolio
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/every-day-use/180-adding-a-product-to-a-portfolio.html" title="Adding a product to a portfolio" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../../every-day-use/180-adding-a-product-to-a-portfolio.html">
+          Adding a product to a portfolio
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/every-day-use/190-creating-a-manifest.html" title="Creating a manifest" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../../every-day-use/190-creating-a-manifest.html">
+          Creating a manifest
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/every-day-use/192-adding-an-account.html" title="Adding an account" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../../every-day-use/192-adding-an-account.html">
+          Adding an account
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/every-day-use/200-provisioning-a-product.html" title="Provisioning a product" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../../every-day-use/200-provisioning-a-product.html">
+          Provisioning a product
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/every-day-use/300-sharing-a-portfolio.html" title="Sharing a portfolio" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../../every-day-use/300-sharing-a-portfolio.html">
+          Sharing a portfolio
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/every-day-use/400-invoking-a-lambda-function.html" title="Invoking a Lambda Function" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../../every-day-use/400-invoking-a-lambda-function.html">
+          Invoking a Lambda Function
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/workshops.html" title="Workshops" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="../../../workshops.html">
+          Workshops
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/reinvent2019/" title="AWS re:Invent 2019" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="../../../reinvent2019/">
+          AWS re:Invent 2019
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/workshops/40-reinvent2019/30-prerequisites.html" title="Pre-requisites" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../../workshops/40-reinvent2019/30-prerequisites.html">
+          Pre-requisites
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/workshops/40-reinvent2019/30-prerequisites/100-running-yourself.html" title="Running yourself" class="dd-item ">
+        <a href="../../../workshops/40-reinvent2019/30-prerequisites/100-running-yourself.html">
+        Running yourself
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/workshops/40-reinvent2019/100-task-1.html" title="Budget &amp; Cost governance" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../../workshops/40-reinvent2019/100-task-1.html">
+          Budget &amp; Cost governance
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/workshops/40-reinvent2019/100-task-1/100-create-the-control.html" title="Create the control" class="dd-item ">
+        <a href="../../../workshops/40-reinvent2019/100-task-1/100-create-the-control.html">
+        Create the control
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/workshops/40-reinvent2019/100-task-1/200-provision-the-control.html" title="Provision the control" class="dd-item ">
+        <a href="../../../workshops/40-reinvent2019/100-task-1/200-provision-the-control.html">
+        Provision the control
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/workshops/40-reinvent2019/150-task-2.html" title="Data governance" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="../../../workshops/40-reinvent2019/150-task-2.html">
+          Data governance
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/workshops/40-reinvent2019/150-task-2/100-create-the-control.html" title="Create the control" class="dd-item ">
+        <a href="../../../workshops/40-reinvent2019/150-task-2/100-create-the-control.html">
+        Create the control
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/workshops/40-reinvent2019/150-task-2/200-provision-the-control.html" title="Provision the control" class="dd-item active">
+        <a href="../../../workshops/40-reinvent2019/150-task-2/200-provision-the-control.html">
+        Provision the control
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/workshops/40-reinvent2019/150-task-2/300-create-the-product.html" title="Create the product" class="dd-item ">
+        <a href="../../../workshops/40-reinvent2019/150-task-2/300-create-the-product.html">
+        Create the product
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/conclusion/" title="Conclusion" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../../conclusion/">
+          Conclusion
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/999-further_reading.html" title="Further Reading" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../../../999-further_reading.html">
+          Further Reading
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+
+    
+    <section id="footer">
+      <left>
+    <h5 class="copyright">&copy; 2018 Amazon Web Services, Inc. or its Affiliates. All rights reserved.</h5>
+    <h5 class="copyright">b4e6584 - Wed Sep 16 20:01:00 UTC 2020</h5>
+</left>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='../../../'>AWS Service Catalog Tools Intro Workshop</a> > <a href='../../../workshops.html'>Workshops</a> > <a href='../../../reinvent2019/'>AWS re:Invent 2019</a> > <a href='../../../workshops/40-reinvent2019/150-task-2.html'>Data governance</a> > Provision the control
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#what-are-we-going-to-do">What are we going to do?</a></li>
+    <li><a href="#step-by-step-guide">Step by step guide</a>
+      <ul>
+        <li><a href="#provision-the-product--aws-config-rds-storage-encrypted--into-a-spoke-account">Provision the product aws-config-rds-storage-encrypted into a spoke account</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+
+        
+        <div id="body-inner">
+          
+            <h1>Provision the control</h1>
+          
+
+        
+
+
+<hr>
+<h2 id="what-are-we-going-to-do">What are we going to do?</h2>
+<p>We are going to perform the following steps:</p>
+<ul>
+<li>provision the product <em>aws-config-rds-storage-encrypted</em></li>
+</ul>
+<p>For this workshop, we are using the same account as both the hub and spoke for simplicity; in a multi-account setup, products that are created in a hub account could be provisioned in multiple spoke accounts.</p>
+<h2 id="step-by-step-guide">Step by step guide</h2>
+<p>Here are the steps you need to follow to &ldquo;Provision the control&rdquo;</p>
+<h3 id="provision-the-product--aws-config-rds-storage-encrypted--into-a-spoke-account">Provision the product <em>aws-config-rds-storage-encrypted</em> into a spoke account</h3>
+<ul>
+<li>
+<p>Navigate to the  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codecommit/repositories/ServiceCatalogPuppet/browse?region=eu-west-1' target='_blank'>ServiceCatalogPuppet CodeCommit repository</a> again</p>
+</li>
+<li>
+<p>Click on <em>manifest.yaml</em></p>
+</li>
+<li>
+<p>Click <em>Edit</em></p>
+</li>
+<li>
+<p>Append the following snippet to the end of the main input field:</p>
+</li>
+</ul>
+ <figure>
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">  <span style="color:#a6e22e">aws</span><span style="color:#f92672">-</span><span style="color:#a6e22e">config</span><span style="color:#f92672">-</span><span style="color:#a6e22e">rds</span><span style="color:#f92672">-</span><span style="color:#a6e22e">storage</span><span style="color:#f92672">-</span><span style="color:#a6e22e">encrypted</span><span style="color:#f92672">:</span>
+    <span style="color:#a6e22e">portfolio</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;reinvent-cloud-engineering-governance&#34;</span>
+    <span style="color:#a6e22e">product</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;aws-config-rds-storage-encrypted&#34;</span>
+    <span style="color:#a6e22e">version</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1&#34;</span>
+    <span style="color:#a6e22e">deploy_to</span><span style="color:#f92672">:</span>
+      <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
+        <span style="color:#f92672">-</span> <span style="color:#a6e22e">tag</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;type:prod&#34;</span>
+          <span style="color:#a6e22e">regions</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;default_region&#34;</span>
+  
+</code></pre></div>
+ </figure>
+<ul>
+<li>The main input field should look like this (remember to set your account_id):</li>
+</ul>
+ <figure>
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">accounts</span><span style="color:#f92672">:</span>
+  <span style="color:#f92672">-</span> <span style="color:#a6e22e">account_id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;&lt;YOUR_ACCOUNT_ID_WITHOUT_HYPHENS&gt;&#34;</span>
+    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;puppet-account&#34;</span>
+    <span style="color:#a6e22e">default_region</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;eu-west-1&#34;</span>
+    <span style="color:#a6e22e">regions_enabled</span><span style="color:#f92672">:</span>
+      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;eu-west-1&#34;</span>
+    <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
+      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;type:prod&#34;</span>
+      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;partition:eu&#34;</span>
+
+<span style="color:#a6e22e">launches</span><span style="color:#f92672">:</span>
+  <span style="color:#a6e22e">aws</span><span style="color:#f92672">-</span><span style="color:#a6e22e">config</span><span style="color:#f92672">-</span><span style="color:#a6e22e">desired</span><span style="color:#f92672">-</span><span style="color:#a6e22e">instance</span><span style="color:#f92672">-</span><span style="color:#a6e22e">types</span><span style="color:#f92672">:</span>
+    <span style="color:#a6e22e">portfolio</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;reinvent-cloud-engineering-governance&#34;</span>
+    <span style="color:#a6e22e">product</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;aws-config-desired-instance-types&#34;</span>
+    <span style="color:#a6e22e">version</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1&#34;</span>
+    <span style="color:#a6e22e">parameters</span><span style="color:#f92672">:</span>
+      <span style="color:#a6e22e">InstanceType</span><span style="color:#f92672">:</span>
+        <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;t2.medium, t2.large, t2.xlarge&#34;</span>
+    <span style="color:#a6e22e">deploy_to</span><span style="color:#f92672">:</span>
+      <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
+        <span style="color:#f92672">-</span> <span style="color:#a6e22e">tag</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;type:prod&#34;</span>
+          <span style="color:#a6e22e">regions</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;default_region&#34;</span>
+  <span style="color:#a6e22e">aws</span><span style="color:#f92672">-</span><span style="color:#a6e22e">config</span><span style="color:#f92672">-</span><span style="color:#a6e22e">rds</span><span style="color:#f92672">-</span><span style="color:#a6e22e">storage</span><span style="color:#f92672">-</span><span style="color:#a6e22e">encrypted</span><span style="color:#f92672">:</span>
+    <span style="color:#a6e22e">portfolio</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;reinvent-cloud-engineering-governance&#34;</span>
+    <span style="color:#a6e22e">product</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;aws-config-rds-storage-encrypted&#34;</span>
+    <span style="color:#a6e22e">version</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1&#34;</span>
+    <span style="color:#a6e22e">deploy_to</span><span style="color:#f92672">:</span>
+      <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
+        <span style="color:#f92672">-</span> <span style="color:#a6e22e">tag</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;type:prod&#34;</span>
+          <span style="color:#a6e22e">regions</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;default_region&#34;</span>
+ 
+</code></pre></div>
+ </figure>
+<h4 id="aws-committing-the-manifest-file">AWS Committing the manifest file</h4>
+<p><em>Now that we have written the manifest file we are ready to commit it.</em></p>
+<ul>
+<li>Set your <em>Author name</em></li>
+<li>Set your <em>Email address</em></li>
+<li>Set your <em>Commit message</em></li>
+</ul>
+
+<div class="notices tip" ><p>Using a good / unique commit message will help you understand what is going on later.</p>
+</div>
+
+<ul>
+<li>Click the <em>Commit changes</em> button:</li>
+</ul>
+<figure>
+    <img src="../../../tasks/CommitChanges.png"/> 
+</figure>
+
+<h4 id="what-did-we-just-do">What did we just do?</h4>
+<p>The YAML we pasted in the previous step told the framework to perform the following actions:</p>
+<ul>
+<li>provision a product named <em>aws-config-rds-storage-encrypted</em> into each of the enabled regions of the account</li>
+</ul>
+<h4 id="verifying-the-provisioning">Verifying the provisioning</h4>
+<p>Once you have made your changes the  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/servicecatalog-puppet-pipeline/view?region=eu-west-1' target='_blank'>ServiceCatalogPuppet Pipeline</a> should have run. If you were quick
+may still be running.  If it has not yet started feel free to the hit the <em>Release change</em> button.</p>
+<p>Once it has completed it should show the <em>Source</em>, <em>Generate</em> and <em>Deploy</em> stages in green to indicate they have completed
+successfully:</p>
+<figure>
+    <img src="../../../tasks/SuccessfulPuppetRun.png"/> 
+</figure>
+
+
+<div class="notices note" ><p>If this is failing please raise your hand for some assistance</p>
+</div>
+
+<p>Once you have verified the pipeline has run you can go to  <a href='https://eu-west-1.console.aws.amazon.com/servicecatalog/home?region=eu-west-1#/stacks' target='_blank'>Service Catalog provisioned products</a> to view your
+provisioned product.  Please note when you arrive at the provisioned product page you will need to select account from
+the filter by drop down in the top right:</p>
+<figure>
+    <img src="../../../tasks/FilterByAccount.png"/> 
+</figure>
+
+
+<div class="notices note" ><p>If you cannot see your product please raise your hand for some assistance</p>
+</div>
+
+<p>You have now successfully provisioned a product</p>
+<h4 id="verify-the-aws-config-rule-is-enabled">Verify the AWS Config rule is enabled</h4>
+<p>To see the AWS Config rule enabled, navigate to  <a href='https://eu-west-1.console.aws.amazon.com/config/home?region=eu-west-1#/rules/view' target='_blank'>AWS Config rules</a>.  Once there you should see the
+following:</p>
+<figure>
+    <img src="../../../tasks/aws-config-rule-enabled.png"/> 
+</figure>
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="../../../workshops/40-reinvent2019/150-task-2/100-create-the-control.html" title="Create the control"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="../../../workshops/40-reinvent2019/150-task-2/300-create-the-product.html" title="Create the product" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="../../../js/clipboard.min.js"></script>
+    <script src="../../../js/perfect-scrollbar.min.js"></script>
+    <script src="../../../js/perfect-scrollbar.jquery.min.js"></script>
+    <script src="../../../js/jquery.sticky.js"></script>
+    <script src="../../../js/featherlight.min.js"></script>
+    <script src="../../../js/html5shiv-printshiv.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="../../../js/modernizr.custom-3.6.0.js"></script>
+    <script src="../../../js/learn.js"></script>
+    <script src="../../../js/hugo-learn.js"></script>
+
+    <link href="../../../mermaid/mermaid.css" rel="stylesheet" />
+    <script src="../../../mermaid/mermaid.js"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-166283550-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+  </body>
+</html>
+

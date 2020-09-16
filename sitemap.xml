@@ -51,7 +51,7 @@
   </url>
   
   <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/30-prerequisites.html</loc>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/workshops/40-reinvent2019/30-prerequisites.html</loc>
   </url>
   
   <url>
@@ -67,19 +67,23 @@
   </url>
   
   <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/workshops.html</loc>
+  </url>
+  
+  <url>
     <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/design-considerations/multi-account-strategy.html</loc>
   </url>
   
   <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/100-task-1.html</loc>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/workshops/40-reinvent2019/100-task-1.html</loc>
   </url>
   
   <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/100-task-1/100-create-the-control.html</loc>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/workshops/40-reinvent2019/100-task-1/100-create-the-control.html</loc>
   </url>
   
   <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/150-task-2/100-create-the-control.html</loc>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/workshops/40-reinvent2019/150-task-2/100-create-the-control.html</loc>
   </url>
   
   <url>
@@ -95,7 +99,7 @@
   </url>
   
   <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/30-prerequisites/100-running-yourself.html</loc>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/workshops/40-reinvent2019/30-prerequisites/100-running-yourself.html</loc>
   </url>
   
   <url>
@@ -111,7 +115,7 @@
   </url>
   
   <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/150-task-2.html</loc>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/workshops/40-reinvent2019/150-task-2.html</loc>
   </url>
   
   <url>
@@ -135,11 +139,11 @@
   </url>
   
   <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/100-task-1/200-provision-the-control.html</loc>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/workshops/40-reinvent2019/100-task-1/200-provision-the-control.html</loc>
   </url>
   
   <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/150-task-2/200-provision-the-control.html</loc>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/workshops/40-reinvent2019/150-task-2/200-provision-the-control.html</loc>
   </url>
   
   <url>
@@ -155,7 +159,7 @@
   </url>
   
   <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/150-task-2/300-create-the-product.html</loc>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/workshops/40-reinvent2019/150-task-2/300-create-the-product.html</loc>
   </url>
   
   <url>
