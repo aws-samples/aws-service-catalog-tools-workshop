@@ -147,6 +147,10 @@
   </url>
   
   <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/every-day-use/201-invoking-a-lambda-function.html</loc>
+  </url>
+  
+  <url>
     <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/design-considerations/account-tagging.html</loc>
   </url>
   

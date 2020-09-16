@@ -15,7 +15,7 @@
     <link rel="shortcut icon" href="../images/favicon.png" type="image/png" />
 <link rel="icon" href="../images/favicon.png" type="image/png" />
 
-    <title>Selecting a factory account :: Service Catalog Tools Workshop</title>
+    <title>Invoking a Lambda Function :: Service Catalog Tools Workshop</title>
 
     
     <link href="../css/nucleus.css" rel="stylesheet">
@@ -43,7 +43,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/design-considerations/selecting-a-factory-account.html">
+  <body class="" data-url="/every-day-use/201-invoking-a-lambda-function.html">
     <nav id="sidebar" class="">
 
 
@@ -112,7 +112,7 @@
   
     
     <li data-nav-id="/design-considerations.html" title="Design considerations" class="dd-item 
-        parent
+        
         
         
         ">
@@ -192,8 +192,8 @@
   
     
     <li data-nav-id="/design-considerations/selecting-a-factory-account.html" title="Selecting a factory account" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="../design-considerations/selecting-a-factory-account.html">
@@ -518,7 +518,7 @@
   
     
     <li data-nav-id="/every-day-use.html" title="Every day use" class="dd-item 
-        
+        parent
         
         
         ">
@@ -809,8 +809,8 @@
   
     
     <li data-nav-id="/every-day-use/201-invoking-a-lambda-function.html" title="Invoking a Lambda Function" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="../every-day-use/201-invoking-a-lambda-function.html">
@@ -1203,7 +1203,7 @@
             
           
           
-            <a href='../'>AWS Service Catalog Tools Intro Workshop</a> > <a href='../design-considerations.html'>Design considerations</a> > Selecting a factory account
+            <a href='../'>AWS Service Catalog Tools Intro Workshop</a> > <a href='../every-day-use.html'>Every day use</a> > Invoking a Lambda Function
           
         
           
@@ -1218,9 +1218,14 @@
 <nav id="TableOfContents">
   <ul>
     <li><a href="#what-are-we-going-to-do">What are we going to do?</a></li>
-    <li><a href="#recommended-background-reading">Recommended background reading?</a></li>
-    <li><a href="#selecting-how-many-factory-accounts-to-have">Selecting how many factory accounts to have</a></li>
-    <li><a href="#selecting-a-factory-account">Selecting a factory account</a></li>
+    <li><a href="#step-by-step-guide">Step by step guide</a>
+      <ul>
+        <li><a href="#creating-the-sample-lambda-function">Creating the sample lambda function</a></li>
+        <li><a href="#adding-a-lambda-invocation-to-the-manifest">Adding a lambda-invocation to the manifest</a></li>
+        <li><a href="#committing-the-manifest-file">Committing the manifest file</a></li>
+        <li><a href="#verifying-the-lambda-invocation">Verifying the lambda invocation</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
     </div>
@@ -1234,7 +1239,7 @@
         
         <div id="body-inner">
           
-            <h1>Selecting a factory account</h1>
+            <h1>Invoking a Lambda Function</h1>
           
 
         
@@ -1243,23 +1248,268 @@
 
 	<hr>
 <h2 id="what-are-we-going-to-do">What are we going to do?</h2>
-<p>This article will help you choose which AWS Account is most suitable to use for the Service Catalog Tools</p>
-<h2 id="recommended-background-reading">Recommended background reading?</h2>
-<p>It is recommended that you have read the following:</p>
+<p>This tutorial will walk you through &ldquo;Invoking a Lambda Function&rdquo; within a spoke account.</p>
+<p>We will assume you have:</p>
 <ul>
-<li><a href="../design-considerations/multi-account-strategy.html">Multi Account Strategy</a></li>
+<li>installed Service Catalog Puppet correctly</li>
+<li>bootstrapped a spoke</li>
+<li>created a manifest file</li>
+<li>added an account to the manifest file</li>
 </ul>
-<h2 id="selecting-how-many-factory-accounts-to-have">Selecting how many factory accounts to have</h2>
-<p>Currently, you can only have one factory per account but you can create multiple accounts each with their own factory.</p>
-<p>If multiple teams want to make use of Service Catalog Factory the recommendation is that each team have
-their own instance.  The teams are then independent and can operate without impacting each other.  There is also a
-separation of concerns if there is a security factory account and a networking factory account.  This reduces the blast
-radius should there be an incident and it enables easier billing calculations.</p>
-<p>If your organization has a central cloud engineering team who work to deliver the requirements of these other teams it
-may be easier to manage all of the provisioning from a single factory account.</p>
-<h2 id="selecting-a-factory-account">Selecting a factory account</h2>
-<p>In order to select a factory account we need to consider how you are going to be using the framework.</p>
-<p>A common use case is where teams use the framework to build and provision security controls into accounts that are operating their customer facing applications.</p>
+<p>This guide also assumes that a role exists within the spoke account that can be assumed by the Service Catalog Tools account. The name of this role would need to be the same across all spoke accounts, and the role would need permissions appropriate for your lambda function(s) to be able to complete its tasks. For the purpose of this example, a CloudFormation template has been provided that you can use to create the role in the spoke account that will allow our sample lambda function to run successfully.</p>
+ <figure>
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">AWSTemplateFormatVersion</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;2010-09-09&#39;</span>
+<span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">IAM</span> <span style="color:#a6e22e">Role</span> <span style="color:#66d9ef">in</span> <span style="color:#a6e22e">spoke</span> <span style="color:#a6e22e">accounts</span> <span style="color:#a6e22e">that</span> <span style="color:#a6e22e">will</span> <span style="color:#a6e22e">have</span> <span style="color:#a6e22e">trust</span> <span style="color:#a6e22e">relationship</span> <span style="color:#66d9ef">with</span> <span style="color:#a6e22e">Service</span> <span style="color:#a6e22e">Catalog</span> <span style="color:#a6e22e">Tools</span> <span style="color:#a6e22e">account</span>.
+
+<span style="color:#a6e22e">Parameters</span><span style="color:#f92672">:</span>
+  <span style="color:#a6e22e">ToolsAccountId</span><span style="color:#f92672">:</span>
+    <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">The</span> <span style="color:#a6e22e">Service</span> <span style="color:#a6e22e">Catalog</span> <span style="color:#a6e22e">Tools</span> <span style="color:#a6e22e">Account</span> <span style="color:#a6e22e">ID</span>
+    <span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> String
+    <span style="color:#a6e22e">Default</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&lt;REPLACE_ME&gt;&#39;</span>
+
+  <span style="color:#a6e22e">ToolsAccountAccessRole</span><span style="color:#f92672">:</span>
+    <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Name</span> <span style="color:#66d9ef">of</span> <span style="color:#a6e22e">the</span> <span style="color:#a6e22e">IAM</span> <span style="color:#a6e22e">role</span> <span style="color:#a6e22e">that</span> <span style="color:#a6e22e">the</span> <span style="color:#a6e22e">master</span> <span style="color:#a6e22e">account</span> <span style="color:#a6e22e">will</span> <span style="color:#a6e22e">be</span> <span style="color:#a6e22e">allowed</span> <span style="color:#a6e22e">to</span> <span style="color:#a6e22e">assume</span>
+    <span style="color:#a6e22e">Default</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">ToolsAccountAccessRole</span>
+    <span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> String
+
+<span style="color:#a6e22e">Resources</span><span style="color:#f92672">:</span>
+  <span style="color:#a6e22e">AssumedRole</span><span style="color:#f92672">:</span>
+    <span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">AWS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">IAM</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">Role</span>
+    <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#f92672">|</span>
+      <span style="color:#a6e22e">IAM</span> <span style="color:#a6e22e">Role</span> <span style="color:#a6e22e">needed</span> <span style="color:#a6e22e">by</span> <span style="color:#a6e22e">the</span> <span style="color:#a6e22e">Service</span> <span style="color:#a6e22e">Catalog</span> <span style="color:#a6e22e">Tools</span> <span style="color:#a6e22e">Account</span>
+    <span style="color:#a6e22e">Properties</span><span style="color:#f92672">:</span>
+      <span style="color:#a6e22e">RoleName</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Ref</span> <span style="color:#a6e22e">ToolsAccountAccessRole</span>
+      <span style="color:#a6e22e">Policies</span><span style="color:#f92672">:</span>
+        <span style="color:#f92672">-</span> <span style="color:#a6e22e">PolicyName</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">ToolsAccountTrustPolicy</span>
+          <span style="color:#a6e22e">PolicyDocument</span><span style="color:#f92672">:</span>
+            <span style="color:#a6e22e">Version</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2012</span><span style="color:#f92672">-</span><span style="color:#ae81ff">10</span><span style="color:#f92672">-</span><span style="color:#ae81ff">17</span>
+            <span style="color:#a6e22e">Statement</span><span style="color:#f92672">:</span>
+              <span style="color:#f92672">-</span> <span style="color:#a6e22e">Effect</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Allow</span>
+                <span style="color:#a6e22e">Action</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;iam:*&#39;</span>
+                <span style="color:#a6e22e">Resource</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;*&#39;</span>
+      <span style="color:#a6e22e">AssumeRolePolicyDocument</span><span style="color:#f92672">:</span>
+        <span style="color:#a6e22e">Version</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;2012-10-17&#34;</span>
+        <span style="color:#a6e22e">Statement</span><span style="color:#f92672">:</span>
+          <span style="color:#f92672">-</span> <span style="color:#a6e22e">Effect</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Allow&#34;</span>
+            <span style="color:#a6e22e">Principal</span><span style="color:#f92672">:</span>
+              <span style="color:#a6e22e">AWS</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Sub</span> <span style="color:#e6db74">&#34;arn:aws:iam::${ToolsAccountId}:root&#34;</span>
+            <span style="color:#a6e22e">Action</span><span style="color:#f92672">:</span>
+              <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;sts:AssumeRole&#34;</span>
+  
+</code></pre></div>
+ </figure>
+<h2 id="step-by-step-guide">Step by step guide</h2>
+<p>We are going to perform the following steps to &ldquo;Invoking a Lambda Function&rdquo;:</p>
+<ul>
+<li>create a sample lambda function</li>
+<li>add a lambda invoke to the manifest file</li>
+</ul>
+<p>During this process you will check your progress by verifying what the framework is doing at each step.</p>
+<h3 id="creating-the-sample-lambda-function">Creating the sample lambda function</h3>
+<ul>
+<li>
+<p>You should save the following into a file named <em>create-iam-group-lambda.yaml</em></p>
+<figure>
+ <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">AWSTemplateFormatVersion</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;2010-09-09&#39;</span>
+<span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Creates</span> <span style="color:#a6e22e">a</span> <span style="color:#a6e22e">Lambda</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">that</span> <span style="color:#a6e22e">assumes</span> <span style="color:#a6e22e">a</span> <span style="color:#a6e22e">role</span> <span style="color:#a6e22e">into</span> <span style="color:#a6e22e">spoke</span> <span style="color:#a6e22e">accounts</span> <span style="color:#a6e22e">and</span> <span style="color:#a6e22e">creates</span> <span style="color:#a6e22e">an</span> <span style="color:#a6e22e">IAM</span> <span style="color:#a6e22e">group</span>
+<span style="color:#a6e22e">Resources</span><span style="color:#f92672">:</span>
+  <span style="color:#a6e22e">rLambdaCustomRole</span><span style="color:#f92672">:</span>
+    <span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">AWS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">IAM</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">Role</span>
+    <span style="color:#a6e22e">Properties</span><span style="color:#f92672">:</span>
+      <span style="color:#a6e22e">AssumeRolePolicyDocument</span><span style="color:#f92672">:</span>
+        <span style="color:#a6e22e">Version</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2012</span><span style="color:#f92672">-</span><span style="color:#ae81ff">10</span><span style="color:#f92672">-</span><span style="color:#ae81ff">17</span>
+        <span style="color:#a6e22e">Statement</span><span style="color:#f92672">:</span>
+          <span style="color:#f92672">-</span>
+            <span style="color:#a6e22e">Effect</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Allow</span>
+            <span style="color:#a6e22e">Principal</span><span style="color:#f92672">:</span>
+              <span style="color:#a6e22e">Service</span><span style="color:#f92672">:</span> [<span style="color:#a6e22e">lambda</span>.<span style="color:#a6e22e">amazonaws</span>.<span style="color:#a6e22e">com</span>]
+            <span style="color:#a6e22e">Action</span><span style="color:#f92672">:</span>
+              <span style="color:#f92672">-</span> <span style="color:#a6e22e">sts</span><span style="color:#f92672">:</span><span style="color:#a6e22e">AssumeRole</span>
+      <span style="color:#a6e22e">ManagedPolicyArns</span><span style="color:#f92672">:</span>
+        <span style="color:#f92672">-</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Ref</span> <span style="color:#a6e22e">rLambdaCustomPolicy</span>
+
+  <span style="color:#a6e22e">rLambdaCustomPolicy</span><span style="color:#f92672">:</span>
+    <span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">AWS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">IAM</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">ManagedPolicy</span>
+    <span style="color:#a6e22e">Properties</span><span style="color:#f92672">:</span>
+      <span style="color:#a6e22e">PolicyDocument</span><span style="color:#f92672">:</span>
+        <span style="color:#a6e22e">Version</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2012</span><span style="color:#f92672">-</span><span style="color:#ae81ff">10</span><span style="color:#f92672">-</span><span style="color:#ae81ff">17</span>
+        <span style="color:#a6e22e">Statement</span><span style="color:#f92672">:</span>
+          <span style="color:#f92672">-</span>
+            <span style="color:#a6e22e">Effect</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Allow</span>
+            <span style="color:#a6e22e">Action</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#39;logs:CreateLogGroup&#39;</span>, <span style="color:#e6db74">&#39;logs:CreateLogStream&#39;</span>, <span style="color:#e6db74">&#39;logs:PutLogEvents&#39;</span>]
+            <span style="color:#a6e22e">Resource</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Sub</span> <span style="color:#a6e22e">arn</span><span style="color:#f92672">:</span><span style="color:#a6e22e">$</span>{<span style="color:#a6e22e">AWS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">Partition</span>}<span style="color:#f92672">:</span><span style="color:#a6e22e">logs</span><span style="color:#f92672">:</span><span style="color:#a6e22e">$</span>{<span style="color:#a6e22e">AWS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">Region</span>}<span style="color:#f92672">:</span><span style="color:#a6e22e">$</span>{<span style="color:#a6e22e">AWS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">AccountId</span>}<span style="color:#f92672">:</span><span style="color:#a6e22e">log</span><span style="color:#f92672">-</span><span style="color:#a6e22e">group</span><span style="color:#f92672">:</span><span style="color:#f92672">*</span>
+          <span style="color:#f92672">-</span>
+            <span style="color:#a6e22e">Effect</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Allow</span>
+            <span style="color:#a6e22e">Action</span><span style="color:#f92672">:</span>
+              <span style="color:#f92672">-</span> <span style="color:#a6e22e">sts</span><span style="color:#f92672">:</span><span style="color:#a6e22e">AssumeRole</span>
+            <span style="color:#a6e22e">Resource</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;*&#34;</span>
+
+  <span style="color:#a6e22e">rLambda</span><span style="color:#f92672">:</span>
+    <span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">AWS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">Lambda</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span>Function
+    <span style="color:#a6e22e">Properties</span><span style="color:#f92672">:</span>
+      <span style="color:#a6e22e">FunctionName</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">create</span><span style="color:#f92672">-</span><span style="color:#a6e22e">iam</span><span style="color:#f92672">-</span><span style="color:#a6e22e">group</span>
+      <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Creates</span> <span style="color:#a6e22e">an</span> <span style="color:#a6e22e">IAM</span> <span style="color:#a6e22e">Group</span>
+      <span style="color:#a6e22e">Handler</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">index</span>.<span style="color:#a6e22e">lambda_handler</span>
+      <span style="color:#a6e22e">Code</span><span style="color:#f92672">:</span>
+        <span style="color:#a6e22e">ZipFile</span><span style="color:#f92672">:</span> <span style="color:#f92672">|</span>
+          <span style="color:#66d9ef">import</span> <span style="color:#a6e22e">json</span>
+          <span style="color:#66d9ef">import</span> <span style="color:#a6e22e">boto3</span>
+
+
+          <span style="color:#960050;background-color:#1e0010">#</span> <span style="color:#a6e22e">Set</span> <span style="color:#a6e22e">up</span> <span style="color:#a6e22e">clients</span>
+          <span style="color:#a6e22e">sts</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">boto3</span>.<span style="color:#a6e22e">client</span>(<span style="color:#e6db74">&#39;sts&#39;</span>)
+
+          <span style="color:#a6e22e">def</span> <span style="color:#a6e22e">get_session_info</span>(<span style="color:#a6e22e">event</span>)<span style="color:#f92672">:</span>
+              <span style="color:#a6e22e">acct_id</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">event</span>[<span style="color:#e6db74">&#39;account_id&#39;</span>]
+              <span style="color:#a6e22e">role_name</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">event</span>[<span style="color:#e6db74">&#39;parameters&#39;</span>][<span style="color:#e6db74">&#39;RoleName&#39;</span>]
+              
+              <span style="color:#a6e22e">role_arn</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;arn:aws:iam::&#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">acct_id</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;:role/&#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">role_name</span>
+
+              <span style="color:#a6e22e">sts_response</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">sts</span>.<span style="color:#a6e22e">assume_role</span>(
+                  <span style="color:#a6e22e">RoleArn</span><span style="color:#f92672">=</span><span style="color:#a6e22e">role_arn</span>,
+                  <span style="color:#a6e22e">RoleSessionName</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;LambdaInvokeSession&#39;</span>
+              )
+              
+              <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">sts_response</span>
+
+          <span style="color:#a6e22e">def</span> <span style="color:#a6e22e">lambda_handler</span>(<span style="color:#a6e22e">event</span>, <span style="color:#a6e22e">context</span>)<span style="color:#f92672">:</span>
+              <span style="color:#a6e22e">print</span>(<span style="color:#a6e22e">event</span>)
+              
+              <span style="color:#a6e22e">sts_response</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">get_session_info</span>(<span style="color:#a6e22e">event</span>)
+              
+              <span style="color:#a6e22e">access_key</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">sts_response</span>[<span style="color:#e6db74">&#34;Credentials&#34;</span>][<span style="color:#e6db74">&#34;AccessKeyId&#34;</span>]
+              <span style="color:#a6e22e">secret_key</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">sts_response</span>[<span style="color:#e6db74">&#34;Credentials&#34;</span>][<span style="color:#e6db74">&#34;SecretAccessKey&#34;</span>]
+              <span style="color:#a6e22e">session_token</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">sts_response</span>[<span style="color:#e6db74">&#34;Credentials&#34;</span>][<span style="color:#e6db74">&#34;SessionToken&#34;</span>]
+              
+              <span style="color:#a6e22e">iam</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">boto3</span>.<span style="color:#a6e22e">client</span>(
+                  <span style="color:#e6db74">&#39;iam&#39;</span>,
+                  <span style="color:#a6e22e">aws_access_key_id</span><span style="color:#f92672">=</span><span style="color:#a6e22e">access_key</span>,
+                  <span style="color:#a6e22e">aws_secret_access_key</span><span style="color:#f92672">=</span><span style="color:#a6e22e">secret_key</span>,
+                  <span style="color:#a6e22e">aws_session_token</span><span style="color:#f92672">=</span><span style="color:#a6e22e">session_token</span>
+              )
+
+
+              <span style="color:#a6e22e">group_name</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;sc-tools-invoke-lambda-test-group&#39;</span>
+              <span style="color:#a6e22e">response</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">iam</span>.<span style="color:#a6e22e">create_group</span>(
+                  <span style="color:#a6e22e">GroupName</span><span style="color:#f92672">=</span><span style="color:#a6e22e">group_name</span>
+              )
+              
+      <span style="color:#a6e22e">MemorySize</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">128</span>
+      <span style="color:#a6e22e">Role</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">GetAtt</span> <span style="color:#a6e22e">rLambdaCustomRole</span>.<span style="color:#a6e22e">Arn</span>
+      <span style="color:#a6e22e">Runtime</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">python3</span><span style="color:#ae81ff">.7</span>
+      <span style="color:#a6e22e">Timeout</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">300</span>
+
+<span style="color:#a6e22e">Outputs</span><span style="color:#f92672">:</span>
+  <span style="color:#a6e22e">LambdaName</span><span style="color:#f92672">:</span>
+    <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Ref</span> <span style="color:#a6e22e">rLambda</span>
+   
+</code></pre></div>
+</figure>
+</li>
+<li>
+<p>You should then use AWS CloudFormation to create a stack named <em>create-iam-group-lambda</em> using the template you just created</p>
+</li>
+</ul>
+<h4 id="what-did-we-just-do">What did we just do?</h4>
+<ul>
+<li>You created an AWS CloudFormation template</li>
+<li>You used the template to create a stack in CloudFormation</li>
+<li>The stack created a sample lambda function</li>
+</ul>
+<h3 id="adding-a-lambda-invocation-to-the-manifest">Adding a lambda-invocation to the manifest</h3>
+<p><em>Now we are ready to add a lambda invocation to the manifest file.</em></p>
+<ul>
+<li>
+<p>Navigate to the  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codecommit/repositories/ServiceCatalogPuppet/browse?region=eu-west-1' target='_blank'>ServiceCatalogPuppet CodeCommit repository</a></p>
+</li>
+<li>
+<p>Click the <em>ServiceCatalogPuppet</em> repository</p>
+</li>
+<li>
+<p>Click the link to the <em>manifest.yaml</em> file, and then click the <em>Edit</em> button</p>
+</li>
+<li>
+<p>Add the following snippet to the end of the main input field:</p>
+</li>
+</ul>
+ <figure>
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">lambda</span><span style="color:#f92672">-</span><span style="color:#a6e22e">invocations</span><span style="color:#f92672">:</span>
+  <span style="color:#a6e22e">create</span><span style="color:#f92672">-</span><span style="color:#a6e22e">iam</span><span style="color:#f92672">-</span><span style="color:#a6e22e">group</span><span style="color:#f92672">:</span>
+    <span style="color:#a6e22e">function_name</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">create</span><span style="color:#f92672">-</span><span style="color:#a6e22e">iam</span><span style="color:#f92672">-</span><span style="color:#a6e22e">group</span>
+    <span style="color:#a6e22e">qualifier</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">$LATEST</span>
+    <span style="color:#a6e22e">invocation_type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Event</span>
+    <span style="color:#a6e22e">parameters</span><span style="color:#f92672">:</span>
+        <span style="color:#a6e22e">RoleName</span><span style="color:#f92672">:</span>
+            <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;ToolsAccountAccessRole&#34;</span>
+    <span style="color:#a6e22e">invoke_for</span><span style="color:#f92672">:</span>
+      <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
+        <span style="color:#f92672">-</span> <span style="color:#a6e22e">regions</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;default_region&#34;</span>
+          <span style="color:#a6e22e">tag</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;type:prod&#34;</span>
+  
+</code></pre></div>
+ </figure>
+<ul>
+<li>The main input field should look like this:</li>
+</ul>
+ <figure>
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">accounts</span><span style="color:#f92672">:</span>
+  <span style="color:#f92672">-</span> <span style="color:#a6e22e">account_id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;&lt;YOUR_SPOKE_ACCOUNT_ID_WITHOUT_HYPHENS&gt;&#34;</span>
+    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;puppet-account&#34;</span>
+    <span style="color:#a6e22e">default_region</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;eu-west-1&#34;</span>
+    <span style="color:#a6e22e">regions_enabled</span><span style="color:#f92672">:</span>
+      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;eu-west-1&#34;</span>
+      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;eu-west-2&#34;</span>
+    <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
+      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;type:prod&#34;</span>
+      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;partition:eu&#34;</span>
+<span style="color:#a6e22e">lambda</span><span style="color:#f92672">-</span><span style="color:#a6e22e">invocations</span><span style="color:#f92672">:</span>
+  <span style="color:#a6e22e">create</span><span style="color:#f92672">-</span><span style="color:#a6e22e">iam</span><span style="color:#f92672">-</span><span style="color:#a6e22e">group</span><span style="color:#f92672">:</span>
+    <span style="color:#a6e22e">function_name</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">create</span><span style="color:#f92672">-</span><span style="color:#a6e22e">iam</span><span style="color:#f92672">-</span><span style="color:#a6e22e">group</span>
+    <span style="color:#a6e22e">qualifier</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">$LATEST</span>
+    <span style="color:#a6e22e">invocation_type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Event</span>
+    <span style="color:#a6e22e">parameters</span><span style="color:#f92672">:</span>
+        <span style="color:#a6e22e">RoleName</span><span style="color:#f92672">:</span>
+            <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;ToolsAccountAccessRole&#34;</span>
+    <span style="color:#a6e22e">invoke_for</span><span style="color:#f92672">:</span>
+      <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
+        <span style="color:#f92672">-</span> <span style="color:#a6e22e">regions</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;default_region&#34;</span>
+          <span style="color:#a6e22e">tag</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;type:prod&#34;</span>
+  
+</code></pre></div>
+ </figure>
+<h3 id="committing-the-manifest-file">Committing the manifest file</h3>
+<p><em>Now that we have updated the manifest file we are ready to commit our changes.</em></p>
+<ul>
+<li>Set your <em>Author name</em></li>
+<li>Set your <em>Email address</em></li>
+<li>Set your <em>Commit message</em></li>
+</ul>
+
+<div class="notices tip" ><p>Using a good / unique commit message will help you understand what is going on later.</p>
+</div>
+
+<ul>
+<li>Click the <em>Commit changes</em> button:</li>
+</ul>
+<figure>
+    <img src="../how-tos/invoking-a-lambda-function/commit_changes.png"/> 
+</figure>
+
+<h3 id="verifying-the-lambda-invocation">Verifying the lambda invocation</h3>
+<p>Once you have made your changes the  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/servicecatalog-puppet-pipeline/view?region=eu-west-1' target='_blank'>ServiceCatalogPuppet Pipeline</a> should have run or if you were quick
+may still be running.  If it has not yet started feel free to the hit the <em>Release change</em> button.</p>
+<p>Once it has completed it should show the <em>Source</em> and <em>Build</em> stages in green to indicate they have completed
+successfully:</p>
+<figure>
+    <img src="../how-tos/creating-and-provisioning-a-product/SuccessfulPuppetRun.png"/> 
+</figure>
+
+<p>Once you have verified the pipeline has run you can go to  <a href='https://console.aws.amazon.com/iam/home?region=eu-west-1' target='_blank'>IAM Groups Console</a> in the spoke account to view the IAM Group created by the lambda invoke labeled <em>sc-tools-invoke-lambda-test-group</em>.</p>
+<figure>
+    <img src="../how-tos/invoking-a-lambda-function/iam_groups.png"/> 
+</figure>
+
+<p>You have now successfully invoked a lambda function!</p>
 
 
 
@@ -1382,7 +1632,6 @@ may be easier to manage all of the provisioning from a single factory account.</
             
                 
                     
-                    
                 
                 
 
@@ -1398,9 +1647,6 @@ may be easier to manage all of the provisioning from a single factory account.</
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -1792,6 +2038,7 @@ may be easier to manage all of the provisioning from a single factory account.</
             
                 
                     
+                    
                 
                 
 
@@ -1807,6 +2054,9 @@ may be easier to manage all of the provisioning from a single factory account.</
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -2025,10 +2275,10 @@ may be easier to manage all of the provisioning from a single factory account.</
 	 
 	 
 		
-			<a class="nav nav-prev" href="../design-considerations/multi-account-strategy/starter-framework.html" title="Starter framework"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="../every-day-use/200-provisioning-a-product.html" title="Provisioning a product"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="../design-considerations/portfolio-management.html" title="Portfolio Management" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="../every-day-use/300-sharing-a-portfolio.html" title="Sharing a portfolio" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
