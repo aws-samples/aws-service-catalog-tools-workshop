@@ -1,6 +1,9 @@
 +++
 title = "Pre-requisites"
 weight = 30
+aliases = [
+    "/40-reinvent2019/30-prerequisites.html",
+]
 +++
 
 In order to complete this workshop you will need:

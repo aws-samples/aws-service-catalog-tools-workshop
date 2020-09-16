@@ -1,6 +1,9 @@
 +++
 title = "Data governance"
 weight = 150
+aliases = [
+    "/40-reinvent2019/150-task-2.html",
+]
 +++
 ---
 

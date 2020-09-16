@@ -7,6 +7,9 @@ codecommit_repo_branch = "master"
 product_name = "aws-config-desired-instance-types"
 product_version = "v1"
 portfolio_name = "cloud-engineering-governance"
+aliases = [
+    "/40-reinvent2019/100-task-1/200-provision-the-control.html",
+]
 +++
 ---
 

@@ -7,6 +7,9 @@ codecommit_repo_branch = "master"
 product_name = "rds-instance"
 product_version = "v1"
 portfolio_name = "cloud-engineering-self-service"
+aliases = [
+    "/40-reinvent2019/150-task-2/300-create-the-product.html",
+]
 +++
 ---
 

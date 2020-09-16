@@ -1,6 +1,9 @@
 +++
 title = "Budget & Cost governance"
 weight = 100
+aliases = [
+    "/40-reinvent2019/100-task-1.html",
+]
 +++
 ---
 

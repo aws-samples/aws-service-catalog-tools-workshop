@@ -7,6 +7,9 @@ codecommit_repo_branch = "master"
 product_name = "aws-config-rds-storage-encrypted"
 product_version = "v1"
 portfolio_name = "cloud-engineering-governance"
+aliases = [
+    "/40-reinvent2019/150-task-2/200-provision-the-control.html",
+]
 +++
 ---
 

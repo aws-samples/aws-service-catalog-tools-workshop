@@ -2,6 +2,9 @@
 title = "Running yourself"
 weight = 100
 home_region = "eu-west-1"
+aliases = [
+    "/40-reinvent2019/30-prerequisites/100-running-yourself.html",
+]
 +++
 ---
 

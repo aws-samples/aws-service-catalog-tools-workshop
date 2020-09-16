@@ -3,6 +3,9 @@ title = "Conclusion"
 chapter = false
 weight = 200
 url = "conclusion"
+aliases = [
+    "/conclusion",
+]
 +++
 
  
