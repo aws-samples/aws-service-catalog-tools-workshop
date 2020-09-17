@@ -5,7 +5,6 @@ defaultContentLanguage = "en"
 title = "Service Catalog Tools Workshop"
 theme = "learn"
 uglyurls = true
-googleAnalytics = "UA-166283550-1"
 sectionPagesMenu = "main"
 pygmentsCodeFences = true
 pygmentsStyle = "monokai"
