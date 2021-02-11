@@ -6,4 +6,4 @@
           Provider: "CodeCommit"
           Configuration:
             RepositoryName: "aws-config-desired-instance-types"
-            BranchName: "master"
+            BranchName: "main"

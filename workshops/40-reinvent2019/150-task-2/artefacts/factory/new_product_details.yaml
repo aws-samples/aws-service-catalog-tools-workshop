@@ -20,6 +20,6 @@
           Provider: "CodeCommit"
           Configuration:
             RepositoryName: "aws-config-rds-storage-encrypted"
-            BranchName: "master"
+            BranchName: "main"
   Portfolios:
     - "cloud-engineering-governance"

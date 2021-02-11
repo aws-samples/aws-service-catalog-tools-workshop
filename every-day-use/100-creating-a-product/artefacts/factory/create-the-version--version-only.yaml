@@ -6,4 +6,4 @@
           Provider: "CodeCommit"
           Configuration:
             RepositoryName: "aws-config-enable-config"
-            BranchName: "master"
+            BranchName: "main"

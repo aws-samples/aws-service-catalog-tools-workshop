@@ -6,4 +6,4 @@
           Provider: "CodeCommit"
           Configuration:
             RepositoryName: "aws-config-rds-storage-encrypted"
-            BranchName: "master"
+            BranchName: "main"

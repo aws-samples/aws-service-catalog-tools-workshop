@@ -40,7 +40,7 @@ The Foundational OUs group the shared accounts needed to manage the your overall
       <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/installation/30-service-catalog-puppet/10-using-aws-organizations.html</guid>
       <description>You can use Service Catalog Puppet with AWS Organizations. Using it will allow you describe all accounts within an organizational unit as a single entity. This provides a quicker way to get started and an easier way of managing multiple account environments.
 If you do not want to use Organizations please skip to the next section of this how to.
-What are we going to do? When enabling AWS Organizations you will need to provision an IAM Role in the Organizations master account and you will then need to provide the ARN of that role to your puppet account as an AWS SSM parameter.</description>
+What are we going to do? When enabling AWS Organizations you will need to provision an IAM Role in the Organizations management account and you will then need to provide the ARN of that role to your puppet account as an AWS SSM parameter.</description>
     </item>
     
     <item>
@@ -164,7 +164,7 @@ Step by step guide Here are the steps you need to follow to &amp;ldquo;Provision
       <description>What are we going to do? We are going to perform the following steps:
  Add the source code for the version of the AWS Service Catalog product we have just created  Step by step guide Here are the steps you need to follow to &amp;ldquo;Add the source code&amp;rdquo;
 Add the source code for your product When you configured your product version, you specified the following:
- Versions: - Name: &amp;#34;v1&amp;#34; Description: &amp;#34;v1 of aws-config-enable-config&amp;#34; Active: True Source: Provider: &amp;#34;CodeCommit&amp;#34; Configuration: RepositoryName: &amp;#34;aws-config-enable-config&amp;#34; BranchName: &amp;#34;master&amp;#34;   We now need to create the AWS CodeCommit repository and add the AWS CloudFormation template we are going to use for our product into that repository.</description>
+ Versions: - Name: &amp;#34;v1&amp;#34; Description: &amp;#34;v1 of aws-config-enable-config&amp;#34; Active: True Source: Provider: &amp;#34;CodeCommit&amp;#34; Configuration: RepositoryName: &amp;#34;aws-config-enable-config&amp;#34; BranchName: &amp;#34;main&amp;#34;   We now need to create the AWS CodeCommit repository and add the AWS CloudFormation template we are going to use for our product into that repository.</description>
     </item>
     
     <item>

@@ -1226,7 +1226,7 @@
 </left>
 
 <left>
-    <h5 class="copyright">b507e00 - Mon Sep 28 20:59:57 UTC 2020</h5>
+    <h5 class="copyright">b6f7517 - Thu Feb 11 22:03:22 UTC 2021</h5>
 </left>
 
     </section>
@@ -1317,9 +1317,9 @@ organizational unit as a single entity.  This provides a quicker way to get star
 multiple account environments.</p>
 <p>If you do not want to use Organizations please skip to the next section of this how to.</p>
 <h2 id="what-are-we-going-to-do">What are we going to do?</h2>
-<p>When enabling AWS Organizations you will need to provision an IAM Role in the Organizations master account and you will
+<p>When enabling AWS Organizations you will need to provision an IAM Role in the Organizations management account and you will
 then need to provide the ARN of that role to your puppet account as an AWS SSM parameter.</p>
-<p>The role provisioned in the Organizations master account is only used to list accounts.  It has no write access.</p>
+<p>The role provisioned in the Organizations management account is only used to list accounts.  It has no write access.</p>
 <p>You can use the CLI to enable AWS Organizations.</p>
 <h3 id="using-the-cli">Using the CLI</h3>
 <p>The following steps should be executed using the Service Catalog Puppet CLI which is an application built using Python 3.</p>
@@ -1332,8 +1332,8 @@ source venv/bin/activate</code></pre></div>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pip install aws-service-catalog-puppet</code></pre></div>
 <p>This will install the library and all of the dependencies.</p>
 <h3 id="creating-the-puppetorgroleforexpands-iam-role">Creating the PuppetOrgRoleForExpands IAM Role</h3>
-<p>You should export the credentials for your organizations master account or set your profile so that AWS CLI commands
-will execute as a role in your organization master account.</p>
+<p>You should export the credentials for your organizations management account or set your profile so that AWS CLI commands
+will execute as a role in your organization management account.</p>
 <p>Then you can run the following command:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">servicecatalog-puppet bootstrap-org-master &lt;ACCOUNT_ID_OF_YOUR_PUPPET&gt;</code></pre></div>
 <p>Ensure you replace <em>&lt;ACCOUNT_ID_OF_YOUR_PUPPET&gt;</em> with the account id of the account you will be using as your
