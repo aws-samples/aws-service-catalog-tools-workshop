@@ -14,8 +14,8 @@ You will also need to decide which account to install these tools into.
 
 This account will contain the AWS CodePipelines and will need to be accessible to any accounts you would like to share 
 products with. If you want to use the optional AWS Organizations support you will need to install the tools into an 
-AWS Account where there is (or can be) a trust relationship with the AWS Organizations master account.  You can install these 
-tools into your master account but this is not recommended. 
+AWS Account where there is (or can be) a trust relationship with the AWS Organizations management account.  You can install these 
+tools into your management account but this is not recommended. 
 
 Both tools should be installed into the same region of the same account.
 

@@ -22,7 +22,7 @@ Products:
           Provider: "CodeCommit"
           Configuration:
             RepositoryName: "aws-config-desired-instance-types"
-            BranchName: "master"
+            BranchName: "main"
     Portfolios:
       - "cloud-engineering-governance"
 
@@ -48,7 +48,7 @@ Products:
           Provider: "CodeCommit"
           Configuration:
             RepositoryName: "aws-config-rds-storage-encrypted"
-            BranchName: "master"
+            BranchName: "main"
     Portfolios:
       - "cloud-engineering-governance"
 
@@ -74,7 +74,7 @@ Products:
           Provider: "CodeCommit"
           Configuration:
             RepositoryName: "rds-instance"
-            BranchName: "master"
+            BranchName: "main"
     Portfolios:
       - "cloud-engineering-self-service"
 

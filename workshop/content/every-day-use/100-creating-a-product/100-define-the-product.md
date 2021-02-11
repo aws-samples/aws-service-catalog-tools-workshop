@@ -103,7 +103,7 @@ We now need to tell the framework we want to create a new version of our product
           Provider: "CodeCommit"
           Configuration:
             RepositoryName: "aws-config-enable-config"
-            BranchName: "master"
+            BranchName: "main"
    {{< / highlight >}}
   </figure>
 
@@ -137,7 +137,7 @@ Products:
           Provider: "CodeCommit"
           Configuration:
             RepositoryName: "aws-config-enable-config"
-            BranchName: "master"
+            BranchName: "main"
    {{< / highlight >}}
   </figure>
 

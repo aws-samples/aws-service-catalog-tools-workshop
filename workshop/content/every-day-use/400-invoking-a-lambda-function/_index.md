@@ -48,7 +48,7 @@ Parameters:
     Type: String
 
   ToolsAccountAccessRole:
-    Description: "Name of the IAM role that the master account will be allowed to assume"
+    Description: "Name of the IAM role that the management account will be allowed to assume"
     Default: ToolsAccountAccessRole
     Type: String
 

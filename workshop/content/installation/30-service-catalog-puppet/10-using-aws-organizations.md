@@ -15,10 +15,10 @@ If you do not want to use Organizations please skip to the next section of this 
 
 ## What are we going to do?
 
-When enabling AWS Organizations you will need to provision an IAM Role in the Organizations master account and you will 
+When enabling AWS Organizations you will need to provision an IAM Role in the Organizations management account and you will 
 then need to provide the ARN of that role to your puppet account as an AWS SSM parameter.  
 
-The role provisioned in the Organizations master account is only used to list accounts.  It has no write access.
+The role provisioned in the Organizations management account is only used to list accounts.  It has no write access.
 
 You can use the CLI to enable AWS Organizations.
 
@@ -47,8 +47,8 @@ This will install the library and all of the dependencies.
 
 ### Creating the PuppetOrgRoleForExpands IAM Role
 
-You should export the credentials for your organizations master account or set your profile so that AWS CLI commands 
-will execute as a role in your organization master account.
+You should export the credentials for your organizations management account or set your profile so that AWS CLI commands 
+will execute as a role in your organization management account.
 
 Then you can run the following command: 
 

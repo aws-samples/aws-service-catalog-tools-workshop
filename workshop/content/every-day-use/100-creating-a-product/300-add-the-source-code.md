@@ -30,7 +30,7 @@ When you configured your product version, you specified the following:
           Provider: "CodeCommit"
           Configuration:
             RepositoryName: "aws-config-enable-config"
-            BranchName: "master"
+            BranchName: "main"
   {{< / highlight >}}
  </figure>
 

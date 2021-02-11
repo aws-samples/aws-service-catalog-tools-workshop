@@ -3,7 +3,7 @@ title = "Create the control"
 weight = 100
 home_region = "eu-west-1"
 codecommit_repo_name = "aws-config-rds-storage-encrypted" 
-codecommit_repo_branch = "master" 
+codecommit_repo_branch = "main" 
 product_name = "aws-config-rds-storage-encrypted"
 product_version = "v1"
 portfolio_name = "cloud-engineering-governance"
@@ -67,7 +67,7 @@ Here are the steps you need to follow to "{{% param title %}}"
           Provider: "CodeCommit"
           Configuration:
             RepositoryName: "aws-config-rds-storage-encrypted"
-            BranchName: "master"
+            BranchName: "main"
   Portfolios:
     - "cloud-engineering-governance"
   {{< / highlight >}}
@@ -102,7 +102,7 @@ Here are the steps you need to follow to "{{% param title %}}"
            Provider: "CodeCommit"
            Configuration:
              RepositoryName: "aws-config-desired-instance-types"
-             BranchName: "master"
+             BranchName: "main"
      Portfolios:
        - "cloud-engineering-governance"
  
@@ -128,7 +128,7 @@ Here are the steps you need to follow to "{{% param title %}}"
            Provider: "CodeCommit"
            Configuration:
              RepositoryName: "aws-config-rds-storage-encrypted"
-             BranchName: "master"
+             BranchName: "main"
      Portfolios:
        - "cloud-engineering-governance"
  
@@ -199,7 +199,7 @@ When you configured your product version, you specified the following version:
           Provider: "CodeCommit"
           Configuration:
             RepositoryName: "aws-config-rds-storage-encrypted"
-            BranchName: "master"
+            BranchName: "main"
   {{< / highlight >}}
  </figure>
 

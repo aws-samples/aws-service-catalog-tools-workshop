@@ -6,4 +6,4 @@
           Provider: "CodeCommit"
           Configuration:
             RepositoryName: "rds-instance"
-            BranchName: "master"
+            BranchName: "main"

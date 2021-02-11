@@ -3,7 +3,7 @@ title = "Create the control"
 weight = 100
 home_region = "eu-west-1"
 codecommit_repo_name = "aws-config-desired-instance-types" 
-codecommit_repo_branch = "master" 
+codecommit_repo_branch = "main" 
 product_name = "aws-config-desired-instance-types"
 product_version = "v1"
 portfolio_name = "cloud-engineering-governance"
@@ -63,7 +63,7 @@ Products:
           Provider: "CodeCommit"
           Configuration:
             RepositoryName: "aws-config-desired-instance-types"
-            BranchName: "master"
+            BranchName: "main"
     Portfolios:
       - "cloud-engineering-governance"
 Portfolios:
@@ -137,7 +137,7 @@ When you configured your product version, you specified the following version:
           Provider: "CodeCommit"
           Configuration:
             RepositoryName: "aws-config-desired-instance-types"
-            BranchName: "master"
+            BranchName: "main"
   {{< / highlight >}}
  </figure>
 

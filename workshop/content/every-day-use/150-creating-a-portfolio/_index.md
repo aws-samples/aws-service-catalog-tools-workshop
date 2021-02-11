@@ -93,7 +93,7 @@ Products:
           Provider: "CodeCommit"
           Configuration:
             RepositoryName: "aws-config-enable-config"
-            BranchName: "master"
+            BranchName: "main"
 Portfolios:
   - DisplayName: "cloud-engineering-governance"
     Description: "Portfolio containing the products needed to govern AWS accounts"
