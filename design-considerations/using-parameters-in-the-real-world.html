@@ -15,7 +15,7 @@
     <link rel="shortcut icon" href="../images/favicon.png" type="image/png" />
 <link rel="icon" href="../images/favicon.png" type="image/png" />
 
-    <title>Provisioning a product :: Service Catalog Tools Workshop</title>
+    <title>Using parameters in the real world :: Service Catalog Tools Workshop</title>
 
     
     <link href="../css/nucleus.css" rel="stylesheet">
@@ -43,7 +43,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/every-day-use/200-provisioning-a-product.html">
+  <body class="" data-url="/design-considerations/using-parameters-in-the-real-world.html">
     <nav id="sidebar" class="">
 
 
@@ -112,7 +112,7 @@
   
     
     <li data-nav-id="/design-considerations.html" title="Design considerations" class="dd-item 
-        
+        parent
         
         
         ">
@@ -216,8 +216,8 @@
   
     
     <li data-nav-id="/design-considerations/using-parameters-in-the-real-world.html" title="Using parameters in the real world" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="../design-considerations/using-parameters-in-the-real-world.html">
@@ -542,7 +542,7 @@
   
     
     <li data-nav-id="/every-day-use.html" title="Every day use" class="dd-item 
-        parent
+        
         
         
         ">
@@ -809,8 +809,8 @@
   
     
     <li data-nav-id="/every-day-use/200-provisioning-a-product.html" title="Provisioning a product" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="../every-day-use/200-provisioning-a-product.html">
@@ -1290,7 +1290,7 @@
             
           
           
-            <a href='../'>AWS Service Catalog Tools Intro Workshop</a> > <a href='../every-day-use.html'>Every day use</a> > Provisioning a product
+            <a href='../'>AWS Service Catalog Tools Intro Workshop</a> > <a href='../design-considerations.html'>Design considerations</a> > Using parameters in the real world
           
         
           
@@ -1305,15 +1305,11 @@
 <nav id="TableOfContents">
   <ul>
     <li><a href="#what-are-we-going-to-do">What are we going to do?</a></li>
-    <li><a href="#step-by-step-guide">Step by step guide</a>
-      <ul>
-        <li><a href="#creating-the-manifest-file">Creating the manifest file</a></li>
-        <li><a href="#adding-an-account-to-the-manifest-file">Adding an account to the manifest file</a></li>
-        <li><a href="#adding-a-launch-to-the-manifest">Adding a launch to the manifest</a></li>
-        <li><a href="#committing-the-manifest-file">Committing the manifest file</a></li>
-        <li><a href="#verifying-the-provisioning">Verifying the provisioning</a></li>
-      </ul>
-    </li>
+    <li><a href="#using-parameters-basic-usage">Using parameters (basic usage)</a></li>
+    <li><a href="#using-mappings-for-parameters">Using mappings for parameters</a></li>
+    <li><a href="#using-intrinsic-functions-in-ssm-parameter-names">Using intrinsic functions in ssm parameter names</a></li>
+    <li><a href="#storing-values-in-ssm-using-intrinsic-functions">Storing values in ssm using intrinsic functions</a></li>
+    <li><a href="#customer-provided-parameters">Customer provided parameters</a></li>
   </ul>
 </nav>
     </div>
@@ -1327,7 +1323,7 @@
         
         <div id="body-inner">
           
-            <h1>Provisioning a product</h1>
+            <h1>Using parameters in the real world</h1>
           
 
         
@@ -1336,147 +1332,250 @@
 
 	<hr>
 <h2 id="what-are-we-going-to-do">What are we going to do?</h2>
-<p>This tutorial will walk you through &ldquo;Provisioning a product&rdquo; into a spoke account.</p>
-<p>We will assume you have:</p>
-<ul>
-<li>installed Service Catalog Puppet correctly</li>
-<li>bootstrapped a spoke</li>
-<li>you have created a product</li>
-<li>you have created a portfolio</li>
-</ul>
-<p>We are going to perform the following steps:</p>
-<ul>
-<li>create a manifest file</li>
-<li>add an account to the manifest file</li>
-<li>add a launch to the manifest file</li>
-</ul>
-<p>During this process you will check your progress by verifying what the framework is doing at each step.</p>
-<h2 id="step-by-step-guide">Step by step guide</h2>
-<p>Here are the steps you need to follow to &ldquo;Provisioning a product&rdquo;</p>
-<h3 id="creating-the-manifest-file">Creating the manifest file</h3>
-<ul>
-<li>
-<p>Navigate to the  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codecommit/repositories/ServiceCatalogPuppet/browse?region=eu-west-1' target='_blank'>ServiceCatalogPuppet CodeCommit repository</a></p>
-</li>
-<li>
-<p>Scroll down to the bottom of the page and hit the <em>Create file</em> button</p>
-</li>
-</ul>
-<figure>
-    <img src="../how-tos/creating-and-provisioning-a-product/create_file.png"/> 
-</figure>
-
-<h3 id="adding-an-account-to-the-manifest-file">Adding an account to the manifest file</h3>
-<ul>
-<li>
-<p>Copy the following snippet into the main input field:</p>
-<figure>
- <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">accounts</span><span style="color:#f92672">:</span>
-  <span style="color:#f92672">-</span> <span style="color:#a6e22e">account_id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;&lt;YOUR_ACCOUNT_ID_WITHOUT_HYPHENS&gt;&#34;</span>
-    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;puppet-account&#34;</span>
-    <span style="color:#a6e22e">default_region</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;eu-west-1&#34;</span>
-    <span style="color:#a6e22e">regions_enabled</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;eu-west-1&#34;</span>
-      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;eu-west-2&#34;</span>
-    <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;type:prod&#34;</span>
-      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;partition:eu&#34;</span>
-   
-</code></pre></div>
-</figure>
-</li>
-<li>
-<p>Update account_id on line to show your account id</p>
-</li>
-</ul>
-<h3 id="adding-a-launch-to-the-manifest">Adding a launch to the manifest</h3>
-<p><em>Now we are ready to add a product to the manifest file.</em></p>
-<ul>
-<li>Add the following snippet to the end of the main input field:</li>
-</ul>
+<p>This article will show you how to manage parameters across your Service Catalog Tools environment.  It is a collection
+of real world examples of how to use parameters for organization unit, account and region level wide configurations.</p>
+<h2 id="using-parameters-basic-usage">Using parameters (basic usage)</h2>
+<p>When you specify a launch you can specify parameters.  Here is an example where a vpc is provisioned into the <em>default
+region</em> of each account tagged as <em>type:spoke</em>:</p>
  <figure>
-  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">launches</span><span style="color:#f92672">:</span>
-  <span style="color:#a6e22e">aws</span><span style="color:#f92672">-</span><span style="color:#a6e22e">config</span><span style="color:#f92672">-</span><span style="color:#a6e22e">enable</span><span style="color:#f92672">-</span><span style="color:#a6e22e">config</span><span style="color:#f92672">:</span>
-    <span style="color:#a6e22e">portfolio</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;reinvent-cloud-engineering-governance&#34;</span>
-    <span style="color:#a6e22e">product</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;aws-config-enable-config&#34;</span>
-    <span style="color:#a6e22e">version</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1&#34;</span>
-    <span style="color:#a6e22e">deploy_to</span><span style="color:#f92672">:</span>
-      <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
-        <span style="color:#f92672">-</span> <span style="color:#a6e22e">tag</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;type:prod&#34;</span>
-          <span style="color:#a6e22e">regions</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;default_region&#34;</span>  
-  
-</code></pre></div>
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">launches:
+  networking:
+    portfolio: <span style="color:#e6db74">&#34;networking&#34;</span>
+    product: <span style="color:#e6db74">&#34;vpc&#34;</span>
+    version: <span style="color:#e6db74">&#34;v1&#34;</span>
+    parameters:
+      cidr:
+        default: <span style="color:#e6db74">&#34;10.0.0.1/24&#34;</span>
+    deploy_to:
+      tags:
+        - tag: <span style="color:#e6db74">&#34;type:spoke&#34;</span>
+          regions: <span style="color:#e6db74">&#34;default_region&#34;</span>  
+  </code></pre></div>
  </figure>
-<ul>
-<li>The main input field should look like this:</li>
-</ul>
+<p>You could have also retrieved the value from SSM:</p>
  <figure>
-  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">accounts</span><span style="color:#f92672">:</span>
-  <span style="color:#f92672">-</span> <span style="color:#a6e22e">account_id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;&lt;YOUR_ACCOUNT_ID_WITHOUT_HYPHENS&gt;&#34;</span>
-    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;puppet-account&#34;</span>
-    <span style="color:#a6e22e">default_region</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;eu-west-1&#34;</span>
-    <span style="color:#a6e22e">regions_enabled</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;eu-west-1&#34;</span>
-      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;eu-west-2&#34;</span>
-    <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;type:prod&#34;</span>
-      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;partition:eu&#34;</span>
-<span style="color:#a6e22e">launches</span><span style="color:#f92672">:</span>
-  <span style="color:#a6e22e">aws</span><span style="color:#f92672">-</span><span style="color:#a6e22e">config</span><span style="color:#f92672">-</span><span style="color:#a6e22e">enable</span><span style="color:#f92672">-</span><span style="color:#a6e22e">config</span><span style="color:#f92672">:</span>
-    <span style="color:#a6e22e">portfolio</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;reinvent-cloud-engineering-governance&#34;</span>
-    <span style="color:#a6e22e">product</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;aws-config-enable-config&#34;</span>
-    <span style="color:#a6e22e">version</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1&#34;</span>
-    <span style="color:#a6e22e">deploy_to</span><span style="color:#f92672">:</span>
-      <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
-        <span style="color:#f92672">-</span> <span style="color:#a6e22e">tag</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;type:prod&#34;</span>
-          <span style="color:#a6e22e">regions</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;default_region&#34;</span>
-  
-</code></pre></div>
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">launches:
+  networking:
+    portfolio: <span style="color:#e6db74">&#34;networking&#34;</span>
+    product: <span style="color:#e6db74">&#34;vpc&#34;</span>
+    version: <span style="color:#e6db74">&#34;v1&#34;</span>
+    parameters:
+      cidr:
+        ssm: 
+          name: <span style="color:#e6db74">&#34;/multi-account-config/networking/vpc/default/cidr&#34;</span>
+    deploy_to:
+      tags:
+        - tag: <span style="color:#e6db74">&#34;type:spoke&#34;</span>
+          regions: <span style="color:#e6db74">&#34;default_region&#34;</span>  
+  </code></pre></div>
  </figure>
-<h3 id="committing-the-manifest-file">Committing the manifest file</h3>
-<p><em>Now that we have written the manifest file we are ready to commit it.</em></p>
-<ul>
-<li>
-<p>Set the <em>File name</em> to <code>manifest.yaml</code></p>
-</li>
-<li>
-<p>Set your <em>Author name</em></p>
-</li>
-<li>
-<p>Set your <em>Email address</em></p>
-</li>
-<li>
-<p>Set your <em>Commit message</em></p>
-</li>
-</ul>
+<p>This makes it dynamic but what happens if you want to have a different value for each region?</p>
+<h2 id="using-mappings-for-parameters">Using mappings for parameters</h2>
+<p>You can use a mapping to make this more configurable:</p>
+ <figure>
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">mappings:
+  VPCs:
+    us-east<span style="color:#ae81ff">-1</span>:
+      <span style="color:#e6db74">&#34;cidr&#34;</span>: <span style="color:#e6db74">&#34;10.0.0.1/24&#34;</span>
+    us-west<span style="color:#ae81ff">-1</span>:
+      <span style="color:#e6db74">&#34;cidr&#34;</span>: <span style="color:#e6db74">&#34;192.168.0.1/26&#34;</span>
 
-<div class="notices tip" ><p>Using a good / unique commit message will help you understand what is going on later.</p>
-</div>
+launches:
+  networking:
+    portfolio: <span style="color:#e6db74">&#34;networking&#34;</span>
+    product: <span style="color:#e6db74">&#34;vpc&#34;</span>
+    version: <span style="color:#e6db74">&#34;v1&#34;</span>
+    parameters:
+      cidr:
+        mapping: [VPCs, AWS::Region, cidr] 
+    deploy_to:
+      tags:
+        - tag: <span style="color:#e6db74">&#34;type:spoke&#34;</span>
+          regions: <span style="color:#e6db74">&#34;default_region&#34;</span>  
+  </code></pre></div>
+ </figure>
+<p>With the above configuration you are saying when provisioning <em>vpc</em> into <em>us-east-1</em> use <em>10.0.0.1/24</em> and when
+provisioning into <em>us-west-1</em> use <em>192.168.0.1/26</em>.  This allows you to have a different parameter value for each region
+but that value will be the same for every launch.  To make it different per account you can use the following:</p>
+ <figure>
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">mappings:
+  VPCs:
+    <span style="color:#ae81ff">0123456789010</span>:
+      <span style="color:#e6db74">&#34;cidr&#34;</span>: <span style="color:#e6db74">&#34;10.0.0.1/24&#34;</span>
+    <span style="color:#ae81ff">0098765432110</span>:
+      <span style="color:#e6db74">&#34;cidr&#34;</span>: <span style="color:#e6db74">&#34;192.168.0.1/26&#34;</span>
 
-<ul>
-<li>Click the <em>Commit changes</em> button:</li>
-</ul>
-<figure>
-    <img src="../how-tos/creating-and-provisioning-a-product/CommitChanges.png"/> 
-</figure>
+launches:
+  networking:
+    portfolio: <span style="color:#e6db74">&#34;networking&#34;</span>
+    product: <span style="color:#e6db74">&#34;vpc&#34;</span>
+    version: <span style="color:#e6db74">&#34;v1&#34;</span>
+    parameters:
+      cidr:
+        mapping: [VPCs, AWS::AccountId, cidr]
+    deploy_to:
+      tags:
+        - tag: <span style="color:#e6db74">&#34;type:spoke&#34;</span>
+          regions: <span style="color:#e6db74">&#34;default_region&#34;</span>  </code></pre></div>
+ </figure>
+<p>With the above configuration you are saying when provisioning <em>vpc</em> into account <em>0123456789010</em> use <em>10.0.0.1/24</em> and
+when provisioning into account <em>0098765432110</em> use <em>192.168.0.1/26</em>.  This allows you to have a different parameter
+value for each account but you will have to update your manifest file each time you want to add an account.</p>
+<h2 id="using-intrinsic-functions-in-ssm-parameter-names">Using intrinsic functions in ssm parameter names</h2>
+<p>You can use the account id and region name within the SSM parameter name value to use account and region specific ssm
+parameters:</p>
+ <figure>
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">launches:
+  networking:
+    portfolio: <span style="color:#e6db74">&#34;networking&#34;</span>
+    product: <span style="color:#e6db74">&#34;vpc&#34;</span>
+    version: <span style="color:#e6db74">&#34;v1&#34;</span>
+    parameters:
+      cidr:
+        ssm:
+          name: <span style="color:#e6db74">&#34;/vpcs/${AWS::AccountId}/${AWS::Region}/cidr&#34;</span>
+    deploy_to:
+      tags:
+        - tag: <span style="color:#e6db74">&#34;type:spoke&#34;</span>
+          regions: <span style="color:#e6db74">&#34;default_region&#34;</span>  </code></pre></div>
+ </figure>
+<p>Each time vpc is provisioned into a region of an account the region name and account id will be used to substitute
+values in the ssm name attribute.  For example, when you provision into <em>us-east-1</em> of account <em>012345678910</em> the ssm
+parameter used to get the value for the <em>cidr</em> parameter will be the one with the name
+<em>&quot;/vpcs/012345678910/us-east-1/cidr&rdquo;</em>.</p>
+<h2 id="storing-values-in-ssm-using-intrinsic-functions">Storing values in ssm using intrinsic functions</h2>
+<p>You can store the stack outputs for your products in SSM and use intrinsic functions to derive the name:</p>
+ <figure>
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">launches:
+  networking:
+    portfolio: <span style="color:#e6db74">&#34;networking&#34;</span>
+    product: <span style="color:#e6db74">&#34;vpc&#34;</span>
+    version: <span style="color:#e6db74">&#34;v1&#34;</span>
+    parameters:
+      cidr:
+        ssm:
+          name: <span style="color:#e6db74">&#34;/vpcs/${AWS::AccountId}/${AWS::Region}/cidr&#34;</span>
+    deploy_to:
+      tags:
+        - tag: <span style="color:#e6db74">&#34;type:spoke&#34;</span>
+          regions: <span style="color:#e6db74">&#34;default_region&#34;</span>  
+    outputs:
+      ssm:
+        - param_name: <span style="color:#e6db74">&#34;/vpcs/${AWS::AccountId}/${AWS::Region}/id&#34;</span>
+          stack_output: VPCId</code></pre></div>
+ </figure>
+<p>When you provision into <em>us-east-1</em> of account <em>012345678910</em> the ssm parameter used to store the stack output will
+have the name of <em>&quot;/vpcs/012345678910/us-east-1/id&rdquo;</em></p>
+<h2 id="customer-provided-parameters">Customer provided parameters</h2>
+<p>If you have built a self-service / account vending mechanism you may want to allow the customers of your solution to set
+some parameters to be used later on - for example whether they require a connected account or not, if they want private
+subnets or public or even if they want to have networking at all or not.</p>
+<p>If you are vending accounts by provisioning a product into your Service Catalog Tools account you have a very easy
+option.  Include an SSM parameter into your account creation product.  The name of the parameter should be derived
+from the account id of the newly created account:</p>
+ <figure>
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">AWSTemplateFormatVersion: <span style="color:#e6db74">&#39;2010-09-09&#39;</span>
+Parameters:
+  NetworkType:
+    Type: String
+    AllowedValues<span style="color:#e6db74">&#34; : [&#34;</span>connected<span style="color:#e6db74">&#34;, &#34;</span>private<span style="color:#e6db74">&#34;, &#34;</span>public<span style="color:#e6db74">&#34;, &#34;</span>none<span style="color:#e6db74">&#34;]
+</span><span style="color:#e6db74">    Description: Type of networking setup required
+</span><span style="color:#e6db74">Resources:
+</span><span style="color:#e6db74">  Account:
+</span><span style="color:#e6db74">    Type: Custom::Resource
+</span><span style="color:#e6db74">    Description: A custom resource representing an AWS Account
+</span><span style="color:#e6db74">    Properties:
+</span><span style="color:#e6db74">      ServiceToken: !Ref AccountCreatorLambdaArn
+</span><span style="color:#e6db74">      Email: !Ref Email
+</span><span style="color:#e6db74">      AccountName: !Ref AccountName
+</span><span style="color:#e6db74">      IamUserAccessToBilling: !Ref IamUserAccessToBilling
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">  NetworkingRequired:
+</span><span style="color:#e6db74">    Type: AWS::SSM::Parameter
+</span><span style="color:#e6db74">    Properties:
+</span><span style="color:#e6db74">      Name: !Sub &#34;</span>/networking/${Account.AccountId}/NetworkType&#34;
+      Value: !Ref NetworkType</code></pre></div>
+ </figure>
+<p>Please note some of the parameters and resources have been omitted from the example above.</p>
+<p>This will create an SSM parameter in your Service Catalog Tools account that can be used in your launches:</p>
+ <figure>
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">launches:
+  networking:
+    portfolio: <span style="color:#e6db74">&#34;networking&#34;</span>
+    product: <span style="color:#e6db74">&#34;networks&#34;</span>
+    version: <span style="color:#e6db74">&#34;v1&#34;</span>
+    parameters:
+      NetworkType:
+        ssm:
+          name: <span style="color:#e6db74">&#34;/networking/${AWS::AccountId}/NetworkType&#34;</span>
+    deploy_to:
+      tags:
+        - tag: <span style="color:#e6db74">&#34;type:spoke&#34;</span>
+          regions: <span style="color:#e6db74">&#34;default_region&#34;</span>  </code></pre></div>
+ </figure>
+<p>Within your product you can use conditions to provision the correct set of resources or you can use three launches (one
+for each network type) along with a condition on whether they should do anything or not:</p>
+ <figure>
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">launches:
+  networking-connected:
+    portfolio: <span style="color:#e6db74">&#34;networking&#34;</span>
+    product: <span style="color:#e6db74">&#34;networks&#34;</span>
+    version: <span style="color:#e6db74">&#34;v1&#34;</span>
+    parameters:
+      NetworkType:
+        ssm:
+          name: <span style="color:#e6db74">&#34;/networking/${AWS::AccountId}/NetworkType&#34;</span>
+    deploy_to:
+      tags:
+        - tag: <span style="color:#e6db74">&#34;type:spoke&#34;</span>
+          regions: <span style="color:#e6db74">&#34;default_region&#34;</span>  
+  networking-private:
+    portfolio: <span style="color:#e6db74">&#34;networking&#34;</span>
+    product: <span style="color:#e6db74">&#34;networks&#34;</span>
+    version: <span style="color:#e6db74">&#34;v1&#34;</span>
+    parameters:
+      NetworkType:
+        ssm:
+          name: <span style="color:#e6db74">&#34;/networking/${AWS::AccountId}/NetworkType&#34;</span>
+    deploy_to:
+      tags:
+        - tag: <span style="color:#e6db74">&#34;type:spoke&#34;</span>
+          regions: <span style="color:#e6db74">&#34;default_region&#34;</span>  
+  networking-private:
+    portfolio: <span style="color:#e6db74">&#34;networking&#34;</span>
+    product: <span style="color:#e6db74">&#34;networks&#34;</span>
+    version: <span style="color:#e6db74">&#34;v1&#34;</span>
+    parameters:
+      NetworkType:
+        ssm:
+          name: <span style="color:#e6db74">&#34;/networking/${AWS::AccountId}/NetworkType&#34;</span>
+    deploy_to:
+      tags:
+        - tag: <span style="color:#e6db74">&#34;type:spoke&#34;</span>
+          regions: <span style="color:#e6db74">&#34;default_region&#34;</span>  </code></pre></div>
+ </figure>
+<p>Example product template for private product:</p>
+ <figure>
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">AWSTemplateFormatVersion: <span style="color:#e6db74">2010-09-09</span>
+Parameters:
+  NetworkType:
+    Description: Type of network to create
+    Type: String
+    AllowedValues<span style="color:#e6db74">&#34; : [&#34;</span>connected<span style="color:#e6db74">&#34;, &#34;</span>private<span style="color:#e6db74">&#34;, &#34;</span>public<span style="color:#e6db74">&#34;, &#34;</span>none&#34;]
 
-<h3 id="verifying-the-provisioning">Verifying the provisioning</h3>
-<p>Once you have made your changes the  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/servicecatalog-puppet-pipeline/view?region=eu-west-1' target='_blank'>ServiceCatalogPuppet Pipeline</a> should have run or if you were quick
-may still be running.  If it has not yet started feel free to the hit the <em>Release change</em> button.</p>
-<p>Once it has completed it should show the <em>Source</em> and <em>Build</em> stages in green to indicate they have completed
-successfully:</p>
-<figure>
-    <img src="../how-tos/creating-and-provisioning-a-product/SuccessfulPuppetRun.png"/> 
-</figure>
+Conditions:
+  CreateNetwork: !Equals
+    - !Ref NetworkType
+    - private
 
-<p>Once you have verified the pipeline has run you can go to  <a href='https://eu-west-1.console.aws.amazon.com/servicecatalog/home?region=eu-west-1#/stacks' target='_blank'>Service Catalog provisioned products</a> to view your
-provisioned product.  Please note when you arrive at the provisioned product page you will need to select account from
-the filter by drop down in the top right:</p>
-<figure>
-    <img src="../how-tos/creating-and-provisioning-a-product/FilterByAccount.png"/> 
-</figure>
-
-<p>You have now successfully provisioned a product! When provisioned, this product will automatically enable AWS Config.</p>
+Resources:
+  Network:
+    Type: <span style="color:#e6db74">&#39;AWS::EC2::VPC&#39;</span>
+    Properties:
+      CidrBlock: <span style="color:#ae81ff">10.0</span><span style="color:#ae81ff">.0</span><span style="color:#ae81ff">.0</span>/<span style="color:#ae81ff">16</span>
+      EnableDnsSupport: <span style="color:#e6db74">&#39;false&#39;</span>
+      EnableDnsHostnames: <span style="color:#e6db74">&#39;false&#39;</span></code></pre></div>
+ </figure>
 
 
 
@@ -1615,6 +1714,7 @@ the filter by drop down in the top right:</p>
             
                 
                     
+                    
                 
                 
 
@@ -1622,6 +1722,319 @@ the filter by drop down in the top right:</p>
                     
                     
 
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
             
         
@@ -1690,24 +2103,6 @@ the filter by drop down in the top right:</p>
             
         
                     
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
                         
             
             
@@ -1728,302 +2123,6 @@ the filter by drop down in the top right:</p>
             
             
                 
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
                     
                 
                 
@@ -2292,10 +2391,10 @@ the filter by drop down in the top right:</p>
 	 
 	 
 		
-			<a class="nav nav-prev" href="../every-day-use/192-adding-an-account.html" title="Adding an account"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="../design-considerations/selecting-a-factory-account.html" title="Selecting a factory account"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="../every-day-use/300-sharing-a-portfolio.html" title="Sharing a portfolio" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="../design-considerations/portfolio-management.html" title="Portfolio Management" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
