@@ -30,6 +30,28 @@ Here are the steps you need to follow to "{{% param title %}}"
 {{< figure src="/how-tos/creating-and-provisioning-a-product/create_file.png" >}}
 
 
+### Editing the manifest file
+
+- Write out the content of your manifest file.  Here is an example snippet:
+
+ <figure>
+  {{< highlight js "hl_lines=2" >}}
+accounts:
+  - account_id: "<YOUR_ACCOUNT_ID_WITHOUT_HYPHENS>"
+    name: "puppet-account"
+    default_region: "eu-west-1"
+    regions_enabled:
+      - "eu-west-1"
+    tags:
+      - "type:prod"
+      - "partition:eu"
+  {{< / highlight >}}
+ </figure>
+
+
+- Please read through the docs to help you write out the full manifest file.
+
+
 ### Committing the manifest file
 
 _Now that we have written the manifest file we are ready to commit it._
