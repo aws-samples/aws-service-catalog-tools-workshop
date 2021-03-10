@@ -16,8 +16,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/installation/30-service-catalog-puppet/20-bootstrapping/10-puppet-account.html</guid>
-      <description>Navigate to CloudFormation  Select the AWS CloudFormation service.    Confirm you are in the eu-west-1 (Ireland) region.
- Create a new AWS CloudFormation stack  Select &amp;lsquo;Create Stack&amp;rsquo;    Note that the Factory Initialization Stack has been deployed. If yours has not refer to &amp;lsquo;Install Factory Process&amp;rsquo;
+      <description>Navigate to CloudFormation  Select the AWS CloudFormation service.    Create a new AWS CloudFormation stack  Select &amp;lsquo;Create Stack&amp;rsquo;    Note you must have installed factory into this account already. If you have not done this already navigate to &amp;lsquo;Install Factory Process&amp;rsquo;
  Select the pre-configured AWS CloudFormation template Service Catalog Puppet can be installed via a pre-created AWS CloudFormation template stored in Amazon S3 under the following URL:</description>
     </item>
     

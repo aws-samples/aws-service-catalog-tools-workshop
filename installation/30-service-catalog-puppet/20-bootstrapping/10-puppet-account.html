@@ -1250,7 +1250,7 @@
 </left>
 
 <left>
-    <h5 class="copyright">a3b03ea - Mon Feb 22 16:15:59 UTC 2021</h5>
+    <h5 class="copyright">f4f82c6 - Wed Mar 10 19:00:34 UTC 2021</h5>
 </left>
 
     </section>
@@ -1353,10 +1353,6 @@
     <img src="../../../how-tos/installation/select_cloudformation.png" width="900" height="450"/> 
 </figure>
 
-
-<div class="notices warning" ><p>Confirm you are in the eu-west-1 (Ireland) region.</p>
-</div>
-
 <h3 id="create-a-new-aws-cloudformation-stack">Create a new AWS CloudFormation stack</h3>
 <ul>
 <li>Select &lsquo;Create Stack&rsquo;</li>
@@ -1366,7 +1362,7 @@
 </figure>
 
 
-<div class="notices note" ><p>Note that the Factory Initialization Stack has been deployed. If yours has not refer to &lsquo;Install Factory Process&rsquo;</p>
+<div class="notices note" ><p>Note you must have installed factory into this account already. If you have not done this already navigate to &lsquo;Install Factory Process&rsquo;</p>
 </div>
 
 <h3 id="select-the-pre-configured-aws-cloudformation-template">Select the pre-configured AWS CloudFormation template</h3>
@@ -1383,19 +1379,35 @@
 </figure>
 
 <h3 id="specify-aws-cloudformation-stack-details">Specify AWS CloudFormation stack details</h3>
+<p>You will need to fill in the parameters for the template.  We recommend the <strong>Stack Name:</strong> of <code>puppet-initialization-stack</code></p>
+<p>You should fill in the details depending on which source code management system you want to use:</p>
+<h4 id="codecommit">CodeCommit</h4>
+<p>You need to set <strong>SCMSourceProvider</strong> to <strong>CodeCommit</strong>.</p>
+<p>You should also set the following:</p>
 <ul>
-<li>Specify the AWS CloudFormation stack details as follows:
+<li>SCMRepositoryName - this is the name of the git repo to use</li>
+<li>SCMBranchName - this is the branch you want to use</li>
+<li>SCMShouldCreateRepo - set this to true if you want the tools to create the repo for you</li>
+</ul>
+<h4 id="githubcom--github-enterprise--bitbucket-cloud">Github.com / Github Enterprise / Bitbucket Cloud</h4>
+<p>You should have a read through the following guide: <a href="https://docs.aws.amazon.com/dtconsole/latest/userguide/connections.html">https://docs.aws.amazon.com/dtconsole/latest/userguide/connections.html</a></p>
+<p>You need to set <strong>SCMSourceProvider</strong> to <strong>CodeStarSourceConnection</strong>.</p>
+<p>You should also set the following:</p>
 <ul>
-<li><strong>Stack Name:</strong> <code>puppet-initialization-stack</code></li>
-<li><strong>Enable Regions:</strong> <code>eu-west-1</code></li>
-<li><strong>OrgIAMRoleArn:</strong> <code>None</code></li>
-<li><strong>ShouldCollectCloudformationEvents:</strong> <code>false</code></li>
-<li><strong>ShouldForwardEventsToEventbridge:</strong> <code>false</code></li>
-<li><strong>ShouldForwardFailuresToOpscenter:</strong> <code>false</code></li>
+<li>SCMConnectionArn - this is the Arn of the connection you created in the console</li>
+<li>SCMFullRepositoryId - the value for this is dependant on which SCM you use</li>
+<li>SCMBranchName - this is the branch you want to use</li>
 </ul>
-</li>
-<li>Hit Next</li>
+<h4 id="s3">S3</h4>
+<p>You need to set <strong>SCMSourceProvider</strong> to <strong>S3</strong>.</p>
+<p>You should also set the following:</p>
+<ul>
+<li>SCMBucketName - this is the name of the S3 bucket you want to use</li>
+<li>SCMObjectKey - this is the name of the object key you will be uploading your zip file as to trigger pipeline runs</li>
+<li>SCMShouldCreateRepo - set this to true if you want the tools to create the repo for you</li>
 </ul>
+<h4 id="continuing">Continuing</h4>
+<p>Once you have done this, hit Next</p>
 <figure>
     <img src="../../../how-tos/installation/specify_stack_details_puppet.png" width="900" height="600"/> 
 </figure>
