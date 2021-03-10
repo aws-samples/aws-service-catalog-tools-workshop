@@ -13,10 +13,6 @@ home_region_name = 'Ireland'
 
 {{< figure src="/how-tos/installation/select_cloudformation.png" height="450" width="900">}}
 
-{{% notice warning %}}
-Confirm you are in the {{% param home_region %}} ({{% param home_region_name %}}) region.
-{{% /notice %}}
-
 ### Create a new AWS CloudFormation stack
 
 - Select 'Create Stack'
@@ -24,13 +20,12 @@ Confirm you are in the {{% param home_region %}} ({{% param home_region_name %}}
 {{< figure src="/how-tos/installation/create_stack_puppet.png" height="200" width="900">}}
 
 {{% notice note %}}
-Note that the Factory Initialization Stack has been deployed. If yours has not refer to 'Install Factory Process'
+Note you must have installed factory into this account already. If you have not done this already navigate to 'Install Factory Process'
 {{% /notice %}}
 
 ### Select the pre-configured AWS CloudFormation template
 Service Catalog Puppet can be installed via a pre-created AWS CloudFormation template stored in Amazon S3 under the following URL:
 >  `https://service-catalog-tools.s3.eu-west-2.amazonaws.com/puppet/latest/servicecatalog-puppet-initialiser.template.yaml`
-
 
 - Paste this URL under 'Amazon S3 URL': 
 - Hit Next
@@ -39,14 +34,48 @@ Service Catalog Puppet can be installed via a pre-created AWS CloudFormation tem
 
 ### Specify AWS CloudFormation stack details
 
-- Specify the AWS CloudFormation stack details as follows:
-    - **Stack Name:** `puppet-initialization-stack`
-    - **Enable Regions:** `{{% param home_region %}}`
-    - **OrgIAMRoleArn:** `None` 
-    - **ShouldCollectCloudformationEvents:** `false`
-    - **ShouldForwardEventsToEventbridge:** `false`
-    - **ShouldForwardFailuresToOpscenter:** `false`   
-- Hit Next
+You will need to fill in the parameters for the template.  We recommend the **Stack Name:** of `puppet-initialization-stack`
+
+You should fill in the details depending on which source code management system you want to use:
+
+#### CodeCommit
+
+You need to set **SCMSourceProvider** to **CodeCommit**.
+
+You should also set the following:
+
+- SCMRepositoryName - this is the name of the git repo to use
+- SCMBranchName - this is the branch you want to use
+- SCMShouldCreateRepo - set this to true if you want the tools to create the repo for you
+
+
+#### Github.com / Github Enterprise / Bitbucket Cloud
+
+You should have a read through the following guide: https://docs.aws.amazon.com/dtconsole/latest/userguide/connections.html
+
+You need to set **SCMSourceProvider** to **CodeStarSourceConnection**.
+
+You should also set the following:
+
+- SCMConnectionArn - this is the Arn of the connection you created in the console 
+- SCMFullRepositoryId - the value for this is dependant on which SCM you use 
+- SCMBranchName - this is the branch you want to use
+
+
+#### S3
+
+You need to set **SCMSourceProvider** to **S3**.
+
+You should also set the following:
+
+- SCMBucketName - this is the name of the S3 bucket you want to use
+- SCMObjectKey - this is the name of the object key you will be uploading your zip file as to trigger pipeline runs
+- SCMShouldCreateRepo - set this to true if you want the tools to create the repo for you
+
+
+#### Continuing 
+
+Once you have done this, hit Next
 
 {{< figure src="/how-tos/installation/specify_stack_details_puppet.png" height="600" width="900">}}
 
