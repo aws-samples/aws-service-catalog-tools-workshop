@@ -1250,7 +1250,7 @@
 </left>
 
 <left>
-    <h5 class="copyright">f4f82c6 - Wed Mar 10 19:00:35 UTC 2021</h5>
+    <h5 class="copyright">47079a3 - Thu Mar 11 20:45:08 UTC 2021</h5>
 </left>
 
     </section>
@@ -1342,7 +1342,7 @@
 </figure>
 
 
-<div class="notices warning" ><p>Confirm that you are in the eu-west-1 (Ireland) region.</p>
+<div class="notices warning" ><p>If you are installing Service Catalog Puppet it will need to be installed into the same account as Service Catalog Factory.</p>
 </div>
 
 <h3 id="create-a-new-cloudformation-stack">Create a new CloudFormation Stack</h3>
@@ -1362,24 +1362,40 @@
 <li>Paste this URL under &lsquo;Amazon S3 URL&rsquo;:</li>
 <li>Hit Next</li>
 </ul>
-<figure>
-    <img src="../../how-tos/installation/specify_template.png" width="900" height="400"/> 
-</figure>
-
 <h3 id="specify-stack-details">Specify Stack Details</h3>
 <ul>
 <li>Specify the Stack details as follows:
 <ul>
 <li><strong>Stack Name:</strong> <code>factory-initialization-stack</code></li>
-<li><strong>Enable Regions:</strong> <code>eu-west-1</code></li>
 </ul>
 </li>
-<li>Hit Next</li>
 </ul>
-<figure>
-    <img src="../../how-tos/installation/stack_details_factory.png" width="900" height="400"/> 
-</figure>
-
+<p>You should fill in the details depending on which source code management system you want to use:</p>
+<h4 id="codecommit">CodeCommit</h4>
+<p>You need to set <strong>SCMSourceProvider</strong> to <strong>CodeCommit</strong>.</p>
+<p>You should also set the following:</p>
+<ul>
+<li>SCMRepositoryName - this is the name of the git repo to use</li>
+<li>SCMBranchName - this is the branch you want to use</li>
+<li>SCMShouldCreateRepo - set this to true if you want the tools to create the repo for you</li>
+</ul>
+<h4 id="githubcom--github-enterprise--bitbucket-cloud">Github.com / Github Enterprise / Bitbucket Cloud</h4>
+<p>You should have a read through the following guide: <a href="https://docs.aws.amazon.com/dtconsole/latest/userguide/connections.html">https://docs.aws.amazon.com/dtconsole/latest/userguide/connections.html</a></p>
+<p>You need to set <strong>SCMSourceProvider</strong> to <strong>CodeStarSourceConnection</strong>.</p>
+<p>You should also set the following:</p>
+<ul>
+<li>SCMConnectionArn - this is the Arn of the connection you created in the console</li>
+<li>SCMFullRepositoryId - the value for this is dependant on which SCM you use</li>
+<li>SCMBranchName - this is the branch you want to use</li>
+</ul>
+<h4 id="s3">S3</h4>
+<p>You need to set <strong>SCMSourceProvider</strong> to <strong>S3</strong>.</p>
+<p>You should also set the following:</p>
+<ul>
+<li>SCMBucketName - this is the name of the S3 bucket you want to use</li>
+<li>SCMObjectKey - this is the name of the object key you will be uploading your zip file as to trigger pipeline runs</li>
+<li>SCMShouldCreateRepo - set this to true if you want the tools to create the repo for you</li>
+</ul>
 <h3 id="create-the-cloudformation-stack">Create the CloudFormation Stack</h3>
 <ul>
 <li>Leave Defaults for &lsquo;Configure Stack Options&rsquo;</li>
