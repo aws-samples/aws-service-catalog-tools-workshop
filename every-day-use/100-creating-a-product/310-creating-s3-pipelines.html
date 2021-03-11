@@ -15,7 +15,7 @@
     <link rel="shortcut icon" href="../../images/favicon.png" type="image/png" />
 <link rel="icon" href="../../images/favicon.png" type="image/png" />
 
-    <title>Budget &amp; Cost governance :: Service Catalog Tools Workshop</title>
+    <title>Creating S3 pipelines :: Service Catalog Tools Workshop</title>
 
     
     <link href="../../css/nucleus.css" rel="stylesheet">
@@ -43,7 +43,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/workshops/40-reinvent2019/100-task-1.html">
+  <body class="" data-url="/every-day-use/100-creating-a-product/310-creating-s3-pipelines.html">
     <nav id="sidebar" class="">
 
 
@@ -542,7 +542,7 @@
   
     
     <li data-nav-id="/every-day-use.html" title="Every day use" class="dd-item 
-        
+        parent
         
         
         ">
@@ -569,7 +569,7 @@
   
     
     <li data-nav-id="/every-day-use/100-creating-a-product.html" title="Creating a product" class="dd-item 
-        
+        parent
         
         
         ">
@@ -650,7 +650,7 @@
  
   
     
-      <li data-nav-id="/every-day-use/100-creating-a-product/310-creating-s3-pipelines.html" title="Creating S3 pipelines" class="dd-item ">
+      <li data-nav-id="/every-day-use/100-creating-a-product/310-creating-s3-pipelines.html" title="Creating S3 pipelines" class="dd-item active">
         <a href="../../every-day-use/100-creating-a-product/310-creating-s3-pipelines.html">
         Creating S3 pipelines
         
@@ -950,7 +950,7 @@
   
     
     <li data-nav-id="/workshops.html" title="Workshops" class="dd-item 
-        parent
+        
         
         
         ">
@@ -977,7 +977,7 @@
   
     
     <li data-nav-id="/reinvent2019/" title="AWS re:Invent 2019" class="dd-item 
-        parent
+        
         
         
         ">
@@ -1057,8 +1057,8 @@
   
     
     <li data-nav-id="/workshops/40-reinvent2019/100-task-1.html" title="Budget &amp; Cost governance" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="../../workshops/40-reinvent2019/100-task-1.html">
@@ -1332,7 +1332,7 @@
             
           
           
-            <a href='../../'>AWS Service Catalog Tools Intro Workshop</a> > <a href='../../workshops.html'>Workshops</a> > <a href='../../reinvent2019/'>AWS re:Invent 2019</a> > Budget & Cost governance
+            <a href='../../'>AWS Service Catalog Tools Intro Workshop</a> > <a href='../../every-day-use.html'>Every day use</a> > <a href='../../every-day-use/100-creating-a-product.html'>Creating a product</a> > Creating S3 pipelines
           
         
           
@@ -1348,8 +1348,12 @@
     <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#the-ask">The ask</a></li>
-    <li><a href="#the-plan">The plan</a></li>
+    <li><a href="#what-are-we-going-to-do">What are we going to do?</a></li>
+    <li><a href="#step-by-step-guide">Step by step guide</a>
+      <ul>
+        <li><a href="#add-the-source-code-for-your-product">Add the source code for your product</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
     </div>
@@ -1363,83 +1367,56 @@
         
         <div id="body-inner">
           
-            <h1>Budget &amp; Cost governance</h1>
+            <h1>Creating S3 pipelines</h1>
           
 
         
 
 
-
-	<hr>
-<h2 id="the-ask">The ask</h2>
-<p>Cloud usage within Example Corp has picked up significantly and a number of teams are now using EC2 instances in innovative ways. The customer has noticed that teams are often not sure which EC2 instance types to use for their applications and this is leading to underutilized EC2 instances that are run on-demand. To bring down costs, the customer has purchased a set of EC2 reserved instances, based on common workload profiles, and we need to ensure the teams are using them for long running applications.</p>
-<p>To help the customer, we will design and then deploy a control that gives them visibility into which EC2 instance types are being used within an AWS account.</p>
-<h2 id="the-plan">The plan</h2>
-<p>We are going to create and deploy a governance control using an AWS Config managed rule to ensure the right instance types are being used.</p>
-<p>You can follow these steps to do this:</p>
-
-
-
-
-
-
-
-<ul class="children children-li">
-	
-
-	
-		
-	
-
-	
-
-	
-		
-	
-		
-			
-				
-<li>
-<a href="../../workshops/40-reinvent2019/100-task-1/100-create-the-control.html" >Create the control</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="../../workshops/40-reinvent2019/100-task-1/200-provision-the-control.html" >Provision the control</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-
-	
+<hr>
+<h2 id="what-are-we-going-to-do">What are we going to do?</h2>
+<p>We are going to perform the following steps:</p>
+<ul>
+<li>How to use S3 as a source for your pipelines</li>
 </ul>
-
-<p>Future work will involve mandating that teams use only approved instance types. To start, we will gather data via AWS Config.</p>
-<div class="notices note" ><p>If you need help at any time please raise your hand.</p>
-</div>
-
-
-
-
-
-
+<h2 id="step-by-step-guide">Step by step guide</h2>
+<p>Here are the steps you need to follow to &ldquo;Creating S3 pipelines&rdquo;</p>
+<h3 id="add-the-source-code-for-your-product">Add the source code for your product</h3>
+<p>When you configured your product version, you may have specified the following:</p>
+ <figure>
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">    <span style="color:#a6e22e">Versions</span><span style="color:#f92672">:</span>
+      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1&#34;</span>
+        <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1 of aws-config-enable-config&#34;</span>
+        <span style="color:#a6e22e">Source</span><span style="color:#f92672">:</span>
+          <span style="color:#a6e22e">Provider</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;CodeCommit&#34;</span>
+          <span style="color:#a6e22e">Configuration</span><span style="color:#f92672">:</span>
+            <span style="color:#a6e22e">RepositoryName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;aws-config-enable-config&#34;</span>
+            <span style="color:#a6e22e">BranchName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1&#34;</span>
+  
+</code></pre></div>
+ </figure>
+<p>This would have taken your products source code from CodeCommit.  If you are using BitBucket Server or an SCM solution
+where you cannot use AWS CodeStar Connections you may want to configure your pipelines source your products from
+AWS S3 and then use another solution to put the source code there.  To do so, you can specify the following:</p>
+ <figure>
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">    <span style="color:#a6e22e">Versions</span><span style="color:#f92672">:</span>
+      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1&#34;</span>
+        <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1 of aws-config-enable-config&#34;</span>
+        <span style="color:#a6e22e">Source</span><span style="color:#f92672">:</span>
+          <span style="color:#a6e22e">Provider</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;S3&#34;</span>
+          <span style="color:#a6e22e">Configuration</span><span style="color:#f92672">:</span>
+            <span style="color:#a6e22e">BucketName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;incomingproductchanges&#34;</span>
+            <span style="color:#a6e22e">ObjectKey</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;aws-config-enable-config/v1/product.zip&#34;</span>
+  
+</code></pre></div>
+ </figure>
+<p>Please note, if you create S3 sourced pipelines you will be responsible for the creation of the AWS S3 Bucket.</p>
 
 
 <footer class=" footline" >
 	
 </footer>
+
 
         
         </div> 
@@ -1861,53 +1838,6 @@
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -1928,6 +1858,9 @@
             
                 
                     
+                        
+                        
+                    
                 
                 
 
@@ -1935,6 +1868,38 @@
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
             
         
@@ -2051,52 +2016,6 @@
             
         
                     
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
                         
             
             
@@ -2121,6 +2040,35 @@
             
                 
                     
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -2135,8 +2083,37 @@
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
                         
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
                         
+            
+            
+                
                     
                 
                 
@@ -2279,10 +2256,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="../../workshops/40-reinvent2019/30-prerequisites/100-running-yourself.html" title="Running yourself"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="../../every-day-use/100-creating-a-product/305-creating-codestar-pipelines.html" title="Creating CodeStar pipelines"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="../../workshops/40-reinvent2019/100-task-1/100-create-the-control.html" title="Create the control" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="../../every-day-use/110-deleting-a-product.html" title="Deleting a product" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -2313,3 +2290,4 @@
 
   </body>
 </html>
+

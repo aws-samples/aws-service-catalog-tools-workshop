@@ -185,5 +185,28 @@ Delete a product version When you are ready to delete a product version you will
   Navigate to the ServiceCatalogFactory CodeCommit repository</description>
     </item>
     
+    <item>
+      <title>Creating CodeStar pipelines</title>
+      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/every-day-use/100-creating-a-product/305-creating-codestar-pipelines.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/every-day-use/100-creating-a-product/305-creating-codestar-pipelines.html</guid>
+      <description>What are we going to do? We are going to perform the following steps:
+ How to use AWS CodeStar Connections as a source for your pipelines (for Github.com/Github Enterprise and BitBucket Cloud)  Step by step guide Here are the steps you need to follow to &amp;ldquo;Creating CodeStar pipelines&amp;rdquo;
+Add the source code for your product When you configured your product version, you may have specified the following:</description>
+    </item>
+    
+    <item>
+      <title>Creating S3 pipelines</title>
+      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/every-day-use/100-creating-a-product/310-creating-s3-pipelines.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/every-day-use/100-creating-a-product/310-creating-s3-pipelines.html</guid>
+      <description>What are we going to do? We are going to perform the following steps:
+ How to use S3 as a source for your pipelines  Step by step guide Here are the steps you need to follow to &amp;ldquo;Creating S3 pipelines&amp;rdquo;
+Add the source code for your product When you configured your product version, you may have specified the following:
+ Versions: - Name: &amp;#34;v1&amp;#34; Description: &amp;#34;v1 of aws-config-enable-config&amp;#34; Source: Provider: &amp;#34;CodeCommit&amp;#34; Configuration: RepositoryName: &amp;#34;aws-config-enable-config&amp;#34; BranchName: &amp;#34;v1&amp;#34;   This would have taken your products source code from CodeCommit.</description>
+    </item>
+    
   </channel>
 </rss>
