@@ -17,7 +17,7 @@ aliases = [
 {{< figure src="/how-tos/installation/select_cloudformation.png" height="450" width="900">}}
 
 {{% notice warning %}}
-Confirm that you are in the {{% param home_region %}} ({{% param home_region_name %}}) region.
+If you are installing Service Catalog Puppet it will need to be installed into the same account as Service Catalog Factory.
 {{% /notice %}}
 
 ### Create a new CloudFormation Stack
@@ -33,16 +33,46 @@ Service Catalog Factory can be installed via a pre-created AWS CloudFormation te
 - Paste this URL under 'Amazon S3 URL': 
 - Hit Next
 
-{{< figure src="/how-tos/installation/specify_template.png" height="400" width="900">}}
-
 ### Specify Stack Details
 
 - Specify the Stack details as follows:
     - **Stack Name:** `factory-initialization-stack`
-    - **Enable Regions:** `{{% param home_region %}}`
-- Hit Next
 
-{{< figure src="/how-tos/installation/stack_details_factory.png" height="400" width="900">}}
+You should fill in the details depending on which source code management system you want to use:
+
+#### CodeCommit
+
+You need to set **SCMSourceProvider** to **CodeCommit**.
+
+You should also set the following:
+
+- SCMRepositoryName - this is the name of the git repo to use
+- SCMBranchName - this is the branch you want to use
+- SCMShouldCreateRepo - set this to true if you want the tools to create the repo for you
+
+
+#### Github.com / Github Enterprise / Bitbucket Cloud
+
+You should have a read through the following guide: https://docs.aws.amazon.com/dtconsole/latest/userguide/connections.html
+
+You need to set **SCMSourceProvider** to **CodeStarSourceConnection**.
+
+You should also set the following:
+
+- SCMConnectionArn - this is the Arn of the connection you created in the console
+- SCMFullRepositoryId - the value for this is dependant on which SCM you use
+- SCMBranchName - this is the branch you want to use
+
+
+#### S3
+
+You need to set **SCMSourceProvider** to **S3**.
+
+You should also set the following:
+
+- SCMBucketName - this is the name of the S3 bucket you want to use
+- SCMObjectKey - this is the name of the object key you will be uploading your zip file as to trigger pipeline runs
+- SCMShouldCreateRepo - set this to true if you want the tools to create the repo for you
 
 ### Create the CloudFormation Stack
 
