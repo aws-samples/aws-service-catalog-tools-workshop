@@ -46,7 +46,7 @@ AWS S3 and then use another solution to put the source code there.  To do so, yo
           Provider: "S3"
           Configuration:
             BucketName: "incomingproductchanges"
-            ObjectKey: "aws-config-enable-config/v1/product.zip"
+            S3ObjectKey: "aws-config-enable-config/v1/product.zip"
   {{< / highlight >}}
  </figure>
 
