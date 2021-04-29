@@ -402,8 +402,6 @@
         <ul>
           
           
-            
-          
           
           
         
@@ -434,13 +432,41 @@
  
   
     
-    <li data-nav-id="/installation/30-service-catalog-puppet/20-bootstrapping.html" title="Bootstrapping" class="dd-item 
+      <li data-nav-id="/installation/30-service-catalog-puppet/30-installing-puppet.html" title="Installing Puppet" class="dd-item ">
+        <a href="../../installation/30-service-catalog-puppet/30-installing-puppet.html">
+        Installing Puppet
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/installation/50-bootstrapping.html" title="Onboarding spokes" class="dd-item 
         
         
         
         ">
-      <a href="../../installation/30-service-catalog-puppet/20-bootstrapping.html">
-          Bootstrapping
+      <a href="../../installation/50-bootstrapping.html">
+          Onboarding spokes
           
       </a>
       
@@ -459,9 +485,9 @@
  
   
     
-      <li data-nav-id="/installation/30-service-catalog-puppet/20-bootstrapping/10-puppet-account.html" title="Puppet account" class="dd-item ">
-        <a href="../../installation/30-service-catalog-puppet/20-bootstrapping/10-puppet-account.html">
-        Puppet account
+      <li data-nav-id="/installation/50-bootstrapping/10-using-cfn-and-codebuild.html" title="CloudFormation/CodeBuild" class="dd-item ">
+        <a href="../../installation/50-bootstrapping/10-using-cfn-and-codebuild.html">
+        CloudFormation/CodeBuild
         
         </a>
     </li>
@@ -478,9 +504,9 @@
  
   
     
-      <li data-nav-id="/installation/30-service-catalog-puppet/20-bootstrapping/20-single-spokes.html" title="Single spokes" class="dd-item ">
-        <a href="../../installation/30-service-catalog-puppet/20-bootstrapping/20-single-spokes.html">
-        Single spokes
+      <li data-nav-id="/installation/50-bootstrapping/50-using-the-cli.html" title="Command Line Interface" class="dd-item ">
+        <a href="../../installation/50-bootstrapping/50-using-the-cli.html">
+        Command Line Interface
         
         </a>
     </li>
@@ -497,22 +523,13 @@
  
   
     
-      <li data-nav-id="/installation/30-service-catalog-puppet/20-bootstrapping/30-groups-of-spokes.html" title="Groups of spokes" class="dd-item ">
-        <a href="../../installation/30-service-catalog-puppet/20-bootstrapping/30-groups-of-spokes.html">
-        Groups of spokes
+      <li data-nav-id="/installation/50-bootstrapping/80-restricting-spokes.html" title="Restricting Spokes" class="dd-item ">
+        <a href="../../installation/50-bootstrapping/80-restricting-spokes.html">
+        Restricting Spokes
         
         </a>
     </li>
      
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
   
  
 
@@ -1288,7 +1305,7 @@
 </left>
 
 <left>
-    <h5 class="copyright">7ef4af2 - Thu Mar 18 13:47:20 UTC 2021</h5>
+    <h5 class="copyright">50178f2 - Thu Apr 29 17:35:42 UTC 2021</h5>
 </left>
 
     </section>
@@ -1350,8 +1367,7 @@
   <ul>
     <li><a href="#what-are-we-going-to-do">What are we going to do?</a>
       <ul>
-        <li><a href="#using-the-cli">Using the CLI</a></li>
-        <li><a href="#creating-the-puppetorgroleforexpands-iam-role">Creating the PuppetOrgRoleForExpands IAM Role</a></li>
+        <li><a href="#using-aws-cloudformation-to-create-the-iam-role">Using AWS CloudFormation to create the IAM Role</a></li>
         <li><a href="#setting-the-org-iam-role-arn">Setting the Org IAM role ARN</a></li>
       </ul>
     </li>
@@ -1376,37 +1392,28 @@
 
 <p>You can use Service Catalog Puppet with AWS Organizations.  Using it will allow you describe all accounts within an
 organizational unit as a single entity.  This provides a quicker way to get started and an easier way of managing
-multiple account environments.</p>
-<p>If you do not want to use Organizations please skip to the next section of this how to.</p>
+multiple account environments.  You can also use AWS Service Catalog's support for AWS Organizations delegated
+administrator to reduce the number of invites and accepts for portfolio sharing.</p>
 <h2 id="what-are-we-going-to-do">What are we going to do?</h2>
-<p>When enabling AWS Organizations you will need to provision an IAM Role in the Organizations management account and you will
-then need to provide the ARN of that role to your puppet account as an AWS SSM parameter.</p>
+<p>When enabling AWS Organizations you will need to provision an IAM Role in the Organization's management account and you
+will then need to provide the ARN of that role to your puppet account as an AWS SSM parameter.</p>
 <p>The role provisioned in the Organizations management account is only used to list accounts.  It has no write access.</p>
-<p>You can use the CLI to enable AWS Organizations.</p>
-<h3 id="using-the-cli">Using the CLI</h3>
-<p>The following steps should be executed using the Service Catalog Puppet CLI which is an application built using Python 3.</p>
-<p>If you have not already installed the framework you can do so by following these steps:</p>
-<p>It is good practice to install Python libraries in isolated environments.</p>
-<p>You can create the a virtual environment using the following command:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">virtualenv --python<span style="color:#f92672">=</span>python3.7 venv
-source venv/bin/activate</code></pre></div>
-<p>Once you have decided where to install the library you can install the package:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pip install aws-service-catalog-puppet</code></pre></div>
-<p>This will install the library and all of the dependencies.</p>
-<h3 id="creating-the-puppetorgroleforexpands-iam-role">Creating the PuppetOrgRoleForExpands IAM Role</h3>
-<p>You should export the credentials for your organizations management account or set your profile so that AWS CLI commands
-will execute as a role in your organization management account.</p>
-<p>Then you can run the following command:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">servicecatalog-puppet bootstrap-org-master &lt;ACCOUNT_ID_OF_YOUR_PUPPET&gt;</code></pre></div>
-<p>Ensure you replace <em>&lt;ACCOUNT_ID_OF_YOUR_PUPPET&gt;</em> with the account id of the account you will be using as your
-puppet account.  Please note you can have multiple puppet accounts in your organization.</p>
-<p>Running this command will return an ARN.  This ARN should be used when setting the Org IAM role ARN.</p>
+<p>You can use the AWS CloudFormation to enable AWS Organizations.</p>
+<h3 id="using-aws-cloudformation-to-create-the-iam-role">Using AWS CloudFormation to create the IAM Role</h3>
+<p>Within your AWS Organizations management account you should create an AWS CloudFormation stack with the following name:</p>
+<p><code>puppet-organizations-initialization-stack</code></p>
+<p>Using the template of the URL:</p>
+<p><code>https://service-catalog-tools.s3.eu-west-2.amazonaws.com/puppet/latest/servicecatalog-puppet-org-master.template.yaml</code></p>
+<p>This stack will have an output named <em>PuppetOrgRoleForExpandsArn</em>.  Take a note of this Arn as you will need it in the
+next step.</p>
 <h3 id="setting-the-org-iam-role-arn">Setting the Org IAM role ARN</h3>
-<p>You should export the credentials for your puppet account or set your profile so that AWS CLI commands will execute as a
-role in your puppet account.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">servicecatalog-puppet set-org-iam-role-arn &lt;THE_ARN_YOU_WANT_TO_USE&gt;</code></pre></div>
-<p>Ensure you replace <em>&lt;THE_ARN_YOU_WANT_TO_USE&gt;</em> with the ARN returned when you created the <em>PuppetOrgRoleForExpands</em></p>
-
+<p>Once you have created the IAM Role, you need to tell the framework which role you want to use.  You do this by creating
+an AWS Systems Manager Parameter Store parameter named <code>/servicecatalog-puppet/org-iam-role-arn</code> in the <em>region</em> of the
+<em>account</em> where you will install puppet and use as your hub account.  You can do this via the console or via the cli.</p>
+<figure>
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">aws ssm put-parameter --name /servicecatalog-puppet/org-iam-role-arn --type String --value &lt;VALUE-FROM-STEP-ABOVE&gt;  
+  </code></pre></div>
+</figure>
 
 <footer class=" footline" >
 	
@@ -1661,8 +1668,6 @@ role in your puppet account.</p>
 
                     
                     
-                        
-                    
                     
 
                     
@@ -1699,6 +1704,25 @@ role in your puppet account.</p>
                     
 
                     
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
                         
             
             
@@ -1743,9 +1767,6 @@ role in your puppet account.</p>
                     
                     
 
-                    
-            
-        
                     
             
         
@@ -2254,7 +2275,7 @@ role in your puppet account.</p>
 			<a class="nav nav-prev" href="../../installation/30-service-catalog-puppet.html" title="Service Catalog Puppet"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="../../installation/30-service-catalog-puppet/20-bootstrapping.html" title="Bootstrapping" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="../../installation/30-service-catalog-puppet/30-installing-puppet.html" title="Installing Puppet" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

@@ -16,9 +16,18 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/installation/30-service-catalog-puppet/10-using-aws-organizations.html</guid>
-      <description>You can use Service Catalog Puppet with AWS Organizations. Using it will allow you describe all accounts within an organizational unit as a single entity. This provides a quicker way to get started and an easier way of managing multiple account environments.
-If you do not want to use Organizations please skip to the next section of this how to.
-What are we going to do? When enabling AWS Organizations you will need to provision an IAM Role in the Organizations management account and you will then need to provide the ARN of that role to your puppet account as an AWS SSM parameter.</description>
+      <description>You can use Service Catalog Puppet with AWS Organizations. Using it will allow you describe all accounts within an organizational unit as a single entity. This provides a quicker way to get started and an easier way of managing multiple account environments. You can also use AWS Service Catalog&#39;s support for AWS Organizations delegated administrator to reduce the number of invites and accepts for portfolio sharing.
+What are we going to do?</description>
+    </item>
+    
+    <item>
+      <title>Installing Puppet</title>
+      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/installation/30-service-catalog-puppet/30-installing-puppet.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/installation/30-service-catalog-puppet/30-installing-puppet.html</guid>
+      <description>Navigate to CloudFormation  Select the AWS CloudFormation service.    Create a new AWS CloudFormation stack  Select &amp;lsquo;Create Stack&amp;rsquo;    Note you must have installed factory into this account already. If you have not done this already navigate to &amp;lsquo;Install Factory Process&amp;rsquo;
+ Select the pre-configured AWS CloudFormation template Service Catalog Puppet can be installed via a pre-created AWS CloudFormation template stored in Amazon S3 under the following URL:</description>
     </item>
     
   </channel>

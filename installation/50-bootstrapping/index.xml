@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Onboarding spokes on Service Catalog Tools Workshop</title>
+    <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/installation/50-bootstrapping.html</link>
+    <description>Recent content in Onboarding spokes on Service Catalog Tools Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://aws-samples.github.io/aws-service-catalog-tools-workshop/installation/50-bootstrapping/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>CloudFormation/CodeBuild</title>
+      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/installation/50-bootstrapping/10-using-cfn-and-codebuild.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/installation/50-bootstrapping/10-using-cfn-and-codebuild.html</guid>
+      <description>What are we going to do? You will need to bootstrap spoke accounts so you can configure them using the Service Catalog Tools.
+Bootstrapping a spoke account will create an AWS CloudFormation stack in it. This stack will contain the Puppet IAM Role (PuppetRole) which is needed by framework to perform actions in the spoke account.
+The following steps should be executed using the provided AWS CloudFormation templates and AWS CodeBuild projects which are linked to here or available in the home region of your puppet hub account.</description>
+    </item>
+    
+    <item>
+      <title>Command Line Interface</title>
+      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/installation/50-bootstrapping/50-using-the-cli.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/installation/50-bootstrapping/50-using-the-cli.html</guid>
+      <description>What are we going to do? You will need to bootstrap spoke accounts so you can configure them using the Service Catalog Tools.
+Bootstrapping a spoke account will create an AWS CloudFormation stack in it. This stack will contain the Puppet IAM Role (PuppetRole) which is needed by framework to perform actions in the spoke account.
+The following steps should be executed using the Service Catalog Puppet CLI which is an application built using Python 3.</description>
+    </item>
+    
+    <item>
+      <title>Restricting Spokes</title>
+      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/installation/50-bootstrapping/80-restricting-spokes.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/installation/50-bootstrapping/80-restricting-spokes.html</guid>
+      <description>Restricting spokes The PuppetRole created by the framework has the AdministratorAccess IAM managed policy attached to it. It is reccommended that you can define an IAM Permission Boundary for the PuppetRole for any production applications of this framework.
+The IAM Permission Boundary you provide should permit the PuppetRole to interact with AWS Service Catalog to accept shares, manage portfolios and to add, provision and terminate products. In addition the IAM Role should allow the use of AWS SNS, AWS EventBridge, AWS OpsCenter if you are making use of those features.</description>
+    </item>
+    
+  </channel>
+</rss>

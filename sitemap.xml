@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/installation/30-service-catalog-puppet/20-bootstrapping/10-puppet-account.html</loc>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/installation/50-bootstrapping/10-using-cfn-and-codebuild.html</loc>
   </url>
   
   <url>
@@ -27,10 +27,6 @@
   </url>
   
   <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/installation/30-service-catalog-puppet/20-bootstrapping.html</loc>
-  </url>
-  
-  <url>
     <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/design-considerations.html</loc>
   </url>
   
@@ -43,11 +39,7 @@
   </url>
   
   <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/installation/30-service-catalog-puppet/20-bootstrapping/20-single-spokes.html</loc>
-  </url>
-  
-  <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/installation/30-service-catalog-puppet/20-bootstrapping/30-groups-of-spokes.html</loc>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/installation/30-service-catalog-puppet/30-installing-puppet.html</loc>
   </url>
   
   <url>
@@ -71,7 +63,19 @@
   </url>
   
   <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/installation/50-bootstrapping/50-using-the-cli.html</loc>
+  </url>
+  
+  <url>
     <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/design-considerations/multi-account-strategy.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/installation/50-bootstrapping.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/installation/50-bootstrapping/80-restricting-spokes.html</loc>
   </url>
   
   <url>

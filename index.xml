@@ -11,13 +11,14 @@
     
     
     <item>
-      <title>Puppet account</title>
-      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/installation/30-service-catalog-puppet/20-bootstrapping/10-puppet-account.html</link>
+      <title>CloudFormation/CodeBuild</title>
+      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/installation/50-bootstrapping/10-using-cfn-and-codebuild.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/installation/30-service-catalog-puppet/20-bootstrapping/10-puppet-account.html</guid>
-      <description>Navigate to CloudFormation  Select the AWS CloudFormation service.    Create a new AWS CloudFormation stack  Select &amp;lsquo;Create Stack&amp;rsquo;    Note you must have installed factory into this account already. If you have not done this already navigate to &amp;lsquo;Install Factory Process&amp;rsquo;
- Select the pre-configured AWS CloudFormation template Service Catalog Puppet can be installed via a pre-created AWS CloudFormation template stored in Amazon S3 under the following URL:</description>
+      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/installation/50-bootstrapping/10-using-cfn-and-codebuild.html</guid>
+      <description>What are we going to do? You will need to bootstrap spoke accounts so you can configure them using the Service Catalog Tools.
+Bootstrapping a spoke account will create an AWS CloudFormation stack in it. This stack will contain the Puppet IAM Role (PuppetRole) which is needed by framework to perform actions in the spoke account.
+The following steps should be executed using the provided AWS CloudFormation templates and AWS CodeBuild projects which are linked to here or available in the home region of your puppet hub account.</description>
     </item>
     
     <item>
@@ -37,9 +38,8 @@ The Foundational OUs group the shared accounts needed to manage the your overall
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/installation/30-service-catalog-puppet/10-using-aws-organizations.html</guid>
-      <description>You can use Service Catalog Puppet with AWS Organizations. Using it will allow you describe all accounts within an organizational unit as a single entity. This provides a quicker way to get started and an easier way of managing multiple account environments.
-If you do not want to use Organizations please skip to the next section of this how to.
-What are we going to do? When enabling AWS Organizations you will need to provision an IAM Role in the Organizations management account and you will then need to provide the ARN of that role to your puppet account as an AWS SSM parameter.</description>
+      <description>You can use Service Catalog Puppet with AWS Organizations. Using it will allow you describe all accounts within an organizational unit as a single entity. This provides a quicker way to get started and an easier way of managing multiple account environments. You can also use AWS Service Catalog&#39;s support for AWS Organizations delegated administrator to reduce the number of invites and accepts for portfolio sharing.
+What are we going to do?</description>
     </item>
     
     <item>
@@ -53,27 +53,34 @@ What are we going to do? When enabling AWS Organizations you will need to provis
     </item>
     
     <item>
-      <title>Single spokes</title>
-      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/installation/30-service-catalog-puppet/20-bootstrapping/20-single-spokes.html</link>
+      <title>Installing Puppet</title>
+      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/installation/30-service-catalog-puppet/30-installing-puppet.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/installation/30-service-catalog-puppet/20-bootstrapping/20-single-spokes.html</guid>
-      <description>What are we going to do? You will need to bootstrap spoke accounts so you can share portfolios with them and provision products into them.
-Bootstrapping a spoke account will create an AWS CloudFormation stack in it. This stack will contain the Puppet IAM Role (PuppetRole) which is needed by framework to perform actions in the spoke account.
-Using the CLI The following steps should be executed using the Service Catalog Puppet CLI which is an application built using Python 3.</description>
+      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/installation/30-service-catalog-puppet/30-installing-puppet.html</guid>
+      <description>Navigate to CloudFormation  Select the AWS CloudFormation service.    Create a new AWS CloudFormation stack  Select &amp;lsquo;Create Stack&amp;rsquo;    Note you must have installed factory into this account already. If you have not done this already navigate to &amp;lsquo;Install Factory Process&amp;rsquo;
+ Select the pre-configured AWS CloudFormation template Service Catalog Puppet can be installed via a pre-created AWS CloudFormation template stored in Amazon S3 under the following URL:</description>
     </item>
     
     <item>
-      <title>Groups of spokes</title>
-      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/installation/30-service-catalog-puppet/20-bootstrapping/30-groups-of-spokes.html</link>
+      <title>Command Line Interface</title>
+      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/installation/50-bootstrapping/50-using-the-cli.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/installation/30-service-catalog-puppet/20-bootstrapping/30-groups-of-spokes.html</guid>
-      <description>What are we going to do? If you have enabled AWS Organizations support you may want to bootstrap all spokes within an organizational unit.
-Following these steps will allow you to bootstrap all AWS Accounts that exist within the same organizational unit.
-Using the CodeBuild Project In your AWS Account you can find an AWS CodeBuild project named: servicecatalog-puppet-bootstrap-an-ou
-  Click Start Build
-  Before you select Start Build again, expand the Environment variables override section.</description>
+      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/installation/50-bootstrapping/50-using-the-cli.html</guid>
+      <description>What are we going to do? You will need to bootstrap spoke accounts so you can configure them using the Service Catalog Tools.
+Bootstrapping a spoke account will create an AWS CloudFormation stack in it. This stack will contain the Puppet IAM Role (PuppetRole) which is needed by framework to perform actions in the spoke account.
+The following steps should be executed using the Service Catalog Puppet CLI which is an application built using Python 3.</description>
+    </item>
+    
+    <item>
+      <title>Restricting Spokes</title>
+      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/installation/50-bootstrapping/80-restricting-spokes.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/installation/50-bootstrapping/80-restricting-spokes.html</guid>
+      <description>Restricting spokes The PuppetRole created by the framework has the AdministratorAccess IAM managed policy attached to it. It is reccommended that you can define an IAM Permission Boundary for the PuppetRole for any production applications of this framework.
+The IAM Permission Boundary you provide should permit the PuppetRole to interact with AWS Service Catalog to accept shares, manage portfolios and to add, provision and terminate products. In addition the IAM Role should allow the use of AWS SNS, AWS EventBridge, AWS OpsCenter if you are making use of those features.</description>
     </item>
     
     <item>
