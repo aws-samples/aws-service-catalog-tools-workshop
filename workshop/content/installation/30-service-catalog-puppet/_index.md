@@ -8,6 +8,9 @@ aliases = [
 +++
 
 
-The installation of Service Catalog Puppet can be broken in the following three steps:
+Service Catalog Puppet does not depend on AWS Organizations.  
+
+Using AWS Organizations provides performance and productivity improvements but it is optional.  If you would like to use 
+it please follow the "Using AWS Organizations" step below before you continue with the "Installing Puppet" step.
 
 {{% children depth="1" showhidden="false" %}}

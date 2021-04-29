@@ -1,7 +1,7 @@
 +++
-title = "Puppet account"
+title = "Installing Puppet"
 chapter = false
-weight = 10
+weight = 30
 home_region = 'eu-west-1'
 home_region_name = 'Ireland'
 
