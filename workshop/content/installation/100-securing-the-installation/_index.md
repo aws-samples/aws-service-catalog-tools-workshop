@@ -55,7 +55,7 @@ The risk with these IAM role is a potential **privilege escalation** by either d
 
 The following Service Control Policy denies the `sts:AssumeRole`  and `iam:*` actions on all IAM roles which are created with the path `servicecatalog-puppet`. This path is the default setting. If you defined another path for these IAM roles, you will need to adapt the SCP accordingly.
 
-Apply this SCP to all spoke accounts and the hub account of Service Catalog Puppet <u>after</u> deploying the Puppet resources in these accounts.
+Apply this SCP to all spoke accounts and the hub account of Service Catalog Puppet <u>after</u> deploying the Puppet resources in these accounts. See the [AWS documentation ](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_create.html) on how to create and apply SCPs.
 
 ```
 {
