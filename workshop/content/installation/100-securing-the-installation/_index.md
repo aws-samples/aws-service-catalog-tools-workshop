@@ -51,7 +51,7 @@ The related IAM Roles are deployed in both, hub and spoke accounts and have the 
 
 The risk with these IAM role is a potential **privilege escalation** by either directly assuming the *PuppetRole* or by launching a CodeBuild instance and assigning the *PuppetDeployInSpokeRole* to this instance. This would allow any IAM user/role with appropriate permissions to execute commands with the privileges of the Puppet roles.
 
-### Removing risk via SCP
+### Mitigating risk via SCP
 
 The following Service Control Policy denies the `sts:AssumeRole`  and `iam:*` actions on all IAM roles which are created with the path `servicecatalog-puppet`. This path is the default setting. If you defined another path for these IAM roles, you will need to adapt the SCP accordingly.
 
