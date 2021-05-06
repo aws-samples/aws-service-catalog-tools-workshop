@@ -131,6 +131,10 @@
   </url>
   
   <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/design-considerations/fine-grained-depends-on.html</loc>
+  </url>
+  
+  <url>
     <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/every-day-use/180-adding-a-product-to-a-portfolio.html</loc>
   </url>
   
