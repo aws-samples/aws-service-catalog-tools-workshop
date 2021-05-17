@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AWS Organizations Integration on Service Catalog Tools Workshop</title>
+    <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/every-day-use/360-aws-organizations-integration.html</link>
+    <description>Recent content in AWS Organizations Integration on Service Catalog Tools Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://aws-samples.github.io/aws-service-catalog-tools-workshop/every-day-use/360-aws-organizations-integration/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Adding Accounts using Organizational Units (OU)</title>
+      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/every-day-use/360-aws-organizations-integration/361-adding-accounts-in-ou.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/every-day-use/360-aws-organizations-integration/361-adding-accounts-in-ou.html</guid>
+      <description>What are we going to do? This tutorial will walk you through &amp;ldquo;Adding Accounts using Organizational Units (OU)&amp;quot;.
+We are going to perform the following steps:
+ create a manifest file add accounts to the manifest file using AWS Organizations OU add a spoke-local-portfolios to the manifest file  During this process you will check your progress by verifying what the framework is doing at each step.
+Step by step guide Here are the steps you need to follow to &amp;ldquo;Adding Accounts using Organizational Units (OU)&amp;rdquo;</description>
+    </item>
+    
+    <item>
+      <title>Sharing a portfolio using AWS Organizations</title>
+      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/every-day-use/360-aws-organizations-integration/362-sharing-a-portfolio-organizations.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/every-day-use/360-aws-organizations-integration/362-sharing-a-portfolio-organizations.html</guid>
+      <description>What are we going to do? This tutorial will walk you through &amp;ldquo;Sharing a portfolio using AWS Organizations&amp;rdquo; to OU member accounts.
+Doing this will allow the framework to share Service Catalog Portfolios by using AWS Organizations OUs, rather than account-to-account sharing. This will reduce the time required to share Portfolios.
+We are going to perform the following steps:
+ enable organizational sharing create a manifest file add an account to the manifest file add a spoke-local-portfolios to the manifest file  During this process you will check your progress by verifying what the framework is doing at each step.</description>
+    </item>
+    
+  </channel>
+</rss>

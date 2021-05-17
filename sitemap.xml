@@ -199,6 +199,18 @@
   </url>
   
   <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/every-day-use/360-aws-organizations-integration.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/every-day-use/360-aws-organizations-integration/361-adding-accounts-in-ou.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/every-day-use/360-aws-organizations-integration/362-sharing-a-portfolio-organizations.html</loc>
+  </url>
+  
+  <url>
     <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/every-day-use/400-invoking-a-lambda-function.html</loc>
   </url>
   

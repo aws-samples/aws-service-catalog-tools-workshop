@@ -15,7 +15,7 @@
     <link rel="shortcut icon" href="../../images/favicon.png" type="image/png" />
 <link rel="icon" href="../../images/favicon.png" type="image/png" />
 
-    <title>Deleting the product :: Service Catalog Tools Workshop</title>
+    <title>Adding Accounts using Organizational Units (OU) :: Service Catalog Tools Workshop</title>
 
     
     <link href="../../css/nucleus.css" rel="stylesheet">
@@ -43,7 +43,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/every-day-use/110-deleting-a-product/300-deleting-the-product.html">
+  <body class="" data-url="/every-day-use/360-aws-organizations-integration/361-adding-accounts-in-ou.html">
     <nav id="sidebar" class="">
 
 
@@ -744,7 +744,7 @@
   
     
     <li data-nav-id="/every-day-use/110-deleting-a-product.html" title="Deleting a product" class="dd-item 
-        parent
+        
         
         
         ">
@@ -787,7 +787,7 @@
  
   
     
-      <li data-nav-id="/every-day-use/110-deleting-a-product/300-deleting-the-product.html" title="Deleting the product" class="dd-item active">
+      <li data-nav-id="/every-day-use/110-deleting-a-product/300-deleting-the-product.html" title="Deleting the product" class="dd-item ">
         <a href="../../every-day-use/110-deleting-a-product/300-deleting-the-product.html">
         Deleting the product
         
@@ -984,7 +984,7 @@
   
     
     <li data-nav-id="/every-day-use/360-aws-organizations-integration.html" title="AWS Organizations Integration" class="dd-item 
-        
+        parent
         
         
         ">
@@ -1008,7 +1008,7 @@
  
   
     
-      <li data-nav-id="/every-day-use/360-aws-organizations-integration/361-adding-accounts-in-ou.html" title="Adding Accounts using Organizational Units (OU)" class="dd-item ">
+      <li data-nav-id="/every-day-use/360-aws-organizations-integration/361-adding-accounts-in-ou.html" title="Adding Accounts using Organizational Units (OU)" class="dd-item active">
         <a href="../../every-day-use/360-aws-organizations-integration/361-adding-accounts-in-ou.html">
         Adding Accounts using Organizational Units (OU)
         
@@ -1517,7 +1517,7 @@
             
           
           
-            <a href='../../'>AWS Service Catalog Tools Intro Workshop</a> > <a href='../../every-day-use.html'>Every day use</a> > <a href='../../every-day-use/110-deleting-a-product.html'>Deleting a product</a> > Deleting the product
+            <a href='../../'>AWS Service Catalog Tools Intro Workshop</a> > <a href='../../every-day-use.html'>Every day use</a> > <a href='../../every-day-use/360-aws-organizations-integration.html'>AWS Organizations Integration</a> > Adding Accounts using Organizational Units (OU)
           
         
           
@@ -1536,8 +1536,11 @@
     <li><a href="#what-are-we-going-to-do">What are we going to do?</a></li>
     <li><a href="#step-by-step-guide">Step by step guide</a>
       <ul>
-        <li><a href="#delete-a-product-version">Delete a product version</a></li>
-        <li><a href="#delete-a-product">Delete a product</a></li>
+        <li><a href="#creating-the-manifest-file">Creating the manifest file</a></li>
+        <li><a href="#adding-an-ou-to-the-manifest-file">Adding an OU to the manifest file</a></li>
+        <li><a href="#adding-spoke-local-portfolio-to-the-manifest">Adding spoke-local-portfolio to the manifest</a></li>
+        <li><a href="#committing-the-manifest-file">Committing the manifest file</a></li>
+        <li><a href="#verifying-the-sharing">Verifying the sharing</a></li>
       </ul>
     </li>
   </ul>
@@ -1553,7 +1556,7 @@
         
         <div id="body-inner">
           
-            <h1>Deleting the product</h1>
+            <h1>Adding Accounts using Organizational Units (OU)</h1>
           
 
         
@@ -1561,61 +1564,139 @@
 
 <hr>
 <h2 id="what-are-we-going-to-do">What are we going to do?</h2>
+<p>This tutorial will walk you through &ldquo;Adding Accounts using Organizational Units (OU)&quot;.</p>
 <p>We are going to perform the following steps:</p>
 <ul>
-<li>delete a product version</li>
-<li>delete a product</li>
+<li>create a manifest file</li>
+<li>add accounts to the manifest file using AWS Organizations OU</li>
+<li>add a spoke-local-portfolios to the manifest file</li>
 </ul>
+<p>During this process you will check your progress by verifying what the framework is doing at each step.</p>
 <h2 id="step-by-step-guide">Step by step guide</h2>
-<p>Here are the steps you need to follow to &ldquo;Deleting the product&rdquo;</p>
-<h3 id="delete-a-product-version">Delete a product version</h3>
-<p>When you are ready to delete a product version you will need to edit its definition in the portfolio yaml.</p>
+<p>Here are the steps you need to follow to &ldquo;Adding Accounts using Organizational Units (OU)&rdquo;</p>
+<h3 id="creating-the-manifest-file">Creating the manifest file</h3>
 <ul>
 <li>
-<p>Navigate to the  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codecommit/repositories/ServiceCatalogFactory/browse?region=eu-west-1' target='_blank'>ServiceCatalogFactory CodeCommit repository</a></p>
+<p>Navigate to the  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codecommit/repositories/ServiceCatalogPuppet/browse?region=eu-west-1' target='_blank'>ServiceCatalogPuppet CodeCommit repository</a></p>
 </li>
 <li>
-<p>Click on <em>portfolios</em></p>
+<p>Scroll down to the bottom of the page and hit the <em>Create file</em> button</p>
 </li>
 </ul>
 <figure>
-    <img src="../../how-tos/creating-and-provisioning-a-product/ClickOnPortfolios.png"/> 
+    <img src="../../how-tos/creating-and-provisioning-a-product/create_file.png"/> 
+</figure>
+
+<h3 id="adding-an-ou-to-the-manifest-file">Adding an OU to the manifest file</h3>
+<p>This will allow you to provision AWS Service Catalog Products into multiple AWS Accounts and Regions across your AWS estate without listing individual AWS 12-digit Account IDs.  Instead we will supply the AWS Organizations OU Path.  Service Catalog Products will then be provisioned in AWS Accounts that are a member of this OU.</p>
+<p><em>We will start out by adding your OU to the manifest file.</em></p>
+<ul>
+<li>
+<p>Navigate to the  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codecommit/repositories/ServiceCatalogPuppet/browse?region=eu-west-1' target='_blank'>ServiceCatalogPuppet CodeCommit repository</a></p>
+</li>
+<li>
+<p>Scroll down to the bottom of the page and hit the <em>Create file</em> button</p>
+</li>
+</ul>
+<figure>
+    <img src="../../how-tos/creating-and-provisioning-a-product/create_file.png"/> 
 </figure>
 
 <ul>
 <li>
-<p>Click on the portfolio yaml containing your product</p>
-</li>
-<li>
-<p>Click <em>Edit</em></p>
-</li>
-<li>
-<p>Add or set the attribute Status for the version you want to delete to terminated:</p>
+<p>Copy the following snippet into the main input field:</p>
 <figure>
- <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">Schema</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">factory</span><span style="color:#f92672">-</span><span style="color:#ae81ff">2019</span><span style="color:#f92672">-</span><span style="color:#ae81ff">04</span><span style="color:#f92672">-</span><span style="color:#ae81ff">01</span>
-<span style="color:#a6e22e">Products</span><span style="color:#f92672">:</span>
-  <span style="color:#f92672">-</span> <span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">account</span><span style="color:#f92672">-</span><span style="color:#a6e22e">vending</span><span style="color:#f92672">-</span><span style="color:#a6e22e">machine</span>
-    <span style="color:#a6e22e">Owner</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">central</span><span style="color:#f92672">-</span><span style="color:#a6e22e">it</span><span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">customer</span>.<span style="color:#a6e22e">com</span>
-    <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">The</span> <span style="color:#a6e22e">iam</span> <span style="color:#a6e22e">roles</span> <span style="color:#a6e22e">needed</span> <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">you</span> <span style="color:#a6e22e">to</span> <span style="color:#66d9ef">do</span> <span style="color:#a6e22e">your</span> <span style="color:#a6e22e">jobs</span>
-    <span style="color:#a6e22e">Distributor</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">central</span><span style="color:#f92672">-</span><span style="color:#a6e22e">it</span><span style="color:#f92672">-</span><span style="color:#a6e22e">team</span>
-    <span style="color:#a6e22e">SupportDescription</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Contact</span> <span style="color:#a6e22e">us</span> <span style="color:#a6e22e">on</span> <span style="color:#a6e22e">Chime</span> <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">help</span> <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">central</span><span style="color:#f92672">-</span><span style="color:#a6e22e">it</span><span style="color:#f92672">-</span><span style="color:#a6e22e">team</span>
-    <span style="color:#a6e22e">SupportEmail</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">central</span><span style="color:#f92672">-</span><span style="color:#a6e22e">it</span><span style="color:#f92672">-</span><span style="color:#a6e22e">team</span><span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">customer</span>.<span style="color:#a6e22e">com</span>
-    <span style="color:#a6e22e">SupportUrl</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">https</span><span style="color:#f92672">:</span><span style="color:#75715e">//wiki.customer.com/central-it-team/self-service/account-iam
-</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">Tags</span><span style="color:#f92672">:</span>
-    <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">product</span><span style="color:#f92672">-</span><span style="color:#a6e22e">type</span>
-      <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">iam</span>
-    <span style="color:#a6e22e">Versions</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">v1</span>
-        <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">The</span> <span style="color:#a6e22e">iam</span> <span style="color:#a6e22e">roles</span> <span style="color:#a6e22e">needed</span> <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">you</span> <span style="color:#a6e22e">to</span> <span style="color:#66d9ef">do</span> <span style="color:#a6e22e">your</span> <span style="color:#a6e22e">jobs</span>
-<span style="display:block;width:100%;background-color:#3c3d38">        <span style="color:#a6e22e">Status</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">terminated</span>
-</span>        <span style="color:#a6e22e">Source</span><span style="color:#f92672">:</span>
-          <span style="color:#a6e22e">Provider</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">CodeCommit</span>
-          <span style="color:#a6e22e">Configuration</span><span style="color:#f92672">:</span>
-            <span style="color:#a6e22e">RepositoryName</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">account</span><span style="color:#f92672">-</span><span style="color:#a6e22e">vending</span><span style="color:#f92672">-</span><span style="color:#a6e22e">machine</span>
-            <span style="color:#a6e22e">BranchName</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">v1</span>
-    
+ <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">accounts</span><span style="color:#f92672">:</span>
+  <span style="color:#f92672">-</span> <span style="color:#a6e22e">ou</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;&lt;YOUR_OU_OR_PATH&gt;&#34;</span>
+    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;application-accounts&#34;</span>
+    <span style="color:#a6e22e">default_region</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;eu-west-1&#34;</span>
+    <span style="color:#a6e22e">regions_enabled</span><span style="color:#f92672">:</span>
+      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;eu-west-1&#34;</span>
+      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;eu-west-2&#34;</span>
+    <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
+      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;type:prod&#34;</span>
+      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;partition:eu&#34;</span>
+   
 </code></pre></div>
 </figure>
+</li>
+<li>
+<p>Update <code>&lt;YOUR_OU_OR_PATH&gt;</code> to be your OU or OU Path which contains <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html">member accounts</a></p>
+<ul>
+<li><em>for example:</em> <code>/production/application-accounts/</code></li>
+</ul>
+</li>
+</ul>
+<p>The framework will list the AWS Accounts in your OU and expand the manifest automatically.</p>
+<p><em><strong>For example</strong></em>, if your OU were to contain AWS Accounts: <code>0123456789010</code> and <code>0109876543210</code>, then the <strong>expanded manifest</strong> file will look like this:</p>
+  <figure>
+   <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">accounts</span><span style="color:#f92672">:</span>
+  <span style="color:#f92672">-</span> <span style="color:#a6e22e">account_id</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0123456789010</span>
+    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&lt;YOUR_ACCOUNT_NAME&gt;&#39;</span>
+    <span style="color:#a6e22e">default_region</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;eu-west-1&#34;</span>
+    <span style="color:#a6e22e">regions_enabled</span><span style="color:#f92672">:</span>
+      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;eu-west-1&#34;</span>
+      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;eu-west-2&#34;</span>
+    <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
+      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;type:prod&#34;</span>
+      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;partition:eu&#34;</span>
+  <span style="color:#f92672">-</span> <span style="color:#a6e22e">account_id</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0109876543210</span>
+    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&lt;YOUR_ACCOUNT_NAME&gt;&#39;</span>
+    <span style="color:#a6e22e">default_region</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;eu-west-1&#34;</span>
+    <span style="color:#a6e22e">regions_enabled</span><span style="color:#f92672">:</span>
+      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;eu-west-1&#34;</span>
+      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;eu-west-2&#34;</span>
+    <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
+      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;type:prod&#34;</span>
+      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;partition:eu&#34;</span>
+  
+</code></pre></div>
+  </figure>
+<h3 id="adding-spoke-local-portfolio-to-the-manifest">Adding spoke-local-portfolio to the manifest</h3>
+<p><em>Now we are ready to add a product to the manifest file.</em></p>
+<ul>
+<li>Add the following snippet to the end of the main input field:</li>
+</ul>
+ <figure>
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">spoke</span><span style="color:#f92672">-</span><span style="color:#a6e22e">local</span><span style="color:#f92672">-</span><span style="color:#a6e22e">portfolios</span><span style="color:#f92672">:</span>
+  <span style="color:#a6e22e">account</span><span style="color:#f92672">-</span><span style="color:#a6e22e">vending</span><span style="color:#f92672">-</span><span style="color:#66d9ef">for</span><span style="color:#f92672">-</span><span style="color:#a6e22e">spokes</span><span style="color:#f92672">:</span>
+    <span style="color:#a6e22e">portfolio</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;reinvent-cloud-engineering-governance&#34;</span>
+    <span style="color:#a6e22e">deploy_to</span><span style="color:#f92672">:</span>
+      <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
+        <span style="color:#f92672">-</span> <span style="color:#a6e22e">tag</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;type:prod&#34;</span>
+          <span style="color:#a6e22e">regions</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;default_region&#34;</span>
+  
+</code></pre></div>
+ </figure>
+<ul>
+<li>The main input field should look like this:</li>
+</ul>
+ <figure>
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">accounts</span><span style="color:#f92672">:</span>
+  <span style="color:#f92672">-</span> <span style="color:#a6e22e">ou</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;&lt;YOUR_OU_OR_PATH&gt;&#34;</span>
+    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;application-accounts&#34;</span>
+    <span style="color:#a6e22e">default_region</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;eu-west-1&#34;</span>
+    <span style="color:#a6e22e">regions_enabled</span><span style="color:#f92672">:</span>
+      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;eu-west-1&#34;</span>
+      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;eu-west-2&#34;</span>
+    <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
+      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;type:prod&#34;</span>
+      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;partition:eu&#34;</span>
+<span style="color:#a6e22e">spoke</span><span style="color:#f92672">-</span><span style="color:#a6e22e">local</span><span style="color:#f92672">-</span><span style="color:#a6e22e">portfolios</span><span style="color:#f92672">:</span>
+  <span style="color:#a6e22e">account</span><span style="color:#f92672">-</span><span style="color:#a6e22e">vending</span><span style="color:#f92672">-</span><span style="color:#66d9ef">for</span><span style="color:#f92672">-</span><span style="color:#a6e22e">spokes</span><span style="color:#f92672">:</span>
+    <span style="color:#a6e22e">portfolio</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;reinvent-cloud-engineering-governance&#34;</span>
+    <span style="color:#a6e22e">deploy_to</span><span style="color:#f92672">:</span>
+      <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
+        <span style="color:#f92672">-</span> <span style="color:#a6e22e">tag</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;type:prod&#34;</span>
+          <span style="color:#a6e22e">regions</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;default_region&#34;</span>
+  
+</code></pre></div>
+ </figure>
+<h3 id="committing-the-manifest-file">Committing the manifest file</h3>
+<p><em>Now that we have written the manifest file we are ready to commit it.</em></p>
+<ul>
+<li>
+<p>Set the <em>File name</em> to <code>manifest.yaml</code></p>
 </li>
 <li>
 <p>Set your <em>Author name</em></p>
@@ -1626,89 +1707,30 @@
 <li>
 <p>Set your <em>Commit message</em></p>
 </li>
-<li>
-<p>Click the <em>Commit changes</em> button:</p>
-</li>
+</ul>
+
+<div class="notices tip" ><p>Using a good / unique commit message will help you understand what is going on later.</p>
+</div>
+
+<ul>
+<li>Click the <em>Commit changes</em> button:</li>
 </ul>
 <figure>
     <img src="../../how-tos/creating-and-provisioning-a-product/CommitChanges.png"/> 
 </figure>
 
-<p>When the framework runs the product version will be deleted. This change will only affect the version of the product in
-your factory account.  If you are using the imported product in your spoke accounts it will have affect there otherwise
-you will need to run service-catalog-puppet to cascade the change.</p>
-<p>You can verify this by navigating to Service Catalog and checking your disabled version is removed.</p>
-<h3 id="delete-a-product">Delete a product</h3>
-<p>When you are ready to delete a product you will need to edit its definition in the portfolio yaml.</p>
-<ul>
-<li>
-<p>Navigate to the  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codecommit/repositories/ServiceCatalogFactory/browse?region=eu-west-1' target='_blank'>ServiceCatalogFactory CodeCommit repository</a></p>
-</li>
-<li>
-<p>Click on <em>portfolios</em></p>
-</li>
-</ul>
+<h3 id="verifying-the-sharing">Verifying the sharing</h3>
+<p>Once you have made your changes the  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/servicecatalog-puppet-pipeline/view?region=eu-west-1' target='_blank'>ServiceCatalogPuppet Pipeline</a> should have run or if you were quick
+may still be running.  If it has not yet started feel free to the hit the <em>Release change</em> button.</p>
+<p>Once it has completed it should show the <em>Source</em> and <em>Deploy</em> stages in green to indicate they have completed
+successfully:</p>
 <figure>
-    <img src="../../how-tos/creating-and-provisioning-a-product/ClickOnPortfolios.png"/> 
+    <img src="../../how-tos/creating-and-provisioning-a-product/SuccessfulPuppetRunV2.png"/> 
 </figure>
 
-<ul>
-<li>
-<p>Click on the portfolio yaml containing your product</p>
-</li>
-<li>
-<p>Click <em>Edit</em></p>
-</li>
-<li>
-<p>Add or set the attribute Status for the product you want to delete to terminated:</p>
-<figure>
- <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">Schema</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">factory</span><span style="color:#f92672">-</span><span style="color:#ae81ff">2019</span><span style="color:#f92672">-</span><span style="color:#ae81ff">04</span><span style="color:#f92672">-</span><span style="color:#ae81ff">01</span>
-<span style="color:#a6e22e">Products</span><span style="color:#f92672">:</span>
-  <span style="color:#f92672">-</span> <span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">account</span><span style="color:#f92672">-</span><span style="color:#a6e22e">vending</span><span style="color:#f92672">-</span><span style="color:#a6e22e">machine</span>
-<span style="display:block;width:100%;background-color:#3c3d38">    <span style="color:#a6e22e">Status</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">terminated</span>
-</span>    <span style="color:#a6e22e">Owner</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">central</span><span style="color:#f92672">-</span><span style="color:#a6e22e">it</span><span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">customer</span>.<span style="color:#a6e22e">com</span>
-    <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">The</span> <span style="color:#a6e22e">iam</span> <span style="color:#a6e22e">roles</span> <span style="color:#a6e22e">needed</span> <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">you</span> <span style="color:#a6e22e">to</span> <span style="color:#66d9ef">do</span> <span style="color:#a6e22e">your</span> <span style="color:#a6e22e">jobs</span>
-    <span style="color:#a6e22e">Distributor</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">central</span><span style="color:#f92672">-</span><span style="color:#a6e22e">it</span><span style="color:#f92672">-</span><span style="color:#a6e22e">team</span>
-    <span style="color:#a6e22e">SupportDescription</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Contact</span> <span style="color:#a6e22e">us</span> <span style="color:#a6e22e">on</span> <span style="color:#a6e22e">Chime</span> <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">help</span> <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">central</span><span style="color:#f92672">-</span><span style="color:#a6e22e">it</span><span style="color:#f92672">-</span><span style="color:#a6e22e">team</span>
-    <span style="color:#a6e22e">SupportEmail</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">central</span><span style="color:#f92672">-</span><span style="color:#a6e22e">it</span><span style="color:#f92672">-</span><span style="color:#a6e22e">team</span><span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">customer</span>.<span style="color:#a6e22e">com</span>
-    <span style="color:#a6e22e">SupportUrl</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">https</span><span style="color:#f92672">:</span><span style="color:#75715e">//wiki.customer.com/central-it-team/self-service/account-iam
-</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">Tags</span><span style="color:#f92672">:</span>
-    <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">product</span><span style="color:#f92672">-</span><span style="color:#a6e22e">type</span>
-      <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">iam</span>
-    <span style="color:#a6e22e">Versions</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">v1</span>
-        <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">The</span> <span style="color:#a6e22e">iam</span> <span style="color:#a6e22e">roles</span> <span style="color:#a6e22e">needed</span> <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">you</span> <span style="color:#a6e22e">to</span> <span style="color:#66d9ef">do</span> <span style="color:#a6e22e">your</span> <span style="color:#a6e22e">jobs</span>        
-        <span style="color:#a6e22e">Source</span><span style="color:#f92672">:</span>
-          <span style="color:#a6e22e">Provider</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">CodeCommit</span>
-          <span style="color:#a6e22e">Configuration</span><span style="color:#f92672">:</span>
-            <span style="color:#a6e22e">RepositoryName</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">account</span><span style="color:#f92672">-</span><span style="color:#a6e22e">vending</span><span style="color:#f92672">-</span><span style="color:#a6e22e">machine</span>
-            <span style="color:#a6e22e">BranchName</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">v1</span>
-    
-</code></pre></div>
-</figure>
-</li>
-<li>
-<p>Set your <em>Author name</em></p>
-</li>
-<li>
-<p>Set your <em>Email address</em></p>
-</li>
-<li>
-<p>Set your <em>Commit message</em></p>
-</li>
-<li>
-<p>Click the <em>Commit changes</em> button:</p>
-</li>
-</ul>
-<figure>
-    <img src="../../how-tos/creating-and-provisioning-a-product/CommitChanges.png"/> 
-</figure>
-
-<p>When the framework runs the product will be deleted. This change will only affect the version of the product in
-your factory account.  If you are using the imported product in your spoke accounts it will have affect there otherwise
-you will need to run service-catalog-puppet to cascade the change. If you are using imported products in your spokes
-then the product will be deleted there.</p>
-<p>You can verify this by navigating to Service Catalog and checking your disabled version is removed.</p>
+<p>Once you have verified the pipeline has run you can go to  <a href='https://eu-west-1.console.aws.amazon.com/servicecatalog/console?region=eu-west-1#portfolios?' target='_blank'>Service Catalog portfolios</a> in the member account to view your shared product.</p>
+<p>When you share a portfolio the framework will decide if it should share the portfolio.  If the target account is the same
+as the factory account it will not share the portfolio as it is not needed.</p>
 
 
 <footer class=" footline" >
@@ -2230,7 +2252,6 @@ then the product will be deleted there.</p>
             
                 
                     
-                    
                 
                 
 
@@ -2249,9 +2270,6 @@ then the product will be deleted there.</p>
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -2378,6 +2396,7 @@ then the product will be deleted there.</p>
             
                 
                     
+                    
                 
                 
 
@@ -2393,6 +2412,9 @@ then the product will be deleted there.</p>
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -2680,10 +2702,10 @@ then the product will be deleted there.</p>
 	 
 	 
 		
-			<a class="nav nav-prev" href="../../every-day-use/110-deleting-a-product/100-disabling-the-product-versions.html" title="Disabling the product versions"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="../../every-day-use/360-aws-organizations-integration.html" title="AWS Organizations Integration"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="../../every-day-use/150-creating-a-portfolio.html" title="Creating a portfolio" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="../../every-day-use/360-aws-organizations-integration/362-sharing-a-portfolio-organizations.html" title="Sharing a portfolio using AWS Organizations" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
