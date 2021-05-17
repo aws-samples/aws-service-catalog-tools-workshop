@@ -14,7 +14,7 @@ We will assume you have:
  - installed Service Catalog Factory correctly
  - installed Service Catalog Puppet correctly
 
-We steps you will take depend on how you installed the tooling.  Please follow the appropriate section.
+The steps you will take depend on how you installed the tooling.  Please follow the appropriate section.
 
 If you installed the tools by creating an AWS CloudFormation stack then please follow the AWS CloudFormation steps,
 otherwise please follow the Python steps.  If you cannot remember how you installed the tools please follow the Python

@@ -1,25 +1,18 @@
 +++
-title = "Sharing a portfolio"
-weight = 300
+title = "Adding Accounts using Organizational Units (OU)"
+weight = 361
 home_region = "eu-west-1"
 +++
 ---
 
 ## What are we going to do?
 
-This tutorial will walk you through "{{% param title %}}" with a spoke account.
-
-We will assume you have:
- 
- - installed Service Catalog Puppet correctly
- - bootstrapped a spoke
- - you have created a product
- - you have created a portfolio
+This tutorial will walk you through "{{% param title %}}".
 
 We are going to perform the following steps:
 
 - create a manifest file
-- add an account to the manifest file
+- add accounts to the manifest file using AWS Organizations OU
 - add a spoke-local-portfolios to the manifest file
 
 During this process you will check your progress by verifying what the framework is doing at each step.
@@ -27,6 +20,7 @@ During this process you will check your progress by verifying what the framework
 ## Step by step guide
 
 Here are the steps you need to follow to "{{% param title %}}"
+
 
 ### Creating the manifest file
 
@@ -36,9 +30,10 @@ Here are the steps you need to follow to "{{% param title %}}"
 
 {{< figure src="/how-tos/creating-and-provisioning-a-product/create_file.png" >}}
 
-### Adding an account to the manifest file
+### Adding an OU to the manifest file
+This will allow you to provision AWS Service Catalog Products into multiple AWS Accounts and Regions across your AWS estate without listing individual AWS 12-digit Account IDs.  Instead we will supply the AWS Organizations OU Path.  Service Catalog Products will then be provisioned in AWS Accounts that are a member of this OU.
 
-_We will start out by adding your account to the manifest file._
+_We will start out by adding your OU to the manifest file._
 
 - Navigate to the {{% service_catalog_puppet_code_commit_repo_link %}}
 
@@ -52,20 +47,49 @@ _We will start out by adding your account to the manifest file._
   <figure>
    {{< highlight js >}}
 accounts:
-  - account_id: "<YOUR_ACCOUNT_ID_WITHOUT_HYPHENS>"
-    name: "puppet-account"
+  - ou: "<YOUR_OU_OR_PATH>"
+    name: "application-accounts"
     default_region: "eu-west-1"
     regions_enabled:
       - "eu-west-1"
       - "eu-west-2"
     tags:
       - "type:prod"
-      - "partition:eu"   
+      - "partition:eu"
    {{< / highlight >}}
   </figure>
 
  
-- Update account_id on line to show your account id
+- Update `<YOUR_OU_OR_PATH>` to be your OU or OU Path which contains [member accounts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html)
+  - *for example:* `/production/application-accounts/`
+
+The framework will list the AWS Accounts in your OU and expand the manifest automatically.  
+
+***For example***, if your OU were to contain AWS Accounts: `0123456789010` and `0109876543210`, then the **expanded manifest** file will look like this:
+
+  <figure>
+   {{< highlight js >}}
+accounts:
+  - account_id: 0123456789010
+    name: '<YOUR_ACCOUNT_NAME>'
+    default_region: "eu-west-1"
+    regions_enabled:
+      - "eu-west-1"
+      - "eu-west-2"
+    tags:
+      - "type:prod"
+      - "partition:eu"
+  - account_id: 0109876543210
+    name: '<YOUR_ACCOUNT_NAME>'
+    default_region: "eu-west-1"
+    regions_enabled:
+      - "eu-west-1"
+      - "eu-west-2"
+    tags:
+      - "type:prod"
+      - "partition:eu"
+  {{< / highlight >}}
+  </figure>
 
 
 ### Adding spoke-local-portfolio to the manifest
@@ -78,11 +102,11 @@ _Now we are ready to add a product to the manifest file._
   {{< highlight js >}}
 spoke-local-portfolios:
   account-vending-for-spokes:
-    portfolio: reinvent-cloud-engineering-governance
+    portfolio: "reinvent-cloud-engineering-governance"
     deploy_to:
       tags:
         - tag: "type:prod"
-          regions: "default_region"  
+          regions: "default_region"
   {{< / highlight >}}
  </figure>
 
@@ -92,8 +116,8 @@ spoke-local-portfolios:
  <figure>
   {{< highlight js >}}
 accounts:
-  - account_id: "<YOUR_ACCOUNT_ID_WITHOUT_HYPHENS>"
-    name: "puppet-account"
+  - ou: "<YOUR_OU_OR_PATH>"
+    name: "application-accounts"
     default_region: "eu-west-1"
     regions_enabled:
       - "eu-west-1"
@@ -103,11 +127,11 @@ accounts:
       - "partition:eu"
 spoke-local-portfolios:
   account-vending-for-spokes:
-    portfolio: reinvent-cloud-engineering-governance
+    portfolio: "reinvent-cloud-engineering-governance"
     deploy_to:
       tags:
         - tag: "type:prod"
-          regions: "default_region"  
+          regions: "default_region"
   {{< / highlight >}}
  </figure>
 
@@ -142,8 +166,7 @@ successfully:
 
 {{< figure src="/how-tos/creating-and-provisioning-a-product/SuccessfulPuppetRunV2.png" >}}
 
-Once you have verified the pipeline has run you can go to {{% service_catalog_portfolios_list_link %}} to view your 
-shared product.  
+Once you have verified the pipeline has run you can go to {{% service_catalog_portfolios_list_link %}} in the member account to view your shared product.  
 
 When you share a portfolio the framework will decide if it should share the portfolio.  If the target account is the same
 as the factory account it will not share the portfolio as it is not needed.
