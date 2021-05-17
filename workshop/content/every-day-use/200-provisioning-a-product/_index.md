@@ -131,10 +131,10 @@ Using a good / unique commit message will help you understand what is going on l
 Once you have made your changes the {{% service_catalog_puppet_pipeline_link %}} should have run or if you were quick 
 may still be running.  If it has not yet started feel free to the hit the *Release change* button.
 
-Once it has completed it should show the *Source* and *Build* stages in green to indicate they have completed 
+Once it has completed it should show the *Source* and *Deploy* stages in green to indicate they have completed 
 successfully:
 
-{{< figure src="/how-tos/creating-and-provisioning-a-product/SuccessfulPuppetRun.png" >}}
+{{< figure src="/how-tos/creating-and-provisioning-a-product/SuccessfulPuppetRunV2.png" >}}
 
 Once you have verified the pipeline has run you can go to {{% service_catalog_provisioned_products_link %}} to view your 
 provisioned product.  Please note when you arrive at the provisioned product page you will need to select account from 
