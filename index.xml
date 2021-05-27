@@ -53,6 +53,16 @@ What are we going to do?</description>
     </item>
     
     <item>
+      <title>Service Catalog Factory</title>
+      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/upgrading/service-catalog-factory.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/upgrading/service-catalog-factory.html</guid>
+      <description>Before you update This guide applies to all users who installed using the AWS CloudFormation template. If you did not install using the template then you need to follow the install guide. When following the install guide, ensure you provision the initialiser stack into the same region you installed the tools using the CLI method. Installing this way will perform an update and will not break your install.
+If you have added any regions since your initial install or modified any settings provided by the parameters in the install template ensure you specify the values you want for them as the install process will overwrite any previous settings you configured in your existing install.</description>
+    </item>
+    
+    <item>
       <title>Installing Puppet</title>
       <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/installation/30-service-catalog-puppet/30-installing-puppet.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -60,6 +70,16 @@ What are we going to do?</description>
       <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/installation/30-service-catalog-puppet/30-installing-puppet.html</guid>
       <description>Navigate to CloudFormation  Select the AWS CloudFormation service.    Create a new AWS CloudFormation stack  Select &amp;lsquo;Create Stack&amp;rsquo;    Note you must have installed factory into this account already. If you have not done this already navigate to &amp;lsquo;Install Factory Process&amp;rsquo;
  Select the pre-configured AWS CloudFormation template Service Catalog Puppet can be installed via a pre-created AWS CloudFormation template stored in Amazon S3 under the following URL:</description>
+    </item>
+    
+    <item>
+      <title>Service Catalog Puppet</title>
+      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/upgrading/service-catalog-puppet.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/upgrading/service-catalog-puppet.html</guid>
+      <description>Before you update This guide applies to all users who installed using the AWS CloudFormation template. If you did not install using the template then you need to follow the install guide. When following the install guide, ensure you provision the initialiser stack into the same region you installed the tools using the CLI method. Installing this way will perform an update and will not break your install.
+If you have added any regions since your initial install or modified any settings provided by the parameters in the install template ensure you specify the values you want for them as the install process will overwrite any previous settings you configured in your existing install.</description>
     </item>
     
     <item>

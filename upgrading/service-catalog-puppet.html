@@ -15,7 +15,7 @@
     <link rel="shortcut icon" href="../images/favicon.png" type="image/png" />
 <link rel="icon" href="../images/favicon.png" type="image/png" />
 
-    <title>Provisioning a product :: Service Catalog Tools Workshop</title>
+    <title>Service Catalog Puppet :: Service Catalog Tools Workshop</title>
 
     
     <link href="../css/nucleus.css" rel="stylesheet">
@@ -43,7 +43,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/every-day-use/200-provisioning-a-product.html">
+  <body class="" data-url="/upgrading/service-catalog-puppet.html">
     <nav id="sidebar" class="">
 
 
@@ -607,7 +607,7 @@
   
     
     <li data-nav-id="/upgrading.html" title="Upgrading" class="dd-item 
-        
+        parent
         
         
         ">
@@ -650,7 +650,7 @@
  
   
     
-      <li data-nav-id="/upgrading/service-catalog-puppet.html" title="Service Catalog Puppet" class="dd-item ">
+      <li data-nav-id="/upgrading/service-catalog-puppet.html" title="Service Catalog Puppet" class="dd-item active">
         <a href="../upgrading/service-catalog-puppet.html">
         Service Catalog Puppet
         
@@ -677,7 +677,7 @@
   
     
     <li data-nav-id="/every-day-use.html" title="Every day use" class="dd-item 
-        parent
+        
         
         
         ">
@@ -982,8 +982,8 @@
   
     
     <li data-nav-id="/every-day-use/200-provisioning-a-product.html" title="Provisioning a product" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="../every-day-use/200-provisioning-a-product.html">
@@ -1543,7 +1543,7 @@
 </left>
 
 <left>
-    <h5 class="copyright">0f7839d - Thu May 27 21:55:13 UTC 2021</h5>
+    <h5 class="copyright">0f7839d - Thu May 27 21:55:12 UTC 2021</h5>
 </left>
 
     </section>
@@ -1583,7 +1583,7 @@
             
           
           
-            <a href='../'>AWS Service Catalog Tools Intro Workshop</a> > <a href='../every-day-use.html'>Every day use</a> > Provisioning a product
+            <a href='../'>AWS Service Catalog Tools Intro Workshop</a> > <a href='../upgrading.html'>Upgrading</a> > Service Catalog Puppet
           
         
           
@@ -1597,14 +1597,10 @@
     <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#what-are-we-going-to-do">What are we going to do?</a></li>
-    <li><a href="#step-by-step-guide">Step by step guide</a>
+    <li>
       <ul>
-        <li><a href="#creating-the-manifest-file">Creating the manifest file</a></li>
-        <li><a href="#adding-an-account-to-the-manifest-file">Adding an account to the manifest file</a></li>
-        <li><a href="#adding-a-launch-to-the-manifest">Adding a launch to the manifest</a></li>
-        <li><a href="#committing-the-manifest-file">Committing the manifest file</a></li>
-        <li><a href="#verifying-the-provisioning">Verifying the provisioning</a></li>
+        <li><a href="#before-you-update">Before you update</a></li>
+        <li><a href="#navigate-to-cloudformation">Navigate to CloudFormation</a></li>
       </ul>
     </li>
   </ul>
@@ -1620,164 +1616,60 @@
         
         <div id="body-inner">
           
-            <h1>Provisioning a product</h1>
+            <h1>Service Catalog Puppet</h1>
           
 
         
 
 
-
-	<hr>
-<h2 id="what-are-we-going-to-do">What are we going to do?</h2>
-<p>This tutorial will walk you through &ldquo;Provisioning a product&rdquo; into a spoke account.</p>
-<p>We will assume you have:</p>
+<h3 id="before-you-update">Before you update</h3>
+<p>This guide applies to all users who installed using the AWS CloudFormation template.  If you did not install using the
+template then you need to follow the install guide.  When following the install guide, ensure you provision the
+initialiser stack into the same region you installed the tools using the CLI method.  Installing this way will perform
+an update and will not break your install.</p>
+<p>If you have added any regions since your initial install or modified any settings provided by the parameters in the
+install template ensure you specify the values you want for them as the install process will overwrite any previous
+settings you configured in your existing install.</p>
+<h3 id="navigate-to-cloudformation">Navigate to CloudFormation</h3>
 <ul>
-<li>installed Service Catalog Puppet correctly</li>
-<li>bootstrapped a spoke</li>
-<li>you have created a product</li>
-<li>you have created a portfolio</li>
-</ul>
-<p>We are going to perform the following steps:</p>
-<ul>
-<li>create a manifest file</li>
-<li>add an account to the manifest file</li>
-<li>add a launch to the manifest file</li>
-</ul>
-<p>During this process you will check your progress by verifying what the framework is doing at each step.</p>
-<h2 id="step-by-step-guide">Step by step guide</h2>
-<p>Here are the steps you need to follow to &ldquo;Provisioning a product&rdquo;</p>
-<h3 id="creating-the-manifest-file">Creating the manifest file</h3>
-<ul>
-<li>
-<p>Navigate to the  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codecommit/repositories/ServiceCatalogPuppet/browse?region=eu-west-1' target='_blank'>ServiceCatalogPuppet CodeCommit repository</a></p>
-</li>
-<li>
-<p>Scroll down to the bottom of the page and hit the <em>Create file</em> button</p>
-</li>
+<li>Select the AWS CloudFormation Service.</li>
 </ul>
 <figure>
-    <img src="../how-tos/creating-and-provisioning-a-product/create_file.png"/> 
+    <img src="../how-tos/installation/select_cloudformation.png" width="900" height="450"/> 
 </figure>
 
-<h3 id="adding-an-account-to-the-manifest-file">Adding an account to the manifest file</h3>
 <ul>
 <li>
-<p>Copy the following snippet into the main input field:</p>
-<figure>
- <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">accounts</span><span style="color:#f92672">:</span>
-  <span style="color:#f92672">-</span> <span style="color:#a6e22e">account_id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;&lt;YOUR_ACCOUNT_ID_WITHOUT_HYPHENS&gt;&#34;</span>
-    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;puppet-account&#34;</span>
-    <span style="color:#a6e22e">default_region</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;eu-west-1&#34;</span>
-    <span style="color:#a6e22e">regions_enabled</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;eu-west-1&#34;</span>
-      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;eu-west-2&#34;</span>
-    <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;type:prod&#34;</span>
-      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;partition:eu&#34;</span>
-   
-</code></pre></div>
-</figure>
+<p>Select the initialization stack you created when installing Service Catalog Factory.  The recommended stack name was <code>puppet-initialization-stack</code></p>
 </li>
 <li>
-<p>Update account_id on line to show your account id</p>
-</li>
-</ul>
-<h3 id="adding-a-launch-to-the-manifest">Adding a launch to the manifest</h3>
-<p><em>Now we are ready to add a product to the manifest file.</em></p>
-<ul>
-<li>Add the following snippet to the end of the main input field:</li>
-</ul>
- <figure>
-  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">launches</span><span style="color:#f92672">:</span>
-  <span style="color:#a6e22e">aws</span><span style="color:#f92672">-</span><span style="color:#a6e22e">config</span><span style="color:#f92672">-</span><span style="color:#a6e22e">enable</span><span style="color:#f92672">-</span><span style="color:#a6e22e">config</span><span style="color:#f92672">:</span>
-    <span style="color:#a6e22e">portfolio</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;reinvent-cloud-engineering-governance&#34;</span>
-    <span style="color:#a6e22e">product</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;aws-config-enable-config&#34;</span>
-    <span style="color:#a6e22e">version</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1&#34;</span>
-    <span style="color:#a6e22e">deploy_to</span><span style="color:#f92672">:</span>
-      <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
-        <span style="color:#f92672">-</span> <span style="color:#a6e22e">tag</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;type:prod&#34;</span>
-          <span style="color:#a6e22e">regions</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;default_region&#34;</span>  
-  
-</code></pre></div>
- </figure>
-<ul>
-<li>The main input field should look like this:</li>
-</ul>
- <figure>
-  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">accounts</span><span style="color:#f92672">:</span>
-  <span style="color:#f92672">-</span> <span style="color:#a6e22e">account_id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;&lt;YOUR_ACCOUNT_ID_WITHOUT_HYPHENS&gt;&#34;</span>
-    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;puppet-account&#34;</span>
-    <span style="color:#a6e22e">default_region</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;eu-west-1&#34;</span>
-    <span style="color:#a6e22e">regions_enabled</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;eu-west-1&#34;</span>
-      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;eu-west-2&#34;</span>
-    <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;type:prod&#34;</span>
-      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;partition:eu&#34;</span>
-<span style="color:#a6e22e">launches</span><span style="color:#f92672">:</span>
-  <span style="color:#a6e22e">aws</span><span style="color:#f92672">-</span><span style="color:#a6e22e">config</span><span style="color:#f92672">-</span><span style="color:#a6e22e">enable</span><span style="color:#f92672">-</span><span style="color:#a6e22e">config</span><span style="color:#f92672">:</span>
-    <span style="color:#a6e22e">portfolio</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;reinvent-cloud-engineering-governance&#34;</span>
-    <span style="color:#a6e22e">product</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;aws-config-enable-config&#34;</span>
-    <span style="color:#a6e22e">version</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1&#34;</span>
-    <span style="color:#a6e22e">deploy_to</span><span style="color:#f92672">:</span>
-      <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
-        <span style="color:#f92672">-</span> <span style="color:#a6e22e">tag</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;type:prod&#34;</span>
-          <span style="color:#a6e22e">regions</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;default_region&#34;</span>
-  
-</code></pre></div>
- </figure>
-<h3 id="committing-the-manifest-file">Committing the manifest file</h3>
-<p><em>Now that we have written the manifest file we are ready to commit it.</em></p>
-<ul>
-<li>
-<p>Set the <em>File name</em> to <code>manifest.yaml</code></p>
+<p>Select &lsquo;Update&rsquo;</p>
 </li>
 <li>
-<p>Set your <em>Author name</em></p>
+<p>Select &lsquo;Replace current template&rsquo;</p>
 </li>
 <li>
-<p>Set your <em>Email address</em></p>
+<p>For Template source select &lsquo;Amazon S3 URL&rsquo; and paste in the following:  <code>https://service-catalog-tools.s3.eu-west-2.amazonaws.com/puppet/latest/servicecatalog-puppet-initialiser.template.yaml</code></p>
 </li>
 <li>
-<p>Set your <em>Commit message</em></p>
+<p>Then hit &lsquo;Next&rsquo;</p>
+</li>
+<li>
+<p>Make any changes you want to the parameters you provided and then hit &lsquo;Next&rsquo; again</p>
+</li>
+<li>
+<p>Follow the rest of the steps to update the stack</p>
+</li>
+<li>
+<p>As the stack updates the AWS CodeBuild project named <code>servicecatalog-product-puppet-initialiser</code> is started.  Once it is completed the stack update will complete.  The project will update your installation to the latest version</p>
 </li>
 </ul>
-
-<div class="notices tip" ><p>Using a good / unique commit message will help you understand what is going on later.</p>
-</div>
-
-<ul>
-<li>Click the <em>Commit changes</em> button:</li>
-</ul>
-<figure>
-    <img src="../how-tos/creating-and-provisioning-a-product/CommitChanges.png"/> 
-</figure>
-
-<h3 id="verifying-the-provisioning">Verifying the provisioning</h3>
-<p>Once you have made your changes the  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/servicecatalog-puppet-pipeline/view?region=eu-west-1' target='_blank'>ServiceCatalogPuppet Pipeline</a> should have run or if you were quick
-may still be running.  If it has not yet started feel free to the hit the <em>Release change</em> button.</p>
-<p>Once it has completed it should show the <em>Source</em> and <em>Deploy</em> stages in green to indicate they have completed
-successfully:</p>
-<figure>
-    <img src="../how-tos/creating-and-provisioning-a-product/SuccessfulPuppetRunV2.png"/> 
-</figure>
-
-<p>Once you have verified the pipeline has run you can go to  <a href='https://eu-west-1.console.aws.amazon.com/servicecatalog/home?region=eu-west-1#/stacks' target='_blank'>Service Catalog provisioned products</a> to view your
-provisioned product.  Please note when you arrive at the provisioned product page you will need to select account from
-the filter by drop down in the top right:</p>
-<figure>
-    <img src="../how-tos/creating-and-provisioning-a-product/FilterByAccount.png"/> 
-</figure>
-
-<p>You have now successfully provisioned a product! When provisioned, this product will automatically enable AWS Config.</p>
-
-
-
 
 
 <footer class=" footline" >
 	
 </footer>
+
 
         
         </div> 
@@ -2198,100 +2090,6 @@ the filter by drop down in the top right:</p>
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -2312,10 +2110,15 @@ the filter by drop down in the top right:</p>
             
                 
                     
+                        
+                        
+                    
                 
                 
 
                     
+                    
+                        
                     
                     
 
@@ -2332,28 +2135,6 @@ the filter by drop down in the top right:</p>
                     
                     
 
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
                     
                         
             
@@ -2419,11 +2200,26 @@ the filter by drop down in the top right:</p>
             
         
                     
+            
+        
+                    
                         
             
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -2441,8 +2237,104 @@ the filter by drop down in the top right:</p>
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
                         
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
                         
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -2791,10 +2683,10 @@ the filter by drop down in the top right:</p>
 	 
 	 
 		
-			<a class="nav nav-prev" href="../every-day-use/192-adding-an-account.html" title="Adding an account"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="../upgrading/service-catalog-factory.html" title="Service Catalog Factory"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="../every-day-use/300-sharing-a-portfolio.html" title="Sharing a portfolio" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="../every-day-use.html" title="Every day use" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -2825,3 +2717,4 @@ the filter by drop down in the top right:</p>
 
   </body>
 </html>
+

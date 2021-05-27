@@ -39,6 +39,14 @@
   </url>
   
   <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/upgrading/service-catalog-factory.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/upgrading.html</loc>
+  </url>
+  
+  <url>
     <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/installation/30-service-catalog-puppet/30-installing-puppet.html</loc>
   </url>
   
@@ -48,6 +56,10 @@
   
   <url>
     <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/installation/30-service-catalog-puppet.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/upgrading/service-catalog-puppet.html</loc>
   </url>
   
   <url>

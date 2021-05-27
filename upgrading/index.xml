@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Upgrading on Service Catalog Tools Workshop</title>
+    <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/upgrading.html</link>
+    <description>Recent content in Upgrading on Service Catalog Tools Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://aws-samples.github.io/aws-service-catalog-tools-workshop/upgrading/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Service Catalog Factory</title>
+      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/upgrading/service-catalog-factory.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/upgrading/service-catalog-factory.html</guid>
+      <description>Before you update This guide applies to all users who installed using the AWS CloudFormation template. If you did not install using the template then you need to follow the install guide. When following the install guide, ensure you provision the initialiser stack into the same region you installed the tools using the CLI method. Installing this way will perform an update and will not break your install.
+If you have added any regions since your initial install or modified any settings provided by the parameters in the install template ensure you specify the values you want for them as the install process will overwrite any previous settings you configured in your existing install.</description>
+    </item>
+    
+    <item>
+      <title>Service Catalog Puppet</title>
+      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/upgrading/service-catalog-puppet.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/upgrading/service-catalog-puppet.html</guid>
+      <description>Before you update This guide applies to all users who installed using the AWS CloudFormation template. If you did not install using the template then you need to follow the install guide. When following the install guide, ensure you provision the initialiser stack into the same region you installed the tools using the CLI method. Installing this way will perform an update and will not break your install.
+If you have added any regions since your initial install or modified any settings provided by the parameters in the install template ensure you specify the values you want for them as the install process will overwrite any previous settings you configured in your existing install.</description>
+    </item>
+    
+  </channel>
+</rss>
