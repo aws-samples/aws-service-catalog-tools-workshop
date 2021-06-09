@@ -196,3 +196,45 @@ Click on the product and verify *v1* is there
 {{< figure src="/how-tos/creating-and-provisioning-a-product/SeeYourTask1ProductVersion1.png" >}}
 
 You have now successfully created a version for your product!  
+
+### Specifying source code to import
+
+If you are using AWS CodeCommit as your SCM you are able to request the framework to create the git repository for you
+and you can specify an AWS S3 source for where the initial commit should come from:
+
+  <figure>
+   {{< highlight js >}}
+  - Name: "vpc"
+    Owner: "networking@example.com"
+    Description: "vpc"
+    Distributor: "cloud-engineering"
+    SupportDescription: "Speak to networking@example.com for help"
+    SupportEmail: "networking@example.com"
+    SupportUrl: "https://wiki.example.com/cloud-engineering/networking/vpc"
+    Source:
+      Provider: "CodeCommit"
+      Configuration:
+        RepositoryName: "networking-vpc"
+        Code:
+          S3:
+            Bucket: "service-catalog-tools-product-sets-eu-west-2"
+    Versions:
+      - Name: "v1"
+        Description: "v1 of vpc"
+        Active: True
+        Source:
+          Configuration:
+            BranchName: "v1"
+            Code:
+              S3:
+                Key: "product-sets/networking/vpc/v1/networking--vpc--v1.zip"
+    Portfolios:
+      - "demo-portfolio"
+  {{< / highlight >}}
+  </figure>
+
+In the example above we are saying the initial source code should come from the S3 bucket named 
+*service-catalog-tools-product-sets-eu-west-2* using the key *product-sets/networking/vpc/v1/networking--vpc--v1.zip*
+
+You can split the declaration between the product and version as we have in the example above or you could have 
+specified all of the configuration under the version.
