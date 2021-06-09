@@ -1543,7 +1543,7 @@
 </left>
 
 <left>
-    <h5 class="copyright">0f7839d - Thu May 27 21:55:13 UTC 2021</h5>
+    <h5 class="copyright">4c5c61b - Wed Jun 9 10:00:41 UTC 2021</h5>
 </left>
 
     </section>
@@ -1607,6 +1607,7 @@
     <li><a href="#step-by-step-guide">Step by step guide</a>
       <ul>
         <li><a href="#add-the-source-code-for-your-product">Add the source code for your product</a></li>
+        <li><a href="#specifying-source-code-to-import">Specifying source code to import</a></li>
       </ul>
     </li>
   </ul>
@@ -1833,6 +1834,43 @@ created version.</p>
 </figure>
 
 <p>You have now successfully created a version for your product!</p>
+<h3 id="specifying-source-code-to-import">Specifying source code to import</h3>
+<p>If you are using AWS CodeCommit as your SCM you are able to request the framework to create the git repository for you
+and you can specify an AWS S3 source for where the initial commit should come from:</p>
+  <figure>
+   <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">  <span style="color:#f92672">-</span> <span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;vpc&#34;</span>
+    <span style="color:#a6e22e">Owner</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;networking@example.com&#34;</span>
+    <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;vpc&#34;</span>
+    <span style="color:#a6e22e">Distributor</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering&#34;</span>
+    <span style="color:#a6e22e">SupportDescription</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Speak to networking@example.com for help&#34;</span>
+    <span style="color:#a6e22e">SupportEmail</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;networking@example.com&#34;</span>
+    <span style="color:#a6e22e">SupportUrl</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;https://wiki.example.com/cloud-engineering/networking/vpc&#34;</span>
+    <span style="color:#a6e22e">Source</span><span style="color:#f92672">:</span>
+      <span style="color:#a6e22e">Provider</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;CodeCommit&#34;</span>
+      <span style="color:#a6e22e">Configuration</span><span style="color:#f92672">:</span>
+        <span style="color:#a6e22e">RepositoryName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;networking-vpc&#34;</span>
+        <span style="color:#a6e22e">Code</span><span style="color:#f92672">:</span>
+          <span style="color:#a6e22e">S3</span><span style="color:#f92672">:</span>
+            <span style="color:#a6e22e">Bucket</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;service-catalog-tools-product-sets-eu-west-2&#34;</span>
+    <span style="color:#a6e22e">Versions</span><span style="color:#f92672">:</span>
+      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1&#34;</span>
+        <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1 of vpc&#34;</span>
+        <span style="color:#a6e22e">Active</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">True</span>
+        <span style="color:#a6e22e">Source</span><span style="color:#f92672">:</span>
+          <span style="color:#a6e22e">Configuration</span><span style="color:#f92672">:</span>
+            <span style="color:#a6e22e">BranchName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1&#34;</span>
+            <span style="color:#a6e22e">Code</span><span style="color:#f92672">:</span>
+              <span style="color:#a6e22e">S3</span><span style="color:#f92672">:</span>
+                <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;product-sets/networking/vpc/v1/networking--vpc--v1.zip&#34;</span>
+    <span style="color:#a6e22e">Portfolios</span><span style="color:#f92672">:</span>
+      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;demo-portfolio&#34;</span>
+  
+</code></pre></div>
+  </figure>
+<p>In the example above we are saying the initial source code should come from the S3 bucket named
+<em>service-catalog-tools-product-sets-eu-west-2</em> using the key <em>product-sets/networking/vpc/v1/networking&ndash;vpc&ndash;v1.zip</em></p>
+<p>You can split the declaration between the product and version as we have in the example above or you could have
+specified all of the configuration under the version.</p>
 
 
 <footer class=" footline" >
