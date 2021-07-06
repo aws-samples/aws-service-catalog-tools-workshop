@@ -22,6 +22,10 @@ jobs:
       run: |
         wget https://github.com/gohugoio/hugo/releases/download/v0.61.0/hugo_extended_0.61.0_Linux-64bit.deb
         sudo dpkg -i hugo_extended_0.61.0_Linux-64bit.deb
+    - name: set git details
+      run: |
+        git config --global user.email "eamonnf+autocommit@amazon.com"
+        git config --global user.name "autobot"
     - name: Publish
       run: |
         make gh-pages-on-travisci
