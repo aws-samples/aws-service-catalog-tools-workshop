@@ -47,7 +47,7 @@ your AWS account id.  You should upload a template into that bucket and get the 
 
 ### Specify an AWS CloudFormation template that should be provisioned
 
-_Now we are ready to add a lambda invocation to the manifest file._
+_Now we are ready to add a stack to the manifest file._
 
 - Navigate to the {{% service_catalog_puppet_code_commit_repo_link %}}
 
@@ -95,6 +95,3 @@ Using a good / unique commit message will help you understand what is going on l
 - Click the *Commit changes* button:
 
 {{< figure src="/how-tos/invoking-a-lambda-function/commit_changes.png" >}}
-
-
-### Verifying the stack
