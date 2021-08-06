@@ -15,7 +15,7 @@
     <link rel="shortcut icon" href="../images/favicon.png" type="image/png" />
 <link rel="icon" href="../images/favicon.png" type="image/png" />
 
-    <title>Service Catalog Puppet :: Service Catalog Tools Workshop</title>
+    <title>Provisioning a Stack :: Service Catalog Tools Workshop</title>
 
     
     <link href="../css/nucleus.css" rel="stylesheet">
@@ -43,7 +43,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/installation/30-service-catalog-puppet.html">
+  <body class="" data-url="/every-day-use/385-provisioning-a-stack.html">
     <nav id="sidebar" class="">
 
 
@@ -367,7 +367,7 @@
   
     
     <li data-nav-id="/installation.html" title="Installation" class="dd-item 
-        parent
+        
         
         
         ">
@@ -413,8 +413,8 @@
   
     
     <li data-nav-id="/installation/30-service-catalog-puppet.html" title="Service Catalog Puppet" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="../installation/30-service-catalog-puppet.html">
@@ -677,7 +677,7 @@
   
     
     <li data-nav-id="/every-day-use.html" title="Every day use" class="dd-item 
-        
+        parent
         
         
         ">
@@ -1150,8 +1150,8 @@
   
     
     <li data-nav-id="/every-day-use/385-provisioning-a-stack.html" title="Provisioning a Stack" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="../every-day-use/385-provisioning-a-stack.html">
@@ -1591,7 +1591,7 @@
 </left>
 
 <left>
-    <h5 class="copyright">74bd1e9 - Fri Aug 6 20:23:10 UTC 2021</h5>
+    <h5 class="copyright">74bd1e9 - Fri Aug 6 20:23:11 UTC 2021</h5>
 </left>
 
     </section>
@@ -1631,7 +1631,7 @@
             
           
           
-            <a href='../'>AWS Service Catalog Tools Intro Workshop</a> > <a href='../installation.html'>Installation</a> > Service Catalog Puppet
+            <a href='../'>AWS Service Catalog Tools Intro Workshop</a> > <a href='../every-day-use.html'>Every day use</a> > Provisioning a Stack
           
         
           
@@ -1643,7 +1643,22 @@
                 
                     <div class="progress">
     <div class="wrapper">
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#what-are-we-going-to-do">What are we going to do?</a></li>
+    <li><a href="#step-by-step-guide">Step by step guide</a>
+      <ul>
+        <li><a href="#things-to-note-before-we-start">Things to note, before we start</a></li>
+      </ul>
+    </li>
+    <li><a href="#creating-a-stack-using-service-catalog-factory">Creating a stack using Service Catalog Factory</a></li>
+    <li><a href="#provision-a-stack-using-service-catalog-puppet">Provision a stack using Service Catalog Puppet</a>
+      <ul>
+        <li><a href="#committing-the-manifest-file">Committing the manifest file</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -1655,67 +1670,162 @@
         
         <div id="body-inner">
           
-            <h1>Service Catalog Puppet</h1>
+            <h1>Provisioning a Stack</h1>
           
 
         
 
 
 
-	<p>Service Catalog Puppet does not depend on AWS Organizations.</p>
-<p>Using AWS Organizations provides performance and productivity improvements but it is optional.  If you would like to use
-it please follow the &ldquo;Using AWS Organizations&rdquo; step below before you continue with the &ldquo;Installing Puppet&rdquo; step.</p>
-
-
-
-
-
-
-
-<ul class="children children-li">
-	
-
-	
-		
-	
-
-	
-
-	
-		
-	
-		
-			
-				
+	<hr>
+<h2 id="what-are-we-going-to-do">What are we going to do?</h2>
+<p>This tutorial will walk you through how to use the &ldquo;Provisioning a Stack&rdquo; feature.</p>
+<p>We will assume you have:</p>
+<ul>
+<li>installed Service Catalog Factory correctly</li>
+<li>installed Service Catalog Puppet correctly</li>
+<li>bootstrapped a spoke</li>
+<li>created a manifest file</li>
+<li>added an account to the manifest file</li>
+</ul>
+<p>We will assume you are comfortable:</p>
+<ul>
+<li>making changes your portfolios files</li>
+<li>making changes your manifest file</li>
+</ul>
+<p>We are going to perform the following steps to &ldquo;Provisioning a Stack&rdquo;:</p>
+<ul>
+<li>creating a stack using Service Catalog Factory</li>
+<li>provision a stack using Service Catalog Puppet</li>
+</ul>
+<h2 id="step-by-step-guide">Step by step guide</h2>
+<p>Here are the steps you need to follow to &ldquo;Provisioning a Stack&rdquo;</p>
+<h3 id="things-to-note-before-we-start">Things to note, before we start</h3>
+<ul>
+<li>This feature was added in version 0.63.0 of Service Catalog Factory.  You will need to be using this version (or later)</li>
+<li>This feature was added in version 0.109.0 of Service Catalog Puppet.  You will need to be using this version (or later)</li>
+<li>Stacks can use parameters, deploy_to and outputs</li>
+<li>Stacks can be used in spoke execution mode</li>
+<li>Stacks can be used in dry-runs</li>
+<li>Stacks can be provisioned in spoke execution mode (since Service Catalog Puppet version 0.109.0)</li>
+<li>Stacks do not appear in list-launches (they are not a launch)</li>
+</ul>
+<h2 id="creating-a-stack-using-service-catalog-factory">Creating a stack using Service Catalog Factory</h2>
+<ul>
 <li>
-<a href="../installation/30-service-catalog-puppet/10-using-aws-organizations.html" >Using AWS Organizations</a>
+<p>Navigate to the  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codecommit/repositories/ServiceCatalogFactory/browse?region=eu-west-1' target='_blank'>ServiceCatalogFactory CodeCommit repository</a></p>
 </li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
 <li>
-<a href="../installation/30-service-catalog-puppet/30-installing-puppet.html" >Installing Puppet</a>
+<p>click <em>Add file</em> and then <em>Create file</em></p>
 </li>
-				
+<li>
+<p>Paste the following into the main input window:</p>
+</li>
+<li>
+<p>In the <em>File name</em> field enter the following <code>stacks/example.yaml</code></p>
+</li>
+</ul>
+ <figure>
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">Schema</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">factory</span><span style="color:#f92672">-</span><span style="color:#ae81ff">2019</span><span style="color:#f92672">-</span><span style="color:#ae81ff">04</span><span style="color:#f92672">-</span><span style="color:#ae81ff">01</span>
+<span style="color:#a6e22e">Stacks</span><span style="color:#f92672">:</span>
+  <span style="color:#f92672">-</span> <span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;ssm-parameter&#34;</span>
+    <span style="color:#a6e22e">Versions</span><span style="color:#f92672">:</span>
+      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1&#34;</span>
+        <span style="color:#a6e22e">Source</span><span style="color:#f92672">:</span>
+          <span style="color:#a6e22e">Provider</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;CodeCommit&#34;</span>
+          <span style="color:#a6e22e">Configuration</span><span style="color:#f92672">:</span>
+            <span style="color:#a6e22e">RepositoryName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;ssm-parameter-stack&#34;</span>
+            <span style="color:#a6e22e">BranchName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;main&#34;</span>
+  
+</code></pre></div>
+ </figure>
+<ul>
+<li>
+<p>Please note the file name is not significant but it must have the extension <code>.yaml</code> and it must be in a directory named <code>stacks</code></p>
+</li>
+<li>
+<p>Fill in the other fields and save the file.  Once you do the pipeline <code>servicecatalog-factory-pipeline</code> will run.</p>
+</li>
+<li>
+<p>Once the pipeline is complete you will have a new pipeline named <code>stack--ssm-parameter-v1-pipeline</code></p>
+</li>
+<li>
+<p>You should navigate to AWS CodeCommit, create a repo named <code>ssm-parameter-stack</code> and add a file named <code>stack.template.yaml</code> with the following content on the <code>main</code> branch:</p>
+</li>
+</ul>
+ <figure>
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">Parameters</span><span style="color:#f92672">:</span>
+  <span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span>
+    <span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> String
+  <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span>
+    <span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> String
 
-				
-			
-			
-		
-	
+<span style="color:#a6e22e">Resources</span><span style="color:#f92672">:</span>
+  <span style="color:#a6e22e">Parameter</span><span style="color:#f92672">:</span>
+    <span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">AWS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">SSM</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">Parameter</span>
+    <span style="color:#a6e22e">Properties</span><span style="color:#f92672">:</span>
+      <span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Ref</span> <span style="color:#a6e22e">Name</span>
+      <span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> String
+      <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Ref</span> <span style="color:#a6e22e">Value</span>
 
-	
+<span style="color:#a6e22e">Outputs</span><span style="color:#f92672">:</span>
+  <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span>
+    <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">GetAtt</span> <span style="color:#a6e22e">Parameter</span>.<span style="color:#a6e22e">Value</span>
+</code></pre></div>
+ </figure>
+<ul>
+<li>Once you have added the file the pipeline <code>stack--ssm-parameter-v1-pipeline</code> will run.  It will take the source code and add will add it to Amazon S3 so you can use it in Service Catalog Puppet in the step below.</li>
+</ul>
+<h2 id="provision-a-stack-using-service-catalog-puppet">Provision a stack using Service Catalog Puppet</h2>
+<p><em>Now we are ready to add a lambda invocation to the manifest file.</em></p>
+<ul>
+<li>
+<p>Navigate to the  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codecommit/repositories/ServiceCatalogPuppet/browse?region=eu-west-1' target='_blank'>ServiceCatalogPuppet CodeCommit repository</a></p>
+</li>
+<li>
+<p>Click the <em>ServiceCatalogPuppet</em> repository</p>
+</li>
+<li>
+<p>Click the link to the <em>manifest.yaml</em> file, and then click the <em>Edit</em> button</p>
+</li>
+<li>
+<p>Add the following snippet to the end of the main input field:</p>
+</li>
+</ul>
+ <figure>
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">stacks</span><span style="color:#f92672">:</span>
+  <span style="color:#a6e22e">ssm</span><span style="color:#f92672">-</span><span style="color:#a6e22e">parameter</span><span style="color:#f92672">:</span>
+    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">ssm</span><span style="color:#f92672">-</span><span style="color:#a6e22e">parameter</span>
+    <span style="color:#a6e22e">version</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">v1</span>
+    <span style="color:#a6e22e">parameters</span><span style="color:#f92672">:</span>
+      <span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span>
+        <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;hello&#34;</span>
+      <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span>
+        <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;world&#34;</span>
+    <span style="color:#a6e22e">deploy_to</span><span style="color:#f92672">:</span>
+      <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
+        <span style="color:#f92672">-</span> <span style="color:#a6e22e">tag</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">role</span><span style="color:#f92672">:</span><span style="color:#a6e22e">spoke</span>
+          <span style="color:#a6e22e">regions</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">regions_enabled</span>
+  
+</code></pre></div>
+ </figure>
+<h3 id="committing-the-manifest-file">Committing the manifest file</h3>
+<p><em>Now that we have updated the manifest file we are ready to commit our changes.</em></p>
+<ul>
+<li>Set your <em>Author name</em></li>
+<li>Set your <em>Email address</em></li>
+<li>Set your <em>Commit message</em></li>
 </ul>
 
+<div class="notices tip" ><p>Using a good / unique commit message will help you understand what is going on later.</p>
+</div>
 
-
+<ul>
+<li>Click the <em>Commit changes</em> button:</li>
+</ul>
+<figure>
+    <img src="../how-tos/invoking-a-lambda-function/commit_changes.png"/> 
+</figure>
 
 
 
@@ -1985,7 +2095,6 @@ it please follow the &ldquo;Using AWS Organizations&rdquo; step below before you
             
                 
                     
-                    
                 
                 
 
@@ -1998,9 +2107,6 @@ it please follow the &ldquo;Using AWS Organizations&rdquo; step below before you
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -2487,6 +2593,7 @@ it please follow the &ldquo;Using AWS Organizations&rdquo; step below before you
             
                 
                     
+                    
                 
                 
 
@@ -2502,6 +2609,9 @@ it please follow the &ldquo;Using AWS Organizations&rdquo; step below before you
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -2770,10 +2880,10 @@ it please follow the &ldquo;Using AWS Organizations&rdquo; step below before you
 	 
 	 
 		
-			<a class="nav nav-prev" href="../installation/20-service-catalog-factory.html" title="Service Catalog Factory"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="../every-day-use/380-provisioning-a-cloudformation-stack.html" title="Provisioning CloudFormation"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="../installation/30-service-catalog-puppet/10-using-aws-organizations.html" title="Using AWS Organizations" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="../every-day-use/400-invoking-a-lambda-function.html" title="Invoking a Lambda Function" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
