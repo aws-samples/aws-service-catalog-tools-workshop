@@ -1,7 +1,7 @@
 +++
-title = "AWS re:Invent 2019"
+title = "2019 AWS re:Invent Workshop"
 chapter = false
-weight = 40
+weight = 800
 url = "reInvent2019"
 aliases = [
     "reinvent2019",
