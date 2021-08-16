@@ -1591,7 +1591,7 @@
 </left>
 
 <left>
-    <h5 class="copyright">74bd1e9 - Fri Aug 6 20:23:11 UTC 2021</h5>
+    <h5 class="copyright">969d8bc - Mon Aug 16 10:20:22 UTC 2021</h5>
 </left>
 
     </section>
@@ -1652,7 +1652,8 @@
       </ul>
     </li>
     <li><a href="#creating-a-stack-using-service-catalog-factory">Creating a stack using Service Catalog Factory</a></li>
-    <li><a href="#provision-a-stack-using-service-catalog-puppet">Provision a stack using Service Catalog Puppet</a>
+    <li><a href="#provision-a-stack-using-service-catalog-puppet">Provision a stack using Service Catalog Puppet</a></li>
+    <li><a href="#capabilities">Capabilities</a>
       <ul>
         <li><a href="#committing-the-manifest-file">Committing the manifest file</a></li>
       </ul>
@@ -1797,6 +1798,29 @@
   <span style="color:#a6e22e">ssm</span><span style="color:#f92672">-</span><span style="color:#a6e22e">parameter</span><span style="color:#f92672">:</span>
     <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">ssm</span><span style="color:#f92672">-</span><span style="color:#a6e22e">parameter</span>
     <span style="color:#a6e22e">version</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">v1</span>
+    <span style="color:#a6e22e">parameters</span><span style="color:#f92672">:</span>
+      <span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span>
+        <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;hello&#34;</span>
+      <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span>
+        <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;world&#34;</span>
+    <span style="color:#a6e22e">deploy_to</span><span style="color:#f92672">:</span>
+      <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
+        <span style="color:#f92672">-</span> <span style="color:#a6e22e">tag</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">role</span><span style="color:#f92672">:</span><span style="color:#a6e22e">spoke</span>
+          <span style="color:#a6e22e">regions</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">regions_enabled</span>
+  
+</code></pre></div>
+ </figure>
+<h2 id="capabilities">Capabilities</h2>
+<p>In some cases, you must explicitly acknowledge that your stack template contains certain capabilities in order for
+CloudFormation to create the stack.</p>
+<p>When you need to do this you can specify the capabilities as a list per stack:</p>
+ <figure>
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">stacks</span><span style="color:#f92672">:</span>
+  <span style="color:#a6e22e">ssm</span><span style="color:#f92672">-</span><span style="color:#a6e22e">parameter</span><span style="color:#f92672">:</span>
+    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">ssm</span><span style="color:#f92672">-</span><span style="color:#a6e22e">parameter</span>
+    <span style="color:#a6e22e">version</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">v1</span>
+    <span style="color:#a6e22e">capabilities</span><span style="color:#f92672">:</span>
+      <span style="color:#f92672">-</span> <span style="color:#a6e22e">CAPABILITY_IAM</span>
     <span style="color:#a6e22e">parameters</span><span style="color:#f92672">:</span>
       <span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span>
         <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;hello&#34;</span>
