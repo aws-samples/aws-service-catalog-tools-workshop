@@ -2,7 +2,6 @@
 title = "2021 Workshop"
 chapter = false
 weight = 700
-url = "Networking Capability 2021"
 +++
 
 Welcome to the Service Catalog tools network capability workshop - 2021 edition. 
@@ -25,7 +24,7 @@ You will be using these building blocks to:
 - Remove the default networking resources from your AWS accounts
 - Provision a new AWS VPC using AWS CloudFormation
 - Provision a new subnet using AWS Service Catalog
-- Provision a new subnet using AWS Service Catalog
+- Provision a new subnet using Hashicorp Terraform
 - Share a Service Catalog portfolio so end users can create their own subnets
 
 ## Let's get going!
