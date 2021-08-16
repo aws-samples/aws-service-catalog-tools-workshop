@@ -129,7 +129,7 @@ stacks:
   {{< / highlight >}}
  </figure>
 
-## Capabilities
+### Capabilities
 
 In some cases, you must explicitly acknowledge that your stack template contains certain capabilities in order for 
 CloudFormation to create the stack.  
