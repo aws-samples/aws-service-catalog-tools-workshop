@@ -129,6 +129,32 @@ stacks:
   {{< / highlight >}}
  </figure>
 
+## Capabilities
+
+In some cases, you must explicitly acknowledge that your stack template contains certain capabilities in order for 
+CloudFormation to create the stack.  
+
+When you need to do this you can specify the capabilities as a list per stack:
+
+ <figure>
+  {{< highlight js >}}
+stacks:
+  ssm-parameter:
+    name: ssm-parameter
+    version: v1
+    capabilities:
+      - CAPABILITY_IAM
+    parameters:
+      Name:
+        default: "hello"
+      Value:
+        default: "world"
+    deploy_to:
+      tags:
+        - tag: role:spoke
+          regions: regions_enabled
+  {{< / highlight >}}
+ </figure>
 
 ### Committing the manifest file
 
