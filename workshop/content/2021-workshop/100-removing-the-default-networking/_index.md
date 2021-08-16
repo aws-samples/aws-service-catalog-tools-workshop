@@ -10,10 +10,10 @@ When you create a new AWS account there are some networking resources already pr
 planning on using an AWS Transit Gateway or connecting the AWS account to your local network then these resources may
 not be required.  
 
-We are going to create a pipeline that takes an AWS CloudFormation template to create a 'stack' in Amazon S3.  We will
-then provision the stack containing an AWS Lambda function into our account using a 'stack' in our manifest file before
-invoking it using a 'lambda-invocation' again using our manifest file.  Finally, we will verify the resources are no
-longer present using an assertion.
+We are going to create an AWS Lambda function that assumes role into an AWS account to remove the networking resources.
+We will use a Service Catalog tools stack for this.  To do this we will create a pipeline that will create the stack and 
+then we will provision the stack.  Once the stack is provisioned we will invoke the lambda function so that the 
+resources are removed. Finally, we will verify the resources are no longer present using an assertion.
 
 
 ## How are we going to do it?

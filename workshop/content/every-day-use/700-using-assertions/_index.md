@@ -37,24 +37,24 @@ Add the following snippet to your manifest file:
  <figure>
   {{< highlight js >}}
 assertions:
-  assert-puppet-role-path:
+  assert-no-default-vpcs:
     expected:
       source: manifest
       config:
         value:
-          - "/servicecatalog-puppet/"
+          - ""
     actual:
       source: boto3
       config:
-        client: 'iam'
-        call: list_roles
+        client: 'ec2'
+        call: describe_vpcs
         arguments: {}
         use_paginator: true
-        filter: Roles[?RoleName==`PuppetRole`].Path
+        filter: Vpcs[?IsDefault==`true`].State
     assert_for:
       tags:
         - regions: regions_enabled
-          tag: role:all
+          tag: role:all  
   {{< / highlight >}}
  </figure>
 
@@ -69,13 +69,10 @@ In each region of each account in your assert_for you asked service catalog pupp
 
 - assume role into the region of the account
 - create an iam client using boto3
-- using the client, call the list_roles command using a paginator and providing no arguments
-- you then told service catalog puppet to use a filter to remove items from the results of the list_roles command - this
+- using the client, call the describe_vpcs command using a paginator and providing no arguments
+- you then told service catalog puppet to use a filter to remove items from the results of the describe_vpcs command - this
   is useful to remove things like CreateDate, Arns and other properties that vary by region / account.
   
-This example was wasteful as IAM resources are global to an account - running the assertion in each region was just to
-showcase how this works multi region.  Also, the puppet role is needed to run the assertion so again this was just an 
-example of what you can do with this feature.  
 
 ### Recommendations 
 - It is recommended to add assertions verifying default VPCs are removed.
