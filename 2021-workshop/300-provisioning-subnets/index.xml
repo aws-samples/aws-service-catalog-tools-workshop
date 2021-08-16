@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Provisioning Subnets on Service Catalog Tools Workshop</title>
+    <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/300-provisioning-subnets.html</link>
+    <description>Recent content in Provisioning Subnets on Service Catalog Tools Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/300-provisioning-subnets/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Using AWS Service Catalog</title>
+      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/300-provisioning-subnets/15-using-service-catalog.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/300-provisioning-subnets/15-using-service-catalog.html</guid>
+      <description>What are we going to do? We are going to perform the following steps:
+ Define a product with a version and a portfolio Add the source code for our product Provision the product subnet into a spoke account  Step by step guide Here are the steps you need to follow to &amp;ldquo;Using AWS Service Catalog&amp;rdquo;
+Define a product with a version and a portfolio   Navigate to the ServiceCatalogFactory CodeCommit repository</description>
+    </item>
+    
+    <item>
+      <title>Using Terraform</title>
+      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/300-provisioning-subnets/20-using-terraform.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/300-provisioning-subnets/20-using-terraform.html</guid>
+      <description>What are we going to do? We are going to perform the following steps:
+ Define a workspace Add the source code for our product Update the manifest file  Step by step guide Here are the steps you need to follow to &amp;ldquo;Using Terraform&amp;rdquo;
+Define a workspace   Navigate to the ServiceCatalogFactory CodeCommit repository
+  Open the Add file menu and click the Create file button</description>
+    </item>
+    
+  </channel>
+</rss>

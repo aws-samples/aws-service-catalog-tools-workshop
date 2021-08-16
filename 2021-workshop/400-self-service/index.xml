@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Self service on Service Catalog Tools Workshop</title>
+    <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/400-self-service.html</link>
+    <description>Recent content in Self service on Service Catalog Tools Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/400-self-service/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Using AWS Service Catalog</title>
+      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/400-self-service/15-using-service-catalog.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/400-self-service/15-using-service-catalog.html</guid>
+      <description>What are we going to do? We are going to perform the following steps:
+ Create a portfolio for sharing products Share the portfolio networking-optional into a spoke account  Step by step guide Here are the steps you need to follow to &amp;ldquo;Using AWS Service Catalog&amp;rdquo;
+Create a portfolio for sharing products   Navigate to the ServiceCatalogFactory CodeCommit repository
+  Click on portfolios, then networking.yaml and click &amp;ldquo;Edit&amp;rdquo;.</description>
+    </item>
+    
+  </channel>
+</rss>

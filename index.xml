@@ -43,6 +43,39 @@ What are we going to do?</description>
     </item>
     
     <item>
+      <title>Using AWS Service Catalog</title>
+      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/300-provisioning-subnets/15-using-service-catalog.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/300-provisioning-subnets/15-using-service-catalog.html</guid>
+      <description>What are we going to do? We are going to perform the following steps:
+ Define a product with a version and a portfolio Add the source code for our product Provision the product subnet into a spoke account  Step by step guide Here are the steps you need to follow to &amp;ldquo;Using AWS Service Catalog&amp;rdquo;
+Define a product with a version and a portfolio   Navigate to the ServiceCatalogFactory CodeCommit repository</description>
+    </item>
+    
+    <item>
+      <title>Using AWS Service Catalog</title>
+      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/400-self-service/15-using-service-catalog.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/400-self-service/15-using-service-catalog.html</guid>
+      <description>What are we going to do? We are going to perform the following steps:
+ Create a portfolio for sharing products Share the portfolio networking-optional into a spoke account  Step by step guide Here are the steps you need to follow to &amp;ldquo;Using AWS Service Catalog&amp;rdquo;
+Create a portfolio for sharing products   Navigate to the ServiceCatalogFactory CodeCommit repository
+  Click on portfolios, then networking.yaml and click &amp;ldquo;Edit&amp;rdquo;.</description>
+    </item>
+    
+    <item>
+      <title>Creating the Lambda</title>
+      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/100-removing-the-default-networking/20-creating-the-lambda.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/100-removing-the-default-networking/20-creating-the-lambda.html</guid>
+      <description>What are we going to do? We are going to perform the following steps:
+ Define a stack Add the source code for our product  The hub AWS Account is the source of truth for our stacks. Spoke AWS accounts are consumers of these stacks, you can think of them as accounts that need governance controls applied. For this workshop, we are using the same account as both the hub and spoke for simplicity; in a multi-account setup, these could be separate AWS Accounts and Regions.</description>
+    </item>
+    
+    <item>
       <title>Service Catalog Factory</title>
       <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/installation/20-service-catalog-factory.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -63,6 +96,45 @@ If you have added any regions since your initial install or modified any setting
     </item>
     
     <item>
+      <title>Using Terraform</title>
+      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/300-provisioning-subnets/20-using-terraform.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/300-provisioning-subnets/20-using-terraform.html</guid>
+      <description>What are we going to do? We are going to perform the following steps:
+ Define a workspace Add the source code for our product Update the manifest file  Step by step guide Here are the steps you need to follow to &amp;ldquo;Using Terraform&amp;rdquo;
+Define a workspace   Navigate to the ServiceCatalogFactory CodeCommit repository
+  Open the Add file menu and click the Create file button</description>
+    </item>
+    
+    <item>
+      <title>Creating the Stack</title>
+      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/200-provisioning-a-vpc/20-creating-the-stack.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/200-provisioning-a-vpc/20-creating-the-stack.html</guid>
+      <description>What are we going to do? We are going to perform the following steps:
+ Define a stack Add the source code for our product  Step by step guide Here are the steps you need to follow to &amp;ldquo;Creating the Stack&amp;rdquo;
+Define a stack   Navigate to the ServiceCatalogFactory CodeCommit repository
+  Click on stacks
+  Click on network-workshop.yaml
+  Click on edit
+  Append the following snippet to the main input field:</description>
+    </item>
+    
+    <item>
+      <title>Deploying the Lambda</title>
+      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/100-removing-the-default-networking/30-deploying-the-lambda.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/100-removing-the-default-networking/30-deploying-the-lambda.html</guid>
+      <description>What are we going to do? We are going to perform the following steps:
+ Create a manifest file with our account in it Provision the stack delete-default-networking-function into a spoke account  Step by step guide Here are the steps you need to follow to provision the stack.
+Create a manifest file with our account in it   Navigate to the ServiceCatalogPuppet CodeCommit repository
+  Scroll down to the bottom of the page and hit the Create file button</description>
+    </item>
+    
+    <item>
       <title>Installing Puppet</title>
       <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/installation/30-service-catalog-puppet/30-installing-puppet.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -73,6 +145,20 @@ If you have added any regions since your initial install or modified any setting
     </item>
     
     <item>
+      <title>Provisioning the Stack</title>
+      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/200-provisioning-a-vpc/30-provisioning-the-stack.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/200-provisioning-a-vpc/30-provisioning-the-stack.html</guid>
+      <description>What are we going to do? We are going to perform the following steps:
+ Update the manifest file  Step by step guide Here are the steps you need to follow to provision the stack.
+Update the manifest file   Navigate to the ServiceCatalogPuppet CodeCommit repository again
+  Click on manifest.yaml
+  Click Edit
+  Append the following snippet to the end of the stacks section in the input field:</description>
+    </item>
+    
+    <item>
       <title>Service Catalog Puppet</title>
       <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/upgrading/service-catalog-puppet.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -80,6 +166,34 @@ If you have added any regions since your initial install or modified any setting
       <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/upgrading/service-catalog-puppet.html</guid>
       <description>Before you update This guide applies to all users who installed using the AWS CloudFormation template. If you did not install using the template then you need to follow the install guide. When following the install guide, ensure you provision the initialiser stack into the same region you installed the tools using the CLI method. Installing this way will perform an update and will not break your install.
 If you have added any regions since your initial install or modified any settings provided by the parameters in the install template ensure you specify the values you want for them as the install process will overwrite any previous settings you configured in your existing install.</description>
+    </item>
+    
+    <item>
+      <title>Invoking the Lambda</title>
+      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/100-removing-the-default-networking/40-invoking-the-lambda.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/100-removing-the-default-networking/40-invoking-the-lambda.html</guid>
+      <description>What are we going to do? We are going to perform the following steps:
+ Invoke the lambda  Step by step guide Here are the steps you need to follow to &amp;ldquo;Invoking the Lambda&amp;rdquo;
+Invoke the lambda   Navigate to the ServiceCatalogPuppet CodeCommit repository again
+  Click on manifest.yaml
+  Click Edit
+  Append the following snippet to the end of the main input field:</description>
+    </item>
+    
+    <item>
+      <title>Asserting the resources are removed</title>
+      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/100-removing-the-default-networking/50-asserting-the-resources-are-removed.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/100-removing-the-default-networking/50-asserting-the-resources-are-removed.html</guid>
+      <description>What are we going to do? We are going to perform the following steps:
+ Define an assertion  Step by step guide Here are the steps you need to follow to &amp;ldquo;Asserting the resources are removed&amp;rdquo;
+Define an assertion   Navigate to the ServiceCatalogPuppet CodeCommit repository again
+  Click on manifest.yaml
+  Click Edit
+  Append the following snippet to the end of the main input field:</description>
     </item>
     
     <item>
@@ -105,20 +219,20 @@ The IAM Permission Boundary you provide should permit the PuppetRole to interact
     
     <item>
       <title>Create the control</title>
-      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/workshops/40-reinvent2019/100-task-1/100-create-the-control.html</link>
+      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/100-task-1/100-create-the-control.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/workshops/40-reinvent2019/100-task-1/100-create-the-control.html</guid>
+      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/100-task-1/100-create-the-control.html</guid>
       <description>What are we going to do? We are going to perform the following steps:
  define a product with a version and a portfolio in a hub account add the source code for the product provision that product into a spoke account  The hub AWS Account is the source of truth for our AWS Service Catalog products. Spoke AWS accounts are consumers of these products, you can think of them as accounts that need governance controls applied.</description>
     </item>
     
     <item>
       <title>Create the control</title>
-      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/workshops/40-reinvent2019/150-task-2/100-create-the-control.html</link>
+      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/150-task-2/100-create-the-control.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/workshops/40-reinvent2019/150-task-2/100-create-the-control.html</guid>
+      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/150-task-2/100-create-the-control.html</guid>
       <description>What are we going to do? We are going to perform the following steps:
  define another product with a version and add it to the existing cloud-engineering-governance portfolio add the source code for our product provision that product into a spoke account  Step by step guide Here are the steps you need to follow to &amp;ldquo;Create the control&amp;rdquo;
 Define a product with a version and a portfolio   Navigate to the ServiceCatalogFactory CodeCommit repository again</description>
@@ -148,10 +262,10 @@ Disable the product version When working with other teams it is recommended that
     
     <item>
       <title>Running yourself</title>
-      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/workshops/40-reinvent2019/30-prerequisites/100-running-yourself.html</link>
+      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/30-prerequisites/100-running-yourself.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/workshops/40-reinvent2019/30-prerequisites/100-running-yourself.html</guid>
+      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/30-prerequisites/100-running-yourself.html</guid>
       <description>What are we going to do? We are going to perform the following steps:
  Enable AWS Config Install the tools Create an IAM Role  In order to run the workshop in your own account you will need to enable AWS Config and create an IAM Role named TeamRole which you must then assume in order to complete the activities.
 Step by step guide Here are the steps you need to follow to &amp;ldquo;Running yourself&amp;rdquo;</description>
@@ -159,10 +273,10 @@ Step by step guide Here are the steps you need to follow to &amp;ldquo;Running y
     
     <item>
       <title>Provision the control</title>
-      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/workshops/40-reinvent2019/100-task-1/200-provision-the-control.html</link>
+      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/100-task-1/200-provision-the-control.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/workshops/40-reinvent2019/100-task-1/200-provision-the-control.html</guid>
+      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/100-task-1/200-provision-the-control.html</guid>
       <description>What are we going to do? We are going to perform the following steps:
  create a manifest file with our account in it provision the product aws-config-desired-instance-types into our account  Step by step guide Here are the steps you need to follow to provision the control. In the previous task, we created an AWS Service Catalog product but it has not yet been provisioned.
 Create a manifest file with our account in it   Navigate to the ServiceCatalogPuppet CodeCommit repository</description>
@@ -170,10 +284,10 @@ Create a manifest file with our account in it   Navigate to the ServiceCatalogPu
     
     <item>
       <title>Provision the control</title>
-      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/workshops/40-reinvent2019/150-task-2/200-provision-the-control.html</link>
+      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/150-task-2/200-provision-the-control.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/workshops/40-reinvent2019/150-task-2/200-provision-the-control.html</guid>
+      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/150-task-2/200-provision-the-control.html</guid>
       <description>What are we going to do? We are going to perform the following steps:
  provision the product aws-config-rds-storage-encrypted  For this workshop, we are using the same account as both the hub and spoke for simplicity; in a multi-account setup, products that are created in a hub account could be provisioned in multiple spoke accounts.
 Step by step guide Here are the steps you need to follow to &amp;ldquo;Provision the control&amp;rdquo;</description>
@@ -193,10 +307,10 @@ Add the source code for your product When you configured your product version, y
     
     <item>
       <title>Create the product</title>
-      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/workshops/40-reinvent2019/150-task-2/300-create-the-product.html</link>
+      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/150-task-2/300-create-the-product.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/workshops/40-reinvent2019/150-task-2/300-create-the-product.html</guid>
+      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/150-task-2/300-create-the-product.html</guid>
       <description>What are we going to do? We have provisioned a detective control to look for AWS RDS Instances that have don&#39;t have encryption enabled. We can do better, and create an AWS Service Catalog product that meets the encryption requirement by default using service catalog tools. When users create a new RDS instance using this product, encryption at rest is enabled by default and no further configuration is required.</description>
     </item>
     

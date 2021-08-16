@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Removing the default networking on Service Catalog Tools Workshop</title>
+    <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/100-removing-the-default-networking.html</link>
+    <description>Recent content in Removing the default networking on Service Catalog Tools Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/100-removing-the-default-networking/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Creating the Lambda</title>
+      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/100-removing-the-default-networking/20-creating-the-lambda.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/100-removing-the-default-networking/20-creating-the-lambda.html</guid>
+      <description>What are we going to do? We are going to perform the following steps:
+ Define a stack Add the source code for our product  The hub AWS Account is the source of truth for our stacks. Spoke AWS accounts are consumers of these stacks, you can think of them as accounts that need governance controls applied. For this workshop, we are using the same account as both the hub and spoke for simplicity; in a multi-account setup, these could be separate AWS Accounts and Regions.</description>
+    </item>
+    
+    <item>
+      <title>Deploying the Lambda</title>
+      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/100-removing-the-default-networking/30-deploying-the-lambda.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/100-removing-the-default-networking/30-deploying-the-lambda.html</guid>
+      <description>What are we going to do? We are going to perform the following steps:
+ Create a manifest file with our account in it Provision the stack delete-default-networking-function into a spoke account  Step by step guide Here are the steps you need to follow to provision the stack.
+Create a manifest file with our account in it   Navigate to the ServiceCatalogPuppet CodeCommit repository
+  Scroll down to the bottom of the page and hit the Create file button</description>
+    </item>
+    
+    <item>
+      <title>Invoking the Lambda</title>
+      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/100-removing-the-default-networking/40-invoking-the-lambda.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/100-removing-the-default-networking/40-invoking-the-lambda.html</guid>
+      <description>What are we going to do? We are going to perform the following steps:
+ Invoke the lambda  Step by step guide Here are the steps you need to follow to &amp;ldquo;Invoking the Lambda&amp;rdquo;
+Invoke the lambda   Navigate to the ServiceCatalogPuppet CodeCommit repository again
+  Click on manifest.yaml
+  Click Edit
+  Append the following snippet to the end of the main input field:</description>
+    </item>
+    
+    <item>
+      <title>Asserting the resources are removed</title>
+      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/100-removing-the-default-networking/50-asserting-the-resources-are-removed.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/100-removing-the-default-networking/50-asserting-the-resources-are-removed.html</guid>
+      <description>What are we going to do? We are going to perform the following steps:
+ Define an assertion  Step by step guide Here are the steps you need to follow to &amp;ldquo;Asserting the resources are removed&amp;rdquo;
+Define an assertion   Navigate to the ServiceCatalogPuppet CodeCommit repository again
+  Click on manifest.yaml
+  Click Edit
+  Append the following snippet to the end of the main input field:</description>
+    </item>
+    
+  </channel>
+</rss>

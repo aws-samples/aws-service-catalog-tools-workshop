@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Provisioning a VPC on Service Catalog Tools Workshop</title>
+    <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/200-provisioning-a-vpc.html</link>
+    <description>Recent content in Provisioning a VPC on Service Catalog Tools Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/200-provisioning-a-vpc/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Creating the Stack</title>
+      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/200-provisioning-a-vpc/20-creating-the-stack.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/200-provisioning-a-vpc/20-creating-the-stack.html</guid>
+      <description>What are we going to do? We are going to perform the following steps:
+ Define a stack Add the source code for our product  Step by step guide Here are the steps you need to follow to &amp;ldquo;Creating the Stack&amp;rdquo;
+Define a stack   Navigate to the ServiceCatalogFactory CodeCommit repository
+  Click on stacks
+  Click on network-workshop.yaml
+  Click on edit
+  Append the following snippet to the main input field:</description>
+    </item>
+    
+    <item>
+      <title>Provisioning the Stack</title>
+      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/200-provisioning-a-vpc/30-provisioning-the-stack.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/200-provisioning-a-vpc/30-provisioning-the-stack.html</guid>
+      <description>What are we going to do? We are going to perform the following steps:
+ Update the manifest file  Step by step guide Here are the steps you need to follow to provision the stack.
+Update the manifest file   Navigate to the ServiceCatalogPuppet CodeCommit repository again
+  Click on manifest.yaml
+  Click Edit
+  Append the following snippet to the end of the stacks section in the input field:</description>
+    </item>
+    
+  </channel>
+</rss>

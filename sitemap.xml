@@ -15,6 +15,10 @@
   </url>
   
   <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/10-prerequisites.html</loc>
+  </url>
+  
+  <url>
     <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/design-considerations/multi-account-strategy/starter-framework.html</loc>
   </url>
   
@@ -24,6 +28,18 @@
   
   <url>
     <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/tools.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/300-provisioning-subnets/15-using-service-catalog.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/400-self-service/15-using-service-catalog.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/100-removing-the-default-networking/20-creating-the-lambda.html</loc>
   </url>
   
   <url>
@@ -43,7 +59,19 @@
   </url>
   
   <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/300-provisioning-subnets/20-using-terraform.html</loc>
+  </url>
+  
+  <url>
     <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/upgrading.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/200-provisioning-a-vpc/20-creating-the-stack.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/100-removing-the-default-networking/30-deploying-the-lambda.html</loc>
   </url>
   
   <url>
@@ -51,7 +79,11 @@
   </url>
   
   <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/workshops/40-reinvent2019/30-prerequisites.html</loc>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/30-prerequisites.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/200-provisioning-a-vpc/30-provisioning-the-stack.html</loc>
   </url>
   
   <url>
@@ -67,11 +99,11 @@
   </url>
   
   <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/reinvent2019/</loc>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/100-removing-the-default-networking/40-invoking-the-lambda.html</loc>
   </url>
   
   <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/workshops.html</loc>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/100-removing-the-default-networking/50-asserting-the-resources-are-removed.html</loc>
   </url>
   
   <url>
@@ -91,15 +123,15 @@
   </url>
   
   <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/workshops/40-reinvent2019/100-task-1.html</loc>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/100-task-1.html</loc>
   </url>
   
   <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/workshops/40-reinvent2019/100-task-1/100-create-the-control.html</loc>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/100-task-1/100-create-the-control.html</loc>
   </url>
   
   <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/workshops/40-reinvent2019/150-task-2/100-create-the-control.html</loc>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/150-task-2/100-create-the-control.html</loc>
   </url>
   
   <url>
@@ -115,7 +147,11 @@
   </url>
   
   <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/workshops/40-reinvent2019/30-prerequisites/100-running-yourself.html</loc>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/100-removing-the-default-networking.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/30-prerequisites/100-running-yourself.html</loc>
   </url>
   
   <url>
@@ -139,7 +175,7 @@
   </url>
   
   <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/workshops/40-reinvent2019/150-task-2.html</loc>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/150-task-2.html</loc>
   </url>
   
   <url>
@@ -167,15 +203,19 @@
   </url>
   
   <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/workshops/40-reinvent2019/100-task-1/200-provision-the-control.html</loc>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/100-task-1/200-provision-the-control.html</loc>
   </url>
   
   <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/workshops/40-reinvent2019/150-task-2/200-provision-the-control.html</loc>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/150-task-2/200-provision-the-control.html</loc>
   </url>
   
   <url>
     <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/every-day-use/200-provisioning-a-product.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/200-provisioning-a-vpc.html</loc>
   </url>
   
   <url>
@@ -187,11 +227,15 @@
   </url>
   
   <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/workshops/40-reinvent2019/150-task-2/300-create-the-product.html</loc>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/40-reinvent2019/150-task-2/300-create-the-product.html</loc>
   </url>
   
   <url>
     <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/every-day-use/110-deleting-a-product/300-deleting-the-product.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/300-provisioning-subnets.html</loc>
   </url>
   
   <url>
@@ -239,6 +283,10 @@
   </url>
   
   <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/400-self-service.html</loc>
+  </url>
+  
+  <url>
     <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/design-considerations/using-iam-and-scp-effectively.html</loc>
   </url>
   
@@ -247,7 +295,15 @@
   </url>
   
   <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop.html</loc>
+  </url>
+  
+  <url>
     <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/every-day-use/700-using-assertions.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/reinvent2019/</loc>
   </url>
   
   <url>
