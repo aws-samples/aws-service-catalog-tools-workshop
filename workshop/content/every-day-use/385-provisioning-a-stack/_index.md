@@ -29,7 +29,7 @@ We are going to perform the following steps to "{{% param title %}}":
 
 ## Step by step guide
 
-Here are the steps you need to follow to "{{% param title %}}"
+Here are the steps you need to follow for "{{% param title %}}"
 
 ### Things to note, before we start
 
@@ -101,7 +101,7 @@ Outputs:
 
 ## Provision a stack using Service Catalog Puppet
 
-_Now we are ready to add a lambda invocation to the manifest file._
+_Now we are ready to provision the stack using the manifest file._
 
 - Navigate to the {{% service_catalog_puppet_code_commit_repo_link %}}
 
@@ -124,7 +124,7 @@ stacks:
         default: "world"
     deploy_to:
       tags:
-        - tag: role:spoke
+        - tag: type:prod
           regions: regions_enabled
   {{< / highlight >}}
  </figure>
@@ -151,7 +151,7 @@ stacks:
         default: "world"
     deploy_to:
       tags:
-        - tag: role:spoke
+        - tag: type:prod
           regions: regions_enabled
   {{< / highlight >}}
  </figure>
