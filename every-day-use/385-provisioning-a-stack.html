@@ -1920,7 +1920,7 @@
 </left>
 
 <left>
-    <h5 class="copyright">f50e94c - Mon Aug 16 21:01:58 UTC 2021</h5>
+    <h5 class="copyright">2569de6 - Tue Aug 17 14:24:43 UTC 2021</h5>
 </left>
 
     </section>
@@ -2029,7 +2029,7 @@
 <li>provision a stack using Service Catalog Puppet</li>
 </ul>
 <h2 id="step-by-step-guide">Step by step guide</h2>
-<p>Here are the steps you need to follow to &ldquo;Provisioning a Stack&rdquo;</p>
+<p>Here are the steps you need to follow for &ldquo;Provisioning a Stack&rdquo;</p>
 <h3 id="things-to-note-before-we-start">Things to note, before we start</h3>
 <ul>
 <li>This feature was added in version 0.63.0 of Service Catalog Factory.  You will need to be using this version (or later)</li>
@@ -2107,7 +2107,7 @@
 <li>Once you have added the file the pipeline <code>stack--ssm-parameter-v1-pipeline</code> will run.  It will take the source code and add will add it to Amazon S3 so you can use it in Service Catalog Puppet in the step below.</li>
 </ul>
 <h2 id="provision-a-stack-using-service-catalog-puppet">Provision a stack using Service Catalog Puppet</h2>
-<p><em>Now we are ready to add a lambda invocation to the manifest file.</em></p>
+<p><em>Now we are ready to provision the stack using the manifest file.</em></p>
 <ul>
 <li>
 <p>Navigate to the  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codecommit/repositories/ServiceCatalogPuppet/browse?region=eu-west-1' target='_blank'>ServiceCatalogPuppet CodeCommit repository</a></p>
@@ -2134,7 +2134,7 @@
         <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;world&#34;</span>
     <span style="color:#a6e22e">deploy_to</span><span style="color:#f92672">:</span>
       <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
-        <span style="color:#f92672">-</span> <span style="color:#a6e22e">tag</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">role</span><span style="color:#f92672">:</span><span style="color:#a6e22e">spoke</span>
+        <span style="color:#f92672">-</span> <span style="color:#a6e22e">tag</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span><span style="color:#a6e22e">prod</span>
           <span style="color:#a6e22e">regions</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">regions_enabled</span>
   
 </code></pre></div>
@@ -2157,7 +2157,7 @@ CloudFormation to create the stack.</p>
         <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;world&#34;</span>
     <span style="color:#a6e22e">deploy_to</span><span style="color:#f92672">:</span>
       <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
-        <span style="color:#f92672">-</span> <span style="color:#a6e22e">tag</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">role</span><span style="color:#f92672">:</span><span style="color:#a6e22e">spoke</span>
+        <span style="color:#f92672">-</span> <span style="color:#a6e22e">tag</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span><span style="color:#a6e22e">prod</span>
           <span style="color:#a6e22e">regions</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">regions_enabled</span>
   
 </code></pre></div>
