@@ -1920,7 +1920,7 @@
 </left>
 
 <left>
-    <h5 class="copyright">39bd438 - Wed Aug 18 20:50:14 UTC 2021</h5>
+    <h5 class="copyright">c56a75c - Wed Aug 18 20:59:35 UTC 2021</h5>
 </left>
 
     </section>
@@ -2253,24 +2253,24 @@ Resources:
 get_parameter and filter the result down to Parameter.Value:</p>
  <figure>
   <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">stacks:
-  ssm-parameter:
-    name: ssm-parameter
-    version: v2
-    execution: hub
+  golden-ami-id-replicator:
+    name: <span style="color:#e6db74">&#34;ssm-parameter&#34;</span>
+    version: <span style="color:#e6db74">&#34;v2&#34;</span>
+    execution: <span style="color:#e6db74">&#34;hub&#34;</span>
     parameters:
       Name:
-        default: <span style="color:#e6db74">&#34;stack--parameter-for-${AWS::AccountId}&#34;</span>
+        default: <span style="color:#e6db74">&#34;GoldenAMIId&#34;</span>
       Value:
         boto3:
-          account_id: ${AWS::AccountId}
-          region: ${AWS::Region}
-          client: <span style="color:#e6db74">&#39;ssm&#39;</span>
-          call: get_parameter
+          account_id: <span style="color:#e6db74">&#34;${AWS::AccountId}&#34;</span>
+          region: <span style="color:#e6db74">&#34;${AWS::Region}&#34;</span>
+          client: <span style="color:#e6db74">&#34;ssm&#34;</span>
+          call: <span style="color:#e6db74">&#34;get_parameter&#34;</span>
           use_paginator: <span style="color:#66d9ef">false</span>
           arguments:
-            Name: /some/param2
+            Name: <span style="color:#e6db74">&#34;GoldenAMIId&#34;</span>
           use_paginator: <span style="color:#66d9ef">false</span>
-          filter: Parameter.Value
+          filter: <span style="color:#e6db74">&#34;Parameter.Value&#34;</span>
     deploy_to:
       tags:
         - tag: role:spoke
