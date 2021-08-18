@@ -247,6 +247,8 @@ stacks:
   delete-default-networking-function:
     name: "delete-default-networking-function"
     version: "v1"
+    capabilities:
+      - CAPABILITY_NAMED_IAM
     deploy_to:
       tags:
         - tag: "type:prod"
