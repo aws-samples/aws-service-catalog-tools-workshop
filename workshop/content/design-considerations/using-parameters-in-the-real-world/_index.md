@@ -315,24 +315,24 @@ get_parameter and filter the result down to Parameter.Value:
   {{< highlight yaml >}}
 
 stacks:
-  ssm-parameter:
-    name: ssm-parameter
-    version: v2
-    execution: hub
+  golden-ami-id-replicator:
+    name: "ssm-parameter"
+    version: "v2"
+    execution: "hub"
     parameters:
       Name:
-        default: "stack--parameter-for-${AWS::AccountId}"
+        default: "GoldenAMIId"
       Value:
         boto3:
-          account_id: ${AWS::AccountId}
-          region: ${AWS::Region}
-          client: 'ssm'
-          call: get_parameter
+          account_id: "${AWS::AccountId}"
+          region: "${AWS::Region}"
+          client: "ssm"
+          call: "get_parameter"
           use_paginator: false
           arguments:
-            Name: /some/param2
+            Name: "GoldenAMIId"
           use_paginator: false
-          filter: Parameter.Value
+          filter: "Parameter.Value"
     deploy_to:
       tags:
         - tag: role:spoke
