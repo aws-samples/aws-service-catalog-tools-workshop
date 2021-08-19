@@ -79,6 +79,8 @@ Portfolios:
   </figure>
 
  
+- Update the Associations in the pasted text to include the IAM role name you are assuming in your account.
+
 - Set the *File name* to *portfolios/networking.yaml*
 
 - Set your *Author name*
