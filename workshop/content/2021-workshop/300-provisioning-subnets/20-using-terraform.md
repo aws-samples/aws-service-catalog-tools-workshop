@@ -49,6 +49,7 @@ Workspaces:
   </figure>
 
 
+- Set your filename to *workspaces/networking.yaml*
 - Set your *Author name*
 - Set your *Email address*
 - Set your *Commit message*
