@@ -1920,7 +1920,7 @@
 </left>
 
 <left>
-    <h5 class="copyright">c56a75c - Wed Aug 18 20:59:35 UTC 2021</h5>
+    <h5 class="copyright">03fa31f - Thu Aug 19 15:18:56 UTC 2021</h5>
 </left>
 
     </section>
@@ -2044,6 +2044,10 @@
         <span style="color:#a6e22e">arguments</span><span style="color:#f92672">:</span> {}
         <span style="color:#a6e22e">use_paginator</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>
         <span style="color:#a6e22e">filter</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Vpcs</span>[<span style="color:#f92672">?</span><span style="color:#a6e22e">IsDefault</span><span style="color:#f92672">==</span><span style="color:#e6db74">`</span><span style="color:#e6db74">true</span><span style="color:#e6db74">`</span>].<span style="color:#a6e22e">State</span>
+    <span style="color:#a6e22e">depends_on</span><span style="color:#f92672">:</span>
+      <span style="color:#f92672">-</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;delete-default-networking&#34;</span>
+        <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;lambda-invocation&#34;</span>
+        <span style="color:#a6e22e">affinity</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;lambda-invocation&#34;</span>
     <span style="color:#a6e22e">assert_for</span><span style="color:#f92672">:</span>
       <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
         <span style="color:#f92672">-</span> <span style="color:#a6e22e">regions</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">regions_enabled</span>
