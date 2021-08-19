@@ -183,9 +183,9 @@ spoke-local-portfolios:
     portfolio: "networking-optional"
     product_generation_method: copy
     depends_on:
-      name: vpc
-      type: stack
-      affinity: stack
+      - name: vpc
+        type: stack
+        affinity: stack
     deploy_to:
       tags:
         - tag: "type:prod"
@@ -278,9 +278,9 @@ launches:
     product: "subnet"
     version: "v1"
     depends_on:
-      name: vpc
-      type: stack
-      affinity: stack
+      - name: vpc
+        type: stack
+        affinity: stack
     parameters:
       VPCID:
         ssm: 
@@ -297,9 +297,9 @@ workspaces:
     name: "subnet"
     version: "v1"
     depends_on:
-      name: vpc
-      type: stack
-      affinity: stack
+      - name: vpc
+        type: stack
+        affinity: stack
     parameters:
       VPCID:
         ssm: 
@@ -316,9 +316,9 @@ spoke-local-portfolios:
     portfolio: "networking-optional"
     product_generation_method: copy
     depends_on:
-      name: vpc
-      type: stack
-      affinity: stack
+      - name: vpc
+        type: stack
+        affinity: stack
     deploy_to:
       tags:
         - tag: "type:prod"

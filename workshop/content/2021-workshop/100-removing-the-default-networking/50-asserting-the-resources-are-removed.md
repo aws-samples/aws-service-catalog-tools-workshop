@@ -47,6 +47,10 @@ assertions:
         arguments: {}
         use_paginator: true
         filter: Vpcs[?IsDefault==`true`].State
+    depends_on:
+      - name: "delete-default-networking"
+        type: "lambda-invocation"
+        affinity: "lambda-invocation"
     assert_for:
       tags:
         - regions: regions_enabled

@@ -265,9 +265,9 @@ launches:
     product: "subnet"
     version: "v1"
     depends_on:
-      name: vpc
-      type: stack
-      affinity: stack
+      - name: vpc
+        type: stack
+        affinity: stack
     parameters:
       VPCID:
         ssm: 
@@ -365,9 +365,9 @@ launches:
     product: "subnet"
     version: "v1"
     depends_on:
-      name: vpc
-      type: stack
-      affinity: stack
+      - name: vpc
+        type: stack
+        affinity: stack
     parameters:
       VPCID:
         ssm: 
@@ -415,9 +415,9 @@ launches:
     product: "subnet"
     version: "v1"
     depends_on:
-      name: vpc
-      type: stack
-      affinity: stack
+      - name: vpc
+        type: stack
+        affinity: stack
     parameters:
       VPCID:
         ssm: 
