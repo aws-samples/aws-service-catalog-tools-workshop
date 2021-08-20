@@ -51,6 +51,10 @@
   </url>
   
   <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/10-prerequisites/100-installation/20-service-catalog-factory.html</loc>
+  </url>
+  
+  <url>
     <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/installation/20-service-catalog-factory.html</loc>
   </url>
   
@@ -84,6 +88,10 @@
   
   <url>
     <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/200-provisioning-a-vpc/30-provisioning-the-stack.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/10-prerequisites/100-installation/30-service-catalog-puppet.html</loc>
   </url>
   
   <url>
@@ -144,6 +152,10 @@
   
   <url>
     <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/every-day-use/110-deleting-a-product/100-disabling-the-product-versions.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/10-prerequisites/100-installation.html</loc>
   </url>
   
   <url>
