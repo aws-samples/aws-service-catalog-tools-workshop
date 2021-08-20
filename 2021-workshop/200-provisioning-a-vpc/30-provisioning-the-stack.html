@@ -2004,7 +2004,7 @@
 </left>
 
 <left>
-    <h5 class="copyright">26d9770 - Fri Aug 20 15:36:06 UTC 2021</h5>
+    <h5 class="copyright">a6f9df0 - Fri Aug 20 17:40:25 UTC 2021</h5>
 </left>
 
     </section>
@@ -2114,10 +2114,18 @@
  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">  <span style="color:#a6e22e">vpc</span><span style="color:#f92672">:</span>
     <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;vpc&#34;</span>
     <span style="color:#a6e22e">version</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1&#34;</span>
+    <span style="color:#a6e22e">depends_on</span><span style="color:#f92672">:</span>
+      <span style="color:#f92672">-</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;delete-default-networking&#34;</span> 
+        <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;lambda-invocation&#34;</span>
+        <span style="color:#a6e22e">affinity</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;lambda-invocation&#34;</span>
     <span style="color:#a6e22e">deploy_to</span><span style="color:#f92672">:</span>
       <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
         <span style="color:#f92672">-</span> <span style="color:#a6e22e">tag</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;type:prod&#34;</span>
           <span style="color:#a6e22e">regions</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;default_region&#34;</span>
+    <span style="color:#a6e22e">outputs</span><span style="color:#f92672">:</span>
+      <span style="color:#a6e22e">ssm</span><span style="color:#f92672">:</span> 
+        <span style="color:#f92672">-</span> <span style="color:#a6e22e">param_name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;/networking/vpc/account-parameters/${AWS::AccountId}/${AWS::Region}/VPCId&#34;</span>
+          <span style="color:#a6e22e">stack_output</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">VPCId</span>
    
 </code></pre></div>
 </figure>
