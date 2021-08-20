@@ -36,6 +36,10 @@ lambda-invocations:
     function_name: DeleteDefaultNetworking
     qualifier: $LATEST
     invocation_type: Event
+    depends_on:
+      - name: "delete-default-networking-function"
+        type: "stack"
+        affinity: "stack"
     invoke_for:
       tags:
         - regions: "default_region"

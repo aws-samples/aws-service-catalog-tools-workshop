@@ -37,8 +37,7 @@ assertions:
     expected:
       source: manifest
       config:
-        value:
-          - ""
+        value: []
     actual:
       source: boto3
       config:
@@ -100,8 +99,7 @@ assertions:
     expected:
       source: manifest
       config:
-        value:
-          - ""
+        value: []
     actual:
       source: boto3
       config:
