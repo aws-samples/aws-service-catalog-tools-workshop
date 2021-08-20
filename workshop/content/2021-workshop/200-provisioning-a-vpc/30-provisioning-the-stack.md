@@ -36,10 +36,18 @@ Here are the steps you need to follow to provision the stack.
   vpc:
     name: "vpc"
     version: "v1"
+    depends_on:
+      - name: "delete-default-networking" 
+        type: "lambda-invocation"
+        affinity: "lambda-invocation"
     deploy_to:
       tags:
         - tag: "type:prod"
           regions: "default_region"
+    outputs:
+      ssm: 
+        - param_name: "/networking/vpc/account-parameters/${AWS::AccountId}/${AWS::Region}/VPCId"
+          stack_output: VPCId
    {{< / highlight >}}
   </figure>
 
