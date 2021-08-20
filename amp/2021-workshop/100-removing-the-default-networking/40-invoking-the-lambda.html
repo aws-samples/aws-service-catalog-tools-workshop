@@ -2004,7 +2004,7 @@
 </left>
 
 <left>
-    <h5 class="copyright">4106f71 - Fri Aug 20 14:00:16 UTC 2021</h5>
+    <h5 class="copyright">26d9770 - Fri Aug 20 15:36:07 UTC 2021</h5>
 </left>
 
     </section>
@@ -2118,6 +2118,10 @@
     <span style="color:#a6e22e">function_name</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">DeleteDefaultNetworking</span>
     <span style="color:#a6e22e">qualifier</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">$LATEST</span>
     <span style="color:#a6e22e">invocation_type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Event</span>
+    <span style="color:#a6e22e">depends_on</span><span style="color:#f92672">:</span>
+      <span style="color:#f92672">-</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;delete-default-networking-function&#34;</span>
+        <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;stack&#34;</span>
+        <span style="color:#a6e22e">affinity</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;stack&#34;</span>
     <span style="color:#a6e22e">invoke_for</span><span style="color:#f92672">:</span>
       <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
         <span style="color:#f92672">-</span> <span style="color:#a6e22e">regions</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;default_region&#34;</span>
