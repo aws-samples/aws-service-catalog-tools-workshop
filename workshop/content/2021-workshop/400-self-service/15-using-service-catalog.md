@@ -35,7 +35,7 @@ Here are the steps you need to follow to "{{% param title %}}"
  
   <figure>
    {{< highlight js >}}
-  - DisplayName: "Optional"
+  - DisplayName: "optional"
     Description: "Portfolio containing the optional networking components"
     ProviderName: "cloud-engineering"
     Associations:
@@ -99,7 +99,7 @@ Portfolios:
         Value: "cloud-engineering"
       - Key: "cost-center"
         Value: "governance"
-  - DisplayName: "Optional"
+  - DisplayName: "optional"
     Description: "Portfolio containing the optional networking components"
     ProviderName: "cloud-engineering"
     Associations:
