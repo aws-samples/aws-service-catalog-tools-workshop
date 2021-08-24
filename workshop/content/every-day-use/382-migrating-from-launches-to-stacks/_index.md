@@ -35,7 +35,7 @@ Your manifest should contain a launch:
 
  <figure>
   {{< highlight js >}}
-launch:
+launches:
   basic-vpc:
     portfolio: ccoe
     product: basic-vpc
