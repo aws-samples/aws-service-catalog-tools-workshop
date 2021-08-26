@@ -83,6 +83,10 @@ This AWS CodePipeline is triggered by updates to the AWS CodeCommit repository. 
 
 {{< figure src="/how-tos/installation/puppet_codepipeline.png" height="200" width="900">}}
 
+{{% notice note%}}
+The pipeline execution will show as failing at this point.  This is expected. 
+{{% /notice %}}
+
 #### Amazon S3 buckets
 Three Amazon S3 buckets were created to store artifacts for Service Catalog Puppet.
 

@@ -72,6 +72,10 @@ This AWS CodePipeline is triggered by updates to the AWS CodeCommit repository. 
 
 {{< figure src="/how-tos/installation/factory_codepipeline.png" height="200" width="900">}}
 
+{{% notice note%}}
+The pipeline execution will show as failing at this point.  This is expected. 
+{{% /notice %}}
+
 #### Amazon S3 Buckets
 An Amazon S3 Bucket was created to store artifacts for Service Catalog factory.
 

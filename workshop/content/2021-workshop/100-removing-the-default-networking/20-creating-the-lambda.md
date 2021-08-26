@@ -117,9 +117,7 @@ product.
 
 {{< figure src="/tasks/CreateRepository.png" >}}
 
-- Input the name `{{% param codecommit_repo_name %}}`
-
-{{< figure src="/tasks/InputTheName.png" >}}
+- Input the repository name `{{% param codecommit_repo_name %}}`
 
 - Click *Create*
 
