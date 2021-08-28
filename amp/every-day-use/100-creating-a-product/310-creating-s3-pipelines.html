@@ -2028,7 +2028,7 @@
 </left>
 
 <left>
-    <h5 class="copyright">4ba5352 - Thu Aug 26 09:16:08 UTC 2021</h5>
+    <h5 class="copyright">c179164 - Sat Aug 28 09:46:06 UTC 2021</h5>
 </left>
 
     </section>
@@ -2151,6 +2151,22 @@ AWS S3 and then use another solution to put the source code there.  To do so, yo
 </code></pre></div>
  </figure>
 <p>Please note, if you create S3 sourced pipelines you will be responsible for the creation of the AWS S3 Bucket.</p>
+<p>Since version 0.64.0 you can use intrinsic functions in the BucketName and S3ObjectKey values.  The resultant AWS
+CloudFormation template that is generated to provision the AWS CodePipeline uses the Sub intrinsic function so you can
+now do the following:</p>
+ <figure>
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">    <span style="color:#a6e22e">Versions</span><span style="color:#f92672">:</span>
+      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1&#34;</span>
+        <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1 of aws-config-enable-config&#34;</span>
+        <span style="color:#a6e22e">Source</span><span style="color:#f92672">:</span>
+          <span style="color:#a6e22e">Provider</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;S3&#34;</span>
+          <span style="color:#a6e22e">Configuration</span><span style="color:#f92672">:</span>
+            <span style="color:#a6e22e">BucketName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;incomingproductchanges-for${AWS::AccountId}&#34;</span>
+            <span style="color:#a6e22e">S3ObjectKey</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;aws-config-enable-config/v1-${AWS::AccountId}/product.zip&#34;</span>
+  
+</code></pre></div>
+ </figure>
+<p>This is useful when creating configuration files that will be shared across different AWS Organizations.</p>
 
 
 <footer class=" footline" >
