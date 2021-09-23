@@ -31,23 +31,18 @@ Here are the steps you need to follow to provision the stack.
 {{< figure src="/tasks/create_file.png" >}}
 
 
-- For the next step you will need to know your account id.  To find your account id you can check the console, in the __top right__ drop down. It is a 12 digit number. When using your account id please __do not__ include the hyphens ('-') and do not use the angle brackets ('<','>')  
-
-{{< figure src="/tasks/FindMyAccountNumber.png" >}}
-
-
 {{% notice note %}}
 The screenshots may differ slightly as the design of AWS CodePipeline changes.  You should see a pipeline where each 
 stage is green.
 {{% /notice %}}
 
 
-- Copy the following snippet into the main input field and replace account_id to show your account id on the highlighted line:
+- Copy the following snippet into the main input field:
 
  <figure>
-  {{< highlight js "hl_lines=2" >}}
+  {{< highlight js >}}
 accounts:
-  - account_id: "<YOUR_ACCOUNT_ID_WITHOUT_HYPHENS>"
+  - account_id: "${AWS::PuppetAccountId}"
     name: "puppet-account"
     default_region: "eu-west-1"
     regions_enabled:
@@ -58,23 +53,6 @@ accounts:
   {{< / highlight >}}
  </figure>
 
-
-
-it should look like the following - __but with your account id__ on the highlighted line:
-
- <figure>
-  {{< highlight js "hl_lines=2" >}}
-accounts:
-  - account_id: "012345678910"
-    name: "puppet-account"
-    default_region: "eu-west-1"
-    regions_enabled:
-      - "eu-west-1"
-    tags:
-      - "type:prod"
-      - "partition:eu"
-  {{< / highlight >}}
- </figure>
 
 ### Provision the stack _{{% param product_name %}}_ into a spoke account
  
@@ -95,12 +73,12 @@ stacks:
    {{< / highlight >}}
   </figure>
 
-- The main input field should look like this (remember to set your account_id):
+- The main input field should look like this:
 
  <figure>
   {{< highlight js >}}
 accounts:
-  - account_id: "<YOUR_ACCOUNT_ID_WITHOUT_HYPHENS>"
+  - account_id: "${AWS::PuppetAccountId}"
     name: "puppet-account"
     default_region: "eu-west-1"
     regions_enabled:

@@ -7,54 +7,15 @@ home_region_name = 'Ireland'
 
 +++
 
-### Navigate to CloudFormation
-
-- Select the AWS CloudFormation Service in {{% param home_region %}}
-
-{{< figure src="/how-tos/installation/select_cloudformation.png" height="450" width="900">}}
-
-### Create a new AWS CloudFormation stack
-
-- Select 'Create Stack'
-
-{{< figure src="/how-tos/installation/create_stack_puppet.png" height="200" width="900">}}
 
 ### Select the pre-configured AWS CloudFormation template
-Service Catalog Puppet can be installed via a pre-created AWS CloudFormation template stored in Amazon S3 under the following URL:
->  `https://service-catalog-tools.s3.eu-west-2.amazonaws.com/puppet/latest/servicecatalog-puppet-initialiser.template.yaml`
+Service Catalog Factory can be installed via a pre-created AWS CloudFormation template stored in Amazon S3. There are 
+many configuration options for you to customise your installation.  For this workshop we will be using the following 
+quick link which has the settings already preconfigured for you:
 
-- Paste this URL under 'Amazon S3 URL': 
-- Hit Next
-
-{{< figure src="/how-tos/installation/specify_template_puppet.png" height="500" width="900">}}
-
-### Specify AWS CloudFormation stack details
-
-You will need to fill in the parameters for the template.  
-
-- We recommend the **Stack Name:** of `puppet-initialization-stack`
-- **Enabled Regions:** `eu-west-1`
-
-
-#### Continuing 
-
-Once you have done this, hit Next
-
-{{< figure src="/how-tos/installation/specify_stack_details_puppet.png" height="600" width="900">}}
-
-### Create the AWS CloudFormation stack
-
-- Leave Defaults for 'Configure Stack Options'
-- Hit Next
-- Acknowledge that the Stack will create an IAM Role
-- Hit 'Create Stack'
-
-{{< figure src="/how-tos/installation/acknowledge_create.png" height="200" width="900">}}
-
-- You will now see the stack status as *CREATE_IN_PROGRESS*
-
-{{< figure src="/how-tos/installation/create_in_progress_puppet.png" height="200" width="900">}}
-
+- <a target="_blank" href="https://eu-west-1.console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/quickcreate?templateUrl=https%3A%2F%2Fservice-catalog-tools.s3.eu-west-2.amazonaws.com%2Fpuppet%2Flatest%2Fservicecatalog-puppet-initialiser.template.yaml&stackName=puppet-initialization-stack&param_CloudFormationDeployRolePermissionsBoundary=arn%3Aaws%3Aiam%3A%3Aaws%3Apolicy%2FAdministratorAccess&param_DeployEnvironmentComputeType=BUILD_GENERAL1_SMALL&param_DeployNumWorkers=10&param_EnabledRegions=eu-west-1&param_PuppetCodePipelineRolePermissionBoundary=arn%3Aaws%3Aiam%3A%3Aaws%3Apolicy%2FAdministratorAccess&param_PuppetDeployRolePermissionBoundary=arn%3Aaws%3Aiam%3A%3Aaws%3Apolicy%2FAdministratorAccess&param_PuppetGenerateRolePermissionBoundary=arn%3Aaws%3Aiam%3A%3Aaws%3Apolicy%2FAdministratorAccess&param_PuppetProvisioningRolePermissionsBoundary=arn%3Aaws%3Aiam%3A%3Aaws%3Apolicy%2FAdministratorAccess&param_PuppetRoleName=PuppetRole&param_PuppetRolePath=%2Fservicecatalog-puppet%2F&param_PuppetRolePermissionBoundary=arn%3Aaws%3Aiam%3A%3Aaws%3Apolicy%2FAdministratorAccess&param_SCMBranchName=main&param_SCMBucketName=&param_SCMConnectionArn=&param_SCMFullRepositoryId=&param_SCMObjectKey=&param_SCMRepositoryName=ServiceCatalogPuppet&param_SCMShouldCreateRepo=true&param_SCMSourceProvider=CodeCommit&param_ShouldCollectCloudformationEvents=false&param_ShouldDeleteRollbackCompleteStacks=true&param_ShouldForwardEventsToEventbridge=false&param_ShouldForwardFailuresToOpscenter=true&param_ShouldUseStacksServiceRole=true&param_ShouldValidate=true&param_SourceRolePermissionsBoundary=arn%3Aaws%3Aiam%3A%3Aaws%3Apolicy%2FAdministratorAccess&param_Version=aws-service-catalog-puppet">Create stack</a>
+- Check the box labeled "I acknowledge that AWS CloudFormation might create IAM resources with custom names."
+- Hit Create stack
 - Wait for the stack status to go to *CREATE_COMPLETE*
 
 {{< figure src="/how-tos/installation/create_complete_puppet.png" height="200" width="900">}}

@@ -6,47 +6,19 @@ home_region = 'eu-west-1'
 home_region_name = 'Ireland'
 +++
 
-### Navigate to CloudFormation
-
-- Select the AWS CloudFormation Service in {{% param home_region %}}
-
-{{< figure src="/how-tos/installation/select_cloudformation.png" height="450" width="900">}}
-
-### Create a new CloudFormation Stack
-
-- Select 'Create Stack'
-
-{{< figure src="/how-tos/installation/create_stack.png" height="300" width="900">}}
-
 ### Select the pre-configured CloudFormation Template
-Service Catalog Factory can be installed via a pre-created AWS CloudFormation template stored in Amazon S3 under the following URL:
-> `https://service-catalog-tools.s3.eu-west-2.amazonaws.com/factory/latest/servicecatalog-factory-initialiser.template.yaml`
 
-- Paste this URL under 'Amazon S3 URL': 
-- Hit Next
+Service Catalog Factory can be installed via a pre-created AWS CloudFormation template stored in Amazon S3. There are 
+many configuration options for you to customise your installation.  For this workshop we will be using the following 
+quick link which has the settings already preconfigured for you:
 
-### Specify Stack Details
-
-- Specify the Stack details as follows:
-    - **Stack Name:** `factory-initialization-stack`
-    - **Enabled Regions:** `eu-west-1`
-
-### Create the CloudFormation Stack
-
-- Leave Defaults for 'Configure Stack Options'
-- Hit Next
-- Acknowledge that the Stack will create an IAM Role
-- Hit 'Create Stack'
-
-{{< figure src="/how-tos/installation/acknowledge_create.png" height="250" width="900">}}
-
-- You will now see the stack status as *CREATE_IN_PROGRESS*
-
-{{< figure src="/how-tos/installation/create_in_progress_factory.png" height="200" width="900">}}
-
+- <a target="_blank" href="https://eu-west-1.console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/quickcreate?templateUrl=https%3A%2F%2Fservice-catalog-tools.s3.eu-west-2.amazonaws.com%2Ffactory%2Flatest%2Fservicecatalog-factory-initialiser.template.yaml&stackName=factory-initialization-stack&param_EnabledRegions=eu-west-1&param_SCMBranchName=main&param_SCMBucketName=&param_SCMConnectionArn=&param_SCMFullRepositoryId=&param_SCMObjectKey=&param_SCMRepositoryName=ServiceCatalogFactory&param_SCMShouldCreateRepo=true&param_SCMSourceProvider=CodeCommit&param_ShouldValidate=true&param_Version=aws-service-catalog-factory">Create the initialisation stack</a>
+- Check the box labeled "I acknowledge that AWS CloudFormation might create IAM resources with custom names."
+- Hit Create stack
 - Wait for the stack status to go to *CREATE_COMPLETE*
 
 {{< figure src="/how-tos/installation/create_complete_factory.png" height="200" width="900">}}
+
 
 ### What have we deployed?
 The following AWS resources have just been deployed into your AWS Account:

@@ -49,7 +49,7 @@ Stacks:
   </figure>
 
  
-- Set the *File name* to *stacks/network-workshop.yaml*
+- Set the *File name* to `stacks/network-workshop.yaml`
 
 - Set your *Author name*
 - Set your *Email address*

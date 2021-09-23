@@ -63,7 +63,7 @@ assertions:
  <figure>
   {{< highlight js >}}
 accounts:
-  - account_id: "<YOUR_ACCOUNT_ID_WITHOUT_HYPHENS>"
+  - account_id: "${AWS::PuppetAccountId}"
     name: "puppet-account"
     default_region: "eu-west-1"
     regions_enabled:

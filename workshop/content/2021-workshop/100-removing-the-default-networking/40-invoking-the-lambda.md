@@ -48,12 +48,12 @@ lambda-invocations:
  </figure>
 
 
-- The main input field should look like this (remember to set your account_id):
+- The main input field should look like this:
 
  <figure>
   {{< highlight js >}}
 accounts:
-  - account_id: "<YOUR_ACCOUNT_ID_WITHOUT_HYPHENS>"
+  - account_id: "${AWS::PuppetAccountId}"
     name: "puppet-account"
     default_region: "eu-west-1"
     regions_enabled:
@@ -114,7 +114,7 @@ The YAML we pasted in the previous step told the framework to perform the follow
 - Invoke a lambda in the hub account named DeleteDefaultNetworking. It will be invoked each time with parameters account_id and region.  It will be invoked one time for each account tagged type:prod using the account_id and default region specified for it. 
 
 
-#### Verifying the provisioning
+#### Verifying the invoke
 
 Once the pipeline has completed you can verify the lambda was invoked by verifying there is no default VPC in the default
 region of your account or you can check the AWS CloudWatch logs for the AWS Lambda function or you could check the 
