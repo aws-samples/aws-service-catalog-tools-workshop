@@ -81,9 +81,8 @@ Create a portfolio for sharing products   Navigate to the ServiceCatalogFactory 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/10-prerequisites/100-installation/20-service-catalog-factory.html</guid>
-      <description>Navigate to CloudFormation  Select the AWS CloudFormation Service in eu-west-1    Create a new CloudFormation Stack  Select &amp;lsquo;Create Stack&amp;rsquo;    Select the pre-configured CloudFormation Template Service Catalog Factory can be installed via a pre-created AWS CloudFormation template stored in Amazon S3 under the following URL:
- https://service-catalog-tools.s3.eu-west-2.amazonaws.com/factory/latest/servicecatalog-factory-initialiser.template.yaml
-  Paste this URL under &amp;lsquo;Amazon S3 URL&amp;rsquo;: Hit Next  Specify Stack Details  Specify the Stack details as follows:  Stack Name: factory-initialization-stack Enabled Regions: eu-west-1    Create the CloudFormation Stack  Leave Defaults for &amp;lsquo;Configure Stack Options&amp;rsquo; Hit Next Acknowledge that the Stack will create an IAM Role Hit &amp;lsquo;Create Stack&amp;rsquo;     You will now see the stack status as CREATE_IN_PROGRESS     Wait for the stack status to go to CREATE_COMPLETE    What have we deployed?</description>
+      <description>Select the pre-configured CloudFormation Template Service Catalog Factory can be installed via a pre-created AWS CloudFormation template stored in Amazon S3. There are many configuration options for you to customise your installation. For this workshop we will be using the following quick link which has the settings already preconfigured for you:
+ Create the initialisation stack Check the box labeled &amp;ldquo;I acknowledge that AWS CloudFormation might create IAM resources with custom names.</description>
     </item>
     
     <item>
@@ -175,9 +174,8 @@ Update the manifest file   Navigate to the ServiceCatalogPuppet CodeCommit repos
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/10-prerequisites/100-installation/30-service-catalog-puppet.html</guid>
-      <description>Navigate to CloudFormation  Select the AWS CloudFormation Service in eu-west-1    Create a new AWS CloudFormation stack  Select &amp;lsquo;Create Stack&amp;rsquo;    Select the pre-configured AWS CloudFormation template Service Catalog Puppet can be installed via a pre-created AWS CloudFormation template stored in Amazon S3 under the following URL:
- https://service-catalog-tools.s3.eu-west-2.amazonaws.com/puppet/latest/servicecatalog-puppet-initialiser.template.yaml
-  Paste this URL under &amp;lsquo;Amazon S3 URL&amp;rsquo;: Hit Next    Specify AWS CloudFormation stack details You will need to fill in the parameters for the template.</description>
+      <description>Select the pre-configured AWS CloudFormation template Service Catalog Factory can be installed via a pre-created AWS CloudFormation template stored in Amazon S3. There are many configuration options for you to customise your installation. For this workshop we will be using the following quick link which has the settings already preconfigured for you:
+ Create stack Check the box labeled &amp;ldquo;I acknowledge that AWS CloudFormation might create IAM resources with custom names.</description>
     </item>
     
     <item>
