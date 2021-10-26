@@ -2088,7 +2088,7 @@
 </left>
 
 <left>
-    <h5 class="copyright">3f33a5f - Tue Oct 26 13:13:32 UTC 2021</h5>
+    <h5 class="copyright">2cf2361 - Tue Oct 26 13:58:45 UTC 2021</h5>
 </left>
 
     </section>
@@ -2148,6 +2148,16 @@
         <li><a href="#spoke-execution-mode">Spoke Execution Mode</a></li>
       </ul>
     </li>
+    <li><a href="#what-can-i-do-with-the-solution">What Can I Do With The Solution</a>
+      <ul>
+        <li><a href="#stacks">Stacks</a></li>
+        <li><a href="#launches">Launches</a></li>
+        <li><a href="#spoke-local-portfolios">Spoke Local Portfolios</a></li>
+        <li><a href="#aws-lambda-invokes">AWS Lambda Invokes</a></li>
+        <li><a href="#aws-codebuild-runs">AWS CodeBuild Runs</a></li>
+        <li><a href="#assertions">Assertions</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
     </div>
@@ -2191,6 +2201,53 @@ occurring in the hub account some of the operations are delegated to the spokes 
 spoke.  When using spoke execution mode the solution will still check if each action was performed correctly.</p>
 <figure>
     <img src="../images/puppet/puppet-conceptual-spoke.png"/> 
+</figure>
+
+<h2 id="what-can-i-do-with-the-solution">What Can I Do With The Solution</h2>
+<p>The solution allows you to easily build out a workflow.  You specify (using YAML) how you want your multi account
+environment to be configured and the solution will configure it as such.  The solution will ensure the right actions
+are performed in the right order and that no API throttling limits are exceeded.  Using the solution you can perform
+the following actions:</p>
+<h3 id="stacks">Stacks</h3>
+<p>You can <a href="../every-day-use/385-provisioning-a-stack.html" title="provision a stack">provision a stack</a> in one or more
+regions of one or more accounts:</p>
+<figure>
+    <img src="../images/puppet/stacks.png"/> 
+</figure>
+
+<h3 id="launches">Launches</h3>
+<p>You can <a href="../every-day-use/200-provisioning-a-product.html" title="provision a product">provision a product</a> in one or
+more regions of one or more accounts:</p>
+<figure>
+    <img src="../images/puppet/launches.png"/> 
+</figure>
+
+<h3 id="spoke-local-portfolios">Spoke Local Portfolios</h3>
+<p>You can <a href="../every-day-use/300-sharing-a-portfolio.html" title="sharing a portfolio">share a portfolio</a> in one or
+more regions of one or more accounts:</p>
+<figure>
+    <img src="../images/puppet/spoke-local-portfolios.png"/> 
+</figure>
+
+<h3 id="aws-lambda-invokes">AWS Lambda Invokes</h3>
+<p>You can <a href="../every-day-use/400-invoking-a-lambda-function.html" title="invoking a lambda function">invoke a lambda function</a> for one or
+more regions of one or more accounts:</p>
+<figure>
+    <img src="../images/puppet/lambda-invocations.png"/> 
+</figure>
+
+<h3 id="aws-codebuild-runs">AWS CodeBuild Runs</h3>
+<p>You can <a href="../every-day-use/600-starting-a-code-build-project.html" title="starting a CodeBuild project">start a Code Build project</a> for one or
+more regions of one or more accounts:</p>
+<figure>
+    <img src="../images/puppet/code-build-runs.png"/> 
+</figure>
+
+<h3 id="assertions">Assertions</h3>
+<p>You can <a href="../every-day-use/700-using-assertions.html" title="create an assertion">create an assertion</a> for one or
+more regions of one or more accounts:</p>
+<figure>
+    <img src="../images/puppet/assertions.png"/> 
 </figure>
 
 
