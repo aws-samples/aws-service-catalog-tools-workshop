@@ -56,12 +56,14 @@ The framework provided test stage steps vary depending on which type of source c
 #### Stacks
 - Validate - An AWS Cloudformation validate is performed on the provided template.  This cannot be disabled.
 - CFN Nag - CFN Nag is run on the provided template.  This is disabled by default.
-- CloudFormation RSpec - the tests you provide in your git repo are executed using CloudFormation RSpec.  This is disabled by default.
+- CloudFormation RSpec - the tests you provide in your git repo are executed using CloudFormation RSpec.  This is 
+- disabled by default.
 
 #### Portfolios
 - Validate - An AWS Cloudformation validate is performed on the provided template.  This cannot be disabled.
 - CFN Nag - CFN Nag is run on the provided template.  This is disabled by default.
-- CloudFormation RSpec - the tests you provide in your git repo are executed using CloudFormation RSpec.  This is disabled by default.
+- CloudFormation RSpec - the tests you provide in your git repo are executed using CloudFormation RSpec.  This is 
+- disabled by default.
 
 #### Workspaces
 - There are no framework provided steps for workspaces.
@@ -86,4 +88,5 @@ The deploy stage takes your prepared artefact and submits it to the correspondin
 | apps | Amazon S3 |
 
 #### Regions without AWS Codepipeline support
-If you are using a region without AWS Codepipeline support the framework will detect this and use an AWS CodeBuild project to perform the cross region deployment.  
+If you are using a region without AWS Codepipeline support the framework will detect this and use an AWS CodeBuild 
+project to perform the cross region deployment.  
