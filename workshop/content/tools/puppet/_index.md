@@ -30,3 +30,47 @@ occurring in the hub account some of the operations are delegated to the spokes 
 spoke.  When using spoke execution mode the solution will still check if each action was performed correctly.
 
 {{< figure src="/images/puppet/puppet-conceptual-spoke.png" >}}
+
+
+## What Can I Do With The Solution
+
+The solution allows you to easily build out a workflow.  You specify (using YAML) how you want your multi account 
+environment to be configured and the solution will configure it as such.  The solution will ensure the right actions
+are performed in the right order and that no API throttling limits are exceeded.  Using the solution you can perform
+the following actions:
+
+### Stacks
+You can [provision a stack]({{< ref "every-day-use/385-provisioning-a-stack" >}} "provision a stack") in one or more 
+regions of one or more accounts:
+
+{{< figure src="/images/puppet/stacks.png" >}}
+
+### Launches
+You can [provision a product]({{< ref "every-day-use/200-provisioning-a-product" >}} "provision a product") in one or 
+more regions of one or more accounts:
+
+{{< figure src="/images/puppet/launches.png" >}}
+
+### Spoke Local Portfolios
+You can [share a portfolio]({{< ref "every-day-use/300-sharing-a-portfolio" >}} "sharing a portfolio") in one or
+more regions of one or more accounts:
+
+{{< figure src="/images/puppet/spoke-local-portfolios.png" >}}
+
+### AWS Lambda Invokes
+You can [invoke a lambda function]({{< ref "every-day-use/400-invoking-a-lambda-function" >}} "invoking a lambda function") for one or
+more regions of one or more accounts:
+
+{{< figure src="/images/puppet/lambda-invocations.png" >}}
+
+### AWS CodeBuild Runs
+You can [start a Code Build project]({{< ref "every-day-use/600-starting-a-code-build-project" >}} "starting a CodeBuild project") for one or
+more regions of one or more accounts:
+
+{{< figure src="/images/puppet/code-build-runs.png" >}}
+
+### Assertions
+You can [create an assertion]({{< ref "every-day-use/700-using-assertions" >}} "create an assertion") for one or
+more regions of one or more accounts:
+
+{{< figure src="/images/puppet/assertions.png" >}}
