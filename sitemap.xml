@@ -67,6 +67,10 @@
   </url>
   
   <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/tools/puppet.html</loc>
+  </url>
+  
+  <url>
     <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/300-provisioning-subnets/20-using-terraform.html</loc>
   </url>
   
