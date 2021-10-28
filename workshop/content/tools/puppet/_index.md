@@ -31,6 +31,11 @@ spoke.  When using spoke execution mode the solution will still check if each ac
 
 {{< figure src="/images/puppet/puppet-conceptual-spoke.png" >}}
 
+When using spoke execution mode the hub account generates a manifest file for the spoke - which is very similar to the
+one used in the hub.  The hub account also generates a cache of data to share with the spoke - this contains any AWS 
+Systems Manager parameters stored in the hub and used in the spoke as well as the AWS Service Catalog portfolio, product 
+and provisioning artefact ids.  The cache is stored in the hub within an Amazon S3 bucket and a signed url is shared
+with the spoke so it can retrieve the artefact.
 
 ## What Can I Do With The Solution
 
