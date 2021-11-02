@@ -61,7 +61,7 @@ accounts:
 
  
 - Update `<YOUR_OU_OR_PATH>` to be your OU or OU Path which contains [member accounts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html)
-  - *for example:* `/production/application-accounts/`
+  - *for example:* `/production/application-accounts`
 
 The framework will list the AWS Accounts in your OU and expand the manifest automatically.  
 
