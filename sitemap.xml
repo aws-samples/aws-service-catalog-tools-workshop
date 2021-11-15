@@ -7,10 +7,6 @@
   </url>
   
   <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/servicecatalog.html</loc>
-  </url>
-  
-  <url>
     <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/installation/50-bootstrapping/10-using-cfn-and-codebuild.html</loc>
   </url>
   
@@ -44,10 +40,6 @@
   
   <url>
     <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/100-removing-the-default-networking/20-creating-the-lambda.html</loc>
-  </url>
-  
-  <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/design-considerations.html</loc>
   </url>
   
   <url>
@@ -111,7 +103,7 @@
   </url>
   
   <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/every-day-use.html</loc>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/design-considerations.html</loc>
   </url>
   
   <url>
@@ -127,6 +119,10 @@
   </url>
   
   <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/every-day-use.html</loc>
+  </url>
+  
+  <url>
     <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/design-considerations/multi-account-strategy.html</loc>
   </url>
   
@@ -136,6 +132,10 @@
   
   <url>
     <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/installation/50-bootstrapping/80-restricting-spokes.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/every-day-use/using-a-mono-repo.html</loc>
   </url>
   
   <url>
