@@ -1,7 +1,7 @@
 +++
 title = "Every day use"
 chapter = true
-weight = 31
+weight = 50
 aliases = [
     "/30-how-tos/50-every-day-use.html",
 ]

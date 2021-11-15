@@ -1,7 +1,7 @@
 +++
 title = "Design considerations"
 chapter = false
-weight = 20
+weight = 40
 +++
 
 Following the best practices for the Service Catalog Tools will ensure you get the most out of these tools with the most
