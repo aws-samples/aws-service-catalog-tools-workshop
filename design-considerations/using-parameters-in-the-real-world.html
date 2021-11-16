@@ -2114,7 +2114,7 @@
 </left>
 
 <left>
-    <h5 class="copyright">399bf12 - Mon Nov 15 22:08:56 UTC 2021</h5>
+    <h5 class="copyright">d765361 - Tue Nov 16 10:37:05 UTC 2021</h5>
 </left>
 
     </section>
@@ -2174,6 +2174,7 @@
     <li><a href="#using-intrinsic-functions-in-ssm-parameter-names">Using intrinsic functions in ssm parameter names</a></li>
     <li><a href="#storing-values-in-ssm-using-intrinsic-functions">Storing values in ssm using intrinsic functions</a></li>
     <li><a href="#customer-provided-parameters">Customer provided parameters</a></li>
+    <li><a href="#using-large-numbers-of-ssm-parameters">Using large numbers of SSM parameters</a></li>
     <li><a href="#using-boto3-parameters">Using boto3 parameters</a></li>
   </ul>
 </nav>
@@ -2441,6 +2442,43 @@ Resources:
       EnableDnsSupport: <span style="color:#e6db74">&#39;false&#39;</span>
       EnableDnsHostnames: <span style="color:#e6db74">&#39;false&#39;</span></code></pre></div>
  </figure>
+<h2 id="using-large-numbers-of-ssm-parameters">Using large numbers of SSM parameters</h2>
+<p>If you are using SSM parameters to store region or account specific configurations you can easily end up with a large
+number of SSM parameters.</p>
+<p>For example, having the following parameters Network Type, VPC Cidr, VPC Id, Number of subnets for 7 regions of 300
+accounts is over 8,000 parameters.</p>
+<p>When using a large number of SSM parameters we recommend you prefix your SSM parameter with a common value which is
+distinct from other use cases and use the prefix option when specifying the parameter in the manifest file.</p>
+<p>For example in the networking example above we recommend the following SSM parameter names:</p>
+<ul>
+<li>/platform-protected/configurations/networking/${AWS::AccountId}/${AWS::Region}/NetworkType</li>
+<li>/platform-protected/configurations/networking/${AWS::AccountId}/${AWS::Region}/VPC/Cidr</li>
+<li>/platform-protected/configurations/networking/${AWS::AccountId}/${AWS::Region}/VPC/Id</li>
+<li>/platform-protected/configurations/networking/${AWS::AccountId}/${AWS::Region}/Subnets/count</li>
+</ul>
+<p>Having /platform-protected in the prefix makes it easier to write IAM policies for the resources, protecting it from
+write changes from non service roles.</p>
+<p>Having /platform-protected/configurations/networking in the prefix makes it easier to write IAM policies by functional
+area - networking prefixes can be made read/write for members of the networking teams.</p>
+<p>Having /platform-protected/configurations/networking in the prefix makes it easier to use paths:</p>
+ <figure>
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">launches:
+  networking-vpc:
+    portfolio: <span style="color:#e6db74">&#34;networking&#34;</span>
+    product: <span style="color:#e6db74">&#34;networks&#34;</span>
+    version: <span style="color:#e6db74">&#34;v1&#34;</span>
+    parameters:
+      NetworkType:
+        ssm:
+          name: <span style="color:#e6db74">&#34;/platform-protected/configurations/networking/${AWS::AccountId}/${AWS::Region}/NetworkType&#34;</span>
+          path: <span style="color:#e6db74">&#34;/platform-protected/configurations/networking&#34;</span>
+    deploy_to:
+      tags:
+        - tag: <span style="color:#e6db74">&#34;type:spoke&#34;</span>
+          regions: <span style="color:#e6db74">&#34;default_region&#34;</span>  </code></pre></div>
+ </figure>
+<p>If you specify a path the solution will use AWS SSM get_parameters_by_path instead of get_parameter.  This provides a
+significant performance improvement reducing the overall execution time of your workflow.</p>
 <h2 id="using-boto3-parameters">Using boto3 parameters</h2>
 <p>You can use the result of a boto3 call as a parameter.</p>
 <p>Here we are saying use the ssm client in the spoke account for the region you are provisioning the stack into to call
