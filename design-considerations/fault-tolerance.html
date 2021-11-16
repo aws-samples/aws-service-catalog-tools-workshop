@@ -15,7 +15,7 @@
     <link rel="shortcut icon" href="../images/favicon.png" type="image/png" />
 <link rel="icon" href="../images/favicon.png" type="image/png" />
 
-    <title>Service Catalog Factory :: Service Catalog Tools Workshop</title>
+    <title>Fault Tolerance :: Service Catalog Tools Workshop</title>
 
     
     <link href="../css/nucleus.css" rel="stylesheet">
@@ -43,7 +43,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/installation/20-service-catalog-factory.html">
+  <body class="" data-url="/design-considerations/fault-tolerance.html">
     <nav id="sidebar" class="">
 
 
@@ -150,7 +150,7 @@
   
     
     <li data-nav-id="/installation.html" title="Installation" class="dd-item 
-        parent
+        
         
         
         ">
@@ -176,7 +176,7 @@
  
   
     
-      <li data-nav-id="/installation/20-service-catalog-factory.html" title="Service Catalog Factory" class="dd-item active">
+      <li data-nav-id="/installation/20-service-catalog-factory.html" title="Service Catalog Factory" class="dd-item ">
         <a href="../installation/20-service-catalog-factory.html">
         Service Catalog Factory
         
@@ -460,7 +460,7 @@
   
     
     <li data-nav-id="/design-considerations.html" title="Design considerations" class="dd-item 
-        
+        parent
         
         
         ">
@@ -564,8 +564,8 @@
   
     
     <li data-nav-id="/design-considerations/fault-tolerance.html" title="Fault Tolerance" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="../design-considerations/fault-tolerance.html">
@@ -2178,7 +2178,7 @@
             
           
           
-            <a href='../'>AWS Service Catalog Tools Intro Workshop</a> > <a href='../installation.html'>Installation</a> > Service Catalog Factory
+            <a href='../'>AWS Service Catalog Tools Intro Workshop</a> > <a href='../design-considerations.html'>Design considerations</a> > Fault Tolerance
           
         
           
@@ -2192,16 +2192,11 @@
     <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
-    <li>
-      <ul>
-        <li><a href="#navigate-to-cloudformation">Navigate to CloudFormation</a></li>
-        <li><a href="#create-a-new-cloudformation-stack">Create a new CloudFormation Stack</a></li>
-        <li><a href="#select-the-pre-configured-cloudformation-template">Select the pre-configured CloudFormation Template</a></li>
-        <li><a href="#specify-stack-details">Specify Stack Details</a></li>
-        <li><a href="#create-the-cloudformation-stack">Create the CloudFormation Stack</a></li>
-        <li><a href="#what-have-we-deployed">What have we deployed?</a></li>
-      </ul>
-    </li>
+    <li><a href="#what-are-we-going-to-do">What are we going to do?</a></li>
+    <li><a href="#why-is-this-important">Why is this important</a></li>
+    <li><a href="#a-practical-example">A practical example</a></li>
+    <li><a href="#spoke-execution-mode">Spoke execution mode</a></li>
+    <li><a href="#fine-grain-depends-on">Fine grain depends on</a></li>
   </ul>
 </nav>
     </div>
@@ -2215,144 +2210,58 @@
         
         <div id="body-inner">
           
-            <h1>Service Catalog Factory</h1>
+            <h1>Fault Tolerance</h1>
           
 
         
 
 
-<h3 id="navigate-to-cloudformation">Navigate to CloudFormation</h3>
+
+	<hr>
+<h2 id="what-are-we-going-to-do">What are we going to do?</h2>
+<p>This article will help you to understand how to make the workflow you generate more fault tolerant.</p>
+<h2 id="why-is-this-important">Why is this important</h2>
+<p>Customers are using this solution to deploy, operate and govern AWS multi account estates.  These estates are made up of
+several regions and hundreds of accounts.</p>
+<p>When building a workflow using this solution you can use dependencies to say only perform an action after another action
+has completed successfully.  By default, every sub action of the dependency must complete successfully before the
+dependent action is instructed to start.</p>
+<h2 id="a-practical-example">A practical example</h2>
+<p>When inflating your accounts you may want to enable AWS Config before enabling AWS Config rules.  By default, if the
+enabling of Config fails in one region of one account no Config rules will be deployed.  This is great for rapid
+feedback - fail fast - but in production this means you have regions of accounts with missing guardrails.</p>
+<p>The rest of this section explains your options for improving fault tolerance along with the costs of each option.</p>
+<h2 id="spoke-execution-mode">Spoke execution mode</h2>
+<p>Using spoke execution mode is the quickest way to improve fault tolerance.  When you configure an action to be performed
+using spoke execution mode you are delegating execution to the spoke.  This solution will fan out the spoke actions to
+each spoke in parallel in a single batch. Each spoke does not affect another - meaning a failure in one spoke will have
+no impact to others.  However, within the spoke a failure enabling Config in one region will mean no rules enabled in
+other regions.  To further improve fault tolerance you will need to use fine grain depends on.</p>
+<p>Enabling spoke execution mode means errors will not be visible in your pipeline output.  You will need to log into the
+spoke account to view the execution there or you will need to use AWS Ops Center in the hub account to see what went
+wrong.  This can increase operational complexity.</p>
+<p>Enabling spoke execution mode typically reduces execution time considerably.  We have seen it reduce execution time by
+more than a factor of 8.</p>
+<h2 id="fine-grain-depends-on">Fine grain depends on</h2>
+<p>When you say AWS Config rules depends on AWS Config enablement the framework will enable AWS Config across all regions
+of all accounts before attempting to enable any AWS Config rules.  Using fine grain depends on you can change that
+behaviour.  You can say:</p>
 <ul>
-<li>Select the AWS CloudFormation Service.</li>
+<li>Once AWS Config enable completes in the region of the account, start AWS Config rules in the same region of the same account</li>
+<li>Once AWS Config enable completes in the region x of all accounts, start AWS Config rules in region x of all accounts</li>
+<li>Once AWS Config enable completes in all regions of account n, start AWS Config rules in all regions of account n</li>
 </ul>
-<figure>
-    <img src="../how-tos/installation/select_cloudformation.png" width="900" height="450"/> 
-</figure>
+<p>This can be useful when deploying / configuring critical services within you multi account estate but it can increase
+the execution time of your workflow.  We have seen it add 30 - 60 mins of execution time to estates with 6 regions, 200
+accounts and 8 actions.</p>
 
 
-<div class="notices warning" ><p>If you are installing Service Catalog Puppet it will need to be installed into the same account as Service Catalog Factory.</p>
-</div>
-
-<h3 id="create-a-new-cloudformation-stack">Create a new CloudFormation Stack</h3>
-<ul>
-<li>Select &lsquo;Create Stack&rsquo;</li>
-</ul>
-<figure>
-    <img src="../how-tos/installation/create_stack.png" width="900" height="300"/> 
-</figure>
-
-<h3 id="select-the-pre-configured-cloudformation-template">Select the pre-configured CloudFormation Template</h3>
-<p>Service Catalog Factory can be installed via a pre-created AWS CloudFormation template stored in Amazon S3 under the following URL:</p>
-<blockquote>
-<p><code>https://service-catalog-tools.s3.eu-west-2.amazonaws.com/factory/latest/servicecatalog-factory-initialiser.template.yaml</code></p>
-</blockquote>
-<ul>
-<li>Paste this URL under &lsquo;Amazon S3 URL&rsquo;:</li>
-<li>Hit Next</li>
-</ul>
-<h3 id="specify-stack-details">Specify Stack Details</h3>
-<ul>
-<li>Specify the Stack details as follows:
-<ul>
-<li><strong>Stack Name:</strong> <code>factory-initialization-stack</code></li>
-</ul>
-</li>
-</ul>
-<p>You should fill in the details depending on which source code management system you want to use:</p>
-<h4 id="codecommit">CodeCommit</h4>
-<p>You need to set <strong>SCMSourceProvider</strong> to <strong>CodeCommit</strong>.</p>
-<p>You should also set the following:</p>
-<ul>
-<li>SCMRepositoryName - this is the name of the git repo to use</li>
-<li>SCMBranchName - this is the branch you want to use</li>
-<li>SCMShouldCreateRepo - set this to true if you want the tools to create the repo for you</li>
-</ul>
-<h4 id="githubcom--github-enterprise--bitbucket-cloud">Github.com / Github Enterprise / Bitbucket Cloud</h4>
-<p>You should have a read through the following guide: <a href="https://docs.aws.amazon.com/dtconsole/latest/userguide/connections.html">https://docs.aws.amazon.com/dtconsole/latest/userguide/connections.html</a></p>
-<p>You need to set <strong>SCMSourceProvider</strong> to <strong>CodeStarSourceConnection</strong>.</p>
-<p>You should also set the following:</p>
-<ul>
-<li>SCMConnectionArn - this is the Arn of the connection you created in the console</li>
-<li>SCMFullRepositoryId - the value for this is dependant on which SCM you use</li>
-<li>SCMBranchName - this is the branch you want to use</li>
-</ul>
-<h4 id="s3">S3</h4>
-<p>You need to set <strong>SCMSourceProvider</strong> to <strong>S3</strong>.</p>
-<p>You should also set the following:</p>
-<ul>
-<li>SCMBucketName - this is the name of the S3 bucket you want to use</li>
-<li>SCMObjectKey - this is the name of the object key you will be uploading your zip file as to trigger pipeline runs</li>
-<li>SCMShouldCreateRepo - set this to true if you want the tools to create the repo for you</li>
-</ul>
-<h3 id="create-the-cloudformation-stack">Create the CloudFormation Stack</h3>
-<ul>
-<li>Leave Defaults for &lsquo;Configure Stack Options&rsquo;</li>
-<li>Hit Next</li>
-<li>Acknowledge that the Stack will create an IAM Role</li>
-<li>Hit &lsquo;Create Stack&rsquo;</li>
-</ul>
-<figure>
-    <img src="../how-tos/installation/acknowledge_create.png" width="900" height="250"/> 
-</figure>
-
-<ul>
-<li>You will now see the stack status as <em>CREATE_IN_PROGRESS</em></li>
-</ul>
-<figure>
-    <img src="../how-tos/installation/create_in_progress_factory.png" width="900" height="200"/> 
-</figure>
-
-<ul>
-<li>Wait for the stack status to go to <em>CREATE_COMPLETE</em></li>
-</ul>
-<figure>
-    <img src="../how-tos/installation/create_complete_factory.png" width="900" height="200"/> 
-</figure>
-
-<h3 id="what-have-we-deployed">What have we deployed?</h3>
-<p>The following AWS resources have just been deployed into your AWS Account:</p>
-<h4 id="aws-cloudformation-stacks">AWS CloudFormation stacks</h4>
-<p>The AWS CodeBuild job created two AWS CloudFormation stacks which in turn deployed the resources listed below:</p>
-<blockquote>
-<p>URL: <a href="https://eu-west-1.console.aws.amazon.com/cloudformation/home?region=eu-west-1">https://eu-west-1.console.aws.amazon.com/cloudformation/home?region=eu-west-1</a></p>
-</blockquote>
-<figure>
-    <img src="../how-tos/installation/factory_cloudformation.png" width="900" height="200"/> 
-</figure>
-
-<h4 id="factory-aws-codecommit-repository">Factory AWS CodeCommit repository</h4>
-<p>This repository holds the Service Catalog Factory YAML files which are used to configure AWS Service Catalog portfolios and products.</p>
-<blockquote>
-<p>URL: <a href="https://eu-west-1.console.aws.amazon.com/codesuite/codecommit/repositories?region=eu-west-1">https://eu-west-1.console.aws.amazon.com/codesuite/codecommit/repositories?region=eu-west-1</a></p>
-</blockquote>
-<figure>
-    <img src="../how-tos/installation/factory_codecommit.png" width="900" height="200"/> 
-</figure>
-
-<h4 id="factory-aws-codepipeline">Factory AWS CodePipeline</h4>
-<p>This AWS CodePipeline is triggered by updates to the AWS CodeCommit repository. When run, it will create the AWS Service Catalog portfolios and products defined in the portfolio files.</p>
-<blockquote>
-<p>URL: <a href="https://eu-west-1.console.aws.amazon.com/codesuite/codepipeline/pipelines?region=eu-west-1">https://eu-west-1.console.aws.amazon.com/codesuite/codepipeline/pipelines?region=eu-west-1</a></p>
-</blockquote>
-<figure>
-    <img src="../how-tos/installation/factory_codepipeline.png" width="900" height="200"/> 
-</figure>
-
-<h4 id="amazon-s3-buckets">Amazon S3 Buckets</h4>
-<p>An Amazon S3 Bucket was created to store artifacts for Service Catalog factory.</p>
-<blockquote>
-<p>URL: <a href="https://s3.console.aws.amazon.com/s3/home?region=eu-west-1">https://s3.console.aws.amazon.com/s3/home?region=eu-west-1</a></p>
-</blockquote>
-<figure>
-    <img src="../how-tos/installation/puppet_s3.png" width="900" height="200"/> 
-</figure>
 
 
 
 <footer class=" footline" >
 	
 </footer>
-
 
         
         </div> 
@@ -2453,7 +2362,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -2469,9 +2377,6 @@
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -2715,6 +2620,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -2730,6 +2636,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -3754,10 +3663,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="../installation.html" title="Installation"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="../design-considerations/selecting-a-factory-account.html" title="Selecting a factory account"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="../installation/30-service-catalog-puppet.html" title="Service Catalog Puppet" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="../design-considerations/using-parameters-in-the-real-world.html" title="Using parameters in the real world" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -3788,4 +3697,3 @@
 
   </body>
 </html>
-
