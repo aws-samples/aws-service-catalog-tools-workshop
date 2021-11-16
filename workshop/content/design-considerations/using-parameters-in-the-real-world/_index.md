@@ -304,6 +304,54 @@ Resources:
  </figure>
 
 
+## Using large numbers of SSM parameters
+
+If you are using SSM parameters to store region or account specific configurations you can easily end up with a large 
+number of SSM parameters. 
+
+For example, having the following parameters Network Type, VPC Cidr, VPC Id, Number of subnets for 7 regions of 300 
+accounts is over 8,000 parameters.
+
+When using a large number of SSM parameters we recommend you prefix your SSM parameter with a common value which is 
+distinct from other use cases and use the prefix option when specifying the parameter in the manifest file.
+
+For example in the networking example above we recommend the following SSM parameter names:
+
+- /platform-protected/configurations/networking/${AWS::AccountId}/${AWS::Region}/NetworkType
+- /platform-protected/configurations/networking/${AWS::AccountId}/${AWS::Region}/VPC/Cidr
+- /platform-protected/configurations/networking/${AWS::AccountId}/${AWS::Region}/VPC/Id
+- /platform-protected/configurations/networking/${AWS::AccountId}/${AWS::Region}/Subnets/count
+
+Having /platform-protected in the prefix makes it easier to write IAM policies for the resources, protecting it from 
+write changes from non service roles.
+
+Having /platform-protected/configurations/networking in the prefix makes it easier to write IAM policies by functional
+area - networking prefixes can be made read/write for members of the networking teams.
+
+Having /platform-protected/configurations/networking in the prefix makes it easier to use paths:
+
+ <figure>
+  {{< highlight yaml >}}
+launches:
+  networking-vpc:
+    portfolio: "networking"
+    product: "networks"
+    version: "v1"
+    parameters:
+      NetworkType:
+        ssm:
+          name: "/platform-protected/configurations/networking/${AWS::AccountId}/${AWS::Region}/NetworkType"
+          path: "/platform-protected/configurations/networking"
+    deploy_to:
+      tags:
+        - tag: "type:spoke"
+          regions: "default_region"  
+{{< / highlight >}}
+ </figure>
+
+If you specify a path the solution will use AWS SSM get_parameters_by_path instead of get_parameter.  This provides a 
+significant performance improvement reducing the overall execution time of your workflow.
+
 ## Using boto3 parameters
 
 You can use the result of a boto3 call as a parameter.  
