@@ -10,7 +10,7 @@ aliases = [
 ]
 +++
 
-### Navigate to CloudFormation
+## Create a new AWS CloudFormation stack
 
 - Select the AWS CloudFormation Service.
 
@@ -20,20 +20,15 @@ aliases = [
 If you are installing Service Catalog Puppet it will need to be installed into the same account as Service Catalog Factory.
 {{% /notice %}}
 
-### Create a new CloudFormation Stack
-
 - Select 'Create Stack'
 
-{{< figure src="/how-tos/installation/create_stack.png" height="300" width="900">}}
-
-### Select the pre-configured CloudFormation Template
 Service Catalog Factory can be installed via a pre-created AWS CloudFormation template stored in Amazon S3 under the following URL:
 > `https://service-catalog-tools.s3.eu-west-2.amazonaws.com/factory/latest/servicecatalog-factory-initialiser.template.yaml`
 
 - Paste this URL under 'Amazon S3 URL': 
 - Hit Next
 
-### Specify Stack Details
+### Specify Stack details
 
 - Specify the Stack details as follows:
     - **Stack Name:** `factory-initialization-stack`
@@ -74,9 +69,9 @@ You should also set the following:
 - SCMObjectKey - this is the name of the object key you will be uploading your zip file as to trigger pipeline runs
 - SCMShouldCreateRepo - set this to true if you want the tools to create the repo for you
 
-### Create the CloudFormation Stack
+### Configure Stack Options
 
-- Leave Defaults for 'Configure Stack Options'
+- Set the common tags you want to use for the resources created by the framework.  These may be cost management tags or RBAC/ABAC required tags.
 - Hit Next
 - Acknowledge that the Stack will create an IAM Role
 - Hit 'Create Stack'
