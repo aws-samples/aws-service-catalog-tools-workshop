@@ -147,3 +147,116 @@ shared product.
 
 When you share a portfolio the framework will decide if it should share the portfolio.  If the target account is the same
 as the factory account it will not share the portfolio as it is not needed.
+
+### Adding Associations
+
+In order to use an AWS Service Catalog portfolio as an end user (to provision products) you will need to have an 
+association added to the portfolio.  Associations can be for groups, users or roles.  To add an association you need to 
+follow the example below:
+
+ <figure>
+  {{< highlight js >}}
+accounts:
+  - account_id: "<YOUR_ACCOUNT_ID_WITHOUT_HYPHENS>"
+    name: "puppet-account"
+    default_region: "eu-west-1"
+    regions_enabled:
+      - "eu-west-1"
+      - "eu-west-2"
+    tags:
+      - "type:prod"
+      - "partition:eu"
+spoke-local-portfolios:
+  account-vending-for-spokes:
+    portfolio: reinvent-cloud-engineering-governance
+    associations:
+      - arn:aws:iam::${AWS::AccountId}:role/MyServiceCatalogAdminRole
+    deploy_to:
+      tags:
+        - tag: "type:prod"
+          regions: "default_region"  
+  {{< / highlight >}}
+ </figure>
+
+Please note the solution will replace ${AWS::AccountId} with the account id of the target account where the portfolio 
+will be share to.  You can add more than one association but you cannot add the same association twice.  If you are 
+wanting to add an association for you as the maintainer we recommend you add this in the portfolio/*.yaml files but if 
+you are adding associations for people that will be using the portfolio we recommend adding them here in manifest.
+
+When using associations it may be useful for your spoke local portfolio to depend_on a stack or launch that
+provisions the specified role into the spoke account.
+
+If you are using service AWS Control Tower and/or AWS SSO the IAM role that gets created in the spoke accounts is not
+deterministic.  You can use a wildcard in the association to work around this:
+
+ <figure>
+  {{< highlight js >}}
+accounts:
+  - account_id: "<YOUR_ACCOUNT_ID_WITHOUT_HYPHENS>"
+    name: "puppet-account"
+    default_region: "eu-west-1"
+    regions_enabled:
+      - "eu-west-1"
+      - "eu-west-2"
+    tags:
+      - "type:prod"
+      - "partition:eu"
+spoke-local-portfolios:
+  account-vending-for-spokes:
+    portfolio: reinvent-cloud-engineering-governance
+    associations:
+      - arn:aws:iam::${AWS::AccountId}:role/IDoNotKnowTheSuffix-*
+    deploy_to:
+      tags:
+        - tag: "type:prod"
+          regions: "default_region"  
+  {{< / highlight >}}
+ </figure>
+
+### Adding Launch Role Constraints
+
+When AWS Service Catalog provisions a product from a portfolio the resources will be created by the principal who invoked
+the provision product command.  This means that principal will need to have all of the permissions required to create
+each of the resources specified in the product.  If you would like to delegate the creation of the resources to a service
+role you can do so using a launch role constraint.
+
+Launch role constraints specify for a given portfolio, the specified products will be provisioned as service role - 
+which needs to be assumable by the Service Catalog service.
+
+Here is an example of to configure this:
+
+ <figure>
+  {{< highlight js >}}
+accounts:
+  - account_id: "<YOUR_ACCOUNT_ID_WITHOUT_HYPHENS>"
+    name: "puppet-account"
+    default_region: "eu-west-1"
+    regions_enabled:
+      - "eu-west-1"
+      - "eu-west-2"
+    tags:
+      - "type:prod"
+      - "partition:eu"
+spoke-local-portfolios:
+  account-vending-for-spokes:
+    portfolio: reinvent-cloud-engineering-governance
+    constraints:
+      launch:
+        - products: "VPC-*"
+          roles:
+            - arn:aws:iam::${AWS::AccountId}:role/MyServiceCatalogAdminRole
+    deploy_to:
+      tags:
+        - tag: "type:prod"
+          regions: "default_region"  
+  {{< / highlight >}}
+ </figure>
+
+Please note the solution will replace ${AWS::AccountId} with the account id of the target account where the portfolio 
+will be share to.
+
+When you specify VPC-* as the products value the solution will look for all products that match the wildcard and then
+set up a launch role constraint.
+
+When using launch role constraints it may be useful for your spoke local portfolio to depend_on a stack or launch that
+provisions the specified role into the spoke account.
