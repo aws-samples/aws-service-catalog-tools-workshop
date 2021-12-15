@@ -43,7 +43,7 @@ Workspaces:
         Source:
           Provider: "CodeCommit"
           Configuration:
-            RepositoryName: "subnet"
+            RepositoryName: "subnet-terraform"
             BranchName: "main"
    {{< / highlight >}}
   </figure>
@@ -98,7 +98,7 @@ When you configured your product version, you specified the following version:
         Source:
           Provider: "CodeCommit"
           Configuration:
-            RepositoryName: "subnet"
+            RepositoryName: "subnet-terraform"
             BranchName: "main"
   {{< / highlight >}}
  </figure>
