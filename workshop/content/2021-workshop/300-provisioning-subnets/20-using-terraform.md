@@ -133,7 +133,7 @@ workspace.
  <figure>
  {{< highlight js >}}
 
-variable "VPCId" {
+variable "VPCID" {
   type = string
 }
 
@@ -142,7 +142,7 @@ variable "SubnetCIDR" {
 }
 
 resource "aws_subnet" "main" {
-  vpc_id     = var.VPCId
+  vpc_id     = var.VPCID
   cidr_block = var.SubnetCIDR
 }
  {{< / highlight >}}
