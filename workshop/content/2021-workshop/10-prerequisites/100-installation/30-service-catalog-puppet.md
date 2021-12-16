@@ -9,7 +9,7 @@ home_region_name = 'Ireland'
 
 
 ### Select the pre-configured AWS CloudFormation template
-Service Catalog Factory can be installed via a pre-created AWS CloudFormation template stored in Amazon S3. There are 
+Service Catalog Puppet can be installed via a pre-created AWS CloudFormation template stored in Amazon S3. There are 
 many configuration options for you to customise your installation.  For this workshop we will be using the following 
 quick link which has the settings already preconfigured for you:
 
