@@ -176,7 +176,7 @@ Update the manifest file   Navigate to the ServiceCatalogPuppet CodeCommit repos
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/10-prerequisites/100-installation/30-service-catalog-puppet.html</guid>
-      <description>Select the pre-configured AWS CloudFormation template Service Catalog Factory can be installed via a pre-created AWS CloudFormation template stored in Amazon S3. There are many configuration options for you to customise your installation. For this workshop we will be using the following quick link which has the settings already preconfigured for you:
+      <description>Select the pre-configured AWS CloudFormation template Service Catalog Puppet can be installed via a pre-created AWS CloudFormation template stored in Amazon S3. There are many configuration options for you to customise your installation. For this workshop we will be using the following quick link which has the settings already preconfigured for you:
  Create stack Check the box labeled &amp;ldquo;I acknowledge that AWS CloudFormation might create IAM resources with custom names.</description>
     </item>
     
