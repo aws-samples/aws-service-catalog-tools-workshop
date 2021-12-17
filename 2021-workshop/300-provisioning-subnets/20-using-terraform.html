@@ -2138,7 +2138,7 @@
 </left>
 
 <left>
-    <h5 class="copyright">502863c - Wed Dec 8 12:39:59 UTC 2021</h5>
+    <h5 class="copyright">eb0eb4a - Fri Dec 17 09:18:17 UTC 2021</h5>
 </left>
 
     </section>
@@ -2255,7 +2255,7 @@
         <span style="color:#a6e22e">Source</span><span style="color:#f92672">:</span>
           <span style="color:#a6e22e">Provider</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;CodeCommit&#34;</span>
           <span style="color:#a6e22e">Configuration</span><span style="color:#f92672">:</span>
-            <span style="color:#a6e22e">RepositoryName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;subnet&#34;</span>
+            <span style="color:#a6e22e">RepositoryName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;subnet-terraform&#34;</span>
             <span style="color:#a6e22e">BranchName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;main&#34;</span>
    
 </code></pre></div>
@@ -2313,7 +2313,7 @@ stage is green.</p>
         <span style="color:#a6e22e">Source</span><span style="color:#f92672">:</span>
           <span style="color:#a6e22e">Provider</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;CodeCommit&#34;</span>
           <span style="color:#a6e22e">Configuration</span><span style="color:#f92672">:</span>
-            <span style="color:#a6e22e">RepositoryName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;subnet&#34;</span>
+            <span style="color:#a6e22e">RepositoryName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;subnet-terraform&#34;</span>
             <span style="color:#a6e22e">BranchName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;main&#34;</span>
   
 </code></pre></div>
@@ -2359,7 +2359,7 @@ workspace.</p>
 <li>Copy the following snippet into the main input field:</li>
 </ul>
  <figure>
- <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">variable</span> <span style="color:#e6db74">&#34;VPCId&#34;</span> {
+ <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">variable</span> <span style="color:#e6db74">&#34;VPCID&#34;</span> {
   <span style="color:#a6e22e">type</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">string</span>
 }
 
@@ -2368,7 +2368,7 @@ workspace.</p>
 }
 
 <span style="color:#a6e22e">resource</span> <span style="color:#e6db74">&#34;aws_subnet&#34;</span> <span style="color:#e6db74">&#34;main&#34;</span> {
-  <span style="color:#a6e22e">vpc_id</span>     <span style="color:#f92672">=</span> <span style="color:#66d9ef">var</span>.<span style="color:#a6e22e">VPCId</span>
+  <span style="color:#a6e22e">vpc_id</span>     <span style="color:#f92672">=</span> <span style="color:#66d9ef">var</span>.<span style="color:#a6e22e">VPCID</span>
   <span style="color:#a6e22e">cidr_block</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">var</span>.<span style="color:#a6e22e">SubnetCIDR</span>
 }
  
