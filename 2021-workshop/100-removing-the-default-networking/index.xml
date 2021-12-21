@@ -27,7 +27,7 @@
       
       <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/100-removing-the-default-networking/30-deploying-the-lambda.html</guid>
       <description>What are we going to do? We are going to perform the following steps:
- Create a manifest file with our account in it Provision the stack delete-default-networking-function into a spoke account  Step by step guide Here are the steps you need to follow to provision the stack.
+ Create a manifest file with our account in it Provision the stack delete-default-networking-function into an account  Step by step guide Here are the steps you need to follow to provision the stack.
 Create a manifest file with our account in it   Navigate to the ServiceCatalogPuppet CodeCommit repository
   Scroll down to the bottom of the page and hit the Create file button</description>
     </item>
