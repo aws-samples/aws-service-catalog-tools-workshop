@@ -15,7 +15,7 @@ product_version = "v1"
 We are going to perform the following steps:
 
 - Create a manifest file with our account in it
-- Provision the stack _{{% param product_name %}}_ into a spoke account
+- Provision the stack _{{% param product_name %}}_ into an account
 
 ## Step by step guide
 
@@ -54,7 +54,7 @@ accounts:
  </figure>
 
 
-### Provision the stack _{{% param product_name %}}_ into a spoke account
+### Provision the stack _{{% param product_name %}}_ into an account
  
 - Append the following snippet to the end of the main input field:
 
