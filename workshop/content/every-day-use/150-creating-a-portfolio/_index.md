@@ -16,10 +16,8 @@ We will assume you have installed Service Catalog Puppet correctly.
 We are going to perform the following steps:
 
 - create a portfolio file
-- define a product
-- define a version for our product
 - commit our portfolio file
-- verify the framework has create an AWS CodePipeline for our product version
+- verify the framework has created an AWS Service Catalog portfolio
 
 During this process you will check your progress by verifying what the framework is doing at each step.
 
@@ -32,68 +30,12 @@ Here are the steps you need to follow to "{{% param title %}}"
 
 - Navigate to the {{% service_catalog_factory_code_commit_repo_link %}} 
 
-- Click on *portfolios*
-
-{{< figure src="/how-tos/creating-and-provisioning-a-product/ClickOnPortfolios.png" >}}
-
-- Click on *reinvent.yaml*
-
-{{< figure src="/how-tos/creating-and-provisioning-a-product/ClickOnreinvent.png" >}}
-
-- Click *Edit*
-
-{{< figure src="/how-tos/creating-and-provisioning-a-product/ClickEdit.png" >}}
+- Click on *portfolios* and then on *reinvent.yaml* and finally on edit if that file exists otherwise create a file named `portfolios/reinvent.yaml` 
 
 - Add the following to the end of the file (be careful with your indentation):
 
  <figure>
   {{< highlight js >}}
-Portfolios:
-  - DisplayName: "cloud-engineering-governance"
-    Description: "Portfolio containing the products needed to govern AWS accounts"
-    ProviderName: "cloud-engineering"
-    Associations:
-      - "arn:aws:iam::${AWS::AccountId}:role/TeamRole"
-    Tags:
-      - Key: "type"
-        Value: "governance"
-      - Key: "creator"
-        Value: "cloud-engineering"
-      - Key: "cost-center"
-        Value: "cloud-engineering"
-  {{< / highlight >}}
- </figure>
-
- 
-- Verify the contents of your file matches this:
-
- <figure>
-  {{< highlight js >}}
-Schema: factory-2019-04-01
-Products:
-  - Name: "aws-config-enable-config"
-    Owner: "data-governance@example.com"
-    Description: "Enables AWS Config"
-    Distributor: "cloud-engineering"
-    SupportDescription: "Speak to data-governance@example.com about exceptions and speak to cloud-engineering@example.com about implementation issues"
-    SupportEmail: "cloud-engineering@example.com"
-    SupportUrl: 'https://wiki.example.com/cloud-engineering/governance/aws-config-enable-config'
-    Tags:
-      - Key: "type"
-        Value: "governance"
-      - Key: "creator"
-        Value: "cloud-engineering"
-      - Key: "cost-center"
-        Value: "cloud-engineering"
-    Versions:
-      - Name: "v1"
-        Description: "v1 of aws-config-enable-config"
-        Active: True
-        Source:
-          Provider: "CodeCommit"
-          Configuration:
-            RepositoryName: "aws-config-enable-config"
-            BranchName: "main"
 Portfolios:
   - DisplayName: "cloud-engineering-governance"
     Description: "Portfolio containing the products needed to govern AWS accounts"
