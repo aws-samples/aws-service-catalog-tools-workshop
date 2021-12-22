@@ -2186,7 +2186,7 @@
 </left>
 
 <left>
-    <h5 class="copyright">f834587 - Tue Dec 21 13:06:28 UTC 2021</h5>
+    <h5 class="copyright">3d49a2c - Wed Dec 22 13:35:34 UTC 2021</h5>
 </left>
 
     </section>
@@ -2247,6 +2247,7 @@
         <li><a href="#applying-an-scp-to-a-specific-account">Applying an SCP to a specific account</a></li>
         <li><a href="#applying-an-scp-to-every-account-with-a-specified-tag">Applying an SCP to every account with a specified tag</a></li>
         <li><a href="#applying-an-scp-to-an-organizational-unit">Applying an SCP to an organizational unit</a></li>
+        <li><a href="#storing-your-scps-in-amazon-s3">Storing your SCPs in Amazon S3</a></li>
         <li><a href="#extra-notes">Extra notes</a></li>
       </ul>
     </li>
@@ -2421,6 +2422,24 @@ to.</p>
     apply_to:
       ous:
         - ou: ou-japk-38pz9nbt
+  </code></pre></div>
+ </figure>
+<h3 id="storing-your-scps-in-amazon-s3">Storing your SCPs in Amazon S3</h3>
+<p>You can choose to store you Service Control Policies in Amazon S3 using the following syntax:</p>
+ <figure>
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">service-control-policies:
+  deny-organizations-leave-organization:
+    description: <span style="color:#e6db74">&#34;do not allow accounts to leave&#34;</span>
+    tags:
+      - Key: Category
+        Value: Foundational
+    content:
+      s3: 
+        bucket: my-s3-scp-store
+        key: deny-organizations-leave-organization.json
+    apply_to:
+      ous:
+        - ou: /workloads
   </code></pre></div>
  </figure>
 <h3 id="extra-notes">Extra notes</h3>
