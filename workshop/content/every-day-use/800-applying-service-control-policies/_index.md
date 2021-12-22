@@ -197,6 +197,27 @@ service-control-policies:
   {{< / highlight >}}
  </figure>
 
+### Storing your SCPs in Amazon S3
+
+You can choose to store you Service Control Policies in Amazon S3 using the following syntax:
+
+ <figure>
+  {{< highlight yaml >}}
+service-control-policies:
+  deny-organizations-leave-organization:
+    description: "do not allow accounts to leave"
+    tags:
+      - Key: Category
+        Value: Foundational
+    content:
+      s3: 
+        bucket: my-s3-scp-store
+        key: deny-organizations-leave-organization.json
+    apply_to:
+      ous:
+        - ou: /workloads
+  {{< / highlight >}}
+ </figure>
 
 ### Extra notes 
 - You do not need to specify a region in the apply_to section
