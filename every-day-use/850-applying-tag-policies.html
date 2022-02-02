@@ -15,7 +15,7 @@
     <link rel="shortcut icon" href="../images/favicon.png" type="image/png" />
 <link rel="icon" href="../images/favicon.png" type="image/png" />
 
-    <title>Creating a product :: Service Catalog Tools Workshop</title>
+    <title>Applying Tag Policies :: Service Catalog Tools Workshop</title>
 
     
     <link href="../css/nucleus.css" rel="stylesheet">
@@ -43,7 +43,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/every-day-use/100-creating-a-product.html">
+  <body class="" data-url="/every-day-use/850-applying-tag-policies.html">
     <nav id="sidebar" class="">
 
 
@@ -790,8 +790,8 @@
   
     
     <li data-nav-id="/every-day-use/100-creating-a-product.html" title="Creating a product" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="../every-day-use/100-creating-a-product.html">
@@ -1428,8 +1428,8 @@
   
     
     <li data-nav-id="/every-day-use/850-applying-tag-policies.html" title="Applying Tag Policies" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="../every-day-use/850-applying-tag-policies.html">
@@ -2274,7 +2274,7 @@
             
           
           
-            <a href='../'>AWS Service Catalog Tools Intro Workshop</a> > <a href='../every-day-use.html'>Every day use</a> > Creating a product
+            <a href='../'>AWS Service Catalog Tools Intro Workshop</a> > <a href='../every-day-use.html'>Every day use</a> > Applying Tag Policies
           
         
           
@@ -2286,7 +2286,21 @@
                 
                     <div class="progress">
     <div class="wrapper">
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#what-are-we-going-to-do">What are we going to do?</a></li>
+    <li><a href="#step-by-step-guide">Step by step guide</a>
+      <ul>
+        <li><a href="#setting-up-the-iam-role">Setting up the IAM role</a></li>
+        <li><a href="#applying-a-tag-policy-to-a-specific-account">Applying a tag policy to a specific account</a></li>
+        <li><a href="#applying-a-tag-policy-to-every-account-with-a-specified-tag">Applying a tag policy to every account with a specified tag</a></li>
+        <li><a href="#applying-a-tag-policy-to-an-organizational-unit">Applying a tag policy to an organizational unit</a></li>
+        <li><a href="#storing-your-policies-in-amazon-s3">Storing your policies in Amazon S3</a></li>
+        <li><a href="#extra-notes">Extra notes</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -2298,7 +2312,7 @@
         
         <div id="body-inner">
           
-            <h1>Creating a product</h1>
+            <h1>Applying Tag Policies</h1>
           
 
         
@@ -2306,91 +2320,213 @@
 
 
 	<hr>
-<p>This tutorial will walk you through &ldquo;Creating a product&rdquo;</p>
+<h2 id="what-are-we-going-to-do">What are we going to do?</h2>
+<p>With tag-policies, you tell the framework to apply a tag policy to a specific account, every account with a specified
+tag or to an organizational unit.</p>
+<p>This tutorial will walk you through how to use the &ldquo;Applying Tag Policies&rdquo; feature.</p>
 <p>We will assume you have:</p>
 <ul>
-<li>installed Service Catalog Factory correctly</li>
+<li>installed Service Catalog Puppet correctly</li>
+<li>bootstrapped a spoke</li>
+<li>created a manifest file</li>
+<li>added an account to the manifest file</li>
 </ul>
-<p>In the tutorial you will:</p>
-
-
-
-
-
-
-
-<ul class="children children-li">
-	
-
-	
-		
-	
-
-	
-
-	
-		
-	
-		
-			
-				
-<li>
-<a href="../every-day-use/100-creating-a-product/100-define-the-product.html" >Define the product</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="../every-day-use/100-creating-a-product/300-add-the-source-code.html" >Add the source code</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="../every-day-use/100-creating-a-product/305-creating-codestar-pipelines.html" >Creating CodeStar pipelines</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="../every-day-use/100-creating-a-product/310-creating-s3-pipelines.html" >Creating S3 pipelines</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-
-	
+<p>We are going to perform the following steps to &ldquo;Applying Tag Policies&rdquo;:</p>
+<ul>
+<li>Setting up the IAM role</li>
+<li>Applying a tag policy to a specific account</li>
+<li>Applying a tag policy to every account with a specified tag</li>
+<li>Applying a tag policy to an organizational unit</li>
 </ul>
-
-<p>During this process you will check your progress by verifying what the framework is doing.</p>
-
-
-
+<h2 id="step-by-step-guide">Step by step guide</h2>
+<p>Here are the steps you need to follow to &ldquo;Applying Tag Policies&rdquo;</p>
+<h3 id="setting-up-the-iam-role">Setting up the IAM role</h3>
+<p>When using tag-policies you will need an IAM role assumable from the account where you have installed this framework.</p>
+<h4 id="using-aws-cloudformation-to-create-the-iam-role">Using AWS CloudFormation to create the IAM Role</h4>
+<p>Within your AWS Organizations management account you should create an AWS CloudFormation stack with the following name:</p>
+<p><code>puppet-organizations-service-control-policies-stack</code></p>
+<p>Using the template of the URL:</p>
+<p><code>https://service-catalog-tools.s3.eu-west-2.amazonaws.com/puppet/latest/servicecatalog-puppet-scp-master.template.yaml</code></p>
+<p>This stack will have an output named <em>PuppetOrgRoleForExpandsArn</em>.  Take a note of this Arn as you will need it in the
+next step.</p>
+<h4 id="setting-the-org-iam-role-arn">Setting the Org IAM role ARN</h4>
+<p>Once you have created the IAM Role, you need to tell the framework which role you want to use.  You do this by creating
+an AWS Systems Manager Parameter Store parameter named <code>/servicecatalog-puppet/org-scp-role-arn</code> in the <em>region</em> of the
+<em>account</em> where you will install puppet and use as your hub account.  You can do this via the console or via the cli.</p>
+<figure>
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">aws ssm put-parameter --name /servicecatalog-puppet/org-scp-role-arn --type String --value &lt;VALUE-FROM-STEP-ABOVE&gt;  
+  </code></pre></div>
+</figure>
+<h3 id="applying-a-tag-policy-to-a-specific-account">Applying a tag policy to a specific account</h3>
+<p>To apply a tag policy to a specific account add the following snippet to your manifest file:</p>
+ <figure>
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">tag-policies:
+  force-cost-center:
+    description: <span style="color:#e6db74">&#34;force cost center&#34;</span>
+    tags:
+      - Key: Category
+        Value: Foundational
+    content:
+      default: {
+        <span style="color:#e6db74">&#34;tags&#34;</span>: {
+          <span style="color:#e6db74">&#34;costcenter&#34;</span>: {
+            <span style="color:#e6db74">&#34;tag_key&#34;</span>: {
+              <span style="color:#e6db74">&#34;@@assign&#34;</span>: <span style="color:#e6db74">&#34;CostCenter&#34;</span>
+            },
+            <span style="color:#e6db74">&#34;tag_value&#34;</span>: {
+              <span style="color:#e6db74">&#34;@@assign&#34;</span>: [
+                  <span style="color:#e6db74">&#34;100&#34;</span>,
+                  <span style="color:#e6db74">&#34;200&#34;</span>
+              ]
+            },
+            <span style="color:#e6db74">&#34;enforced_for&#34;</span>: {
+              <span style="color:#e6db74">&#34;@@assign&#34;</span>: [
+                  <span style="color:#e6db74">&#34;secretsmanager:*&#34;</span>
+              ]
+            }
+          }
+        }
+      }
+    apply_to:
+      accounts:
+        - account_id: <span style="color:#e6db74">&#34;338024302548&#34;</span></code></pre></div>
+ </figure>
+<p>You will need to update the account_id from 000000000000 to the account_id you want to apply the tag policy
+to.</p>
+<p>Please note, you do not need to specify a region in the apply_to section.</p>
+<h3 id="applying-a-tag-policy-to-every-account-with-a-specified-tag">Applying a tag policy to every account with a specified tag</h3>
+<p>To apply a tag policy to every account with specified tag add the following snippet to your manifest file:</p>
+ <figure>
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">tag-policies:
+  force-cost-center:
+    description: <span style="color:#e6db74">&#34;force cost center&#34;</span>
+    tags:
+      - Key: Category
+        Value: Foundational
+    content:
+      default: {
+        <span style="color:#e6db74">&#34;tags&#34;</span>: {
+          <span style="color:#e6db74">&#34;costcenter&#34;</span>: {
+            <span style="color:#e6db74">&#34;tag_key&#34;</span>: {
+              <span style="color:#e6db74">&#34;@@assign&#34;</span>: <span style="color:#e6db74">&#34;CostCenter&#34;</span>
+            },
+            <span style="color:#e6db74">&#34;tag_value&#34;</span>: {
+              <span style="color:#e6db74">&#34;@@assign&#34;</span>: [
+                  <span style="color:#e6db74">&#34;100&#34;</span>,
+                  <span style="color:#e6db74">&#34;200&#34;</span>
+              ]
+            },
+            <span style="color:#e6db74">&#34;enforced_for&#34;</span>: {
+              <span style="color:#e6db74">&#34;@@assign&#34;</span>: [
+                  <span style="color:#e6db74">&#34;secretsmanager:*&#34;</span>
+              ]
+            }
+          }
+        }
+      }
+    apply_to:
+      tags:
+        - tag: type:prod
+  </code></pre></div>
+ </figure>
+<p>You will need to update the tag from type:prod to the tag you want to apply the tag policy to.</p>
+<p>Please note, you do not need to specify a region in the apply_to section.</p>
+<h3 id="applying-a-tag-policy-to-an-organizational-unit">Applying a tag policy to an organizational unit</h3>
+<p>To apply a tag policy to a specific organizational unit add the following snippet to your manifest file:</p>
+ <figure>
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">tag-policies:
+  force-cost-center:
+    description: <span style="color:#e6db74">&#34;force cost center&#34;</span>
+    tags:
+      - Key: Category
+        Value: Foundational
+    content:
+      default: {
+        <span style="color:#e6db74">&#34;tags&#34;</span>: {
+          <span style="color:#e6db74">&#34;costcenter&#34;</span>: {
+            <span style="color:#e6db74">&#34;tag_key&#34;</span>: {
+              <span style="color:#e6db74">&#34;@@assign&#34;</span>: <span style="color:#e6db74">&#34;CostCenter&#34;</span>
+            },
+            <span style="color:#e6db74">&#34;tag_value&#34;</span>: {
+              <span style="color:#e6db74">&#34;@@assign&#34;</span>: [
+                  <span style="color:#e6db74">&#34;100&#34;</span>,
+                  <span style="color:#e6db74">&#34;200&#34;</span>
+              ]
+            },
+            <span style="color:#e6db74">&#34;enforced_for&#34;</span>: {
+              <span style="color:#e6db74">&#34;@@assign&#34;</span>: [
+                  <span style="color:#e6db74">&#34;secretsmanager:*&#34;</span>
+              ]
+            }
+          }
+        }
+      }
+    apply_to:
+      ous:
+        - ou: /workloads
+  </code></pre></div>
+ </figure>
+<p>You will need to update the ou from /workloads to the path you want to apply the tag policy
+to.</p>
+<p>Alternatively you can use an ou id instead of a path:</p>
+ <figure>
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">tag-policies:
+  force-cost-center:
+    description: <span style="color:#e6db74">&#34;force cost center&#34;</span>
+    tags:
+      - Key: Category
+        Value: Foundational
+    content:
+      default: {
+        <span style="color:#e6db74">&#34;tags&#34;</span>: {
+          <span style="color:#e6db74">&#34;costcenter&#34;</span>: {
+            <span style="color:#e6db74">&#34;tag_key&#34;</span>: {
+              <span style="color:#e6db74">&#34;@@assign&#34;</span>: <span style="color:#e6db74">&#34;CostCenter&#34;</span>
+            },
+            <span style="color:#e6db74">&#34;tag_value&#34;</span>: {
+              <span style="color:#e6db74">&#34;@@assign&#34;</span>: [
+                  <span style="color:#e6db74">&#34;100&#34;</span>,
+                  <span style="color:#e6db74">&#34;200&#34;</span>
+              ]
+            },
+            <span style="color:#e6db74">&#34;enforced_for&#34;</span>: {
+              <span style="color:#e6db74">&#34;@@assign&#34;</span>: [
+                  <span style="color:#e6db74">&#34;secretsmanager:*&#34;</span>
+              ]
+            }
+          }
+        }
+      }
+    apply_to:
+      ous:
+        - ou: ou-japk-38pz9nbt
+  </code></pre></div>
+ </figure>
+<h3 id="storing-your-policies-in-amazon-s3">Storing your policies in Amazon S3</h3>
+<p>You can choose to store you tag policies in Amazon S3 using the following syntax:</p>
+ <figure>
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">tag-policies:
+  force-cost-center:
+    description: <span style="color:#e6db74">&#34;force cost center&#34;</span>
+    tags:
+      - Key: Category
+        Value: Foundational
+    content:
+      s3: 
+        bucket: my-policy-store
+        key: force-cost-center.json
+    apply_to:
+      ous:
+        - ou: /workloads
+  </code></pre></div>
+ </figure>
+<h3 id="extra-notes">Extra notes</h3>
+<ul>
+<li>You do not need to specify a region in the apply_to section</li>
+<li>Tag policies can only be used in hub execution mode</li>
+<li>All json documents will be minimised before being applied</li>
+</ul>
+<p>You have now successfully applied a tag policy!</p>
 
 
 
@@ -2903,7 +3039,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -2911,124 +3046,6 @@
                     
                     
 
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
                     
                         
             
@@ -3093,51 +3110,6 @@
                     
             
         
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
                     
             
         
@@ -3315,6 +3287,38 @@
                     
 
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -3354,6 +3358,138 @@
             
             
                 
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
                     
                 
                 
@@ -3864,10 +4000,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="../every-day-use/using-a-mono-repo.html" title="Using a mono repo"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="../every-day-use/800-applying-service-control-policies.html" title="Applying Service Control Policies"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="../every-day-use/100-creating-a-product/100-define-the-product.html" title="Define the product" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="../every-day-use/900-multi-org-usage.html" title="Multi Organization usage" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
