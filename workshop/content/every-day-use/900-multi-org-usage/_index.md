@@ -145,4 +145,4 @@ Values in this file will overwrite all other values making the order of reading:
 1. manifest.yaml 
 2. other manifest files (eg in manifests/) 
 3. manifest.properties 
-4. manifest-<puppet-account-id>.properties
+4. manifest-<<puppet-account-id>>.properties
