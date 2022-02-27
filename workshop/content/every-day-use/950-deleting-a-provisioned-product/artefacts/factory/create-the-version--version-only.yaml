@@ -1,0 +1,9 @@
+    Versions:
+      - Name: "v1"
+        Description: "v1 of aws-config-enable-config"
+        Active: True
+        Source:
+          Provider: "CodeCommit"
+          Configuration:
+            RepositoryName: "aws-config-enable-config"
+            BranchName: "main"
