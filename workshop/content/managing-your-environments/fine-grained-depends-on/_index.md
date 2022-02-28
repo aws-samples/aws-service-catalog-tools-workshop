@@ -1,7 +1,9 @@
 +++
 title = "Fine grained depends_on"
 weight = 150
-
+aliases = [
+    "/design-considerations/fine-grained-depends-on.html",
+]
 +++
 ---
 

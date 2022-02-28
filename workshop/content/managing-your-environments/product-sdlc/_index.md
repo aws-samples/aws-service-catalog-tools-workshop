@@ -1,7 +1,9 @@
 +++
 title = "Product SDLC"
 weight = 400
-
+aliases = [
+    "/design-considerations/product-sdlc.html",
+]
 +++
 ---
 

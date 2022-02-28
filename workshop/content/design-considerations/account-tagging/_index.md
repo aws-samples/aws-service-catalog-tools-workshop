@@ -17,7 +17,7 @@ When writing your manifest you can specify tags for AWS Accounts:
 <figure>
   {{< highlight js "hl_lines=9-10">}}
 accounts:
-  - account_id: 012345678910"
+  - account_id: "012345678910"
     name: "prod-member-service-9"
     default_region: "eu-west-1"
     regions_enabled:

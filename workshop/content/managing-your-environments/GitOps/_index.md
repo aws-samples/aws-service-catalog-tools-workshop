@@ -1,11 +1,31 @@
 +++
-title = "Managing multi Org environments"
+title = "GitOps"
 weight = 105
+aliases = [
+    "/design-considerations/managing-multi-org-environments.html",
+]
 
 +++
 ---
 
-## What are we going to do?
+## GitOps
+
+We recommend you start your management journey with the Service Catalog Tools following a GitOps methodology.  As your
+usage increases you may find you want to move to continuous delivery or roll out your own custom process.
+
+Whilst following GitOps and managing multiple environments you may encounter some duplication between the configurations 
+defining each of your environments.  The following article explains some of the capabilities that have been introduced 
+to help resolve these problems.
+
+When following GitOps to manage multiple organizations or installations, if the contents of your manifest files are 
+significantly different to each other we recommend you have a single git repo or branch for each install of this 
+solution. 
+
+If the contents is similar you could use
+[intrinsic-functions]({{< ref "/managing-your-environments/GitOps/intrinsic-functions" >}} "intrinsic functions"),  
+[conditions]({{< ref "/managing-your-environments/GitOps/conditions" >}} "conditions") or
+[manifest properties]({{< ref "/managing-your-environments/GitOps/manifest-properties" >}} "manifest properties") within
+your manifest file to manage variance between the different sets of accounts details or parameter details.
 
 This article will provide advice on how to manage change in a multi AWS Organizations environment.  
 
@@ -60,16 +80,21 @@ The following sections explain how to you can maintain a single manifest file fo
 Service Catalog Puppet:
 
 ### Different Hub/Core Accounts in a Multi Org SDLC
-If you have differences in the account list we recommend using intrinsic functions to declare your AWS account details - 
-for example your security tooling account or log storage account ID will most likely be different in each Organization.
-Using intrinsic functions to declare and use the account IDs for each hub account allows you to have different intrinsic
-function files per Organization but keep the same manifest file.
+If you have differences in the account list we recommend using 
+[intrinsic-functions]({{< ref "/managing-your-environments/GitOps/intrinsic-functions" >}} "intrinsic functions") to 
+declare your AWS account details - for example your security tooling account or log storage account ID will most likely 
+be different in each Organization. Using 
+[intrinsic-functions]({{< ref "/managing-your-environments/GitOps/intrinsic-functions" >}} "intrinsic functions") to 
+declare and use the account IDs for each hub account allows you to have different 
+[intrinsic-functions]({{< ref "/managing-your-environments/GitOps/intrinsic-functions" >}} "intrinsic functions") files 
+per Organization but keep the same manifest file.
 
 ### Different Parameters in a Multi Org SDLC
 If you have Organization wide parameters that are different between Organizations you can use SMM parameters to store 
 the values.  These parameters may be a log storage account id, the Arn of a networking resource or an email address. We 
 recommend defining these parameters in the global parameters section of the main manifest file and use a naming
-convention for the SSM parameters to ensure they are consistent and unique.  You can use intrinsic functions in the 
+convention for the SSM parameters to ensure they are consistent and unique.  You can use 
+[intrinsic-functions]({{< ref "/managing-your-environments/GitOps/intrinsic-functions" >}} "intrinsic functions") in the 
 parameter name for this usecase but we do not recommend it.
 
 ### Rolling out changes to already defined items in a Multi Org SDLC
@@ -86,8 +111,10 @@ will see why.
 ### Rolling out the first version of a new item in a Multi Org SDLC
 If you are creating a new launch (or something of any other action type) we recommend adding it to the main manifest 
 file with a status of "ignored".  In the manifest-<<dev-org-puppet-account-id>>.properties or 
-manifest-<<test-org-puppet-account-id>>.properties file we recommend you set the status to "provisioned", "terminated", 
-"shared" or "enabled" depending on which type of action you are configuring and where you would like to test it.
+manifest-<<test-org-puppet-account-id>>.properties 
+[file]({{< ref "/managing-your-environments/GitOps/manifest-properties" >}} "file") we recommend you set the status to 
+"provisioned", "terminated", "shared" or "enabled" depending on which type of action you are configuring and where you 
+would like to test it.
 
 
 ## Multiple Prod Orgs

@@ -2,6 +2,9 @@
 title = "Multi Organization usage"
 weight = 900
 home_region = "eu-west-1"
+aliases = [
+    "/every-day-use/900-multi-org-usage.html",
+]
 +++
 ---
 

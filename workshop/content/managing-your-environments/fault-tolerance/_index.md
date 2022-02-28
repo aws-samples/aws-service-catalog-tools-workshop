@@ -1,7 +1,9 @@
 +++
 title = "Fault Tolerance"
 weight = 110
-
+aliases = [
+    "/design-considerations/fault-tolerance.html",
+]
 +++
 ---
 
