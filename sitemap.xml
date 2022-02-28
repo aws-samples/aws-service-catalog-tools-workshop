@@ -311,6 +311,10 @@
   </url>
   
   <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/every-day-use/390-terminating-provisioned-resources.html</loc>
+  </url>
+  
+  <url>
     <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/every-day-use/400-invoking-a-lambda-function.html</loc>
   </url>
   
