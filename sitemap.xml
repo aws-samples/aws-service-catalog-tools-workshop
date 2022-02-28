@@ -111,6 +111,10 @@
   </url>
   
   <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/managing-your-environments.html</loc>
+  </url>
+  
+  <url>
     <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/100-removing-the-default-networking/50-asserting-the-resources-are-removed.html</loc>
   </url>
   
@@ -183,7 +187,7 @@
   </url>
   
   <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/design-considerations/managing-multi-org-environments.html</loc>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/managing-your-environments/gitops.html</loc>
   </url>
   
   <url>
@@ -191,11 +195,23 @@
   </url>
   
   <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/design-considerations/fault-tolerance.html</loc>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/managing-your-environments/fault-tolerance.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/managing-your-environments/gitops/intrinsic-functions.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/managing-your-environments/gitops/conditions.html</loc>
   </url>
   
   <url>
     <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/design-considerations/using-parameters-in-the-real-world.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/managing-your-environments/gitops/manifest-properties.html</loc>
   </url>
   
   <url>
@@ -207,7 +223,7 @@
   </url>
   
   <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/design-considerations/fine-grained-depends-on.html</loc>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/managing-your-environments/fine-grained-depends-on.html</loc>
   </url>
   
   <url>
@@ -319,7 +335,7 @@
   </url>
   
   <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/design-considerations/product-sdlc.html</loc>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/managing-your-environments/product-sdlc.html</loc>
   </url>
   
   <url>
@@ -359,7 +375,7 @@
   </url>
   
   <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/every-day-use/900-multi-org-usage.html</loc>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/managing-your-environments/multi-org-usage.html</loc>
   </url>
   
   <url>

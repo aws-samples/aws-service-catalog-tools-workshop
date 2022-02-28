@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GitOps on Service Catalog Tools Workshop</title>
+    <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/managing-your-environments/gitops.html</link>
+    <description>Recent content in GitOps on Service Catalog Tools Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://aws-samples.github.io/aws-service-catalog-tools-workshop/managing-your-environments/gitops/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Intrinsic functions</title>
+      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/managing-your-environments/gitops/intrinsic-functions.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/managing-your-environments/gitops/intrinsic-functions.html</guid>
+      <description>Intrinsic Functions There is a built in intrinsic function ${AWS::PuppetAccountId} that you can use anywhere within your manifest file.
+When your manifest file being expanded the string ${AWS::PuppetAccountId} will be replace with the value of the account id. This allows you avoid hard coding the account id of the hub account.
+ accounts: - account_id: &amp;#34;${AWS::PuppetAccountId}&amp;#34; name: &amp;#34;puppet-account&amp;#34; default_region: &amp;#34;eu-west-1&amp;#34; regions_enabled: - &amp;#34;eu-west-1&amp;#34; - &amp;#34;eu-west-2&amp;#34; tags: - &amp;#34;type:prod&amp;#34; - &amp;#34;partition:eu&amp;#34;   You can specify your own functions within a file named intrinsic-functions.</description>
+    </item>
+    
+    <item>
+      <title>Conditions</title>
+      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/managing-your-environments/gitops/conditions.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/managing-your-environments/gitops/conditions.html</guid>
+      <description>Conditions You can create conditions within your manifest file. These conditions work just like the AWS CloudFormation conditions and can be used to decide whether actions occur or not:
+ conditions: IsDev: !Equals - 156551640785 - ${AWS::PuppetAccountId} IsProd: !Not - !Equals - 156551640785 - ${AWS::PuppetAccountId}   At the moment you can use Equals and Not functions to create conditions. Then you can specify conditions for your stacks and other actions:</description>
+    </item>
+    
+    <item>
+      <title>Manifest properties</title>
+      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/managing-your-environments/gitops/manifest-properties.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/managing-your-environments/gitops/manifest-properties.html</guid>
+      <description>Manifest properties If you are using puppet to manage multiple environments you may find it easier to keep the versions of your launches in properties files instead of the manifest.yaml files. To do this you create a file named manifest.properties in the same directory as your manifest.yaml file. Within this file you can specify the following:
+ [launches] IAM-1.version = v50  This will set the version for the launch with the name IAM-1 to v50.</description>
+    </item>
+    
+  </channel>
+</rss>

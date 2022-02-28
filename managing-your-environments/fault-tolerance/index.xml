@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Fault Tolerance on Service Catalog Tools Workshop</title>
-    <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/design-considerations/fault-tolerance.html</link>
+    <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/managing-your-environments/fault-tolerance.html</link>
     <description>Recent content in Fault Tolerance on Service Catalog Tools Workshop</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	<atom:link href="https://aws-samples.github.io/aws-service-catalog-tools-workshop/design-considerations/fault-tolerance/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://aws-samples.github.io/aws-service-catalog-tools-workshop/managing-your-environments/fault-tolerance/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>
