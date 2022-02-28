@@ -18,5 +18,3 @@ To build the gh-pages:
 ```shell
 make gh-pages
 ```
- 
-# noop
