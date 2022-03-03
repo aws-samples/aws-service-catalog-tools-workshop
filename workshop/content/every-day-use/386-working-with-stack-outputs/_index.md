@@ -178,7 +178,7 @@ Stacks:
         Source:
           Provider: "CodeCommit"
           Configuration:
-            RepositoryName: "example-subnetc"
+            RepositoryName: "example-subnet"
             BranchName: "main"
   {{< / highlight >}}
  </figure>
