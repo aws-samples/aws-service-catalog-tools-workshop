@@ -17,7 +17,7 @@ We will assume you have:
  - bootstrapped a spoke
  - created a manifest file
  - added an account to the manifest file
- - provisioned a resource - either through a stack, app, workspace or launch
+ - provisioned a resource - either through a stack, app, workspace, launch or service control policy
 
 We will assume you are comfortable:
  - making changes your manifest file
@@ -84,6 +84,39 @@ launches:
           regions: regions_enabled
   {{< / highlight >}}
  </figure>
+
+- Example "service-control-policy" resource deletion:
+
+ <figure>
+  {{< highlight js >}}
+
+service-control-policies:
+  deny-organizations-leave-organization:
+    status: terminated
+    description: "do not allow accounts to leave"
+    tags:
+      - Key: Category
+        Value: Foundational
+    content:
+      default: {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Effect": "Deny",
+                "Action": [
+                    "organizations:LeaveOrganization"
+                ],
+                "Resource": "*"
+            }
+        ]
+      }
+    apply_to:
+      accounts:
+        - account_id: "029953558454"
+  {{< / highlight >}}
+ </figure>
+
+Please note terminating a service control policy will detach it from the target but it will not delete it.
 
 ### Committing the manifest file
 

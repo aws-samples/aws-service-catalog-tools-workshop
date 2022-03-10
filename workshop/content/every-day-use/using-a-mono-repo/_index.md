@@ -20,8 +20,7 @@ We will assume you are comfortable:
 
 - This capability was introduced in version 0.71.0 of factory.  To use this feature you will need to use this version (or
   later).
-- You can only use a mono repo for stacks, apps or workspaces.  There is currently no mono repo support planned
-  for products.
+- You can only use a mono repo for products, stacks, apps or workspaces.
 
 ## Recommended folder structure
 
@@ -82,9 +81,9 @@ Stacks:
 The path must exist in the Source dictionary and needs to be relative to the root of the git repo.
 
 ## Limitations
-You must be using at least version 0.71.0 to use this and you can only use this for stacks, apps and workspaces.  At the 
-moment of writing this, a change to the source will trigger all pipelines that listen to it.  A future version will 
-resolve this. 
+You must be using at least version 0.71.0 to use this and you can only use this for products, stacks, apps and 
+workspaces.  At the moment of writing this, a change to the source will trigger all pipelines that listen to it.  A 
+future version will resolve this. 
 
-If you are providing your own build, testing or package stages you will need to manage the path to the your source in the
-buildspec you write. 
+If you are providing your own build, testing or package stages you will need to manage the path to the your source in 
+the buildspec you write. 
