@@ -2383,7 +2383,7 @@
 </left>
 
 <left>
-    <h5 class="copyright">02a4fea - Mon Feb 28 17:47:40 UTC 2022</h5>
+    <h5 class="copyright">be4015e - Thu Mar 10 23:14:04 UTC 2022</h5>
 </left>
 
     </section>
@@ -2480,8 +2480,7 @@
 <ul>
 <li>This capability was introduced in version 0.71.0 of factory.  To use this feature you will need to use this version (or
 later).</li>
-<li>You can only use a mono repo for stacks, apps or workspaces.  There is currently no mono repo support planned
-for products.</li>
+<li>You can only use a mono repo for products, stacks, apps or workspaces.</li>
 </ul>
 <h2 id="recommended-folder-structure">Recommended folder structure</h2>
 <p>If you are using a mono repo we recommend you use the root directory for the type of thing you are going to build, we
@@ -2531,11 +2530,11 @@ then recommend a directory for each thing followed by a directory for each versi
  </figure>
 <p>The path must exist in the Source dictionary and needs to be relative to the root of the git repo.</p>
 <h2 id="limitations">Limitations</h2>
-<p>You must be using at least version 0.71.0 to use this and you can only use this for stacks, apps and workspaces.  At the
-moment of writing this, a change to the source will trigger all pipelines that listen to it.  A future version will
-resolve this.</p>
-<p>If you are providing your own build, testing or package stages you will need to manage the path to the your source in the
-buildspec you write.</p>
+<p>You must be using at least version 0.71.0 to use this and you can only use this for products, stacks, apps and
+workspaces.  At the moment of writing this, a change to the source will trigger all pipelines that listen to it.  A
+future version will resolve this.</p>
+<p>If you are providing your own build, testing or package stages you will need to manage the path to the your source in
+the buildspec you write.</p>
 
 
 

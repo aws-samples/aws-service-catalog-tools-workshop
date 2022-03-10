@@ -2383,7 +2383,7 @@
 </left>
 
 <left>
-    <h5 class="copyright">02a4fea - Mon Feb 28 17:47:41 UTC 2022</h5>
+    <h5 class="copyright">be4015e - Thu Mar 10 23:14:05 UTC 2022</h5>
 </left>
 
     </section>
@@ -2475,7 +2475,7 @@
 <li>bootstrapped a spoke</li>
 <li>created a manifest file</li>
 <li>added an account to the manifest file</li>
-<li>provisioned a resource - either through a stack, app, workspace or launch</li>
+<li>provisioned a resource - either through a stack, app, workspace, launch or service control policy</li>
 </ul>
 <p>We will assume you are comfortable:</p>
 <ul>
@@ -2546,6 +2546,37 @@
   
 </code></pre></div>
  </figure>
+<ul>
+<li>Example &ldquo;service-control-policy&rdquo; resource deletion:</li>
+</ul>
+ <figure>
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">service</span><span style="color:#f92672">-</span><span style="color:#a6e22e">control</span><span style="color:#f92672">-</span><span style="color:#a6e22e">policies</span><span style="color:#f92672">:</span>
+  <span style="color:#a6e22e">deny</span><span style="color:#f92672">-</span><span style="color:#a6e22e">organizations</span><span style="color:#f92672">-</span><span style="color:#a6e22e">leave</span><span style="color:#f92672">-</span><span style="color:#a6e22e">organization</span><span style="color:#f92672">:</span>
+    <span style="color:#a6e22e">status</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">terminated</span>
+    <span style="color:#a6e22e">description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;do not allow accounts to leave&#34;</span>
+    <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
+      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Category</span>
+        <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Foundational</span>
+    <span style="color:#a6e22e">content</span><span style="color:#f92672">:</span>
+      <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span> {
+        <span style="color:#e6db74">&#34;Version&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;2012-10-17&#34;</span>,
+        <span style="color:#e6db74">&#34;Statement&#34;</span><span style="color:#f92672">:</span> [
+            {
+                <span style="color:#e6db74">&#34;Effect&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Deny&#34;</span>,
+                <span style="color:#e6db74">&#34;Action&#34;</span><span style="color:#f92672">:</span> [
+                    <span style="color:#e6db74">&#34;organizations:LeaveOrganization&#34;</span>
+                ],
+                <span style="color:#e6db74">&#34;Resource&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;*&#34;</span>
+            }
+        ]
+      }
+    <span style="color:#a6e22e">apply_to</span><span style="color:#f92672">:</span>
+      <span style="color:#a6e22e">accounts</span><span style="color:#f92672">:</span>
+        <span style="color:#f92672">-</span> <span style="color:#a6e22e">account_id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;029953558454&#34;</span>
+  
+</code></pre></div>
+ </figure>
+<p>Please note terminating a service control policy will detach it from the target but it will not delete it.</p>
 <h3 id="committing-the-manifest-file">Committing the manifest file</h3>
 <p><em>Now that we have updated the manifest file we are ready to commit our changes.</em></p>
 <ul>
