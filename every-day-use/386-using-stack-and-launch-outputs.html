@@ -15,7 +15,7 @@
     <link rel="shortcut icon" href="../images/favicon.png" type="image/png" />
 <link rel="icon" href="../images/favicon.png" type="image/png" />
 
-    <title>Invoking a Lambda Function :: Service Catalog Tools Workshop</title>
+    <title>Using stack and launch outputs :: Service Catalog Tools Workshop</title>
 
     
     <link href="../css/nucleus.css" rel="stylesheet">
@@ -43,7 +43,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/every-day-use/400-invoking-a-lambda-function.html">
+  <body class="" data-url="/every-day-use/386-using-stack-and-launch-outputs.html">
     <nav id="sidebar" class="">
 
 
@@ -1457,8 +1457,8 @@
   
     
     <li data-nav-id="/every-day-use/386-using-stack-and-launch-outputs.html" title="Using stack and launch outputs" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="../every-day-use/386-using-stack-and-launch-outputs.html">
@@ -1505,8 +1505,8 @@
   
     
     <li data-nav-id="/every-day-use/400-invoking-a-lambda-function.html" title="Invoking a Lambda Function" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="../every-day-use/400-invoking-a-lambda-function.html">
@@ -2447,7 +2447,7 @@
             
           
           
-            <a href='../'>AWS Service Catalog Tools Intro Workshop</a> > <a href='../every-day-use.html'>Every day use</a> > Invoking a Lambda Function
+            <a href='../'>AWS Service Catalog Tools Intro Workshop</a> > <a href='../every-day-use.html'>Every day use</a> > Using stack and launch outputs
           
         
           
@@ -2464,11 +2464,11 @@
     <li><a href="#what-are-we-going-to-do">What are we going to do?</a></li>
     <li><a href="#step-by-step-guide">Step by step guide</a>
       <ul>
-        <li><a href="#set-up-an-aws-iam-role-in-the-spoke-account">Set Up an AWS IAM Role in the Spoke Account</a></li>
-        <li><a href="#creating-the-sample-lambda-function">Creating the sample lambda function</a></li>
-        <li><a href="#adding-a-lambda-invocation-to-the-manifest">Adding a lambda-invocation to the manifest</a></li>
-        <li><a href="#committing-the-manifest-file">Committing the manifest file</a></li>
-        <li><a href="#verifying-the-lambda-invocation">Verifying the lambda invocation</a></li>
+        <li><a href="#things-to-note-before-we-start">Things to note, before we start</a></li>
+        <li><a href="#provision-a-stack-with-some-outputs">Provision a stack with some outputs</a></li>
+        <li><a href="#provisioning-a-stack-that-depends-on-the-initial-stack-which-consumes-stack-outputs">Provisioning a stack that depends on the initial stack, which consumes stack outputs</a></li>
+        <li><a href="#provision-a-stack-using-service-catalog-puppet">Provision a stack using Service Catalog Puppet</a></li>
+        <li><a href="#working-with-servicecatalog-provisioned-product-outputs">Working with ServiceCatalog Provisioned product outputs</a></li>
       </ul>
     </li>
   </ul>
@@ -2484,7 +2484,7 @@
         
         <div id="body-inner">
           
-            <h1>Invoking a Lambda Function</h1>
+            <h1>Using stack and launch outputs</h1>
           
 
         
@@ -2493,7 +2493,7 @@
 
 	<hr>
 <h2 id="what-are-we-going-to-do">What are we going to do?</h2>
-<p>This tutorial will walk you through how to use the &ldquo;Invoking a Lambda Function&rdquo; feature.</p>
+<p>This tutorial will walk you through how to use the &ldquo;Using stack and launch outputs&rdquo; feature.</p>
 <p>We will assume you have:</p>
 <ul>
 <li>installed Service Catalog Puppet correctly</li>
@@ -2501,272 +2501,136 @@
 <li>created a manifest file</li>
 <li>added an account to the manifest file</li>
 </ul>
-<p>We are going to perform the following steps to &ldquo;Invoking a Lambda Function&rdquo;:</p>
+<p>We will assume you are comfortable:</p>
 <ul>
-<li>set up an AWS IAM role in the spoke account</li>
-<li>create a sample lambda function</li>
-<li>add a lambda invoke to the manifest file</li>
+<li>making changes your portfolios files</li>
+<li>making changes your manifest file</li>
+<li>provisioning stacks</li>
+<li>provisioning products / launches</li>
 </ul>
-<p>During this process you will check your progress by verifying what the framework is doing at each step.</p>
 <h2 id="step-by-step-guide">Step by step guide</h2>
-<p>Here are the steps you need to follow to &ldquo;Invoking a Lambda Function&rdquo;</p>
-<h3 id="set-up-an-aws-iam-role-in-the-spoke-account">Set Up an AWS IAM Role in the Spoke Account</h3>
-<p>This guide assumes that a role exists within the spoke account that can be assumed by the Service Catalog Tools account.
-The name of this role would need to be the same across all spoke accounts, and the role would need permissions
-appropriate for your lambda function(s) to be able to complete its tasks. For the purpose of this example, a
-CloudFormation template has been provided that you can use to create the role in the spoke account that will allow our
-sample lambda function to run successfully.</p>
- <figure>
-  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">AWSTemplateFormatVersion</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;2010-09-09&#39;</span>
-<span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;IAM Role in spoke accounts that will have trust relationship with Service Catalog Tools account.&#34;</span>
-
-<span style="color:#a6e22e">Parameters</span><span style="color:#f92672">:</span>
-  <span style="color:#a6e22e">ToolsAccountId</span><span style="color:#f92672">:</span>
-    <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;The Service Catalog Tools AWS Account ID&#34;</span>
-    <span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> String
-
-  <span style="color:#a6e22e">ToolsAccountAccessRole</span><span style="color:#f92672">:</span>
-    <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Name of the IAM role that the management account will be allowed to assume&#34;</span>
-    <span style="color:#a6e22e">Default</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">ToolsAccountAccessRole</span>
-    <span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> String
-
-<span style="color:#a6e22e">Resources</span><span style="color:#f92672">:</span>
-  <span style="color:#a6e22e">AssumedRole</span><span style="color:#f92672">:</span>
-    <span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">AWS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">IAM</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">Role</span>
-    <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#f92672">|</span>
-      <span style="color:#a6e22e">IAM</span> <span style="color:#a6e22e">Role</span> <span style="color:#a6e22e">needed</span> <span style="color:#a6e22e">by</span> <span style="color:#a6e22e">the</span> <span style="color:#a6e22e">Service</span> <span style="color:#a6e22e">Catalog</span> <span style="color:#a6e22e">Tools</span> <span style="color:#a6e22e">Account</span>
-    <span style="color:#a6e22e">Properties</span><span style="color:#f92672">:</span>
-      <span style="color:#a6e22e">RoleName</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Ref</span> <span style="color:#a6e22e">ToolsAccountAccessRole</span>
-      <span style="color:#a6e22e">Policies</span><span style="color:#f92672">:</span>
-        <span style="color:#f92672">-</span> <span style="color:#a6e22e">PolicyName</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">ToolsAccountTrustPolicy</span>
-          <span style="color:#a6e22e">PolicyDocument</span><span style="color:#f92672">:</span>
-            <span style="color:#a6e22e">Version</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2012</span><span style="color:#f92672">-</span><span style="color:#ae81ff">10</span><span style="color:#f92672">-</span><span style="color:#ae81ff">17</span>
-            <span style="color:#a6e22e">Statement</span><span style="color:#f92672">:</span>
-              <span style="color:#f92672">-</span> <span style="color:#a6e22e">Effect</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Allow</span>
-                <span style="color:#a6e22e">Action</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;iam:*&#39;</span>
-                <span style="color:#a6e22e">Resource</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;*&#39;</span>
-      <span style="color:#a6e22e">AssumeRolePolicyDocument</span><span style="color:#f92672">:</span>
-        <span style="color:#a6e22e">Version</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;2012-10-17&#34;</span>
-        <span style="color:#a6e22e">Statement</span><span style="color:#f92672">:</span>
-          <span style="color:#f92672">-</span> <span style="color:#a6e22e">Effect</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Allow&#34;</span>
-            <span style="color:#a6e22e">Principal</span><span style="color:#f92672">:</span>
-              <span style="color:#a6e22e">AWS</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Sub</span> <span style="color:#e6db74">&#34;arn:aws:iam::${ToolsAccountId}:root&#34;</span>
-            <span style="color:#a6e22e">Action</span><span style="color:#f92672">:</span>
-              <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;sts:AssumeRole&#34;</span>
-  
-</code></pre></div>
- </figure>
-<h3 id="creating-the-sample-lambda-function">Creating the sample lambda function</h3>
-<p>We will need to create the AWS Lambda function that will be executed by the framework.  This function will exist in the
-account where you have installed the Service Catalog Tools.  When you want to perform an action in a spoke account
-you should read the <em>account_id</em> and <em>region</em> properties from the event object.  If you want to use parameters they
-are available using the <em>parameters</em> attribute in the event object.</p>
+<p>Here are the steps you need to follow to &ldquo;Using stack and launch outputs&rdquo;</p>
+<h3 id="things-to-note-before-we-start">Things to note, before we start</h3>
 <ul>
-<li>
-<p>You should save the following into a file named <em>create-iam-group-lambda.yaml</em></p>
-<figure>
- <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">AWSTemplateFormatVersion</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;2010-09-09&#39;</span>
-<span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Creates</span> <span style="color:#a6e22e">a</span> <span style="color:#a6e22e">Lambda</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">that</span> <span style="color:#a6e22e">assumes</span> <span style="color:#a6e22e">a</span> <span style="color:#a6e22e">role</span> <span style="color:#a6e22e">into</span> <span style="color:#a6e22e">spoke</span> <span style="color:#a6e22e">accounts</span> <span style="color:#a6e22e">and</span> <span style="color:#a6e22e">creates</span> <span style="color:#a6e22e">an</span> <span style="color:#a6e22e">IAM</span> <span style="color:#a6e22e">group</span>
+<li>The cloudformation_stack_output feature was added in version 0.150.0 of Service Catalog Puppet.  You will need to be using this version (or later)</li>
+<li>The servicecatalog_provisioned_product_output feature was added in version 0.160.0 of Service Catalog Puppet.  You will need to be using this version (or later)</li>
+</ul>
+<h3 id="provision-a-stack-with-some-outputs">Provision a stack with some outputs</h3>
+<p>In order to use a stack output you must first provision a stack that provides the output.  Here is an example of such a
+template:</p>
+ <figure>
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">Parameters</span><span style="color:#f92672">:</span>
+  <span style="color:#a6e22e">CidrBlock</span><span style="color:#f92672">:</span>
+    <span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> String
+  <span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span>
+    <span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> String
+
 <span style="color:#a6e22e">Resources</span><span style="color:#f92672">:</span>
-  <span style="color:#a6e22e">rLambdaCustomRole</span><span style="color:#f92672">:</span>
-    <span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">AWS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">IAM</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">Role</span>
+  <span style="color:#a6e22e">VPC</span><span style="color:#f92672">:</span>
+    <span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">AWS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">EC2</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">VPC</span>
     <span style="color:#a6e22e">Properties</span><span style="color:#f92672">:</span>
-      <span style="color:#a6e22e">AssumeRolePolicyDocument</span><span style="color:#f92672">:</span>
-        <span style="color:#a6e22e">Version</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2012</span><span style="color:#f92672">-</span><span style="color:#ae81ff">10</span><span style="color:#f92672">-</span><span style="color:#ae81ff">17</span>
-        <span style="color:#a6e22e">Statement</span><span style="color:#f92672">:</span>
-          <span style="color:#f92672">-</span>
-            <span style="color:#a6e22e">Effect</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Allow</span>
-            <span style="color:#a6e22e">Principal</span><span style="color:#f92672">:</span>
-              <span style="color:#a6e22e">Service</span><span style="color:#f92672">:</span> [<span style="color:#a6e22e">lambda</span>.<span style="color:#a6e22e">amazonaws</span>.<span style="color:#a6e22e">com</span>]
-            <span style="color:#a6e22e">Action</span><span style="color:#f92672">:</span>
-              <span style="color:#f92672">-</span> <span style="color:#a6e22e">sts</span><span style="color:#f92672">:</span><span style="color:#a6e22e">AssumeRole</span>
-      <span style="color:#a6e22e">ManagedPolicyArns</span><span style="color:#f92672">:</span>
-        <span style="color:#f92672">-</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Ref</span> <span style="color:#a6e22e">rLambdaCustomPolicy</span>
-
-  <span style="color:#a6e22e">rLambdaCustomPolicy</span><span style="color:#f92672">:</span>
-    <span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">AWS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">IAM</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">ManagedPolicy</span>
-    <span style="color:#a6e22e">Properties</span><span style="color:#f92672">:</span>
-      <span style="color:#a6e22e">PolicyDocument</span><span style="color:#f92672">:</span>
-        <span style="color:#a6e22e">Version</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2012</span><span style="color:#f92672">-</span><span style="color:#ae81ff">10</span><span style="color:#f92672">-</span><span style="color:#ae81ff">17</span>
-        <span style="color:#a6e22e">Statement</span><span style="color:#f92672">:</span>
-          <span style="color:#f92672">-</span>
-            <span style="color:#a6e22e">Effect</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Allow</span>
-            <span style="color:#a6e22e">Action</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#39;logs:CreateLogGroup&#39;</span>, <span style="color:#e6db74">&#39;logs:CreateLogStream&#39;</span>, <span style="color:#e6db74">&#39;logs:PutLogEvents&#39;</span>]
-            <span style="color:#a6e22e">Resource</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Sub</span> <span style="color:#a6e22e">arn</span><span style="color:#f92672">:</span><span style="color:#a6e22e">$</span>{<span style="color:#a6e22e">AWS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">Partition</span>}<span style="color:#f92672">:</span><span style="color:#a6e22e">logs</span><span style="color:#f92672">:</span><span style="color:#a6e22e">$</span>{<span style="color:#a6e22e">AWS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">Region</span>}<span style="color:#f92672">:</span><span style="color:#a6e22e">$</span>{<span style="color:#a6e22e">AWS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">AccountId</span>}<span style="color:#f92672">:</span><span style="color:#a6e22e">log</span><span style="color:#f92672">-</span><span style="color:#a6e22e">group</span><span style="color:#f92672">:</span><span style="color:#f92672">*</span>
-          <span style="color:#f92672">-</span>
-            <span style="color:#a6e22e">Effect</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Allow</span>
-            <span style="color:#a6e22e">Action</span><span style="color:#f92672">:</span>
-              <span style="color:#f92672">-</span> <span style="color:#a6e22e">sts</span><span style="color:#f92672">:</span><span style="color:#a6e22e">AssumeRole</span>
-            <span style="color:#a6e22e">Resource</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;*&#34;</span>
-
-  <span style="color:#a6e22e">rLambda</span><span style="color:#f92672">:</span>
-    <span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">AWS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">Lambda</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span>Function
-    <span style="color:#a6e22e">Properties</span><span style="color:#f92672">:</span>
-      <span style="color:#a6e22e">FunctionName</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">create</span><span style="color:#f92672">-</span><span style="color:#a6e22e">iam</span><span style="color:#f92672">-</span><span style="color:#a6e22e">group</span>
-      <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Creates</span> <span style="color:#a6e22e">an</span> <span style="color:#a6e22e">IAM</span> <span style="color:#a6e22e">Group</span>
-      <span style="color:#a6e22e">Handler</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">index</span>.<span style="color:#a6e22e">lambda_handler</span>
-      <span style="color:#a6e22e">Code</span><span style="color:#f92672">:</span>
-        <span style="color:#a6e22e">ZipFile</span><span style="color:#f92672">:</span> <span style="color:#f92672">|</span>
-          <span style="color:#66d9ef">import</span> <span style="color:#a6e22e">json</span>
-          <span style="color:#66d9ef">import</span> <span style="color:#a6e22e">boto3</span>
-
-
-          <span style="color:#960050;background-color:#1e0010">#</span> <span style="color:#a6e22e">Set</span> <span style="color:#a6e22e">up</span> <span style="color:#a6e22e">clients</span>
-          <span style="color:#a6e22e">sts</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">boto3</span>.<span style="color:#a6e22e">client</span>(<span style="color:#e6db74">&#39;sts&#39;</span>)
-
-          <span style="color:#a6e22e">def</span> <span style="color:#a6e22e">get_session_info</span>(<span style="color:#a6e22e">event</span>)<span style="color:#f92672">:</span>
-              <span style="color:#a6e22e">acct_id</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">event</span>[<span style="color:#e6db74">&#39;account_id&#39;</span>]
-              <span style="color:#a6e22e">role_name</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">event</span>[<span style="color:#e6db74">&#39;parameters&#39;</span>][<span style="color:#e6db74">&#39;RoleName&#39;</span>]
-              
-              <span style="color:#a6e22e">role_arn</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;arn:aws:iam::&#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">acct_id</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;:role/&#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">role_name</span>
-
-              <span style="color:#a6e22e">sts_response</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">sts</span>.<span style="color:#a6e22e">assume_role</span>(
-                  <span style="color:#a6e22e">RoleArn</span><span style="color:#f92672">=</span><span style="color:#a6e22e">role_arn</span>,
-                  <span style="color:#a6e22e">RoleSessionName</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;LambdaInvokeSession&#39;</span>
-              )
-              
-              <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">sts_response</span>
-
-          <span style="color:#a6e22e">def</span> <span style="color:#a6e22e">lambda_handler</span>(<span style="color:#a6e22e">event</span>, <span style="color:#a6e22e">context</span>)<span style="color:#f92672">:</span>
-              <span style="color:#a6e22e">print</span>(<span style="color:#a6e22e">event</span>)
-              
-              <span style="color:#a6e22e">sts_response</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">get_session_info</span>(<span style="color:#a6e22e">event</span>)
-              
-              <span style="color:#a6e22e">access_key</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">sts_response</span>[<span style="color:#e6db74">&#34;Credentials&#34;</span>][<span style="color:#e6db74">&#34;AccessKeyId&#34;</span>]
-              <span style="color:#a6e22e">secret_key</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">sts_response</span>[<span style="color:#e6db74">&#34;Credentials&#34;</span>][<span style="color:#e6db74">&#34;SecretAccessKey&#34;</span>]
-              <span style="color:#a6e22e">session_token</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">sts_response</span>[<span style="color:#e6db74">&#34;Credentials&#34;</span>][<span style="color:#e6db74">&#34;SessionToken&#34;</span>]
-              
-              <span style="color:#a6e22e">iam</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">boto3</span>.<span style="color:#a6e22e">client</span>(
-                  <span style="color:#e6db74">&#39;iam&#39;</span>,
-                  <span style="color:#a6e22e">aws_access_key_id</span><span style="color:#f92672">=</span><span style="color:#a6e22e">access_key</span>,
-                  <span style="color:#a6e22e">aws_secret_access_key</span><span style="color:#f92672">=</span><span style="color:#a6e22e">secret_key</span>,
-                  <span style="color:#a6e22e">aws_session_token</span><span style="color:#f92672">=</span><span style="color:#a6e22e">session_token</span>
-              )
-
-
-              <span style="color:#a6e22e">group_name</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;sc-tools-invoke-lambda-test-group&#39;</span>
-              <span style="color:#a6e22e">response</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">iam</span>.<span style="color:#a6e22e">create_group</span>(
-                  <span style="color:#a6e22e">GroupName</span><span style="color:#f92672">=</span><span style="color:#a6e22e">group_name</span>
-              )
-              
-      <span style="color:#a6e22e">MemorySize</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">128</span>
-      <span style="color:#a6e22e">Role</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">GetAtt</span> <span style="color:#a6e22e">rLambdaCustomRole</span>.<span style="color:#a6e22e">Arn</span>
-      <span style="color:#a6e22e">Runtime</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">python3</span><span style="color:#ae81ff">.7</span>
-      <span style="color:#a6e22e">Timeout</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">300</span>
-
+      <span style="color:#a6e22e">CidrBlock</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Ref</span> <span style="color:#a6e22e">CidrBlock</span>
+      <span style="color:#a6e22e">EnableDnsHostnames</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">True</span>
+      <span style="color:#a6e22e">EnableDnsSupport</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">True</span>
+      <span style="color:#a6e22e">Tags</span><span style="color:#f92672">:</span>
+        <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Name</span>
+          <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Ref</span> <span style="color:#a6e22e">Name</span>
 <span style="color:#a6e22e">Outputs</span><span style="color:#f92672">:</span>
-  <span style="color:#a6e22e">LambdaName</span><span style="color:#f92672">:</span>
-    <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Ref</span> <span style="color:#a6e22e">rLambda</span>
-   
+  <span style="color:#a6e22e">VpcId</span><span style="color:#f92672">:</span>
+    <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Ref</span> <span style="color:#a6e22e">VPC</span>
+    <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Output</span> <span style="color:#a6e22e">VPC</span> <span style="color:#a6e22e">ID</span> <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">utilisation</span> <span style="color:#a6e22e">by</span> <span style="color:#a6e22e">dependent</span> <span style="color:#a6e22e">product</span>
+  <span style="color:#a6e22e">VpcCidrBlock</span><span style="color:#f92672">:</span>
+    <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">GetAtt</span> <span style="color:#a6e22e">VPC</span>.<span style="color:#a6e22e">CidrBlock</span>
 </code></pre></div>
-</figure>
-</li>
-<li>
-<p>You should then use AWS CloudFormation to create a stack named <em>create-iam-group-lambda</em> using the template you just
-created</p>
-</li>
-</ul>
-<h4 id="what-did-we-just-do">What did we just do?</h4>
-<ul>
-<li>You created an AWS CloudFormation template</li>
-<li>You used the template to create a stack in CloudFormation</li>
-<li>The stack created a sample lambda function</li>
-</ul>
-<h3 id="adding-a-lambda-invocation-to-the-manifest">Adding a lambda-invocation to the manifest</h3>
-<p><em>Now we are ready to add a lambda invocation to the manifest file.</em></p>
-<ul>
-<li>
-<p>Navigate to the  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codecommit/repositories/ServiceCatalogPuppet/browse?region=eu-west-1' target='_blank'>ServiceCatalogPuppet CodeCommit repository</a></p>
-</li>
-<li>
-<p>Click the <em>ServiceCatalogPuppet</em> repository</p>
-</li>
-<li>
-<p>Click the link to the <em>manifest.yaml</em> file, and then click the <em>Edit</em> button</p>
-</li>
-<li>
-<p>Add the following snippet to the end of the main input field:</p>
-</li>
-</ul>
+ </figure>
+<p>Here we are provisioning a stack that outputs VpcId as an output.</p>
+<h3 id="provisioning-a-stack-that-depends-on-the-initial-stack-which-consumes-stack-outputs">Provisioning a stack that depends on the initial stack, which consumes stack outputs</h3>
+<p>Once you have provisioned the stack that provides the output you will need to define a stack that uses the output:</p>
  <figure>
-  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">lambda</span><span style="color:#f92672">-</span><span style="color:#a6e22e">invocations</span><span style="color:#f92672">:</span>
-  <span style="color:#a6e22e">create</span><span style="color:#f92672">-</span><span style="color:#a6e22e">iam</span><span style="color:#f92672">-</span><span style="color:#a6e22e">group</span><span style="color:#f92672">:</span>
-    <span style="color:#a6e22e">function_name</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">create</span><span style="color:#f92672">-</span><span style="color:#a6e22e">iam</span><span style="color:#f92672">-</span><span style="color:#a6e22e">group</span>
-    <span style="color:#a6e22e">qualifier</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">$LATEST</span>
-    <span style="color:#a6e22e">invocation_type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Event</span>
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">Parameters</span><span style="color:#f92672">:</span>
+  <span style="color:#a6e22e">CidrBlock</span><span style="color:#f92672">:</span>
+    <span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> String
+  <span style="color:#a6e22e">VpcId</span><span style="color:#f92672">:</span>
+    <span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> String
+
+<span style="color:#a6e22e">Resources</span><span style="color:#f92672">:</span>
+  <span style="color:#a6e22e">Subnet</span><span style="color:#f92672">:</span>
+    <span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">AWS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">EC2</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">Subnet</span>
+    <span style="color:#a6e22e">Properties</span><span style="color:#f92672">:</span>
+      <span style="color:#a6e22e">CidrBlock</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Select</span> [ <span style="color:#ae81ff">0</span>, <span style="color:#f92672">!</span><span style="color:#a6e22e">Cidr</span> [ <span style="color:#f92672">!</span><span style="color:#a6e22e">Ref</span> <span style="color:#a6e22e">CidrBlock</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">5</span> ]]
+      <span style="color:#a6e22e">AvailabilityZone</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Select</span>
+        <span style="color:#f92672">-</span> <span style="color:#ae81ff">0</span>
+        <span style="color:#f92672">-</span> <span style="color:#a6e22e">Fn</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">GetAZs</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Ref</span> <span style="color:#e6db74">&#34;AWS::Region&#34;</span>
+      <span style="color:#a6e22e">Tags</span><span style="color:#f92672">:</span>
+        <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Name</span>
+          <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Example-Subnet-AZ1&#34;</span>
+      <span style="color:#a6e22e">VpcId</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Ref</span> <span style="color:#a6e22e">VpcId</span>
+</code></pre></div>
+ </figure>
+<p>Here we are defining a stack that uses VpcId as a parameter.</p>
+<h3 id="provision-a-stack-using-service-catalog-puppet">Provision a stack using Service Catalog Puppet</h3>
+<p><em>Now we are ready to provision the stack using the manifest file.</em></p>
+<p>To use the output from one stack as a parameter for another you can use the following syntax:</p>
+ <figure>
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">stacks</span><span style="color:#f92672">:</span>
+  <span style="color:#a6e22e">example</span><span style="color:#f92672">-</span><span style="color:#a6e22e">subnet</span><span style="color:#f92672">:</span>
+    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">example</span><span style="color:#f92672">-</span><span style="color:#a6e22e">subnet</span>
+    <span style="color:#a6e22e">version</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">v1</span>
+    <span style="color:#a6e22e">depends_on</span><span style="color:#f92672">:</span>
+      <span style="color:#f92672">-</span> <span style="color:#a6e22e">example</span><span style="color:#f92672">-</span><span style="color:#a6e22e">vpc</span>
     <span style="color:#a6e22e">parameters</span><span style="color:#f92672">:</span>
-        <span style="color:#a6e22e">RoleName</span><span style="color:#f92672">:</span>
-            <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;ToolsAccountAccessRole&#34;</span>
-    <span style="color:#a6e22e">invoke_for</span><span style="color:#f92672">:</span>
+      <span style="color:#a6e22e">CidrBlock</span><span style="color:#f92672">:</span>
+        <span style="color:#a6e22e">cloudformation_stack_output</span><span style="color:#f92672">:</span>
+          <span style="color:#a6e22e">account_id</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">$</span>{<span style="color:#a6e22e">AWS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">AccountId</span>}
+          <span style="color:#a6e22e">region</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">$</span>{<span style="color:#a6e22e">AWS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">Region</span>}
+          <span style="color:#a6e22e">stack_name</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">example</span><span style="color:#f92672">-</span><span style="color:#a6e22e">vpc</span>
+          <span style="color:#a6e22e">output_key</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">VpcCidrBlock</span>
+      <span style="color:#a6e22e">VpcId</span><span style="color:#f92672">:</span>
+        <span style="color:#a6e22e">cloudformation_stack_output</span><span style="color:#f92672">:</span>
+          <span style="color:#a6e22e">account_id</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">$</span>{<span style="color:#a6e22e">AWS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">AccountId</span>}
+          <span style="color:#a6e22e">region</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">$</span>{<span style="color:#a6e22e">AWS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">Region</span>}
+          <span style="color:#a6e22e">stack_name</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">example</span><span style="color:#f92672">-</span><span style="color:#a6e22e">vpc</span>
+          <span style="color:#a6e22e">output_key</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">VpcId</span>
+    <span style="color:#a6e22e">deploy_to</span><span style="color:#f92672">:</span>
       <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
-        <span style="color:#f92672">-</span> <span style="color:#a6e22e">regions</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;default_region&#34;</span>
-          <span style="color:#a6e22e">tag</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;type:prod&#34;</span>
+        <span style="color:#f92672">-</span> <span style="color:#a6e22e">tag</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span><span style="color:#a6e22e">prod</span>
+          <span style="color:#a6e22e">regions</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">regions_enabled</span>
   
 </code></pre></div>
  </figure>
-<ul>
-<li>The main input field should look like this:</li>
-</ul>
+<p>In this example we are reading VpcCidrBlock and VpcId from the stack named example-vpc when provisioning the stack named
+example-subnet.</p>
+<h3 id="working-with-servicecatalog-provisioned-product-outputs">Working with ServiceCatalog Provisioned product outputs</h3>
+<p>If you would like to obtain the output of a provisioned product deployment, it is possible to call
+the <code>servicecatalog_provisioned_product_output</code> method to obtain stack outputs. In the example below we are calling from
+the output of a launch called &lsquo;example-vpc&rsquo;</p>
  <figure>
-  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">accounts</span><span style="color:#f92672">:</span>
-  <span style="color:#f92672">-</span> <span style="color:#a6e22e">account_id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;&lt;YOUR_SPOKE_ACCOUNT_ID_WITHOUT_HYPHENS&gt;&#34;</span>
-    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;puppet-account&#34;</span>
-    <span style="color:#a6e22e">default_region</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;eu-west-1&#34;</span>
-    <span style="color:#a6e22e">regions_enabled</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;eu-west-1&#34;</span>
-      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;eu-west-2&#34;</span>
-    <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;type:prod&#34;</span>
-      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;partition:eu&#34;</span>
-<span style="color:#a6e22e">lambda</span><span style="color:#f92672">-</span><span style="color:#a6e22e">invocations</span><span style="color:#f92672">:</span>
-  <span style="color:#a6e22e">create</span><span style="color:#f92672">-</span><span style="color:#a6e22e">iam</span><span style="color:#f92672">-</span><span style="color:#a6e22e">group</span><span style="color:#f92672">:</span>
-    <span style="color:#a6e22e">function_name</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">create</span><span style="color:#f92672">-</span><span style="color:#a6e22e">iam</span><span style="color:#f92672">-</span><span style="color:#a6e22e">group</span>
-    <span style="color:#a6e22e">qualifier</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">$LATEST</span>
-    <span style="color:#a6e22e">invocation_type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Event</span>
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">stacks</span><span style="color:#f92672">:</span>
+  <span style="color:#a6e22e">example</span><span style="color:#f92672">-</span><span style="color:#a6e22e">subnet</span><span style="color:#f92672">:</span>
+    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">example</span><span style="color:#f92672">-</span><span style="color:#a6e22e">subnet</span>
+    <span style="color:#a6e22e">version</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">v1</span>
+    <span style="color:#a6e22e">depends_on</span><span style="color:#f92672">:</span>
+      <span style="color:#f92672">-</span> <span style="color:#a6e22e">example</span><span style="color:#f92672">-</span><span style="color:#a6e22e">vpc</span>
     <span style="color:#a6e22e">parameters</span><span style="color:#f92672">:</span>
-        <span style="color:#a6e22e">RoleName</span><span style="color:#f92672">:</span>
-            <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;ToolsAccountAccessRole&#34;</span>
-    <span style="color:#a6e22e">invoke_for</span><span style="color:#f92672">:</span>
+      <span style="color:#a6e22e">CidrBlock</span><span style="color:#f92672">:</span>
+        <span style="color:#a6e22e">servicecatalog_provisioned_product_output</span><span style="color:#f92672">:</span>
+          <span style="color:#a6e22e">account_id</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">$</span>{<span style="color:#a6e22e">AWS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">AccountId</span>}
+          <span style="color:#a6e22e">region</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">$</span>{<span style="color:#a6e22e">AWS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">Region</span>}
+          <span style="color:#a6e22e">provisioned_product_name</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">example</span><span style="color:#f92672">-</span><span style="color:#a6e22e">vpc</span>
+          <span style="color:#a6e22e">output_key</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">VpcCidrBlock</span>
+      <span style="color:#a6e22e">VpcId</span><span style="color:#f92672">:</span>
+        <span style="color:#a6e22e">servicecatalog_provisioned_product_output</span><span style="color:#f92672">:</span>
+          <span style="color:#a6e22e">account_id</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">$</span>{<span style="color:#a6e22e">AWS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">AccountId</span>}
+          <span style="color:#a6e22e">region</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">$</span>{<span style="color:#a6e22e">AWS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">Region</span>}
+          <span style="color:#a6e22e">provisioned_product_name</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">example</span><span style="color:#f92672">-</span><span style="color:#a6e22e">vpc</span>
+          <span style="color:#a6e22e">output_key</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">VpcId</span>
+    <span style="color:#a6e22e">deploy_to</span><span style="color:#f92672">:</span>
       <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
-        <span style="color:#f92672">-</span> <span style="color:#a6e22e">regions</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;default_region&#34;</span>
-          <span style="color:#a6e22e">tag</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;type:prod&#34;</span>
+        <span style="color:#f92672">-</span> <span style="color:#a6e22e">tag</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span><span style="color:#a6e22e">prod</span>
+          <span style="color:#a6e22e">regions</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">regions_enabled</span>
   
 </code></pre></div>
  </figure>
-<h3 id="committing-the-manifest-file">Committing the manifest file</h3>
-<p><em>Now that we have updated the manifest file we are ready to commit our changes.</em></p>
-<ul>
-<li>Set your <em>Author name</em></li>
-<li>Set your <em>Email address</em></li>
-<li>Set your <em>Commit message</em></li>
-</ul>
-
-<div class="notices tip" ><p>Using a good / unique commit message will help you understand what is going on later.</p>
-</div>
-
-<ul>
-<li>Click the <em>Commit changes</em> button:</li>
-</ul>
-<figure>
-    <img src="../how-tos/invoking-a-lambda-function/commit_changes.png"/> 
-</figure>
-
-<h3 id="verifying-the-lambda-invocation">Verifying the lambda invocation</h3>
-<p>Once you have made your changes the  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/servicecatalog-puppet-pipeline/view?region=eu-west-1' target='_blank'>ServiceCatalogPuppet Pipeline</a> should have run or if you were quick
-may still be running.  If it has not yet started feel free to the hit the <em>Release change</em> button.</p>
-<p>Once it has completed it should show the <em>Source</em> and <em>Deploy</em> stages in green to indicate they have completed
-successfully:</p>
-<figure>
-    <img src="../how-tos/creating-and-provisioning-a-product/SuccessfulPuppetRunV2.png"/> 
-</figure>
-
-<p>Once you have verified the pipeline has run you can go to  <a href='https://console.aws.amazon.com/iam/home?region=eu-west-1' target='_blank'>IAM Groups Console</a> in the spoke account to view the IAM
-Group created by the lambda invoke labeled <em>sc-tools-invoke-lambda-test-group</em>.</p>
-<figure>
-    <img src="../how-tos/invoking-a-lambda-function/iam_groups.png"/> 
-</figure>
-
-<p>You have now successfully invoked a lambda function!</p>
 
 
 
@@ -3729,6 +3593,26 @@ Group created by the lambda invoke labeled <em>sc-tools-invoke-lambda-test-group
             
                 
                     
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
                 
                 
 
@@ -3760,26 +3644,6 @@ Group created by the lambda invoke labeled <em>sc-tools-invoke-lambda-test-group
             
             
                 
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
                     
                 
                 
@@ -4354,10 +4218,10 @@ Group created by the lambda invoke labeled <em>sc-tools-invoke-lambda-test-group
 	 
 	 
 		
-			<a class="nav nav-prev" href="../every-day-use/390-terminating-provisioned-resources.html" title="Terminating provisioned resources"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="../every-day-use/385-provisioning-a-stack.html" title="Provisioning a Stack"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="../every-day-use/600-starting-a-code-build-project.html" title="Starting a CodeBuild project" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="../every-day-use/390-terminating-provisioned-resources.html" title="Terminating provisioned resources" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
