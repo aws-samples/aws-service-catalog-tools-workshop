@@ -1,5 +1,12 @@
 [
 {
+	"uri": "https://aws-samples.github.io/aws-service-catalog-tools-workshop/managing-your-environments/dont-repeat-yourself/accounts-section.html",
+	"title": "Accounts section",
+	"tags": [],
+	"description": "",
+	"content": " Accounts section As the accounts section of your manifest file increases you can find some duplication. The following sections explain how to deal with this\nDuplicate account details You may find you have many accounts and OUs with the same default region and enabled regions:\n accounts: - account_id: \u0026#39;012345678910\u0026#39; default_region: eu-west-1 email: someone-1@example.com name: example account 1 regions_enabled: - eu-west-1 - eu-west-2 - eu-west-3 - us-east-1 tags: - outype:foundational - ou:sharedservices - type:prod - team:ccoe - role:sct - role:account - account_id: \u0026#39;109876543210\u0026#39; default_region: eu-west-1 email: someone-2@example.com name: example account 2 regions_enabled: - eu-west-1 - eu-west-2 - eu-west-3 - us-east-1 tags: - outype:foundational - ou:sharedservices - type:prod - team:ccoe - role:account   If you want to roll out a new region you will have to update each of these entries. Instead you can use the accounts sub section of the defaults section of the manifest file to declare the defaults for each account:\n defaults: accounts: default_region: eu-west-1 regions_enabled: - eu-west-1 - eu-west-2 - eu-west-3 - us-east-1   You can now omit the default_region and regions_enabled sections of your accounts:\n accounts: - account_id: \u0026#39;012345678910\u0026#39; email: someone-1@example.com name: example account 1 tags: - outype:foundational - ou:sharedservices - type:prod - team:ccoe - role:sct - role:account - account_id: \u0026#39;109876543210\u0026#39; email: someone-2@example.com name: example account 2 tags: - outype:foundational - ou:sharedservices - type:prod - team:ccoe - role:account   If you specify a default_region wihtin the defaults.accounts section and an account within the accounts section specifies its own default_region the accounts section value will be used. The same is true for any values set within the defaults.accounts section - there is no append or merge behaviour.\n"
+},
+{
 	"uri": "https://aws-samples.github.io/aws-service-catalog-tools-workshop/",
 	"title": "AWS Service Catalog Tools Intro Workshop",
 	"tags": [],
@@ -193,7 +200,7 @@
 	"title": "Managing your environments",
 	"tags": [],
 	"description": "",
-	"content": "Following the best practices for the Service Catalog Tools will ensure you get the most out of these tools with the most minimal amount of effort.\nThe following articles will help you design your solution. It is recommended you read through each - ideally before you install the tools or start provisioning / sharing products and portfolios.\n GitOps   Fault Tolerance   Fine grained depends_on   Product SDLC   Multi Organization usage   "
+	"content": "Following the best practices for the Service Catalog Tools will ensure you get the most out of these tools with the most minimal amount of effort.\nThe following articles will help you design your solution. It is recommended you read through each - ideally before you install the tools or start provisioning / sharing products and portfolios.\n GitOps   Don\u0026#39;t Repeat Yourself   Fault Tolerance   Fine grained depends_on   Product SDLC   Multi Organization usage   "
 },
 {
 	"uri": "https://aws-samples.github.io/aws-service-catalog-tools-workshop/2021-workshop/100-removing-the-default-networking/50-asserting-the-resources-are-removed.html",
@@ -334,6 +341,13 @@
 	"tags": [],
 	"description": "",
 	"content": " This tutorial will walk you through \u0026ldquo;Deleting a product\u0026rdquo;\nWe will assume you have:\n installed Service Catalog Factory correctly added a product correctly  In the tutorial you will:\n Disabling the product versions   Deleting the product   During this process you will check your progress by verifying what the framework is doing.\n"
+},
+{
+	"uri": "https://aws-samples.github.io/aws-service-catalog-tools-workshop/managing-your-environments/dont-repeat-yourself.html",
+	"title": "Don&#39;t Repeat Yourself",
+	"tags": [],
+	"description": "",
+	"content": " Don't Repeat Yourself When you are managing your environments it is best to avoid duplication in your configurations. Duplication can increase the cost of change which may reduce your appetite to make lower priority changes leading to higher technical debt. Duplication can also lead to more human error as you may make a change in only one place instead of many and in the instance where you need to roll out a change quickly duplication can slow you down.\nThere are different ways of removing duplication as different scenarios call for different solutions. They are grouped into categories below:\n Accounts section   "
 },
 {
 	"uri": "https://aws-samples.github.io/aws-service-catalog-tools-workshop/managing-your-environments/fault-tolerance.html",

@@ -3,6 +3,10 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/managing-your-environments/dont-repeat-yourself/accounts-section.html</loc>
+  </url>
+  
+  <url>
     <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/</loc>
   </url>
   
@@ -192,6 +196,10 @@
   
   <url>
     <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/every-day-use/110-deleting-a-product.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/managing-your-environments/dont-repeat-yourself.html</loc>
   </url>
   
   <url>

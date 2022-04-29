@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Don&#39;t Repeat Yourself on Service Catalog Tools Workshop</title>
+    <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/managing-your-environments/dont-repeat-yourself.html</link>
+    <description>Recent content in Don&#39;t Repeat Yourself on Service Catalog Tools Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://aws-samples.github.io/aws-service-catalog-tools-workshop/managing-your-environments/dont-repeat-yourself/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Accounts section</title>
+      <link>https://aws-samples.github.io/aws-service-catalog-tools-workshop/managing-your-environments/dont-repeat-yourself/accounts-section.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://aws-samples.github.io/aws-service-catalog-tools-workshop/managing-your-environments/dont-repeat-yourself/accounts-section.html</guid>
+      <description>Accounts section As the accounts section of your manifest file increases you can find some duplication. The following sections explain how to deal with this
+Duplicate account details You may find you have many accounts and OUs with the same default region and enabled regions:
+ accounts: - account_id: &amp;#39;012345678910&amp;#39; default_region: eu-west-1 email: someone-1@example.com name: example account 1 regions_enabled: - eu-west-1 - eu-west-2 - eu-west-3 - us-east-1 tags: - outype:foundational - ou:sharedservices - type:prod - team:ccoe - role:sct - role:account - account_id: &amp;#39;109876543210&amp;#39; default_region: eu-west-1 email: someone-2@example.</description>
+    </item>
+    
+  </channel>
+</rss>

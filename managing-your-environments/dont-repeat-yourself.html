@@ -15,7 +15,7 @@
     <link rel="shortcut icon" href="../images/favicon.png" type="image/png" />
 <link rel="icon" href="../images/favicon.png" type="image/png" />
 
-    <title>Provisioning a product :: Service Catalog Tools Workshop</title>
+    <title>Don&#39;t Repeat Yourself :: Service Catalog Tools Workshop</title>
 
     
     <link href="../css/nucleus.css" rel="stylesheet">
@@ -43,7 +43,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/every-day-use/200-provisioning-a-product.html">
+  <body class="" data-url="/managing-your-environments/dont-repeat-yourself.html">
     <nav id="sidebar" class="">
 
 
@@ -667,7 +667,7 @@
   
     
     <li data-nav-id="/managing-your-environments.html" title="Managing your environments" class="dd-item 
-        
+        parent
         
         
         ">
@@ -785,8 +785,8 @@
   
     
     <li data-nav-id="/managing-your-environments/dont-repeat-yourself.html" title="Don&#39;t Repeat Yourself" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="../managing-your-environments/dont-repeat-yourself.html">
@@ -941,7 +941,7 @@
   
     
     <li data-nav-id="/every-day-use.html" title="Every day use" class="dd-item 
-        parent
+        
         
         
         ">
@@ -1270,8 +1270,8 @@
   
     
     <li data-nav-id="/every-day-use/200-provisioning-a-product.html" title="Provisioning a product" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="../every-day-use/200-provisioning-a-product.html">
@@ -2500,7 +2500,7 @@
             
           
           
-            <a href='../'>AWS Service Catalog Tools Intro Workshop</a> > <a href='../every-day-use.html'>Every day use</a> > Provisioning a product
+            <a href='../'>AWS Service Catalog Tools Intro Workshop</a> > <a href='../managing-your-environments.html'>Managing your environments</a> > Don't Repeat Yourself
           
         
           
@@ -2514,16 +2514,7 @@
     <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#what-are-we-going-to-do">What are we going to do?</a></li>
-    <li><a href="#step-by-step-guide">Step by step guide</a>
-      <ul>
-        <li><a href="#creating-the-manifest-file">Creating the manifest file</a></li>
-        <li><a href="#adding-an-account-to-the-manifest-file">Adding an account to the manifest file</a></li>
-        <li><a href="#adding-a-launch-to-the-manifest">Adding a launch to the manifest</a></li>
-        <li><a href="#committing-the-manifest-file">Committing the manifest file</a></li>
-        <li><a href="#verifying-the-provisioning">Verifying the provisioning</a></li>
-      </ul>
-    </li>
+    <li><a href="#dont-repeat-yourself">Don't Repeat Yourself</a></li>
   </ul>
 </nav>
     </div>
@@ -2537,7 +2528,7 @@
         
         <div id="body-inner">
           
-            <h1>Provisioning a product</h1>
+            <h1>Don&#39;t Repeat Yourself</h1>
           
 
         
@@ -2545,148 +2536,52 @@
 
 
 	<hr>
-<h2 id="what-are-we-going-to-do">What are we going to do?</h2>
-<p>This tutorial will walk you through &ldquo;Provisioning a product&rdquo; into a spoke account.</p>
-<p>We will assume you have:</p>
-<ul>
-<li>installed Service Catalog Puppet correctly</li>
-<li>bootstrapped a spoke</li>
-<li>you have created a product</li>
-<li>you have created a portfolio</li>
-</ul>
-<p>We are going to perform the following steps:</p>
-<ul>
-<li>create a manifest file</li>
-<li>add an account to the manifest file</li>
-<li>add a launch to the manifest file</li>
-</ul>
-<p>During this process you will check your progress by verifying what the framework is doing at each step.</p>
-<h2 id="step-by-step-guide">Step by step guide</h2>
-<p>Here are the steps you need to follow to &ldquo;Provisioning a product&rdquo;</p>
-<h3 id="creating-the-manifest-file">Creating the manifest file</h3>
-<ul>
-<li>
-<p>Navigate to the  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codecommit/repositories/ServiceCatalogPuppet/browse?region=eu-west-1' target='_blank'>ServiceCatalogPuppet CodeCommit repository</a></p>
-</li>
-<li>
-<p>Scroll down to the bottom of the page and hit the <em>Create file</em> button</p>
-</li>
-</ul>
-<figure>
-    <img src="../how-tos/creating-and-provisioning-a-product/create_file.png"/> 
-</figure>
+<h2 id="dont-repeat-yourself">Don't Repeat Yourself</h2>
+<p>When you are managing your environments it is best to avoid duplication in your configurations.  Duplication can
+increase the cost of change which may reduce your appetite to make lower priority changes leading to higher technical
+debt.  Duplication can also lead to more human error as you may make a change in only one place instead of many and in
+the instance where you need to roll out a change quickly duplication can slow you down.</p>
+<p>There are different ways of removing duplication as different scenarios call for different solutions.  They are grouped
+into categories below:</p>
 
-<h3 id="adding-an-account-to-the-manifest-file">Adding an account to the manifest file</h3>
-<ul>
+
+
+
+
+
+
+<ul class="children children-li">
+	
+
+	
+		
+	
+
+	
+
+	
+		
+	
+		
+			
+				
 <li>
-<p>Copy the following snippet into the main input field:</p>
-<figure>
- <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">accounts</span><span style="color:#f92672">:</span>
-  <span style="color:#f92672">-</span> <span style="color:#a6e22e">account_id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;&lt;YOUR_ACCOUNT_ID_WITHOUT_HYPHENS&gt;&#34;</span>
-    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;puppet-account&#34;</span>
-    <span style="color:#a6e22e">default_region</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;eu-west-1&#34;</span>
-    <span style="color:#a6e22e">regions_enabled</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;eu-west-1&#34;</span>
-      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;eu-west-2&#34;</span>
-    <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;type:prod&#34;</span>
-      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;partition:eu&#34;</span>
-   
-</code></pre></div>
-</figure>
+<a href="../managing-your-environments/dont-repeat-yourself/accounts-section.html" >Accounts section</a>
 </li>
-<li>
-<p>Update account_id on line to show your account id</p>
-</li>
-</ul>
-<h3 id="adding-a-launch-to-the-manifest">Adding a launch to the manifest</h3>
-<p><em>Now we are ready to add a product to the manifest file.</em></p>
-<ul>
-<li>Add the following snippet to the end of the main input field:</li>
-</ul>
- <figure>
-  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">launches</span><span style="color:#f92672">:</span>
-  <span style="color:#a6e22e">aws</span><span style="color:#f92672">-</span><span style="color:#a6e22e">config</span><span style="color:#f92672">-</span><span style="color:#a6e22e">enable</span><span style="color:#f92672">-</span><span style="color:#a6e22e">config</span><span style="color:#f92672">:</span>
-    <span style="color:#a6e22e">portfolio</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;reinvent-cloud-engineering-governance&#34;</span>
-    <span style="color:#a6e22e">product</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;aws-config-enable-config&#34;</span>
-    <span style="color:#a6e22e">version</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1&#34;</span>
-    <span style="color:#a6e22e">deploy_to</span><span style="color:#f92672">:</span>
-      <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
-        <span style="color:#f92672">-</span> <span style="color:#a6e22e">tag</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;type:prod&#34;</span>
-          <span style="color:#a6e22e">regions</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;default_region&#34;</span>  
-  
-</code></pre></div>
- </figure>
-<ul>
-<li>The main input field should look like this:</li>
-</ul>
- <figure>
-  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">accounts</span><span style="color:#f92672">:</span>
-  <span style="color:#f92672">-</span> <span style="color:#a6e22e">account_id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;&lt;YOUR_ACCOUNT_ID_WITHOUT_HYPHENS&gt;&#34;</span>
-    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;puppet-account&#34;</span>
-    <span style="color:#a6e22e">default_region</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;eu-west-1&#34;</span>
-    <span style="color:#a6e22e">regions_enabled</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;eu-west-1&#34;</span>
-      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;eu-west-2&#34;</span>
-    <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;type:prod&#34;</span>
-      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;partition:eu&#34;</span>
-<span style="color:#a6e22e">launches</span><span style="color:#f92672">:</span>
-  <span style="color:#a6e22e">aws</span><span style="color:#f92672">-</span><span style="color:#a6e22e">config</span><span style="color:#f92672">-</span><span style="color:#a6e22e">enable</span><span style="color:#f92672">-</span><span style="color:#a6e22e">config</span><span style="color:#f92672">:</span>
-    <span style="color:#a6e22e">portfolio</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;reinvent-cloud-engineering-governance&#34;</span>
-    <span style="color:#a6e22e">product</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;aws-config-enable-config&#34;</span>
-    <span style="color:#a6e22e">version</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1&#34;</span>
-    <span style="color:#a6e22e">deploy_to</span><span style="color:#f92672">:</span>
-      <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
-        <span style="color:#f92672">-</span> <span style="color:#a6e22e">tag</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;type:prod&#34;</span>
-          <span style="color:#a6e22e">regions</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;default_region&#34;</span>
-  
-</code></pre></div>
- </figure>
-<h3 id="committing-the-manifest-file">Committing the manifest file</h3>
-<p><em>Now that we have written the manifest file we are ready to commit it.</em></p>
-<ul>
-<li>
-<p>Set the <em>File name</em> to <code>manifest.yaml</code></p>
-</li>
-<li>
-<p>Set your <em>Author name</em></p>
-</li>
-<li>
-<p>Set your <em>Email address</em></p>
-</li>
-<li>
-<p>Set your <em>Commit message</em></p>
-</li>
+				
+
+				
+			
+			
+		
+	
+
+	
 </ul>
 
-<div class="notices tip" ><p>Using a good / unique commit message will help you understand what is going on later.</p>
-</div>
 
-<ul>
-<li>Click the <em>Commit changes</em> button:</li>
-</ul>
-<figure>
-    <img src="../how-tos/creating-and-provisioning-a-product/CommitChanges.png"/> 
-</figure>
 
-<h3 id="verifying-the-provisioning">Verifying the provisioning</h3>
-<p>Once you have made your changes the  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/servicecatalog-puppet-pipeline/view?region=eu-west-1' target='_blank'>ServiceCatalogPuppet Pipeline</a> should have run or if you were quick
-may still be running.  If it has not yet started feel free to the hit the <em>Release change</em> button.</p>
-<p>Once it has completed it should show the <em>Source</em> and <em>Deploy</em> stages in green to indicate they have completed
-successfully:</p>
-<figure>
-    <img src="../how-tos/creating-and-provisioning-a-product/SuccessfulPuppetRunV2.png"/> 
-</figure>
 
-<p>Once you have verified the pipeline has run you can go to  <a href='https://eu-west-1.console.aws.amazon.com/servicecatalog/home?region=eu-west-1#/stacks' target='_blank'>Service Catalog provisioned products</a> to view your
-provisioned product.  Please note when you arrive at the provisioned product page you will need to select account from
-the filter by drop down in the top right:</p>
-<figure>
-    <img src="../how-tos/creating-and-provisioning-a-product/FilterByAccount.png"/> 
-</figure>
-
-<p>You have now successfully provisioned a product! When provisioned, this product will automatically enable AWS Config.</p>
 
 
 
@@ -3199,6 +3094,7 @@ the filter by drop down in the top right:</p>
             
                 
                     
+                    
                 
                 
 
@@ -3211,6 +3107,9 @@ the filter by drop down in the top right:</p>
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -3521,7 +3420,6 @@ the filter by drop down in the top right:</p>
             
                 
                     
-                    
                 
                 
 
@@ -3537,9 +3435,6 @@ the filter by drop down in the top right:</p>
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -4306,10 +4201,10 @@ the filter by drop down in the top right:</p>
 	 
 	 
 		
-			<a class="nav nav-prev" href="../every-day-use/192-adding-an-account.html" title="Adding an account"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="../managing-your-environments/gitops/manifest-properties.html" title="Manifest properties"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="../every-day-use/300-sharing-a-portfolio.html" title="Sharing a portfolio" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="../managing-your-environments/dont-repeat-yourself/accounts-section.html" title="Accounts section" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
