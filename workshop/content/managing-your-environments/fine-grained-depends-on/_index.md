@@ -25,14 +25,9 @@ Once you have provisioned that, you may want to execute it and then assert that 
 before provisioning a new VPC and then Subnets.  Once all that provisioning is completed, you may then want to share a 
 portfolio that allows users to provision an EKS cluster into the newly created networking stacks.
 
-The basic building blocks for ordering these things is a depends_on clause which you can use in the following sections 
-of the manifest file:
+The basic building blocks for ordering these things is a depends_on clause which you can use in all sections 
+of the manifest file
 
-- launches
-- spoke-local-portfolios
-- lambda-executions
-- code-build-runs
-- assertions
 
 Here is an example:
 
