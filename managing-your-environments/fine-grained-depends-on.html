@@ -2460,7 +2460,7 @@
 </left>
 
 <left>
-    <h5 class="copyright">167d0fb - Fri Apr 29 10:51:09 UTC 2022</h5>
+    <h5 class="copyright">2de3d86 - Wed May 4 08:21:57 UTC 2022</h5>
 </left>
 
     </section>
@@ -2556,15 +2556,8 @@ function that can remove any default networking resources in your AWS account (d
 Once you have provisioned that, you may want to execute it and then assert that the networking resources are removed
 before provisioning a new VPC and then Subnets.  Once all that provisioning is completed, you may then want to share a
 portfolio that allows users to provision an EKS cluster into the newly created networking stacks.</p>
-<p>The basic building blocks for ordering these things is a depends_on clause which you can use in the following sections
-of the manifest file:</p>
-<ul>
-<li>launches</li>
-<li>spoke-local-portfolios</li>
-<li>lambda-executions</li>
-<li>code-build-runs</li>
-<li>assertions</li>
-</ul>
+<p>The basic building blocks for ordering these things is a depends_on clause which you can use in all sections
+of the manifest file</p>
 <p>Here is an example:</p>
  <figure>
   <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">launches:
