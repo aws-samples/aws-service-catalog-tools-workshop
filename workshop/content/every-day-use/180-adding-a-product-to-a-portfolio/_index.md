@@ -90,6 +90,7 @@ Portfolios:
 
 
 - Take note of the highlighted lines 26 and 27.  We have added a portfolio to the product.
+- Please be aware that the role arn:aws:iam::${AWS::AccountId}:role/TeamRole probably does not exist in your account and will need updating.
 
 Once you have updated the file fill in the fields for *Author name*, *Email address*, *Commit message* and hit 
 *Commit changes*

@@ -187,10 +187,6 @@ pipeline is processing.
 Once you have verified the pipeline has run you can go to {{% service_catalog_products_list_link %}} to view your newly
 created version.
 
-You should see the product you created listed:
-
-{{< figure src="/how-tos/creating-and-provisioning-a-product/SeeYourTask1Product.png" >}}
-
 Click on the product and verify *v1* is there
 
 {{< figure src="/how-tos/creating-and-provisioning-a-product/SeeYourTask1ProductVersion1.png" >}}
