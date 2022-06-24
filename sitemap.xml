@@ -203,11 +203,15 @@
   </url>
   
   <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/managing-your-environments/fault-tolerance.html</loc>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/managing-your-environments/gitops/intrinsic-functions.html</loc>
   </url>
   
   <url>
-    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/managing-your-environments/gitops/intrinsic-functions.html</loc>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/managing-your-environments/dealing-with-variance.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/managing-your-environments/fault-tolerance.html</loc>
   </url>
   
   <url>
