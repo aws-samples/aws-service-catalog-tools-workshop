@@ -1,6 +1,6 @@
 +++
 title = "Fault Tolerance"
-weight = 110
+weight = 114
 aliases = [
     "/design-considerations/fault-tolerance.html",
 ]
