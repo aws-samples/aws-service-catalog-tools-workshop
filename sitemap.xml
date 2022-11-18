@@ -307,6 +307,10 @@
   </url>
   
   <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/every-day-use/305-using-tag-options.html</loc>
+  </url>
+  
+  <url>
     <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/every-day-use/100-creating-a-product/310-creating-s3-pipelines.html</loc>
   </url>
   
@@ -384,6 +388,10 @@
   
   <url>
     <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/every-day-use/700-using-assertions.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/every-day-use/750-managing-organizational-units.html</loc>
   </url>
   
   <url>
