@@ -215,6 +215,10 @@
   </url>
   
   <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/managing-your-environments/workflow-tracing.html</loc>
+  </url>
+  
+  <url>
     <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/managing-your-environments/gitops/conditions.html</loc>
   </url>
   

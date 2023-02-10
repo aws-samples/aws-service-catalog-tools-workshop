@@ -16,7 +16,7 @@
     <link rel="shortcut icon" href="../images/favicon.png" type="image/png" />
 <link rel="icon" href="../images/favicon.png" type="image/png" />
 
-    <title>2019 AWS re:Invent Workshop :: Service Catalog Tools Workshop</title>
+    <title>Workflow Tracing :: Service Catalog Tools Workshop</title>
 
     
     <link href="../css/nucleus.css" rel="stylesheet">
@@ -45,7 +45,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/reinvent2019/">
+  <body class="" data-url="/managing-your-environments/workflow-tracing.html">
     <nav id="sidebar" class="">
 
 
@@ -693,7 +693,7 @@
   
     
     <li data-nav-id="/managing-your-environments.html" title="Managing your environments" class="dd-item 
-        
+        parent
         
         
         ">
@@ -912,8 +912,8 @@
   
     
     <li data-nav-id="/managing-your-environments/workflow-tracing.html" title="Workflow Tracing" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="../managing-your-environments/workflow-tracing.html">
@@ -2304,8 +2304,8 @@
   
     
     <li data-nav-id="/reinvent2019/" title="2019 AWS re:Invent Workshop" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="../reinvent2019/">
@@ -2642,7 +2642,13 @@
             
           
           
-            <a href='../'>AWS Service Catalog Tools Intro Workshop</a> > 2019 AWS re:Invent Workshop
+            
+            
+          
+          
+            <a href='../'>AWS Service Catalog Tools Intro Workshop</a> > <a href='../managing-your-environments.html'>Managing your environments</a> > Workflow Tracing
+          
+        
           
         
           
@@ -2654,11 +2660,11 @@
     <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#house-keeping">House keeping</a>
+    <li><a href="#what-are-we-going-to-do">What are we going to do?</a></li>
+    <li><a href="#why-is-this-important">Why is this important</a>
       <ul>
-        <li><a href="#what-to-do-if-you-need-help">What to do if you need help</a></li>
-        <li><a href="#meet-the-team">Meet the Team</a></li>
-        <li><a href="#lets-get-going">Lets get going</a></li>
+        <li><a href="#generating-the-traces">Generating the traces</a></li>
+        <li><a href="#running-perfetto-locally">Running Perfetto locally</a></li>
       </ul>
     </li>
   </ul>
@@ -2674,38 +2680,33 @@
         
         <div id="body-inner">
           
-            <h1>2019 AWS re:Invent Workshop</h1>
+            <h1>Workflow Tracing</h1>
           
 
         
 
 
 
-	<p>Welcome to the Service Catalog tools workshop at re:Invent 2019. In this workshop, we will walk through using Service Catalog tools to build controls for governance. At the end of the session, we hope that you will go away with tools and techniques to help you build for security and governance requirements using AWS Service Catalog.</p>
-<h2 id="house-keeping">House keeping</h2>
-<p>Please check through the following to help you get started.</p>
-<h3 id="what-to-do-if-you-need-help">What to do if you need help</h3>
-<p>Raise your hand and a helper will be with you as soon as possible.</p>
-<h3 id="meet-the-team">Meet the Team</h3>
-<p>In today's workshop you have the following team</p>
-<p>Presenters:</p>
-<ul>
-<li>Eamonn Faherty</li>
-<li>Jamie McKay</li>
-</ul>
-<p>Workshop helpers:</p>
-<ul>
-<li>Ritesh Sinha</li>
-<li>Thivan Visvanathan</li>
-<li>Alex Nicot</li>
-<li>Charles Roberts</li>
-</ul>
-<h3 id="lets-get-going">Lets get going</h3>
-<p>When you are ready, click the right arrow to begin!</p>
-
-<div class="notices tip" ><p>You can use the left and right arrows to navigate through the Workshop</p>
-</div>
-
+	<hr>
+<h2 id="what-are-we-going-to-do">What are we going to do?</h2>
+<p>This article will help you to understand how to visualise a completed workflow (pipeline).</p>
+<h2 id="why-is-this-important">Why is this important</h2>
+<p>As your adoption of this solution develops your workflow will grow and your pipeline will take longer to run.<br>
+Visualising the workflow allows you to see how long tasks take to execute, what order they execute in and what blocks
+other tasks from executing.  The visualisation also allows you to see the saturation of the workers to help you decide
+if you need to increase the number of workers.</p>
+<h3 id="generating-the-traces">Generating the traces</h3>
+<p>As the workflow runs traces are generated and stored in Amazon S3.  It is possible to export these traces in the Google
+Trace Event format using the following command:</p>
+  <figure>
+   <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">servicecatalog-puppet export-traces &lt;aws-codebuild-execution-id&gt;
+    </code></pre></div>
+  </figure>
+<p>This will produce the input needed when using solutions like <a href="https://ui.perfetto.dev/">Perfetto</a></p>
+<h3 id="running-perfetto-locally">Running Perfetto locally</h3>
+<p>You may prefer to run Perfetto locally.  To do so you can check out
+<a href="https://viztracer.readthedocs.io/en/latest/">VizTracer</a> which provides some helper commands to get it up and running
+quickly.</p>
 
 
 
@@ -3298,21 +3299,6 @@
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -3330,100 +3316,8 @@
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
                         
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
                         
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -3481,6 +3375,8 @@
 
                     
                     
+                        
+                    
                     
 
                     
@@ -3512,12 +3408,6 @@
                     
                     
 
-                    
-            
-        
-                    
-            
-        
                     
                         
             
@@ -3582,83 +3472,6 @@
                     
             
         
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
                     
             
         
@@ -3868,103 +3681,6 @@
                     
 
                     
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
                         
             
             
@@ -3999,22 +3715,6 @@
                     
             
         
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
                     
                         
             
@@ -4080,6 +3780,311 @@
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -4219,7 +4224,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -4234,9 +4238,6 @@
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -4421,10 +4422,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="../2021-workshop/400-self-service/15-using-service-catalog.html" title="Using AWS Service Catalog"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="../managing-your-environments/fault-tolerance.html" title="Fault Tolerance"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="../40-reinvent2019/30-prerequisites.html" title="Pre-requisites" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="../managing-your-environments/fine-grained-depends-on.html" title="Fine grained depends_on" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
