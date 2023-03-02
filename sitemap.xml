@@ -307,6 +307,14 @@
   </url>
   
   <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/every-day-use/302-imported-portfolios.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/every-day-use/303-spoke-local-portfolios.html</loc>
+  </url>
+  
+  <url>
     <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/every-day-use/100-creating-a-product/305-creating-codestar-pipelines.html</loc>
   </url>
   
