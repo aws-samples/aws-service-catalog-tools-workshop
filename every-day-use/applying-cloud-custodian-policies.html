@@ -13,28 +13,28 @@
     <meta name="description" content="AWS Service Catalog Tools Workshop">
 <meta name="author" content="Service Catalog Tools Team">
 
-    <link rel="shortcut icon" href="../../images/favicon.png" type="image/png" />
-<link rel="icon" href="../../images/favicon.png" type="image/png" />
+    <link rel="shortcut icon" href="../images/favicon.png" type="image/png" />
+<link rel="icon" href="../images/favicon.png" type="image/png" />
 
-    <title>Using AWS Service Catalog :: Service Catalog Tools Workshop</title>
+    <title>Applying Cloud Custodian policies :: Service Catalog Tools Workshop</title>
 
     
-    <link href="../../css/nucleus.css" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css" rel="stylesheet">
-    <link href="../../css/hybrid.css" rel="stylesheet">
-    <link href="../../css/featherlight.min.css" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css" rel="stylesheet">
-    <link href="../../css/auto-complete.css" rel="stylesheet">
-    <link href="../../css/theme.css" rel="stylesheet">
-    <link href="../../css/hugo-theme.css" rel="stylesheet">
-    <link href="../../css/jquery-ui.min.css" rel="stylesheet">
+    <link href="../css/nucleus.css" rel="stylesheet">
+    <link href="../css/fontawesome-all.min.css" rel="stylesheet">
+    <link href="../css/hybrid.css" rel="stylesheet">
+    <link href="../css/featherlight.min.css" rel="stylesheet">
+    <link href="../css/perfect-scrollbar.min.css" rel="stylesheet">
+    <link href="../css/auto-complete.css" rel="stylesheet">
+    <link href="../css/theme.css" rel="stylesheet">
+    <link href="../css/hugo-theme.css" rel="stylesheet">
+    <link href="../css/jquery-ui.min.css" rel="stylesheet">
     
-      <link href="../../css/theme-mine.css" rel="stylesheet">
+      <link href="../css/theme-mine.css" rel="stylesheet">
     
 
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <script src="../../js/jquery-ui-1.12.1.min.js"></script>
+    <script src="../js/jquery-ui-1.12.1.min.js"></script>
 
 
     <style type="text/css">
@@ -45,14 +45,14 @@
     </style>
     
   </head>
-  <body class="" data-url="/2021-workshop/300-provisioning-subnets/15-using-service-catalog.html">
+  <body class="" data-url="/every-day-use/applying-cloud-custodian-policies.html">
     <nav id="sidebar" class="">
 
 
 
   <div id="header-wrapper">
     <div id="header">
-      <a href="../../" title="Go home"><svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 30" width="60%" style="padding:20px 0px;"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#f90;fill-rule:evenodd;}</style></defs><title>AWS-Logo_White-Color</title><path class="cls-1" d="M14.09,10.85a4.7,4.7,0,0,0,.19,1.48,7.73,7.73,0,0,0,.54,1.19.77.77,0,0,1,.12.38.64.64,0,0,1-.32.49l-1,.7a.83.83,0,0,1-.44.15.69.69,0,0,1-.49-.23,3.8,3.8,0,0,1-.6-.77q-.25-.42-.51-1a6.14,6.14,0,0,1-4.89,2.3,4.54,4.54,0,0,1-3.32-1.19,4.27,4.27,0,0,1-1.22-3.2A4.28,4.28,0,0,1,3.61,7.75,6.06,6.06,0,0,1,7.69,6.46a12.47,12.47,0,0,1,1.76.13q.92.13,1.91.36V5.73a3.65,3.65,0,0,0-.79-2.66A3.81,3.81,0,0,0,7.86,2.3a7.71,7.71,0,0,0-1.79.22,12.78,12.78,0,0,0-1.79.57,4.55,4.55,0,0,1-.58.22l-.26,0q-.35,0-.35-.52V2a1.09,1.09,0,0,1,.12-.58,1.2,1.2,0,0,1,.47-.35A10.88,10.88,0,0,1,5.77.32,10.19,10.19,0,0,1,8.36,0a6,6,0,0,1,4.35,1.35,5.49,5.49,0,0,1,1.38,4.09ZM7.34,13.38a5.36,5.36,0,0,0,1.72-.31A3.63,3.63,0,0,0,10.63,12,2.62,2.62,0,0,0,11.19,11a5.63,5.63,0,0,0,.16-1.44v-.7a14.35,14.35,0,0,0-1.53-.28,12.37,12.37,0,0,0-1.56-.1,3.84,3.84,0,0,0-2.47.67A2.34,2.34,0,0,0,5,11a2.35,2.35,0,0,0,.61,1.76A2.4,2.4,0,0,0,7.34,13.38Zm13.35,1.8a1,1,0,0,1-.64-.16,1.3,1.3,0,0,1-.35-.65L15.81,1.51a3,3,0,0,1-.15-.67.36.36,0,0,1,.41-.41H17.7a1,1,0,0,1,.65.16,1.4,1.4,0,0,1,.33.65l2.79,11,2.59-11A1.17,1.17,0,0,1,24.39.6a1.1,1.1,0,0,1,.67-.16H26.4a1.1,1.1,0,0,1,.67.16,1.17,1.17,0,0,1,.32.65L30,12.39,32.88,1.25A1.39,1.39,0,0,1,33.22.6a1,1,0,0,1,.65-.16h1.54a.36.36,0,0,1,.41.41,1.36,1.36,0,0,1,0,.26,3.64,3.64,0,0,1-.12.41l-4,12.86a1.3,1.3,0,0,1-.35.65,1,1,0,0,1-.64.16H29.25a1,1,0,0,1-.67-.17,1.26,1.26,0,0,1-.32-.67L25.67,3.64,23.11,14.34a1.26,1.26,0,0,1-.32.67,1,1,0,0,1-.67.17Zm21.36.44a11.28,11.28,0,0,1-2.56-.29,7.44,7.44,0,0,1-1.92-.67,1,1,0,0,1-.61-.93v-.84q0-.52.38-.52a.9.9,0,0,1,.31.06l.42.17a8.77,8.77,0,0,0,1.83.58,9.78,9.78,0,0,0,2,.2,4.48,4.48,0,0,0,2.43-.55,1.76,1.76,0,0,0,.86-1.57,1.61,1.61,0,0,0-.45-1.16A4.29,4.29,0,0,0,43,9.22l-2.41-.76A5.15,5.15,0,0,1,38,6.78a3.94,3.94,0,0,1-.83-2.41,3.7,3.7,0,0,1,.45-1.85,4.47,4.47,0,0,1,1.19-1.37A5.27,5.27,0,0,1,40.51.29,7.4,7.4,0,0,1,42.6,0a8.87,8.87,0,0,1,1.12.07q.57.07,1.08.19t.95.26a4.27,4.27,0,0,1,.7.29,1.59,1.59,0,0,1,.49.41.94.94,0,0,1,.15.55v.79q0,.52-.38.52a1.76,1.76,0,0,1-.64-.2,7.74,7.74,0,0,0-3.2-.64,4.37,4.37,0,0,0-2.21.47,1.6,1.6,0,0,0-.79,1.48,1.58,1.58,0,0,0,.49,1.18,4.94,4.94,0,0,0,1.83.92L44.55,7a5.08,5.08,0,0,1,2.57,1.6A3.76,3.76,0,0,1,47.9,11a4.21,4.21,0,0,1-.44,1.93,4.4,4.4,0,0,1-1.21,1.47,5.43,5.43,0,0,1-1.85.93A8.25,8.25,0,0,1,42.05,15.62Z"></path><path class="cls-2" d="M45.19,23.81C39.72,27.85,31.78,30,25,30A36.64,36.64,0,0,1,.22,20.57c-.51-.46-.06-1.09.56-.74A49.78,49.78,0,0,0,25.53,26.4,49.23,49.23,0,0,0,44.4,22.53C45.32,22.14,46.1,23.14,45.19,23.81Z"></path><path class="cls-2" d="M47.47,21.21c-.7-.9-4.63-.42-6.39-.21-.53.06-.62-.4-.14-.74,3.13-2.2,8.27-1.57,8.86-.83s-.16,5.89-3.09,8.35c-.45.38-.88.18-.68-.32C46.69,25.8,48.17,22.11,47.47,21.21Z"></path></svg></a>
+      <a href="../" title="Go home"><svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 30" width="60%" style="padding:20px 0px;"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#f90;fill-rule:evenodd;}</style></defs><title>AWS-Logo_White-Color</title><path class="cls-1" d="M14.09,10.85a4.7,4.7,0,0,0,.19,1.48,7.73,7.73,0,0,0,.54,1.19.77.77,0,0,1,.12.38.64.64,0,0,1-.32.49l-1,.7a.83.83,0,0,1-.44.15.69.69,0,0,1-.49-.23,3.8,3.8,0,0,1-.6-.77q-.25-.42-.51-1a6.14,6.14,0,0,1-4.89,2.3,4.54,4.54,0,0,1-3.32-1.19,4.27,4.27,0,0,1-1.22-3.2A4.28,4.28,0,0,1,3.61,7.75,6.06,6.06,0,0,1,7.69,6.46a12.47,12.47,0,0,1,1.76.13q.92.13,1.91.36V5.73a3.65,3.65,0,0,0-.79-2.66A3.81,3.81,0,0,0,7.86,2.3a7.71,7.71,0,0,0-1.79.22,12.78,12.78,0,0,0-1.79.57,4.55,4.55,0,0,1-.58.22l-.26,0q-.35,0-.35-.52V2a1.09,1.09,0,0,1,.12-.58,1.2,1.2,0,0,1,.47-.35A10.88,10.88,0,0,1,5.77.32,10.19,10.19,0,0,1,8.36,0a6,6,0,0,1,4.35,1.35,5.49,5.49,0,0,1,1.38,4.09ZM7.34,13.38a5.36,5.36,0,0,0,1.72-.31A3.63,3.63,0,0,0,10.63,12,2.62,2.62,0,0,0,11.19,11a5.63,5.63,0,0,0,.16-1.44v-.7a14.35,14.35,0,0,0-1.53-.28,12.37,12.37,0,0,0-1.56-.1,3.84,3.84,0,0,0-2.47.67A2.34,2.34,0,0,0,5,11a2.35,2.35,0,0,0,.61,1.76A2.4,2.4,0,0,0,7.34,13.38Zm13.35,1.8a1,1,0,0,1-.64-.16,1.3,1.3,0,0,1-.35-.65L15.81,1.51a3,3,0,0,1-.15-.67.36.36,0,0,1,.41-.41H17.7a1,1,0,0,1,.65.16,1.4,1.4,0,0,1,.33.65l2.79,11,2.59-11A1.17,1.17,0,0,1,24.39.6a1.1,1.1,0,0,1,.67-.16H26.4a1.1,1.1,0,0,1,.67.16,1.17,1.17,0,0,1,.32.65L30,12.39,32.88,1.25A1.39,1.39,0,0,1,33.22.6a1,1,0,0,1,.65-.16h1.54a.36.36,0,0,1,.41.41,1.36,1.36,0,0,1,0,.26,3.64,3.64,0,0,1-.12.41l-4,12.86a1.3,1.3,0,0,1-.35.65,1,1,0,0,1-.64.16H29.25a1,1,0,0,1-.67-.17,1.26,1.26,0,0,1-.32-.67L25.67,3.64,23.11,14.34a1.26,1.26,0,0,1-.32.67,1,1,0,0,1-.67.17Zm21.36.44a11.28,11.28,0,0,1-2.56-.29,7.44,7.44,0,0,1-1.92-.67,1,1,0,0,1-.61-.93v-.84q0-.52.38-.52a.9.9,0,0,1,.31.06l.42.17a8.77,8.77,0,0,0,1.83.58,9.78,9.78,0,0,0,2,.2,4.48,4.48,0,0,0,2.43-.55,1.76,1.76,0,0,0,.86-1.57,1.61,1.61,0,0,0-.45-1.16A4.29,4.29,0,0,0,43,9.22l-2.41-.76A5.15,5.15,0,0,1,38,6.78a3.94,3.94,0,0,1-.83-2.41,3.7,3.7,0,0,1,.45-1.85,4.47,4.47,0,0,1,1.19-1.37A5.27,5.27,0,0,1,40.51.29,7.4,7.4,0,0,1,42.6,0a8.87,8.87,0,0,1,1.12.07q.57.07,1.08.19t.95.26a4.27,4.27,0,0,1,.7.29,1.59,1.59,0,0,1,.49.41.94.94,0,0,1,.15.55v.79q0,.52-.38.52a1.76,1.76,0,0,1-.64-.2,7.74,7.74,0,0,0-3.2-.64,4.37,4.37,0,0,0-2.21.47,1.6,1.6,0,0,0-.79,1.48,1.58,1.58,0,0,0,.49,1.18,4.94,4.94,0,0,0,1.83.92L44.55,7a5.08,5.08,0,0,1,2.57,1.6A3.76,3.76,0,0,1,47.9,11a4.21,4.21,0,0,1-.44,1.93,4.4,4.4,0,0,1-1.21,1.47,5.43,5.43,0,0,1-1.85.93A8.25,8.25,0,0,1,42.05,15.62Z"></path><path class="cls-2" d="M45.19,23.81C39.72,27.85,31.78,30,25,30A36.64,36.64,0,0,1,.22,20.57c-.51-.46-.06-1.09.56-.74A49.78,49.78,0,0,0,25.53,26.4,49.23,49.23,0,0,0,44.4,22.53C45.32,22.14,46.1,23.14,45.19,23.81Z"></path><path class="cls-2" d="M47.47,21.21c-.7-.9-4.63-.42-6.39-.21-.53.06-.62-.4-.14-.74,3.13-2.2,8.27-1.57,8.86-.83s-.16,5.89-3.09,8.35c-.45.38-.88.18-.68-.32C46.69,25.8,48.17,22.11,47.47,21.21Z"></path></svg></a>
 
     </div>
     
@@ -74,7 +74,7 @@
         
         
         ">
-      <a href="../../tools.html">
+      <a href="../tools.html">
           Service Catalog Tools
           
       </a>
@@ -101,7 +101,7 @@
         
         
         ">
-      <a href="../../tools/factory.html">
+      <a href="../tools/factory.html">
           Service Catalog Factory
           
       </a>
@@ -125,7 +125,7 @@
         
         
         ">
-      <a href="../../tools/puppet.html">
+      <a href="../tools/puppet.html">
           Service Catalog Puppet
           
       </a>
@@ -156,7 +156,7 @@
         
         
         ">
-      <a href="../../installation.html">
+      <a href="../installation.html">
           Installation
           
       </a>
@@ -179,7 +179,7 @@
   
     
       <li data-nav-id="/installation/20-service-catalog-factory.html" title="Service Catalog Factory" class="dd-item ">
-        <a href="../../installation/20-service-catalog-factory.html">
+        <a href="../installation/20-service-catalog-factory.html">
         Service Catalog Factory
         
         </a>
@@ -202,7 +202,7 @@
         
         
         ">
-      <a href="../../installation/30-service-catalog-puppet.html">
+      <a href="../installation/30-service-catalog-puppet.html">
           Service Catalog Puppet
           
       </a>
@@ -223,7 +223,7 @@
   
     
       <li data-nav-id="/installation/30-service-catalog-puppet/10-using-aws-organizations.html" title="Using AWS Organizations" class="dd-item ">
-        <a href="../../installation/30-service-catalog-puppet/10-using-aws-organizations.html">
+        <a href="../installation/30-service-catalog-puppet/10-using-aws-organizations.html">
         Using AWS Organizations
         
         </a>
@@ -242,7 +242,7 @@
   
     
       <li data-nav-id="/installation/30-service-catalog-puppet/30-installing-puppet.html" title="Installing Puppet" class="dd-item ">
-        <a href="../../installation/30-service-catalog-puppet/30-installing-puppet.html">
+        <a href="../installation/30-service-catalog-puppet/30-installing-puppet.html">
         Installing Puppet
         
         </a>
@@ -274,7 +274,7 @@
         
         
         ">
-      <a href="../../installation/50-bootstrapping.html">
+      <a href="../installation/50-bootstrapping.html">
           Onboarding spokes
           
       </a>
@@ -295,7 +295,7 @@
   
     
       <li data-nav-id="/installation/50-bootstrapping/10-using-cfn-and-codebuild.html" title="CloudFormation/CodeBuild" class="dd-item ">
-        <a href="../../installation/50-bootstrapping/10-using-cfn-and-codebuild.html">
+        <a href="../installation/50-bootstrapping/10-using-cfn-and-codebuild.html">
         CloudFormation/CodeBuild
         
         </a>
@@ -314,7 +314,7 @@
   
     
       <li data-nav-id="/installation/50-bootstrapping/50-using-the-cli.html" title="Command Line Interface" class="dd-item ">
-        <a href="../../installation/50-bootstrapping/50-using-the-cli.html">
+        <a href="../installation/50-bootstrapping/50-using-the-cli.html">
         Command Line Interface
         
         </a>
@@ -333,7 +333,7 @@
   
     
       <li data-nav-id="/installation/50-bootstrapping/80-restricting-spokes.html" title="Restricting Spokes" class="dd-item ">
-        <a href="../../installation/50-bootstrapping/80-restricting-spokes.html">
+        <a href="../installation/50-bootstrapping/80-restricting-spokes.html">
         Restricting Spokes
         
         </a>
@@ -365,7 +365,7 @@
         
         
         ">
-      <a href="../../installation/100-securing-the-installation.html">
+      <a href="../installation/100-securing-the-installation.html">
           Securing the installation
           
       </a>
@@ -389,7 +389,7 @@
         
         
         ">
-      <a href="../../installation/installing-specific-versions.html">
+      <a href="../installation/installing-specific-versions.html">
           Installing specific versions
           
       </a>
@@ -420,7 +420,7 @@
         
         
         ">
-      <a href="../../upgrading.html">
+      <a href="../upgrading.html">
           Upgrading
           
       </a>
@@ -441,7 +441,7 @@
   
     
       <li data-nav-id="/upgrading/service-catalog-factory.html" title="Service Catalog Factory" class="dd-item ">
-        <a href="../../upgrading/service-catalog-factory.html">
+        <a href="../upgrading/service-catalog-factory.html">
         Service Catalog Factory
         
         </a>
@@ -460,7 +460,7 @@
   
     
       <li data-nav-id="/upgrading/service-catalog-puppet.html" title="Service Catalog Puppet" class="dd-item ">
-        <a href="../../upgrading/service-catalog-puppet.html">
+        <a href="../upgrading/service-catalog-puppet.html">
         Service Catalog Puppet
         
         </a>
@@ -490,7 +490,7 @@
         
         
         ">
-      <a href="../../design-considerations.html">
+      <a href="../design-considerations.html">
           Design considerations
           
       </a>
@@ -517,7 +517,7 @@
         
         
         ">
-      <a href="../../design-considerations/multi-account-strategy.html">
+      <a href="../design-considerations/multi-account-strategy.html">
           Multi Account Strategy
           
       </a>
@@ -538,7 +538,7 @@
   
     
       <li data-nav-id="/design-considerations/multi-account-strategy/starter-framework.html" title="Starter framework" class="dd-item ">
-        <a href="../../design-considerations/multi-account-strategy/starter-framework.html">
+        <a href="../design-considerations/multi-account-strategy/starter-framework.html">
         Starter framework
         
         </a>
@@ -570,7 +570,7 @@
         
         
         ">
-      <a href="../../design-considerations/selecting-a-factory-account.html">
+      <a href="../design-considerations/selecting-a-factory-account.html">
           Selecting a factory account
           
       </a>
@@ -594,7 +594,7 @@
         
         
         ">
-      <a href="../../design-considerations/using-parameters-in-the-real-world.html">
+      <a href="../design-considerations/using-parameters-in-the-real-world.html">
           Using parameters in the real world
           
       </a>
@@ -618,7 +618,7 @@
         
         
         ">
-      <a href="../../design-considerations/portfolio-management.html">
+      <a href="../design-considerations/portfolio-management.html">
           Portfolio Management
           
       </a>
@@ -642,7 +642,7 @@
         
         
         ">
-      <a href="../../design-considerations/account-tagging.html">
+      <a href="../design-considerations/account-tagging.html">
           Account Tagging
           
       </a>
@@ -666,7 +666,7 @@
         
         
         ">
-      <a href="../../design-considerations/using-iam-and-scp-effectively.html">
+      <a href="../design-considerations/using-iam-and-scp-effectively.html">
           Using IAM and SCP Effectively
           
       </a>
@@ -697,7 +697,7 @@
         
         
         ">
-      <a href="../../managing-your-environments.html">
+      <a href="../managing-your-environments.html">
           Managing your environments
           
       </a>
@@ -724,7 +724,7 @@
         
         
         ">
-      <a href="../../managing-your-environments/gitops.html">
+      <a href="../managing-your-environments/gitops.html">
           GitOps
           
       </a>
@@ -745,7 +745,7 @@
   
     
       <li data-nav-id="/managing-your-environments/gitops/intrinsic-functions.html" title="Intrinsic functions" class="dd-item ">
-        <a href="../../managing-your-environments/gitops/intrinsic-functions.html">
+        <a href="../managing-your-environments/gitops/intrinsic-functions.html">
         Intrinsic functions
         
         </a>
@@ -764,7 +764,7 @@
   
     
       <li data-nav-id="/managing-your-environments/gitops/conditions.html" title="Conditions" class="dd-item ">
-        <a href="../../managing-your-environments/gitops/conditions.html">
+        <a href="../managing-your-environments/gitops/conditions.html">
         Conditions
         
         </a>
@@ -783,7 +783,7 @@
   
     
       <li data-nav-id="/managing-your-environments/gitops/manifest-properties.html" title="Manifest properties" class="dd-item ">
-        <a href="../../managing-your-environments/gitops/manifest-properties.html">
+        <a href="../managing-your-environments/gitops/manifest-properties.html">
         Manifest properties
         
         </a>
@@ -815,7 +815,7 @@
         
         
         ">
-      <a href="../../managing-your-environments/dont-repeat-yourself.html">
+      <a href="../managing-your-environments/dont-repeat-yourself.html">
           Don&#39;t Repeat Yourself
           
       </a>
@@ -836,7 +836,7 @@
   
     
       <li data-nav-id="/managing-your-environments/dont-repeat-yourself/accounts-section.html" title="Accounts section" class="dd-item ">
-        <a href="../../managing-your-environments/dont-repeat-yourself/accounts-section.html">
+        <a href="../managing-your-environments/dont-repeat-yourself/accounts-section.html">
         Accounts section
         
         </a>
@@ -868,7 +868,7 @@
         
         
         ">
-      <a href="../../managing-your-environments/dealing-with-variance.html">
+      <a href="../managing-your-environments/dealing-with-variance.html">
           Dealing With Variance
           
       </a>
@@ -892,7 +892,7 @@
         
         
         ">
-      <a href="../../managing-your-environments/fault-tolerance.html">
+      <a href="../managing-your-environments/fault-tolerance.html">
           Fault Tolerance
           
       </a>
@@ -916,7 +916,7 @@
         
         
         ">
-      <a href="../../managing-your-environments/workflow-tracing.html">
+      <a href="../managing-your-environments/workflow-tracing.html">
           Workflow Tracing
           
       </a>
@@ -940,7 +940,7 @@
         
         
         ">
-      <a href="../../managing-your-environments/fine-grained-depends-on.html">
+      <a href="../managing-your-environments/fine-grained-depends-on.html">
           Fine grained depends_on
           
       </a>
@@ -964,7 +964,7 @@
         
         
         ">
-      <a href="../../managing-your-environments/product-sdlc.html">
+      <a href="../managing-your-environments/product-sdlc.html">
           Product SDLC
           
       </a>
@@ -988,7 +988,7 @@
         
         
         ">
-      <a href="../../managing-your-environments/multi-org-usage.html">
+      <a href="../managing-your-environments/multi-org-usage.html">
           Multi Organization usage
           
       </a>
@@ -1015,11 +1015,11 @@
   
     
     <li data-nav-id="/every-day-use.html" title="Every day use" class="dd-item 
-        
+        parent
         
         
         ">
-      <a href="../../every-day-use.html">
+      <a href="../every-day-use.html">
           Every day use
           
       </a>
@@ -1046,7 +1046,7 @@
         
         
         ">
-      <a href="../../every-day-use/using-a-mono-repo.html">
+      <a href="../every-day-use/using-a-mono-repo.html">
           Using a mono repo
           
       </a>
@@ -1070,7 +1070,7 @@
         
         
         ">
-      <a href="../../every-day-use/100-creating-a-product.html">
+      <a href="../every-day-use/100-creating-a-product.html">
           Creating a product
           
       </a>
@@ -1091,7 +1091,7 @@
   
     
       <li data-nav-id="/every-day-use/100-creating-a-product/100-define-the-product.html" title="Define the product" class="dd-item ">
-        <a href="../../every-day-use/100-creating-a-product/100-define-the-product.html">
+        <a href="../every-day-use/100-creating-a-product/100-define-the-product.html">
         Define the product
         
         </a>
@@ -1110,7 +1110,7 @@
   
     
       <li data-nav-id="/every-day-use/100-creating-a-product/300-add-the-source-code.html" title="Add the source code" class="dd-item ">
-        <a href="../../every-day-use/100-creating-a-product/300-add-the-source-code.html">
+        <a href="../every-day-use/100-creating-a-product/300-add-the-source-code.html">
         Add the source code
         
         </a>
@@ -1129,7 +1129,7 @@
   
     
       <li data-nav-id="/every-day-use/100-creating-a-product/305-creating-codestar-pipelines.html" title="Creating CodeStar pipelines" class="dd-item ">
-        <a href="../../every-day-use/100-creating-a-product/305-creating-codestar-pipelines.html">
+        <a href="../every-day-use/100-creating-a-product/305-creating-codestar-pipelines.html">
         Creating CodeStar pipelines
         
         </a>
@@ -1148,7 +1148,7 @@
   
     
       <li data-nav-id="/every-day-use/100-creating-a-product/310-creating-s3-pipelines.html" title="Creating S3 pipelines" class="dd-item ">
-        <a href="../../every-day-use/100-creating-a-product/310-creating-s3-pipelines.html">
+        <a href="../every-day-use/100-creating-a-product/310-creating-s3-pipelines.html">
         Creating S3 pipelines
         
         </a>
@@ -1180,7 +1180,7 @@
         
         
         ">
-      <a href="../../every-day-use/110-deleting-a-product.html">
+      <a href="../every-day-use/110-deleting-a-product.html">
           Deleting a product
           
       </a>
@@ -1201,7 +1201,7 @@
   
     
       <li data-nav-id="/every-day-use/110-deleting-a-product/100-disabling-the-product-versions.html" title="Disabling the product versions" class="dd-item ">
-        <a href="../../every-day-use/110-deleting-a-product/100-disabling-the-product-versions.html">
+        <a href="../every-day-use/110-deleting-a-product/100-disabling-the-product-versions.html">
         Disabling the product versions
         
         </a>
@@ -1220,7 +1220,7 @@
   
     
       <li data-nav-id="/every-day-use/110-deleting-a-product/300-deleting-the-product.html" title="Deleting the product" class="dd-item ">
-        <a href="../../every-day-use/110-deleting-a-product/300-deleting-the-product.html">
+        <a href="../every-day-use/110-deleting-a-product/300-deleting-the-product.html">
         Deleting the product
         
         </a>
@@ -1252,7 +1252,7 @@
         
         
         ">
-      <a href="../../every-day-use/150-creating-a-portfolio.html">
+      <a href="../every-day-use/150-creating-a-portfolio.html">
           Creating a portfolio
           
       </a>
@@ -1276,7 +1276,7 @@
         
         
         ">
-      <a href="../../every-day-use/180-adding-a-product-to-a-portfolio.html">
+      <a href="../every-day-use/180-adding-a-product-to-a-portfolio.html">
           Adding a product to a portfolio
           
       </a>
@@ -1300,7 +1300,7 @@
         
         
         ">
-      <a href="../../every-day-use/190-creating-a-manifest.html">
+      <a href="../every-day-use/190-creating-a-manifest.html">
           Creating a manifest
           
       </a>
@@ -1324,7 +1324,7 @@
         
         
         ">
-      <a href="../../every-day-use/192-adding-an-account.html">
+      <a href="../every-day-use/192-adding-an-account.html">
           Adding an account
           
       </a>
@@ -1348,7 +1348,7 @@
         
         
         ">
-      <a href="../../every-day-use/200-provisioning-a-product.html">
+      <a href="../every-day-use/200-provisioning-a-product.html">
           Provisioning a product
           
       </a>
@@ -1372,7 +1372,7 @@
         
         
         ">
-      <a href="../../every-day-use/300-sharing-a-portfolio.html">
+      <a href="../every-day-use/300-sharing-a-portfolio.html">
           Sharing a portfolio
           
       </a>
@@ -1396,7 +1396,7 @@
         
         
         ">
-      <a href="../../every-day-use/302-imported-portfolios.html">
+      <a href="../every-day-use/302-imported-portfolios.html">
           Imported Portfolios
           
       </a>
@@ -1420,7 +1420,7 @@
         
         
         ">
-      <a href="../../every-day-use/303-spoke-local-portfolios.html">
+      <a href="../every-day-use/303-spoke-local-portfolios.html">
           Spoke Local Portfolios
           
       </a>
@@ -1444,7 +1444,7 @@
         
         
         ">
-      <a href="../../every-day-use/305-using-tag-options.html">
+      <a href="../every-day-use/305-using-tag-options.html">
           Using tag options
           
       </a>
@@ -1468,7 +1468,7 @@
         
         
         ">
-      <a href="../../every-day-use/310-using-resource-update-constraints.html">
+      <a href="../every-day-use/310-using-resource-update-constraints.html">
           Using resource update constraints
           
       </a>
@@ -1492,7 +1492,7 @@
         
         
         ">
-      <a href="../../every-day-use/350-adding-a-region.html">
+      <a href="../every-day-use/350-adding-a-region.html">
           Adding a region
           
       </a>
@@ -1516,7 +1516,7 @@
         
         
         ">
-      <a href="../../every-day-use/360-aws-organizations-integration.html">
+      <a href="../every-day-use/360-aws-organizations-integration.html">
           AWS Organizations Integration
           
       </a>
@@ -1537,7 +1537,7 @@
   
     
       <li data-nav-id="/every-day-use/360-aws-organizations-integration/361-adding-accounts-in-ou.html" title="Adding Accounts using Organizational Units (OU)" class="dd-item ">
-        <a href="../../every-day-use/360-aws-organizations-integration/361-adding-accounts-in-ou.html">
+        <a href="../every-day-use/360-aws-organizations-integration/361-adding-accounts-in-ou.html">
         Adding Accounts using Organizational Units (OU)
         
         </a>
@@ -1556,7 +1556,7 @@
   
     
       <li data-nav-id="/every-day-use/360-aws-organizations-integration/362-sharing-a-portfolio-organizations.html" title="Sharing a portfolio using AWS Organizations" class="dd-item ">
-        <a href="../../every-day-use/360-aws-organizations-integration/362-sharing-a-portfolio-organizations.html">
+        <a href="../every-day-use/360-aws-organizations-integration/362-sharing-a-portfolio-organizations.html">
         Sharing a portfolio using AWS Organizations
         
         </a>
@@ -1588,7 +1588,7 @@
         
         
         ">
-      <a href="../../every-day-use/380-provisioning-a-cloudformation-stack.html">
+      <a href="../every-day-use/380-provisioning-a-cloudformation-stack.html">
           Provisioning CloudFormation
           
       </a>
@@ -1612,7 +1612,7 @@
         
         
         ">
-      <a href="../../every-day-use/382-migrating-from-launches-to-stacks.html">
+      <a href="../every-day-use/382-migrating-from-launches-to-stacks.html">
           Migrating from launches to stacks
           
       </a>
@@ -1636,7 +1636,7 @@
         
         
         ">
-      <a href="../../every-day-use/384-migrating-from-stacksets-to-stacks.html">
+      <a href="../every-day-use/384-migrating-from-stacksets-to-stacks.html">
           Migrating from stacksets to stacks
           
       </a>
@@ -1660,7 +1660,7 @@
         
         
         ">
-      <a href="../../every-day-use/385-provisioning-a-stack.html">
+      <a href="../every-day-use/385-provisioning-a-stack.html">
           Provisioning a Stack
           
       </a>
@@ -1684,7 +1684,7 @@
         
         
         ">
-      <a href="../../every-day-use/386-using-stack-and-launch-outputs.html">
+      <a href="../every-day-use/386-using-stack-and-launch-outputs.html">
           Using stack and launch outputs
           
       </a>
@@ -1708,7 +1708,7 @@
         
         
         ">
-      <a href="../../every-day-use/390-terminating-provisioned-resources.html">
+      <a href="../every-day-use/390-terminating-provisioned-resources.html">
           Terminating provisioned resources
           
       </a>
@@ -1732,7 +1732,7 @@
         
         
         ">
-      <a href="../../every-day-use/400-invoking-a-lambda-function.html">
+      <a href="../every-day-use/400-invoking-a-lambda-function.html">
           Invoking a Lambda Function
           
       </a>
@@ -1756,7 +1756,7 @@
         
         
         ">
-      <a href="../../every-day-use/600-starting-a-code-build-project.html">
+      <a href="../every-day-use/600-starting-a-code-build-project.html">
           Starting a CodeBuild project
           
       </a>
@@ -1780,7 +1780,7 @@
         
         
         ">
-      <a href="../../every-day-use/680-using-policy-simulations.html">
+      <a href="../every-day-use/680-using-policy-simulations.html">
           Using policy simulations
           
       </a>
@@ -1804,7 +1804,7 @@
         
         
         ">
-      <a href="../../every-day-use/700-using-assertions.html">
+      <a href="../every-day-use/700-using-assertions.html">
           Using assertions
           
       </a>
@@ -1828,7 +1828,7 @@
         
         
         ">
-      <a href="../../every-day-use/750-managing-organizational-units.html">
+      <a href="../every-day-use/750-managing-organizational-units.html">
           Managing Organizational Units
           
       </a>
@@ -1852,7 +1852,7 @@
         
         
         ">
-      <a href="../../every-day-use/800-applying-service-control-policies.html">
+      <a href="../every-day-use/800-applying-service-control-policies.html">
           Applying Service Control Policies
           
       </a>
@@ -1876,7 +1876,7 @@
         
         
         ">
-      <a href="../../every-day-use/850-applying-tag-policies.html">
+      <a href="../every-day-use/850-applying-tag-policies.html">
           Applying Tag Policies
           
       </a>
@@ -1896,11 +1896,11 @@
   
     
     <li data-nav-id="/every-day-use/applying-cloud-custodian-policies.html" title="Applying Cloud Custodian policies" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
-      <a href="../../every-day-use/applying-cloud-custodian-policies.html">
+      <a href="../every-day-use/applying-cloud-custodian-policies.html">
           Applying Cloud Custodian policies
           
       </a>
@@ -1927,11 +1927,11 @@
   
     
     <li data-nav-id="/2021-workshop.html" title="2021 Workshop" class="dd-item 
-        parent
+        
         
         
         ">
-      <a href="../../2021-workshop.html">
+      <a href="../2021-workshop.html">
           2021 Workshop
           
       </a>
@@ -1958,7 +1958,7 @@
         
         
         ">
-      <a href="../../2021-workshop/10-prerequisites.html">
+      <a href="../2021-workshop/10-prerequisites.html">
           Pre-requisites
           
       </a>
@@ -1985,7 +1985,7 @@
         
         
         ">
-      <a href="../../2021-workshop/10-prerequisites/100-installation.html">
+      <a href="../2021-workshop/10-prerequisites/100-installation.html">
           Installation
           
       </a>
@@ -2006,7 +2006,7 @@
   
     
       <li data-nav-id="/2021-workshop/10-prerequisites/100-installation/20-service-catalog-factory.html" title="Service Catalog Factory" class="dd-item ">
-        <a href="../../2021-workshop/10-prerequisites/100-installation/20-service-catalog-factory.html">
+        <a href="../2021-workshop/10-prerequisites/100-installation/20-service-catalog-factory.html">
         Service Catalog Factory
         
         </a>
@@ -2025,7 +2025,7 @@
   
     
       <li data-nav-id="/2021-workshop/10-prerequisites/100-installation/30-service-catalog-puppet.html" title="Service Catalog Puppet" class="dd-item ">
-        <a href="../../2021-workshop/10-prerequisites/100-installation/30-service-catalog-puppet.html">
+        <a href="../2021-workshop/10-prerequisites/100-installation/30-service-catalog-puppet.html">
         Service Catalog Puppet
         
         </a>
@@ -2066,7 +2066,7 @@
         
         
         ">
-      <a href="../../2021-workshop/100-removing-the-default-networking.html">
+      <a href="../2021-workshop/100-removing-the-default-networking.html">
           Removing the default networking
           
       </a>
@@ -2087,7 +2087,7 @@
   
     
       <li data-nav-id="/2021-workshop/100-removing-the-default-networking/20-creating-the-lambda.html" title="Creating the Lambda" class="dd-item ">
-        <a href="../../2021-workshop/100-removing-the-default-networking/20-creating-the-lambda.html">
+        <a href="../2021-workshop/100-removing-the-default-networking/20-creating-the-lambda.html">
         Creating the Lambda
         
         </a>
@@ -2106,7 +2106,7 @@
   
     
       <li data-nav-id="/2021-workshop/100-removing-the-default-networking/30-deploying-the-lambda.html" title="Deploying the Lambda" class="dd-item ">
-        <a href="../../2021-workshop/100-removing-the-default-networking/30-deploying-the-lambda.html">
+        <a href="../2021-workshop/100-removing-the-default-networking/30-deploying-the-lambda.html">
         Deploying the Lambda
         
         </a>
@@ -2125,7 +2125,7 @@
   
     
       <li data-nav-id="/2021-workshop/100-removing-the-default-networking/40-invoking-the-lambda.html" title="Invoking the Lambda" class="dd-item ">
-        <a href="../../2021-workshop/100-removing-the-default-networking/40-invoking-the-lambda.html">
+        <a href="../2021-workshop/100-removing-the-default-networking/40-invoking-the-lambda.html">
         Invoking the Lambda
         
         </a>
@@ -2144,7 +2144,7 @@
   
     
       <li data-nav-id="/2021-workshop/100-removing-the-default-networking/50-asserting-the-resources-are-removed.html" title="Asserting the resources are removed" class="dd-item ">
-        <a href="../../2021-workshop/100-removing-the-default-networking/50-asserting-the-resources-are-removed.html">
+        <a href="../2021-workshop/100-removing-the-default-networking/50-asserting-the-resources-are-removed.html">
         Asserting the resources are removed
         
         </a>
@@ -2176,7 +2176,7 @@
         
         
         ">
-      <a href="../../2021-workshop/200-provisioning-a-vpc.html">
+      <a href="../2021-workshop/200-provisioning-a-vpc.html">
           Provisioning a VPC
           
       </a>
@@ -2197,7 +2197,7 @@
   
     
       <li data-nav-id="/2021-workshop/200-provisioning-a-vpc/20-creating-the-stack.html" title="Creating the Stack" class="dd-item ">
-        <a href="../../2021-workshop/200-provisioning-a-vpc/20-creating-the-stack.html">
+        <a href="../2021-workshop/200-provisioning-a-vpc/20-creating-the-stack.html">
         Creating the Stack
         
         </a>
@@ -2216,7 +2216,7 @@
   
     
       <li data-nav-id="/2021-workshop/200-provisioning-a-vpc/30-provisioning-the-stack.html" title="Provisioning the Stack" class="dd-item ">
-        <a href="../../2021-workshop/200-provisioning-a-vpc/30-provisioning-the-stack.html">
+        <a href="../2021-workshop/200-provisioning-a-vpc/30-provisioning-the-stack.html">
         Provisioning the Stack
         
         </a>
@@ -2244,11 +2244,11 @@
   
     
     <li data-nav-id="/2021-workshop/300-provisioning-subnets.html" title="Provisioning Subnets" class="dd-item 
-        parent
+        
         
         
         ">
-      <a href="../../2021-workshop/300-provisioning-subnets.html">
+      <a href="../2021-workshop/300-provisioning-subnets.html">
           Provisioning Subnets
           
       </a>
@@ -2268,8 +2268,8 @@
  
   
     
-      <li data-nav-id="/2021-workshop/300-provisioning-subnets/15-using-service-catalog.html" title="Using AWS Service Catalog" class="dd-item active">
-        <a href="../../2021-workshop/300-provisioning-subnets/15-using-service-catalog.html">
+      <li data-nav-id="/2021-workshop/300-provisioning-subnets/15-using-service-catalog.html" title="Using AWS Service Catalog" class="dd-item ">
+        <a href="../2021-workshop/300-provisioning-subnets/15-using-service-catalog.html">
         Using AWS Service Catalog
         
         </a>
@@ -2288,7 +2288,7 @@
   
     
       <li data-nav-id="/2021-workshop/300-provisioning-subnets/20-using-terraform.html" title="Using Terraform" class="dd-item ">
-        <a href="../../2021-workshop/300-provisioning-subnets/20-using-terraform.html">
+        <a href="../2021-workshop/300-provisioning-subnets/20-using-terraform.html">
         Using Terraform
         
         </a>
@@ -2320,7 +2320,7 @@
         
         
         ">
-      <a href="../../2021-workshop/400-self-service.html">
+      <a href="../2021-workshop/400-self-service.html">
           Self service
           
       </a>
@@ -2341,7 +2341,7 @@
   
     
       <li data-nav-id="/2021-workshop/400-self-service/15-using-service-catalog.html" title="Using AWS Service Catalog" class="dd-item ">
-        <a href="../../2021-workshop/400-self-service/15-using-service-catalog.html">
+        <a href="../2021-workshop/400-self-service/15-using-service-catalog.html">
         Using AWS Service Catalog
         
         </a>
@@ -2380,7 +2380,7 @@
         
         
         ">
-      <a href="../../reinvent2019/">
+      <a href="../reinvent2019/">
           2019 AWS re:Invent Workshop
           
       </a>
@@ -2407,7 +2407,7 @@
         
         
         ">
-      <a href="../../40-reinvent2019/30-prerequisites.html">
+      <a href="../40-reinvent2019/30-prerequisites.html">
           Pre-requisites
           
       </a>
@@ -2428,7 +2428,7 @@
   
     
       <li data-nav-id="/40-reinvent2019/30-prerequisites/100-running-yourself.html" title="Running yourself" class="dd-item ">
-        <a href="../../40-reinvent2019/30-prerequisites/100-running-yourself.html">
+        <a href="../40-reinvent2019/30-prerequisites/100-running-yourself.html">
         Running yourself
         
         </a>
@@ -2460,7 +2460,7 @@
         
         
         ">
-      <a href="../../40-reinvent2019/100-task-1.html">
+      <a href="../40-reinvent2019/100-task-1.html">
           Budget &amp; Cost governance
           
       </a>
@@ -2481,7 +2481,7 @@
   
     
       <li data-nav-id="/40-reinvent2019/100-task-1/100-create-the-control.html" title="Create the control" class="dd-item ">
-        <a href="../../40-reinvent2019/100-task-1/100-create-the-control.html">
+        <a href="../40-reinvent2019/100-task-1/100-create-the-control.html">
         Create the control
         
         </a>
@@ -2500,7 +2500,7 @@
   
     
       <li data-nav-id="/40-reinvent2019/100-task-1/200-provision-the-control.html" title="Provision the control" class="dd-item ">
-        <a href="../../40-reinvent2019/100-task-1/200-provision-the-control.html">
+        <a href="../40-reinvent2019/100-task-1/200-provision-the-control.html">
         Provision the control
         
         </a>
@@ -2532,7 +2532,7 @@
         
         
         ">
-      <a href="../../40-reinvent2019/150-task-2.html">
+      <a href="../40-reinvent2019/150-task-2.html">
           Data governance
           
       </a>
@@ -2553,7 +2553,7 @@
   
     
       <li data-nav-id="/40-reinvent2019/150-task-2/100-create-the-control.html" title="Create the control" class="dd-item ">
-        <a href="../../40-reinvent2019/150-task-2/100-create-the-control.html">
+        <a href="../40-reinvent2019/150-task-2/100-create-the-control.html">
         Create the control
         
         </a>
@@ -2572,7 +2572,7 @@
   
     
       <li data-nav-id="/40-reinvent2019/150-task-2/200-provision-the-control.html" title="Provision the control" class="dd-item ">
-        <a href="../../40-reinvent2019/150-task-2/200-provision-the-control.html">
+        <a href="../40-reinvent2019/150-task-2/200-provision-the-control.html">
         Provision the control
         
         </a>
@@ -2591,7 +2591,7 @@
   
     
       <li data-nav-id="/40-reinvent2019/150-task-2/300-create-the-product.html" title="Create the product" class="dd-item ">
-        <a href="../../40-reinvent2019/150-task-2/300-create-the-product.html">
+        <a href="../40-reinvent2019/150-task-2/300-create-the-product.html">
         Create the product
         
         </a>
@@ -2623,7 +2623,7 @@
         
         
         ">
-      <a href="../../conclusion/">
+      <a href="../conclusion/">
           Conclusion
           
       </a>
@@ -2654,7 +2654,7 @@
         
         
         ">
-      <a href="../../999-further_reading.html">
+      <a href="../999-further_reading.html">
           Further Reading
           
       </a>
@@ -2718,13 +2718,7 @@
             
           
           
-            
-            
-          
-          
-            <a href='../../'>AWS Service Catalog Tools Intro Workshop</a> > <a href='../../2021-workshop.html'>2021 Workshop</a> > <a href='../../2021-workshop/300-provisioning-subnets.html'>Provisioning Subnets</a> > Using AWS Service Catalog
-          
-        
+            <a href='../'>AWS Service Catalog Tools Intro Workshop</a> > <a href='../every-day-use.html'>Every day use</a> > Applying Cloud Custodian policies
           
         
           
@@ -2738,12 +2732,9 @@
     <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#what-are-we-going-to-do">What are we going to do?</a></li>
-    <li><a href="#step-by-step-guide">Step by step guide</a>
+    <li><a href="#what-are-we-going-to-do">What are we going to do?</a>
       <ul>
-        <li><a href="#define-a-product-with-a-version-and-a-portfolio">Define a product with a version and a portfolio</a></li>
-        <li><a href="#add-the-source-code-for-our-product">Add the source code for our product</a></li>
-        <li><a href="#provision-the-product--subnet--into-a-spoke-account">Provision the product subnet into a spoke account</a></li>
+        <li><a href="#cloudtrail-mode">Cloudtrail mode</a></li>
       </ul>
     </li>
   </ul>
@@ -2759,506 +2750,113 @@
         
         <div id="body-inner">
           
-            <h1>Using AWS Service Catalog</h1>
+            <h1>Applying Cloud Custodian policies</h1>
           
 
         
 
 
-<hr>
+
+	<hr>
 <h2 id="what-are-we-going-to-do">What are we going to do?</h2>
-<p>We are going to perform the following steps:</p>
-<ul>
-<li>Define a product with a version and a portfolio</li>
-<li>Add the source code for our product</li>
-<li>Provision the product <em>subnet</em> into a spoke account</li>
-</ul>
-<h2 id="step-by-step-guide">Step by step guide</h2>
-<p>Here are the steps you need to follow to &ldquo;Using AWS Service Catalog&rdquo;</p>
-<h3 id="define-a-product-with-a-version-and-a-portfolio">Define a product with a version and a portfolio</h3>
-<ul>
-<li>
-<p>Navigate to the  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codecommit/repositories/ServiceCatalogFactory/browse?region=eu-west-1' target='_blank'>ServiceCatalogFactory CodeCommit repository</a></p>
-</li>
-<li>
-<p>Open the <em>Add file</em> menu and click the <em>Create file</em> button</p>
-</li>
-<li>
-<p>Copy the following snippet into the main input field:</p>
-<figure>
- <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">Schema</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">factory</span><span style="color:#f92672">-</span><span style="color:#ae81ff">2019</span><span style="color:#f92672">-</span><span style="color:#ae81ff">04</span><span style="color:#f92672">-</span><span style="color:#ae81ff">01</span>
-<span style="color:#a6e22e">Products</span><span style="color:#f92672">:</span>
-  <span style="color:#f92672">-</span> <span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;subnet&#34;</span>
-    <span style="color:#a6e22e">Owner</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;networking@example.com&#34;</span>
-    <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;subnet for networking&#34;</span>
-    <span style="color:#a6e22e">Distributor</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;networking team&#34;</span>
-    <span style="color:#a6e22e">SupportDescription</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Speak to networking@example.com about exceptions and speak to cloud-engineering@example.com about implementation issues&#34;</span>
-    <span style="color:#a6e22e">SupportEmail</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering@example.com&#34;</span>
-    <span style="color:#a6e22e">SupportUrl</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;https://wiki.example.com/cloud-engineering/networking/subnet&#34;</span>
-    <span style="color:#a6e22e">Tags</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;type&#34;</span>
-        <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;governance&#34;</span>
-      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;creator&#34;</span>
-        <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering&#34;</span>
-      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cost-center&#34;</span>
-        <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;governance&#34;</span>
-    <span style="color:#a6e22e">Versions</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1&#34;</span>
-        <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1 of subnet&#34;</span>
-        <span style="color:#a6e22e">Active</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">True</span>
-        <span style="color:#a6e22e">Source</span><span style="color:#f92672">:</span>
-          <span style="color:#a6e22e">Provider</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;CodeCommit&#34;</span>
-          <span style="color:#a6e22e">Configuration</span><span style="color:#f92672">:</span>
-            <span style="color:#a6e22e">RepositoryName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;subnet&#34;</span>
-            <span style="color:#a6e22e">BranchName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;main&#34;</span>
-    <span style="color:#a6e22e">Portfolios</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;mandatory&#34;</span>
-<span style="color:#a6e22e">Portfolios</span><span style="color:#f92672">:</span>
-  <span style="color:#f92672">-</span> <span style="color:#a6e22e">DisplayName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;mandatory&#34;</span>
-    <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Portfolio containing the mandatory networking components&#34;</span>
-    <span style="color:#a6e22e">ProviderName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering&#34;</span>
-    <span style="color:#a6e22e">Associations</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;arn:aws:iam::${AWS::AccountId}:role/&lt;INSERT YOUR ROLE NAME HERE&gt;&#34;</span>
-    <span style="color:#a6e22e">Tags</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;type&#34;</span>
-        <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;governance&#34;</span>
-      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;creator&#34;</span>
-        <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cloud-engineering&#34;</span>
-      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cost-center&#34;</span>
-        <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;governance&#34;</span>
-   
-</code></pre></div>
-</figure>
-</li>
-<li>
-<p>Update the Associations in the pasted text to include the IAM role name you are assuming in your account.</p>
-</li>
-<li>
-<p>Set the <em>File name</em> to <em>portfolios/networking.yaml</em></p>
-</li>
-<li>
-<p>Set your <em>Author name</em></p>
-</li>
-<li>
-<p>Set your <em>Email address</em></p>
-</li>
-<li>
-<p>Set your <em>Commit message</em></p>
-</li>
-</ul>
-
-<div class="notices tip" ><p>Using a good / unique commit message will help you understand what is going on later.</p>
-</div>
-
-<ul>
-<li>Click the <em>Commit changes</em> button:</li>
-</ul>
-<figure>
-    <img src="../../tasks/CommitChanges.png"/> 
-</figure>
-
-<h4 id="what-did-we-just-do">What did we just do?</h4>
-<p>The YAML file we created in the CodeCommit repository told the framework to perform several actions:</p>
-<ul>
-<li>create a product named <em>subnet</em></li>
-<li>add a <em>v1</em> of our product</li>
-<li>create a portfolio named <em>networking-mandatory</em></li>
-<li>add the product: <em>subnet</em> to the portfolio: <em>networking-mandatory</em></li>
-</ul>
-<h4 id="verify-the-change-worked">Verify the change worked</h4>
-<p>Once you have made your changes the  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/servicecatalog-factory-pipeline/view?region=eu-west-1' target='_blank'>ServiceCatalogFactory Pipeline</a> should have run. If you were very quick in making the change, the pipeline
-may still be running.  If it has not yet started feel free to the hit the <em>Release change</em> button.</p>
-<p>Once it has completed it should show the <em>Source</em> and <em>Build</em> stages in green to indicate they have completed
-successfully:</p>
-<figure>
-    <img src="../../tasks/SuccessfulFactoryRun.png"/> 
-</figure>
-
-<h3 id="add-the-source-code-for-our-product">Add the source code for our product</h3>
-<p>When you configured your product version, you specified the following version:</p>
+<p>Cloud Custodian enables you to manage your cloud resources by filtering, tagging, and then applying actions to them. The
+YAML DSL allows definition of rules to enable well-managed cloud infrastructure that's both secure and cost optimized.</p>
+<p>This solution allows you to configure one or more of your accounts as Custodian accounts where Cloud Custodian will be
+configured to execute.  The solution allows you to specify add the Cloud Custodian YAML DSL directly into your manifest
+file(s) so you can provision resources, share portfolios, execute lambda functions, run tests and now deploy policies
+governing your multiaccount environment.</p>
+<h3 id="cloudtrail-mode">Cloudtrail mode</h3>
+<p>Currently, you can configure policies to run in Cloudtrail mode.  To do so you must specify a custodian account id (where
+Cloud Custodian will execute), some policies you want to execute and the accounts you would like to run the policies
+against.</p>
+<p>To do this you must add a <code>c7n-aws-cloudtrails</code> section to the manifest file and specify the custodian, policies and
+apply_to configurations:</p>
  <figure>
-  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">    <span style="color:#a6e22e">Versions</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">-</span> <span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1&#34;</span>
-        <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1 of subnet&#34;</span>
-        <span style="color:#a6e22e">Active</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">True</span>
-        <span style="color:#a6e22e">Source</span><span style="color:#f92672">:</span>
-          <span style="color:#a6e22e">Provider</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;CodeCommit&#34;</span>
-          <span style="color:#a6e22e">Configuration</span><span style="color:#f92672">:</span>
-            <span style="color:#a6e22e">RepositoryName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;subnet&#34;</span>
-            <span style="color:#a6e22e">BranchName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;main&#34;</span>
-  
-</code></pre></div>
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">c7n-aws-cloudtrails:
+  policies-for<span style="color:#ae81ff">-132608235283</span>:
+    custodian: <span style="color:#e6db74">&#39;132608235283&#39;</span>
+    policies:
+      - name: stop-all-ec2s
+        resource: ec2
+        mode:
+          type: cloudtrail
+          events:
+            - RunInstances
+        actions:
+          - type: mark-for-op
+            op: stop
+    apply_to:
+      tags:
+        - tag: <span style="color:#e6db74">&#39;group:spokes&#39;</span>
+          regions: <span style="color:#e6db74">&#34;enabled_regions&#34;</span></code></pre></div>
  </figure>
-<p>This tells the framework the source code for the product comes from the <em>main</em> branch of a
-<em>CodeCommit</em> repository of the name <em>subnet</em>.</p>
-<p>We now need to create the CodeCommit repository and add the AWS CloudFormation template we are going to use for our
-product.</p>
-<ul>
-<li>
-<p>Navigate to  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codecommit/repositories?region=eu-west-1' target='_blank'>AWS CodeCommit</a></p>
-</li>
-<li>
-<p>Click <em>Create repository</em></p>
-</li>
-</ul>
-<figure>
-    <img src="../../tasks/CreateRepository.png"/> 
-</figure>
-
-<ul>
-<li>Input the name <code>subnet</code></li>
-</ul>
-<figure>
-    <img src="../../tasks/InputTheName.png"/> 
-</figure>
-
-<ul>
-<li>Click <em>Create</em></li>
-</ul>
-<figure>
-    <img src="../../tasks/ClickCreate.png"/> 
-</figure>
-
-<ul>
-<li>Scroll down to the bottom of the page and hit the <em>Create file</em> button</li>
-</ul>
-<figure>
-    <img src="../../tasks/create_file.png"/> 
-</figure>
-
-<ul>
-<li>Copy the following snippet into the main input field:</li>
-</ul>
+<h4 id="what-does-this-do">What does this do?</h4>
+<p>For the accounts you specify as custodians an Amazon EventBridge EventBus will be provisioned in the default region with
+a bus policy allowing the accounts you are monitoring to put events - cross region and cross account.  For each region
+of each account you monitor an event rule will be provisioned, forwarding events to the custodian account using an IAM
+role provisioned in the account being monitored.</p>
+<p>When you specify a policy, Cloud Custodian provisions a specific event rule based on the events you specified that
+trigger an AWS Lamdba function it created for that policy to perform the actions you specified.</p>
+<h4 id="adding-the-policies">Adding the policies</h4>
+<p>Whatever policies you would have written in Cloud Custodian can be pasted into the manifest file &lsquo;as is&rsquo; - you do not
+need to make any changes.  If you do not specify a mode: type: cloudtrail it will be added for you.  If you specify a
+mode: type: something-else it will be replaced with mode: type: cloudtrail.  You should not specify a mode: member-role attribute, one
+will be added for you and any you add will be overriden.</p>
+<h4 id="customising-the-permissions-and-the-roles-used">Customising the permissions and the roles used</h4>
+<p>You can customise the name of the role, the path and the managed policies attached to the role:</p>
  <figure>
- <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">AWSTemplateFormatVersion</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;2010-09-09&#39;</span>
-<span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#f92672">|</span>
-  <span style="color:#a6e22e">Builds</span> <span style="color:#a6e22e">out</span> <span style="color:#a6e22e">a</span> <span style="color:#a6e22e">VPC</span> <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">use</span>
-<span style="color:#a6e22e">Parameters</span><span style="color:#f92672">:</span>
-  <span style="color:#a6e22e">SubnetCIDR</span><span style="color:#f92672">:</span>
-    <span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> String
-    <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#f92672">|</span>
-      <span style="color:#a6e22e">Subnet</span> <span style="color:#a6e22e">to</span> <span style="color:#a6e22e">use</span> <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">the</span> <span style="color:#a6e22e">Subnet</span>
-  <span style="color:#a6e22e">VPCID</span><span style="color:#f92672">:</span>
-    <span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> String
-    <span style="color:#a6e22e">Description</span><span style="color:#f92672">:</span> <span style="color:#f92672">|</span>
-      <span style="color:#a6e22e">VPC</span> <span style="color:#a6e22e">to</span> <span style="color:#a6e22e">create</span> <span style="color:#a6e22e">Subnet</span> <span style="color:#66d9ef">in</span>
-<span style="color:#a6e22e">Resources</span><span style="color:#f92672">:</span>
-  <span style="color:#a6e22e">Subnet</span><span style="color:#f92672">:</span>
-    <span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">AWS</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">EC2</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#a6e22e">Subnet</span>
-    <span style="color:#a6e22e">Properties</span><span style="color:#f92672">:</span>
-      <span style="color:#a6e22e">VpcId</span><span style="color:#f92672">:</span>
-        <span style="color:#a6e22e">Ref</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">VPCID</span>
-      <span style="color:#a6e22e">CidrBlock</span><span style="color:#f92672">:</span> 
-        <span style="color:#a6e22e">Ref</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">SubnetCIDR</span>
-      <span style="color:#a6e22e">AvailabilityZone</span><span style="color:#f92672">:</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">Select</span> 
-          <span style="color:#f92672">-</span> <span style="color:#ae81ff">0</span>
-          <span style="color:#f92672">-</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">GetAZs</span> 
-            <span style="color:#a6e22e">Ref</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;AWS::Region&#39;</span>
- 
-</code></pre></div>
-</figure>
-<ul>
-<li>
-<p>Set the <em>File name</em> to <code>product.template.yaml</code></p>
-</li>
-<li>
-<p>Set your <em>Author name</em></p>
-</li>
-<li>
-<p>Set your <em>Email address</em></p>
-</li>
-<li>
-<p>Set your <em>Commit message</em></p>
-</li>
-</ul>
-
-<div class="notices tip" ><p>Using a good / unique commit message will help you understand what is going on later.</p>
-</div>
-
-<p>Creating that file should trigger your
-<a href='https://eu-west-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/subnet-v1-pipeline/view?region=eu-west-1' target='_blank'>subnet-v1-pipeline</a>.</p>
-<p>Once the pipeline has completed it should show the stages in green to indicate they have completed successfully:</p>
-<figure>
-    <img src="../../tasks/SuccessfulFactoryProductRun.png"/> 
-</figure>
-
-
-<div class="notices tip" ><p>You should see your commit message on this screen, it will help you know which version of ServiceCatalogFactory repository the
-pipeline is processing.</p>
-</div>
-
-<p>Once you have verified the pipeline has run you can go to  <a href='https://eu-west-1.console.aws.amazon.com/servicecatalog/console?region=eu-west-1#admin-products' target='_blank'>Service Catalog products</a> to view your newly
-created version.</p>
-<p>You should see the product you created listed:</p>
-<figure>
-    <img src="../../tasks/SeeYourTask1Product.png"/> 
-</figure>
-
-<p>Click on the product and verify <em>v1</em> is there</p>
-<figure>
-    <img src="../../tasks/SeeYourTask1ProductVersion1.png"/> 
-</figure>
-
-
-<div class="notices note" ><p>If you cannot see your version please raise your hand for some assistance</p>
-</div>
-
-<p>You have now successfully created a version for your product!</p>
-<h4 id="verify-the-product-was-added-to-the-portfolio">Verify the product was added to the portfolio</h4>
-<p>Now that you have verified the pipeline has run you can go to  <a href='https://eu-west-1.console.aws.amazon.com/servicecatalog/console?region=eu-west-1#portfolios?' target='_blank'>Service Catalog portfolios</a> to view your
-portfolio.</p>
-<ul>
-<li>Click on <em>networking-mandatory</em></li>
-</ul>
-<figure>
-    <img src="../../tasks/PortfolioReinventCloudEngineeringGovernance.png"/> 
-</figure>
-
-<ul>
-<li>
-<p>Click on the product <em><em>subnet</em></em></p>
-</li>
-<li>
-<p>Click on the version <em><em>v1</em></em></p>
-</li>
-</ul>
-<figure>
-    <img src="../../tasks/ClickAwsConfigS3BucketServerSideEncryptionEnabledV1.png"/> 
-</figure>
-
-<h3 id="provision-the-product--subnet--into-a-spoke-account">Provision the product <em>subnet</em> into a spoke account</h3>
-<ul>
-<li>
-<p>Navigate to the  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codecommit/repositories/ServiceCatalogPuppet/browse?region=eu-west-1' target='_blank'>ServiceCatalogPuppet CodeCommit repository</a> again</p>
-</li>
-<li>
-<p>Click on <em>manifest.yaml</em></p>
-</li>
-<li>
-<p>Click <em>Edit</em></p>
-</li>
-<li>
-<p>Append the following snippet to the end of the main input field:</p>
-<figure>
- <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">launches</span><span style="color:#f92672">:</span>
-  <span style="color:#a6e22e">subnet</span><span style="color:#f92672">:</span>
-    <span style="color:#a6e22e">portfolio</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;networking-mandatory&#34;</span>
-    <span style="color:#a6e22e">product</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;subnet&#34;</span>
-    <span style="color:#a6e22e">version</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1&#34;</span>
-    <span style="color:#a6e22e">depends_on</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">-</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">vpc</span>
-        <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">stack</span>
-        <span style="color:#a6e22e">affinity</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">stack</span>
-    <span style="color:#a6e22e">parameters</span><span style="color:#f92672">:</span>
-      <span style="color:#a6e22e">VPCID</span><span style="color:#f92672">:</span>
-        <span style="color:#a6e22e">ssm</span><span style="color:#f92672">:</span> 
-          <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;/networking/vpc/account-parameters/${AWS::AccountId}/${AWS::Region}/VPCId&#34;</span>
-      <span style="color:#a6e22e">SubnetCIDR</span><span style="color:#f92672">:</span>
-        <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;10.0.0.0/24&#39;</span>
-    <span style="color:#a6e22e">deploy_to</span><span style="color:#f92672">:</span>
-      <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
-        <span style="color:#f92672">-</span> <span style="color:#a6e22e">tag</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;type:prod&#34;</span>
-          <span style="color:#a6e22e">regions</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;default_region&#34;</span>
-   
-</code></pre></div>
-</figure>
-</li>
-<li>
-<p>The main input field should look like this (remember to set your account_id):</p>
-</li>
-</ul>
- <figure>
-  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">accounts</span><span style="color:#f92672">:</span>
-  <span style="color:#f92672">-</span> <span style="color:#a6e22e">account_id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;&lt;YOUR_ACCOUNT_ID_WITHOUT_HYPHENS&gt;&#34;</span>
-    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;puppet-account&#34;</span>
-    <span style="color:#a6e22e">default_region</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;eu-west-1&#34;</span>
-    <span style="color:#a6e22e">regions_enabled</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;eu-west-1&#34;</span>
-    <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;type:prod&#34;</span>
-      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;partition:eu&#34;</span>
-<span style="color:#a6e22e">stacks</span><span style="color:#f92672">:</span>
-  <span style="color:#66d9ef">delete</span><span style="color:#f92672">-</span><span style="color:#66d9ef">default</span><span style="color:#f92672">-</span><span style="color:#a6e22e">networking</span><span style="color:#f92672">-</span><span style="color:#66d9ef">function</span><span style="color:#f92672">:</span>
-    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;delete-default-networking-function&#34;</span>
-    <span style="color:#a6e22e">version</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1&#34;</span>
-    <span style="color:#a6e22e">capabilities</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">-</span> <span style="color:#a6e22e">CAPABILITY_NAMED_IAM</span>
-    <span style="color:#a6e22e">deploy_to</span><span style="color:#f92672">:</span>
-      <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
-        <span style="color:#f92672">-</span> <span style="color:#a6e22e">tag</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;type:prod&#34;</span>
-          <span style="color:#a6e22e">regions</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;default_region&#34;</span>
-  <span style="color:#a6e22e">vpc</span><span style="color:#f92672">:</span>
-    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;vpc&#34;</span>
-    <span style="color:#a6e22e">version</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1&#34;</span>
-    <span style="color:#a6e22e">depends_on</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">-</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;delete-default-networking&#34;</span> 
-        <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;lambda-invocation&#34;</span>
-        <span style="color:#a6e22e">affinity</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;lambda-invocation&#34;</span>
-    <span style="color:#a6e22e">deploy_to</span><span style="color:#f92672">:</span>
-      <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
-        <span style="color:#f92672">-</span> <span style="color:#a6e22e">tag</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;type:prod&#34;</span>
-          <span style="color:#a6e22e">regions</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;default_region&#34;</span>
-    <span style="color:#a6e22e">outputs</span><span style="color:#f92672">:</span>
-      <span style="color:#a6e22e">ssm</span><span style="color:#f92672">:</span> 
-        <span style="color:#f92672">-</span> <span style="color:#a6e22e">param_name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;/networking/vpc/account-parameters/${AWS::AccountId}/${AWS::Region}/VPCId&#34;</span>
-          <span style="color:#a6e22e">stack_output</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">VPCId</span>
-      
-<span style="color:#a6e22e">lambda</span><span style="color:#f92672">-</span><span style="color:#a6e22e">invocations</span><span style="color:#f92672">:</span>
-  <span style="color:#66d9ef">delete</span><span style="color:#f92672">-</span><span style="color:#66d9ef">default</span><span style="color:#f92672">-</span><span style="color:#a6e22e">networking</span><span style="color:#f92672">:</span>
-    <span style="color:#a6e22e">function_name</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">DeleteDefaultNetworking</span>
-    <span style="color:#a6e22e">qualifier</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">$LATEST</span>
-    <span style="color:#a6e22e">invocation_type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Event</span>
-    <span style="color:#a6e22e">depends_on</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">-</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;delete-default-networking-function&#34;</span>
-        <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;stack&#34;</span>
-        <span style="color:#a6e22e">affinity</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;stack&#34;</span>
-    <span style="color:#a6e22e">invoke_for</span><span style="color:#f92672">:</span>
-      <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
-        <span style="color:#f92672">-</span> <span style="color:#a6e22e">regions</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;default_region&#34;</span>
-          <span style="color:#a6e22e">tag</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;type:prod&#34;</span>
-
-<span style="color:#a6e22e">assertions</span><span style="color:#f92672">:</span>
-  <span style="color:#a6e22e">assert</span><span style="color:#f92672">-</span><span style="color:#a6e22e">no</span><span style="color:#f92672">-</span><span style="color:#66d9ef">default</span><span style="color:#f92672">-</span><span style="color:#a6e22e">vpcs</span><span style="color:#f92672">:</span>
-    <span style="color:#a6e22e">expected</span><span style="color:#f92672">:</span>
-      <span style="color:#a6e22e">source</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">manifest</span>
-      <span style="color:#a6e22e">config</span><span style="color:#f92672">:</span>
-        <span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> []
-    <span style="color:#a6e22e">actual</span><span style="color:#f92672">:</span>
-      <span style="color:#a6e22e">source</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">boto3</span>
-      <span style="color:#a6e22e">config</span><span style="color:#f92672">:</span>
-        <span style="color:#a6e22e">client</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;ec2&#39;</span>
-        <span style="color:#a6e22e">call</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">describe_vpcs</span>
-        <span style="color:#a6e22e">arguments</span><span style="color:#f92672">:</span> {}
-        <span style="color:#a6e22e">use_paginator</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>
-        <span style="color:#a6e22e">filter</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Vpcs</span>[<span style="color:#f92672">?</span><span style="color:#a6e22e">IsDefault</span><span style="color:#f92672">==</span><span style="color:#e6db74">`</span><span style="color:#e6db74">true</span><span style="color:#e6db74">`</span>].<span style="color:#a6e22e">State</span>
-    <span style="color:#a6e22e">depends_on</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">-</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;delete-default-networking&#34;</span>
-        <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;lambda-invocation&#34;</span>
-        <span style="color:#a6e22e">affinity</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;lambda-invocation&#34;</span>
-    <span style="color:#a6e22e">assert_for</span><span style="color:#f92672">:</span>
-      <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
-        <span style="color:#f92672">-</span> <span style="color:#a6e22e">regions</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">regions_enabled</span>
-          <span style="color:#a6e22e">tag</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span><span style="color:#a6e22e">prod</span>
-
-<span style="color:#a6e22e">launches</span><span style="color:#f92672">:</span>
-  <span style="color:#a6e22e">subnet</span><span style="color:#f92672">:</span>
-    <span style="color:#a6e22e">portfolio</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;networking-mandatory&#34;</span>
-    <span style="color:#a6e22e">product</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;subnet&#34;</span>
-    <span style="color:#a6e22e">version</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1&#34;</span>
-    <span style="color:#a6e22e">depends_on</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">-</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">vpc</span>
-        <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">stack</span>
-        <span style="color:#a6e22e">affinity</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">stack</span>
-    <span style="color:#a6e22e">parameters</span><span style="color:#f92672">:</span>
-      <span style="color:#a6e22e">VPCID</span><span style="color:#f92672">:</span>
-        <span style="color:#a6e22e">ssm</span><span style="color:#f92672">:</span> 
-          <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;/networking/vpc/account-parameters/${AWS::AccountId}/${AWS::Region}/VPCId&#34;</span>
-      <span style="color:#a6e22e">SubnetCIDR</span><span style="color:#f92672">:</span>
-        <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;10.0.0.0/24&#39;</span>
-    <span style="color:#a6e22e">deploy_to</span><span style="color:#f92672">:</span>
-      <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
-        <span style="color:#f92672">-</span> <span style="color:#a6e22e">tag</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;type:prod&#34;</span>
-          <span style="color:#a6e22e">regions</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;default_region&#34;</span>
- 
-</code></pre></div>
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">c7n-aws-cloudtrails:
+  policies-for<span style="color:#ae81ff">-132608235283</span>:
+    custodian: <span style="color:#e6db74">&#39;132608235283&#39;</span>
+    role_path: <span style="color:#e6db74">&#34;/c7nc7n/&#34;</span>
+    role_name: <span style="color:#e6db74">&#34;C7NExecutor&#34;</span>
+    role_managed_policy_arns:
+      - arn:aws:iam::aws:policy/AnotherPolicy
+    policies:
+      - name: stop-all-ec2s
+        resource: ec2
+        mode:
+          type: cloudtrail
+          events:
+            - RunInstances
+        actions:
+          - type: mark-for-op
+            op: stop
+    apply_to:
+      tags:
+        - tag: <span style="color:#e6db74">&#39;group:spokes&#39;</span>
+          regions: <span style="color:#e6db74">&#34;enabled_regions&#34;</span></code></pre></div>
  </figure>
-<h4 id="committing-the-manifest-file">Committing the manifest file</h4>
-<ul>
-<li>Set your <em>Author name</em></li>
-<li>Set your <em>Email address</em></li>
-<li>Set your <em>Commit message</em></li>
-</ul>
-
-<div class="notices tip" ><p>Using a good / unique commit message will help you understand what is going on later.</p>
-</div>
-
-<ul>
-<li>Click the <em>Commit changes</em> button:</li>
-</ul>
-<figure>
-    <img src="../../tasks/CommitChanges.png"/> 
-</figure>
-
-<h4 id="what-did-we-just-do-1">What did we just do?</h4>
-<p>The YAML file we created in the previous step told the framework to perform the following actions:</p>
-<ul>
-<li>provision a product named <em>subnet</em> into the default region of the account</li>
-</ul>
-<p>When you added the following:</p>
+<h4 id="running-in-spoke-execution-mode">Running in spoke execution mode</h4>
+<p>To reduce the overall execution time you can deploy Cloud Custodian in spoke execution mode by specifying <code>execution</code>:</p>
  <figure>
-  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">launches</span><span style="color:#f92672">:</span>
-  <span style="color:#a6e22e">subnet</span><span style="color:#f92672">:</span>
-    <span style="color:#a6e22e">portfolio</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;networking-mandatory&#34;</span>
-    <span style="color:#a6e22e">product</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;subnet&#34;</span>
-    <span style="color:#a6e22e">version</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;v1&#34;</span>
-    <span style="color:#a6e22e">depends_on</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">-</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">vpc</span>
-        <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">stack</span>
-        <span style="color:#a6e22e">affinity</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">stack</span>
-    <span style="color:#a6e22e">parameters</span><span style="color:#f92672">:</span>
-      <span style="color:#a6e22e">VPCID</span><span style="color:#f92672">:</span>
-        <span style="color:#a6e22e">ssm</span><span style="color:#f92672">:</span> 
-          <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;/networking/vpc/account-parameters/${AWS::AccountId}/${AWS::Region}/VPCId&#34;</span>
-      <span style="color:#a6e22e">SubnetCIDR</span><span style="color:#f92672">:</span>
-        <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;10.0.0.0/24&#39;</span>
-    <span style="color:#a6e22e">deploy_to</span><span style="color:#f92672">:</span>
-      <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
-        <span style="color:#f92672">-</span> <span style="color:#a6e22e">tag</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;type:prod&#34;</span>
-          <span style="color:#a6e22e">regions</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;default_region&#34;</span>
-  
-</code></pre></div>
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">c7n-aws-cloudtrails:
+  policies-for<span style="color:#ae81ff">-132608235283</span>:
+    execution: spoke
+    custodian: <span style="color:#e6db74">&#39;132608235283&#39;</span>
+    policies:
+      - name: stop-all-ec2s
+        resource: ec2
+        mode:
+          type: cloudtrail
+          events:
+            - RunInstances
+        actions:
+          - type: mark-for-op
+            op: stop
+    apply_to:
+      tags:
+        - tag: <span style="color:#e6db74">&#39;group:spokes&#39;</span>
+          regions: <span style="color:#e6db74">&#34;enabled_regions&#34;</span></code></pre></div>
  </figure>
-<p>You told the framework to provision <em>v1</em> of <em>subnet</em> from the portfolio
-<em>networking-mandatory</em> into every account that has the tag <em>type:prod</em></p>
- <figure>
-  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">accounts</span><span style="color:#f92672">:</span>
-  <span style="color:#f92672">-</span> <span style="color:#a6e22e">account_id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;&lt;YOUR_ACCOUNT_ID_WITHOUT_HYPHENS&gt;&#34;</span>
-    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;puppet-account&#34;</span>
-    <span style="color:#a6e22e">default_region</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;eu-west-1&#34;</span>
-    <span style="color:#a6e22e">regions_enabled</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;eu-west-1&#34;</span>
-<span style="display:block;width:100%;background-color:#3c3d38">    <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
-</span><span style="display:block;width:100%;background-color:#3c3d38">      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;type:prod&#34;</span>
-</span><span style="display:block;width:100%;background-color:#3c3d38">      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;partition:eu&#34;</span>
-</span>  
-</code></pre></div>
- </figure>
-<p>Within each account there will be a copy of the product provisioned into the default region:</p>
- <figure>
-  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">accounts</span><span style="color:#f92672">:</span>
-  <span style="color:#f92672">-</span> <span style="color:#a6e22e">account_id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;&lt;YOUR_ACCOUNT_ID_WITHOUT_HYPHENS&gt;&#34;</span>
-    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;puppet-account&#34;</span>
-<span style="display:block;width:100%;background-color:#3c3d38">    <span style="color:#a6e22e">default_region</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;eu-west-1&#34;</span>
-</span>    <span style="color:#a6e22e">regions_enabled</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;eu-west-1&#34;</span>
-    <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span>
-      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;type:prod&#34;</span>
-      <span style="color:#f92672">-</span> <span style="color:#e6db74">&#34;partition:eu&#34;</span>
-  
-</code></pre></div>
- </figure>
-<h4 id="verifying-the-provisioned-product">Verifying the provisioned product</h4>
-<p>Once you have made your changes the  <a href='https://eu-west-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/servicecatalog-puppet-pipeline/view?region=eu-west-1' target='_blank'>ServiceCatalogPuppet Pipeline</a> should have run. If you were quick in making the change, the pipeline
-may still be running.  If it has not yet started feel free to the hit the <em>Release change</em> button.</p>
-<p>Once it has completed it should show the stages in green to indicate they have completed successfully:</p>
-<figure>
-    <img src="../../tasks/SuccessfulPuppetRun.png"/> 
-</figure>
 
-<p>Once you have verified the pipeline has run you can go to  <a href='https://eu-west-1.console.aws.amazon.com/servicecatalog/home?region=eu-west-1#/stacks' target='_blank'>Service Catalog provisioned products</a> to view your
-provisioned product.  Please note when you arrive at the provisioned product page you will need to select account from
-the filter by drop down in the top right:</p>
-<figure>
-    <img src="../../tasks/FilterByAccount.png"/> 
-</figure>
 
-<p>You have now successfully provisioned a product</p>
+
 
 
 <footer class=" footline" >
 	
 </footer>
-
 
         
         </div> 
@@ -4501,83 +4099,6 @@ the filter by drop down in the top right:</p>
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -4593,8 +4114,38 @@ the filter by drop down in the top right:</p>
             
         
                     
+                        
             
-        
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
                     
                         
             
@@ -4641,6 +4192,25 @@ the filter by drop down in the top right:</p>
             
         
                     
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
                         
             
             
@@ -4672,22 +4242,6 @@ the filter by drop down in the top right:</p>
                     
             
         
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
                     
                         
             
@@ -4742,7 +4296,6 @@ the filter by drop down in the top right:</p>
             
                 
                     
-                    
                 
                 
 
@@ -4759,8 +4312,53 @@ the filter by drop down in the top right:</p>
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
                         
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
                         
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -5014,10 +4612,10 @@ the filter by drop down in the top right:</p>
 	 
 	 
 		
-			<a class="nav nav-prev" href="../../2021-workshop/300-provisioning-subnets.html" title="Provisioning Subnets"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="../every-day-use/850-applying-tag-policies.html" title="Applying Tag Policies"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="../../2021-workshop/300-provisioning-subnets/20-using-terraform.html" title="Using Terraform" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="../2021-workshop.html" title="2021 Workshop" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -5027,20 +4625,19 @@ the filter by drop down in the top right:</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js"></script>
-    <script src="../../js/perfect-scrollbar.min.js"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js"></script>
-    <script src="../../js/jquery.sticky.js"></script>
-    <script src="../../js/featherlight.min.js"></script>
-    <script src="../../js/html5shiv-printshiv.min.js"></script>
-    <script src="../../js/highlight.pack.js"></script>
+    <script src="../js/clipboard.min.js"></script>
+    <script src="../js/perfect-scrollbar.min.js"></script>
+    <script src="../js/perfect-scrollbar.jquery.min.js"></script>
+    <script src="../js/jquery.sticky.js"></script>
+    <script src="../js/featherlight.min.js"></script>
+    <script src="../js/html5shiv-printshiv.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom-3.6.0.js"></script>
-    <script src="../../js/learn.js"></script>
-    <script src="../../js/hugo-learn.js"></script>
+    <script src="../js/modernizr.custom-3.6.0.js"></script>
+    <script src="../js/learn.js"></script>
+    <script src="../js/hugo-learn.js"></script>
 
     
 
   </body>
 </html>
-
