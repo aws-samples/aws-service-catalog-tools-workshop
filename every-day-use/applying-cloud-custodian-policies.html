@@ -2678,7 +2678,7 @@
 </left>
 
 <left>
-    <h5 class="copyright">71b5c60 - Thu Mar 9 22:02:49 UTC 2023</h5>
+    <h5 class="copyright">168f5f2 - Tue Jun 27 14:11:35 UTC 2023</h5>
 </left>
 
     </section>
@@ -2734,7 +2734,8 @@
   <ul>
     <li><a href="#what-are-we-going-to-do">What are we going to do?</a>
       <ul>
-        <li><a href="#cloudtrail-mode">Cloudtrail mode</a></li>
+        <li><a href="#modes">Modes</a></li>
+        <li><a href="#getting-started">Getting started</a></li>
       </ul>
     </li>
   </ul>
@@ -2761,18 +2762,20 @@
 <h2 id="what-are-we-going-to-do">What are we going to do?</h2>
 <p>Cloud Custodian enables you to manage your cloud resources by filtering, tagging, and then applying actions to them. The
 YAML DSL allows definition of rules to enable well-managed cloud infrastructure that's both secure and cost optimized.</p>
-<p>This solution allows you to configure one or more of your accounts as Custodian accounts where Cloud Custodian will be
-configured to execute.  The solution allows you to specify add the Cloud Custodian YAML DSL directly into your manifest
-file(s) so you can provision resources, share portfolios, execute lambda functions, run tests and now deploy policies
-governing your multiaccount environment.</p>
-<h3 id="cloudtrail-mode">Cloudtrail mode</h3>
-<p>Currently, you can configure policies to run in Cloudtrail mode.  To do so you must specify a custodian account id (where
-Cloud Custodian will execute), some policies you want to execute and the accounts you would like to run the policies
-against.</p>
-<p>To do this you must add a <code>c7n-aws-cloudtrails</code> section to the manifest file and specify the custodian, policies and
-apply_to configurations:</p>
+<p>This solution automates the setup of a multi account Cloud Custodian installation allowing you to make use of the AWS
+Serverless services. This solution will set up the AWS EventBridge policies, event buses, event forwarding, cross account
+roles, provisioning of the policy AWS Lambda Functions for real time monitoring and the periodic triggering needed for
+delayed actions and retrospective monitoring.</p>
+<h3 id="modes">Modes</h3>
+<p>This solution allows you to write policies in any of the c7n supported modes.  If you write pull based policies they
+will be run periodically within an AWS CodeBuild environment on a schedule of your choosing.  AWS Lambda policies are
+provisioned within an AWS CodeBuild project run.</p>
+<h3 id="getting-started">Getting started</h3>
+<p>To get started you must add a <code>c7n-aws-lambdas</code> section to the manifest file and specify the custodian, policies and
+apply_to configurations.</p>
+<p>Here is an example cloudtrail policy:</p>
  <figure>
-  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">c7n-aws-cloudtrails:
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">c7n-aws-lambdas:
   policies-for<span style="color:#ae81ff">-132608235283</span>:
     custodian: <span style="color:#e6db74">&#39;132608235283&#39;</span>
     policies:
@@ -2788,6 +2791,62 @@ apply_to configurations:</p>
     apply_to:
       tags:
         - tag: <span style="color:#e6db74">&#39;group:spokes&#39;</span>
+          regions: <span style="color:#e6db74">&#34;enabled_regions&#34;</span></code></pre></div>
+ </figure>
+<p>If you want to use delayed actions - for example terminate unused ebs volumes after 30 days then you will need to set a
+schedule_expression.  This will trigger the solution to run c7n as often as you have specified.  You can use AWS Amazon
+EventBridge cron or rate expressions when specifying the value.  You should choose a value that makes sense depending
+on your requirements, for example if you wait 30 days before performing actions you could probably use a 24hr schedule
+or if you want to be more aggressive with your cost savings or have stricter policies you can set the schedule to run
+hourly.  We do not recommend running the schedule in such a way where run N is starting before run N-1 has finished.</p>
+<p>Here is an example:</p>
+ <figure>
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">c7n-aws-lambdas:
+  policies-for<span style="color:#ae81ff">-132608235283</span>:
+    execution: hub
+    custodian: <span style="color:#e6db74">&#39;132608235283&#39;</span>
+    schedule_expression: rate(<span style="color:#ae81ff">1</span> day)
+    role_path: <span style="color:#e6db74">&#34;/c7nc7n/&#34;</span>
+    role_name: <span style="color:#e6db74">&#34;C7NExecutor&#34;</span>
+    policies:
+      - name: ebs-mark-unattached-deletion
+        resource: ebs
+        comments: <span style="color:#e6db74">|
+</span><span style="color:#e6db74">         </span><span style="color:#e6db74"> </span><span style="color:#e6db74">Mark any unattached EBS volumes for deletion in 30 days.</span>
+          Volumes set to not delete on instance termination do have
+          valid use cases as data drives, but <span style="color:#ae81ff">99</span>% of the time they
+          appear to be just garbage creation.
+        filters:
+          - Attachments: [ ]
+          - <span style="color:#e6db74">&#34;tag:maid_status&#34;</span>: absent
+        actions:
+          - type: mark-for-op
+            op: delete
+            days: <span style="color:#ae81ff">30</span>
+      - name: ebs-unmark-attached-deletion
+        resource: ebs
+        comments: <span style="color:#e6db74">|
+</span><span style="color:#e6db74">         </span><span style="color:#e6db74"> </span><span style="color:#e6db74">Unmark any attached EBS volumes that were scheduled for deletion</span>
+          if they are currently attached
+        filters:
+          - type: value
+            key: <span style="color:#e6db74">&#34;Attachments[0].Device&#34;</span>
+            value: not-<span style="color:#66d9ef">null</span>
+          - <span style="color:#e6db74">&#34;tag:maid_status&#34;</span>: not-<span style="color:#66d9ef">null</span>
+        actions:
+          - unmark
+      - name: ebs-delete-marked
+        resource: ebs
+        comments: <span style="color:#e6db74">|
+</span><span style="color:#e6db74">         </span><span style="color:#e6db74"> </span><span style="color:#e6db74">Delete any attached EBS volumes that were scheduled for deletion</span>
+        filters:
+          - type: marked-for-op
+            op: delete
+        actions:
+          - delete
+    apply_to:
+      tags:
+        - tag: <span style="color:#e6db74">&#39;group:hundred&#39;</span>
           regions: <span style="color:#e6db74">&#34;enabled_regions&#34;</span></code></pre></div>
  </figure>
 <h4 id="what-does-this-do">What does this do?</h4>
