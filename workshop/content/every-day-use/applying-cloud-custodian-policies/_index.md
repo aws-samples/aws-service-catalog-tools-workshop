@@ -10,24 +10,27 @@ home_region = "eu-west-1"
 Cloud Custodian enables you to manage your cloud resources by filtering, tagging, and then applying actions to them. The 
 YAML DSL allows definition of rules to enable well-managed cloud infrastructure that's both secure and cost optimized.
 
-This solution allows you to configure one or more of your accounts as Custodian accounts where Cloud Custodian will be
-configured to execute.  The solution allows you to specify add the Cloud Custodian YAML DSL directly into your manifest
-file(s) so you can provision resources, share portfolios, execute lambda functions, run tests and now deploy policies
-governing your multiaccount environment.
+This solution automates the setup of a multi account Cloud Custodian installation allowing you to make use of the AWS 
+Serverless services. This solution will set up the AWS EventBridge policies, event buses, event forwarding, cross account
+roles, provisioning of the policy AWS Lambda Functions for real time monitoring and the periodic triggering needed for
+delayed actions and retrospective monitoring.
 
-### Cloudtrail mode 
+### Modes
 
-Currently, you can configure policies to run in Cloudtrail mode.  To do so you must specify a custodian account id (where
-Cloud Custodian will execute), some policies you want to execute and the accounts you would like to run the policies 
-against.
+This solution allows you to write policies in any of the c7n supported modes.  If you write pull based policies they 
+will be run periodically within an AWS CodeBuild environment on a schedule of your choosing.  AWS Lambda policies are 
+provisioned within an AWS CodeBuild project run.
 
-To do this you must add a `c7n-aws-cloudtrails` section to the manifest file and specify the custodian, policies and 
-apply_to configurations:
 
+### Getting started
+To get started you must add a `c7n-aws-lambdas` section to the manifest file and specify the custodian, policies and 
+apply_to configurations. 
+
+Here is an example cloudtrail policy:
 
  <figure>
   {{< highlight yaml >}}
-c7n-aws-cloudtrails:
+c7n-aws-lambdas:
   policies-for-132608235283:
     custodian: '132608235283'
     policies:
@@ -43,6 +46,67 @@ c7n-aws-cloudtrails:
     apply_to:
       tags:
         - tag: 'group:spokes'
+          regions: "enabled_regions"
+{{< / highlight >}}
+ </figure>
+
+If you want to use delayed actions - for example terminate unused ebs volumes after 30 days then you will need to set a 
+schedule_expression.  This will trigger the solution to run c7n as often as you have specified.  You can use AWS Amazon 
+EventBridge cron or rate expressions when specifying the value.  You should choose a value that makes sense depending
+on your requirements, for example if you wait 30 days before performing actions you could probably use a 24hr schedule
+or if you want to be more aggressive with your cost savings or have stricter policies you can set the schedule to run
+hourly.  We do not recommend running the schedule in such a way where run N is starting before run N-1 has finished.
+
+Here is an example:
+
+ <figure>
+  {{< highlight yaml >}}
+c7n-aws-lambdas:
+  policies-for-132608235283:
+    execution: hub
+    custodian: '132608235283'
+    schedule_expression: rate(1 day)
+    role_path: "/c7nc7n/"
+    role_name: "C7NExecutor"
+    policies:
+      - name: ebs-mark-unattached-deletion
+        resource: ebs
+        comments: |
+          Mark any unattached EBS volumes for deletion in 30 days.
+          Volumes set to not delete on instance termination do have
+          valid use cases as data drives, but 99% of the time they
+          appear to be just garbage creation.
+        filters:
+          - Attachments: [ ]
+          - "tag:maid_status": absent
+        actions:
+          - type: mark-for-op
+            op: delete
+            days: 30
+      - name: ebs-unmark-attached-deletion
+        resource: ebs
+        comments: |
+          Unmark any attached EBS volumes that were scheduled for deletion
+          if they are currently attached
+        filters:
+          - type: value
+            key: "Attachments[0].Device"
+            value: not-null
+          - "tag:maid_status": not-null
+        actions:
+          - unmark
+      - name: ebs-delete-marked
+        resource: ebs
+        comments: |
+          Delete any attached EBS volumes that were scheduled for deletion
+        filters:
+          - type: marked-for-op
+            op: delete
+        actions:
+          - delete
+    apply_to:
+      tags:
+        - tag: 'group:hundred'
           regions: "enabled_regions"
 {{< / highlight >}}
  </figure>
@@ -117,4 +181,3 @@ c7n-aws-cloudtrails:
           regions: "enabled_regions"
 {{< / highlight >}}
  </figure>
-
