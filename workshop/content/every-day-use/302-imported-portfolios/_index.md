@@ -79,7 +79,7 @@ _Now we are ready to add an imported portfolio to the manifest file._
 imported-portfolios:
   account-vending-for-spokes:
     portfolio: reinvent-cloud-engineering-governance
-    shared_with:
+    share_with:
       tags:
         - tag: "type:prod"
           regions: "default_region"  
