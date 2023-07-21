@@ -16,7 +16,7 @@
     <link rel="shortcut icon" href="../images/favicon.png" type="image/png" />
 <link rel="icon" href="../images/favicon.png" type="image/png" />
 
-    <title>Service Catalog Factory :: Service Catalog Tools Workshop</title>
+    <title>Using SSM to override account settings :: Service Catalog Tools Workshop</title>
 
     
     <link href="../css/nucleus.css" rel="stylesheet">
@@ -45,7 +45,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/tools/factory.html">
+  <body class="" data-url="/every-day-use/using-ssm-to-override-account-details.html">
     <nav id="sidebar" class="">
 
 
@@ -70,7 +70,7 @@
   
     
     <li data-nav-id="/tools.html" title="Service Catalog Tools" class="dd-item 
-        parent
+        
         
         
         ">
@@ -97,8 +97,8 @@
   
     
     <li data-nav-id="/tools/factory.html" title="Service Catalog Factory" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="../tools/factory.html">
@@ -1015,7 +1015,7 @@
   
     
     <li data-nav-id="/every-day-use.html" title="Every day use" class="dd-item 
-        
+        parent
         
         
         ">
@@ -1872,8 +1872,8 @@
   
     
     <li data-nav-id="/every-day-use/using-ssm-to-override-account-details.html" title="Using SSM to override account settings" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="../every-day-use/using-ssm-to-override-account-details.html">
@@ -2702,7 +2702,7 @@
 </left>
 
 <left>
-    <h5 class="copyright">ea13add - Fri Jul 21 13:22:42 UTC 2023</h5>
+    <h5 class="copyright">ea13add - Fri Jul 21 13:22:43 UTC 2023</h5>
 </left>
 
     </section>
@@ -2742,7 +2742,7 @@
             
           
           
-            <a href='../'>AWS Service Catalog Tools Intro Workshop</a> > <a href='../tools.html'>Service Catalog Tools</a> > Service Catalog Factory
+            <a href='../'>AWS Service Catalog Tools Intro Workshop</a> > <a href='../every-day-use.html'>Every day use</a> > Using SSM to override account settings
           
         
           
@@ -2756,17 +2756,8 @@
     <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#what-is-service-catalog-factory">What is Service Catalog Factory</a></li>
-    <li><a href="#overview">Overview</a></li>
-    <li><a href="#what-do-the-pipelines-look-like">What Do The Pipelines Look Like</a>
-      <ul>
-        <li><a href="#source">Source</a></li>
-        <li><a href="#build">Build</a></li>
-        <li><a href="#test">Test</a></li>
-        <li><a href="#package">Package</a></li>
-        <li><a href="#deploy">Deploy</a></li>
-      </ul>
-    </li>
+    <li><a href="#what-are-we-going-to-do">What are we going to do?</a></li>
+    <li><a href="#setting-account-level-default-region-or-regions-enabled-values">Setting account level default_region or regions_enabled values</a></li>
   </ul>
 </nav>
     </div>
@@ -2780,7 +2771,7 @@
         
         <div id="body-inner">
           
-            <h1>Service Catalog Factory</h1>
+            <h1>Using SSM to override account settings</h1>
           
 
         
@@ -2788,103 +2779,50 @@
 
 
 	<hr>
-<h2 id="what-is-service-catalog-factory">What is Service Catalog Factory</h2>
-<p><strong>Service Catalog Factory</strong> is the first of the Service Catalog tools.  It is an AWS Solution designed to accelerate
-the creation of AWS CodePipelines.  The pipelines it creates take source code, allow you to run static analysis and
-functional tests before packaging and preparing for later use when using <strong>Service Catalog Puppet</strong></p>
-<p>The pipelines you create can package AWS Cloudformation templates to be used in stacks, launches or spoke local
-portfolios when using <strong>Service Catalog Puppet</strong>.  You can also package source code to be used in a workspace or an app
-when using <strong>Service Catalog Puppet</strong>.  Using <strong>Service Catalog Factory</strong> you can package AWS CloudFormation, AWS CDK or
-Hashicorp based git repositories.</p>
-<h2 id="overview">Overview</h2>
-<p>When installing <strong>Service Catalog Factory</strong> you create a pipeline named servicecatalog-factory-pipeline.  This pipeline
-can use AWS CodeStar connections, Amazon S3 or AWS CodeCommit as its source.  The source contains descriptions of the
-different pipelines you want to create.</p>
-<p>When the pipeline runs it will verify all existing pipelines that were previously created are configured correctly and
-it will create pipelines for the newly declared pipelines:</p>
+<h2 id="what-are-we-going-to-do">What are we going to do?</h2>
+<p>When you specify an OU within the accounts section each account within the OU is configured in the exact same way. You
+can already using AWS Organizations account tags to add tags to individual accounts and you can use override or append
+to configure the regions_enabled and default_region.  If you have many accounts that have different default_region or
+regions_enabled values it can be cumbersome to maintain this in the manifest file.  With this feature you can specify
+default_region and regions_enabled values in SSM per account allowing you to configure this easily at account vending
+time.</p>
+<h2 id="setting-account-level-default-region-or-regions-enabled-values">Setting account level default_region or regions_enabled values</h2>
+<p>When defining an OU you must set the external_account_overrides correctly:</p>
 <figure>
-    <img src="../images/factory/factory-conceptual.png"/> 
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">accounts:
+  - ou: <span style="color:#e6db74">&#34;/dev&#34;</span>
+    name: <span style="color:#e6db74">&#34;dev-accounts&#34;</span>
+    external_account_overrides:
+      default_region:
+        source: ssm
+      enabled_regions:
+        source: ssm
+    tags:
+      - <span style="color:#e6db74">&#34;type:dev&#34;</span></code></pre></div>
 </figure>
-
-<p>When you are using portfolios in your git repository the pipeline will also create the AWS Service Catalog products in
-each of your enabled regions.  If you add an additional region you will need to rerun the pipeline for changes to be
-made.</p>
-<h2 id="what-do-the-pipelines-look-like">What Do The Pipelines Look Like</h2>
-<p>The pipelines comprise of the following stages:</p>
+<p>Here we are saying we want default_region and enabled_regions values to come from SSM.</p>
+<p>In SSM you must create parameters with the names:</p>
+<ul>
+<li>/servicecatalog-puppet/manifest-external-account-overrides/&lt;account_id&gt;/default_region</li>
+<li>/servicecatalog-puppet/manifest-external-account-overrides/&lt;account_id&gt;/enabled_regions</li>
+</ul>
+<p>where &lt;account_id&gt; is replaced with the 12 character AWS Account Id you want to override the default_region and
+enabled_regions for.</p>
+<p>If an account within the OU is not present within SSM you will get an error unless you set a value for fail_if_missing:</p>
 <figure>
-    <img src="../images/factory/factory-pipelines.png"/> 
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">accounts:
+  - ou: <span style="color:#e6db74">&#34;/dev&#34;</span>
+    name: <span style="color:#e6db74">&#34;dev-accounts&#34;</span>
+    external_account_overrides:
+      default_region:
+        fail_if_missing: <span style="color:#66d9ef">false</span>
+        source: ssm
+      enabled_regions:
+        fail_if_missing: <span style="color:#66d9ef">false</span>
+        source: ssm
+    tags:
+      - <span style="color:#e6db74">&#34;type:dev&#34;</span></code></pre></div>
 </figure>
-
-<h3 id="source">Source</h3>
-<p>The source stage listens to changes in your specified source code management system and triggers the pipeline when there
-are changes.  The source git repository can be AWS CodeStar connections, Amazon S3, AWS CodeCommit or a custom source
-action.</p>
-<h3 id="build">Build</h3>
-<p>The build stage is optional.  You can specify a build stage by providing your own buildspec and specifying which AWS
-CodeBuild environment you would like to use.  This is useful when you are using code generation tools to generate your
-AWS Cloudformation template - eg. when using Troposphere.</p>
-<h3 id="test">Test</h3>
-<p>The test stage fans out to make use of parallel steps in AWS CodePipeline.  Each step in the phase needs to complete
-successfully for the operation to fan back in and continue to the package stage.</p>
-<p>The framework provided test stage steps vary depending on which type of source code you are using:</p>
-<h4 id="stacks">Stacks</h4>
-<ul>
-<li>Validate - An AWS Cloudformation validate is performed on the provided template.  This cannot be disabled.</li>
-<li>CFN Nag - CFN Nag is run on the provided template.  This is disabled by default.</li>
-<li>CloudFormation RSpec - the tests you provide in your git repo are executed using CloudFormation RSpec.  This is</li>
-<li>disabled by default.</li>
-</ul>
-<h4 id="portfolios">Portfolios</h4>
-<ul>
-<li>Validate - An AWS Cloudformation validate is performed on the provided template.  This cannot be disabled.</li>
-<li>CFN Nag - CFN Nag is run on the provided template.  This is disabled by default.</li>
-<li>CloudFormation RSpec - the tests you provide in your git repo are executed using CloudFormation RSpec.  This is</li>
-<li>disabled by default.</li>
-</ul>
-<h4 id="workspaces">Workspaces</h4>
-<ul>
-<li>There are no framework provided steps for workspaces.</li>
-</ul>
-<h4 id="apps">Apps</h4>
-<ul>
-<li>There are no framework provided steps for apps.</li>
-</ul>
-<h3 id="package">Package</h3>
-<p>The package stage takes your input and makes it available for each region you operate in.  If you are using local
-resources like source code in an AWS Lambda function the package stage can be used to execute an AWS Cloudformation
-package command for each region you operate in.  If you are using workspaces or apps the package stage will zip your
-source code.  A default package stage is provided for you.</p>
-<h3 id="deploy">Deploy</h3>
-<p>The deploy stage takes your prepared artefact and submits it to the corresponding repository:</p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Repository</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>stacks</td>
-<td>Amazon S3</td>
-</tr>
-<tr>
-<td>portfolios</td>
-<td>AWS Service Catalog</td>
-</tr>
-<tr>
-<td>workspaces</td>
-<td>Amazon S3</td>
-</tr>
-<tr>
-<td>apps</td>
-<td>Amazon S3</td>
-</tr>
-</tbody>
-</table>
-<h4 id="regions-without-aws-codepipeline-support">Regions without AWS Codepipeline support</h4>
-<p>If you are using a region without AWS Codepipeline support the framework will detect this and use an AWS CodeBuild
-project to perform the cross region deployment.</p>
 
 
 
@@ -2943,7 +2881,6 @@ project to perform the cross region deployment.</p>
             
                 
                     
-                    
                 
                 
 
@@ -2959,9 +2896,6 @@ project to perform the cross region deployment.</p>
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -4123,6 +4057,7 @@ project to perform the cross region deployment.</p>
             
                 
                     
+                    
                 
                 
 
@@ -4138,6 +4073,9 @@ project to perform the cross region deployment.</p>
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -4664,10 +4602,10 @@ project to perform the cross region deployment.</p>
 	 
 	 
 		
-			<a class="nav nav-prev" href="../tools.html" title="Service Catalog Tools"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="../every-day-use/800-applying-service-control-policies.html" title="Applying Service Control Policies"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="../tools/puppet.html" title="Service Catalog Puppet" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="../every-day-use/850-applying-tag-policies.html" title="Applying Tag Policies" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

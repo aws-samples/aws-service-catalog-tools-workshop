@@ -415,6 +415,10 @@
   </url>
   
   <url>
+    <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/every-day-use/using-ssm-to-override-account-details.html</loc>
+  </url>
+  
+  <url>
     <loc>https://aws-samples.github.io/aws-service-catalog-tools-workshop/every-day-use/850-applying-tag-policies.html</loc>
   </url>
   

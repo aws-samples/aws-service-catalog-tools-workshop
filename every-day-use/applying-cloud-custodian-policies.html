@@ -1871,6 +1871,30 @@
  
   
     
+    <li data-nav-id="/every-day-use/using-ssm-to-override-account-details.html" title="Using SSM to override account settings" class="dd-item 
+        
+        
+        
+        ">
+      <a href="../every-day-use/using-ssm-to-override-account-details.html">
+          Using SSM to override account settings
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
     <li data-nav-id="/every-day-use/850-applying-tag-policies.html" title="Applying Tag Policies" class="dd-item 
         
         
@@ -2678,7 +2702,7 @@
 </left>
 
 <left>
-    <h5 class="copyright">e11ef67 - Tue Jul 18 09:50:40 UTC 2023</h5>
+    <h5 class="copyright">ea13add - Fri Jul 21 13:22:43 UTC 2023</h5>
 </left>
 
     </section>
@@ -2767,9 +2791,57 @@ Serverless services. This solution will set up the AWS EventBridge policies, eve
 roles, provisioning of the policy AWS Lambda Functions for real time monitoring and the periodic triggering needed for
 delayed actions and retrospective monitoring.</p>
 <h3 id="modes">Modes</h3>
-<p>This solution allows you to write policies in any of the c7n supported modes.  If you write pull based policies they
-will be run periodically within an AWS CodeBuild environment on a schedule of your choosing.  AWS Lambda policies are
-provisioned within an AWS CodeBuild project run.</p>
+<p>This solution allows you to write policies in any of the c7n supported modes.</p>
+<h4 id="pull">Pull</h4>
+<p>If you write pull based policies they will be run periodically within an AWS CodeBuild environment on a schedule of your
+choosing.  AWS Lambda policies are provisioned within an AWS CodeBuild project run. If you would like to apply the
+policies to multiple accounts you will need to specify a value for c7n_org_version in the config:</p>
+ <figure>
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">c7n-aws-lambdas:
+  policies-for<span style="color:#ae81ff">-132608235283</span>:
+    custodian: <span style="color:#e6db74">&#39;132608235283&#39;</span>
+    c7n_org_version: <span style="color:#e6db74">&#34;0.6.27&#34;</span>
+    policies:
+      - name: ebs-mark-unattached-deletion
+        resource: ebs
+        comments: <span style="color:#e6db74">|
+</span><span style="color:#e6db74">         </span><span style="color:#e6db74"> </span><span style="color:#e6db74">Mark any unattached EBS volumes for deletion in 30 days.</span>
+          Volumes set to not delete on instance termination do have
+          valid use cases as data drives, but <span style="color:#ae81ff">99</span>% of the time they
+          appear to be just garbage creation.
+        filters:
+          - Attachments: [ ]
+          - <span style="color:#e6db74">&#34;tag:maid_status&#34;</span>: absent
+        actions:
+          - type: mark-for-op
+            op: delete
+            days: <span style="color:#ae81ff">30</span>
+      - name: ebs-unmark-attached-deletion
+        resource: ebs
+        comments: <span style="color:#e6db74">|
+</span><span style="color:#e6db74">         </span><span style="color:#e6db74"> </span><span style="color:#e6db74">Unmark any attached EBS volumes that were scheduled for deletion</span>
+          if they are currently attached
+        filters:
+          - type: value
+            key: <span style="color:#e6db74">&#34;Attachments[0].Device&#34;</span>
+            value: not-<span style="color:#66d9ef">null</span>
+          - <span style="color:#e6db74">&#34;tag:maid_status&#34;</span>: not-<span style="color:#66d9ef">null</span>
+        actions:
+          - unmark
+      - name: ebs-delete-marked
+        resource: ebs
+        comments: <span style="color:#e6db74">|
+</span><span style="color:#e6db74">         </span><span style="color:#e6db74"> </span><span style="color:#e6db74">Delete any attached EBS volumes that were scheduled for deletion</span>
+        filters:
+          - type: marked-for-op
+            op: delete
+        actions:
+          - delete
+    apply_to:
+      tags:
+        - tag: <span style="color:#e6db74">&#39;group:spokes&#39;</span>
+          regions: <span style="color:#e6db74">&#34;enabled_regions&#34;</span></code></pre></div>
+ </figure>
 <h3 id="getting-started">Getting started</h3>
 <p>To get started you must add a <code>c7n-aws-lambdas</code> section to the manifest file and specify the custodian, policies and
 apply_to configurations.</p>
@@ -3941,6 +4013,22 @@ will be added for you and any you add will be overriden.</p>
                     
             
         
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
                     
             
         
