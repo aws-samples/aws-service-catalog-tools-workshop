@@ -17,9 +17,61 @@ delayed actions and retrospective monitoring.
 
 ### Modes
 
-This solution allows you to write policies in any of the c7n supported modes.  If you write pull based policies they 
-will be run periodically within an AWS CodeBuild environment on a schedule of your choosing.  AWS Lambda policies are 
-provisioned within an AWS CodeBuild project run.
+This solution allows you to write policies in any of the c7n supported modes.
+
+#### Pull 
+If you write pull based policies they will be run periodically within an AWS CodeBuild environment on a schedule of your
+choosing.  AWS Lambda policies are provisioned within an AWS CodeBuild project run. If you would like to apply the
+policies to multiple accounts you will need to specify a value for c7n_org_version in the config: 
+
+ <figure>
+  {{< highlight yaml >}}
+c7n-aws-lambdas:
+  policies-for-132608235283:
+    custodian: '132608235283'
+    c7n_org_version: "0.6.27"
+    policies:
+      - name: ebs-mark-unattached-deletion
+        resource: ebs
+        comments: |
+          Mark any unattached EBS volumes for deletion in 30 days.
+          Volumes set to not delete on instance termination do have
+          valid use cases as data drives, but 99% of the time they
+          appear to be just garbage creation.
+        filters:
+          - Attachments: [ ]
+          - "tag:maid_status": absent
+        actions:
+          - type: mark-for-op
+            op: delete
+            days: 30
+      - name: ebs-unmark-attached-deletion
+        resource: ebs
+        comments: |
+          Unmark any attached EBS volumes that were scheduled for deletion
+          if they are currently attached
+        filters:
+          - type: value
+            key: "Attachments[0].Device"
+            value: not-null
+          - "tag:maid_status": not-null
+        actions:
+          - unmark
+      - name: ebs-delete-marked
+        resource: ebs
+        comments: |
+          Delete any attached EBS volumes that were scheduled for deletion
+        filters:
+          - type: marked-for-op
+            op: delete
+        actions:
+          - delete
+    apply_to:
+      tags:
+        - tag: 'group:spokes'
+          regions: "enabled_regions"
+{{< / highlight >}}
+ </figure>
 
 
 ### Getting started
