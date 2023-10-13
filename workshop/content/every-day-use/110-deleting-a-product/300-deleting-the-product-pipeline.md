@@ -1,25 +1,16 @@
 +++
-title = "Deleting the product"
+title = "Deleting the product pipeline"
 weight = 300
 home_region = "eu-west-1"
 abc = true
 +++
 ---
 
-## What are we going to do?
+### Delete a product version pipeline
 
-We are going to perform the following steps:
+#### Step by step guide
 
-- delete a product version
-- delete a product
-
-## Step by step guide
-
-Here are the steps you need to follow to "{{% param title %}}"
-
-### Delete a product version
-
-When you are ready to delete a product version you will need to edit its definition in the portfolio yaml.
+When you are ready to delete a product version pipeline you will need to edit its definition in the portfolio yaml.
 
 - Navigate to the {{% service_catalog_factory_code_commit_repo_link %}} 
 
@@ -67,16 +58,14 @@ Products:
 
 {{< figure src="/how-tos/creating-and-provisioning-a-product/CommitChanges.png" >}}
 
-When the framework runs the product version will be deleted. This change will only affect the version of the product in 
-your factory account.  If you are using the imported product in your spoke accounts it will have affect there otherwise
-you will need to run service-catalog-puppet to cascade the change. 
-
-You can verify this by navigating to Service Catalog and checking your disabled version is removed.
+When the framework runs the product version pipeline will be deleted. 
 
 
-### Delete a product 
+### Delete all product version pipelines
 
-When you are ready to delete a product you will need to edit its definition in the portfolio yaml.
+#### Step by step guide
+
+When you are ready to delete all pipelines for a product you will need to edit its definition in the portfolio yaml.
 
 - Navigate to the {{% service_catalog_factory_code_commit_repo_link %}} 
 
@@ -88,7 +77,7 @@ When you are ready to delete a product you will need to edit its definition in t
 
 - Click *Edit*
 
-- Add or set the attribute Status for the product you want to delete to terminated:
+- Add or set the attribute Status for the product you want to delete all pipelines for to terminated:
 
   <figure>
    {{< highlight js "hl_lines=4" >}}
@@ -124,9 +113,4 @@ Products:
 
 {{< figure src="/how-tos/creating-and-provisioning-a-product/CommitChanges.png" >}}
 
-When the framework runs the product will be deleted. This change will only affect the version of the product in 
-your factory account.  If you are using the imported product in your spoke accounts it will have affect there otherwise
-you will need to run service-catalog-puppet to cascade the change. If you are using imported products in your spokes
-then the product will be deleted there.
-
-You can verify this by navigating to Service Catalog and checking your disabled version is removed.
+When the framework runs all of the pipelines for the product will be deleted.

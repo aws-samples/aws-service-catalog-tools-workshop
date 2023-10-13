@@ -17,4 +17,5 @@ In the tutorial you will:
 
 During this process you will check your progress by verifying what the framework is doing. 
 
-
+Once you have finished following the steps here you will need to delete the provisioning artefacts and products from 
+your account as this feature has not been built yet. To request this feature please +1 this: https://github.com/awslabs/aws-service-catalog-factory/issues/302 
