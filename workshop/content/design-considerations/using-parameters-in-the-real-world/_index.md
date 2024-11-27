@@ -354,42 +354,83 @@ significant performance improvement reducing the overall execution time of your 
 
 ## Using boto3 parameters
 
-You can use the result of a boto3 call as a parameter.  
+You can use the result of a boto3 call as a parameter.
 
-Here we are saying use the ssm client in the spoke account for the region you are provisioning the stack into to call 
+Here we are saying use the ssm client in the spoke account for the region you are provisioning the stack into to call
 get_parameter and filter the result down to Parameter.Value:
 
  <figure>
   {{< highlight yaml >}}
 
 stacks:
-  golden-ami-id-replicator:
-    name: "ssm-parameter"
-    version: "v2"
-    execution: "hub"
-    parameters:
-      Name:
-        default: "GoldenAMIId"
-      Value:
-        boto3:
-          account_id: "${AWS::AccountId}"
-          region: "${AWS::Region}"
-          client: "ssm"
-          call: "get_parameter"
-          use_paginator: false
-          arguments:
-            Name: "GoldenAMIId"
-          use_paginator: false
-          filter: "Parameter.Value"
-    deploy_to:
-      tags:
-        - tag: role:spoke
-          regions: regions_enabled
+golden-ami-id-replicator:
+name: "ssm-parameter"
+version: "v2"
+execution: "hub"
+parameters:
+Name:
+default: "GoldenAMIId"
+Value:
+boto3:
+account_id: "${AWS::AccountId}"
+region: "${AWS::Region}"
+client: "ssm"
+call: "get_parameter"
+use_paginator: false
+arguments:
+Name: "GoldenAMIId"
+use_paginator: false
+filter: "Parameter.Value"
+deploy_to:
+tags:
+- tag: role:spoke
+regions: regions_enabled
 
 {{< / highlight >}}
  </figure>
 
-If you omit the region the framework will use the home region where you installed the framework and if you omit the 
+If you omit the region the framework will use the home region where you installed the framework and if you omit the
+account_id the framework will use the hub account where you installed the framework.
+
+Using ${AWS::AccountId} and ${AWS::Region} evaluate to the account and region where the action is occurring.
+
+
+## Using s3 parameters
+
+You can get a json encoded object from s3 and use that as a parameter.
+
+
+ <figure>
+  {{< highlight yaml >}}
+
+stacks:
+golden-ami-id-replicator:
+name: "ssm-parameter"
+version: "v2"
+execution: "hub"
+parameters:
+Name:
+default: "GoldenAMIId"
+Value:
+boto3:
+account_id: "${AWS::AccountId}"
+region: "${AWS::Region}"
+client: "ssm"
+call: "get_parameter"
+use_paginator: false
+arguments:
+Name: "GoldenAMIId"
+use_paginator: false
+filter: "Parameter.Value"
+deploy_to:
+tags:
+- tag: role:spoke
+regions: regions_enabled
+
+{{< / highlight >}}
+ </figure>
+
+If you omit the region the framework will use the home region where you installed the framework and if you omit the
 account_id the framework will use the hub account where you installed the framework.
 
 Using ${AWS::AccountId} and ${AWS::Region} evaluate to the account and region where the action is occuring.
