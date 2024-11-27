@@ -2702,7 +2702,7 @@
 </left>
 
 <left>
-    <h5 class="copyright">cca7d63 - Thu Feb 15 03:50:00 UTC 2024</h5>
+    <h5 class="copyright">fb5ed43 - Wed Nov 27 23:43:56 UTC 2024</h5>
 </left>
 
     </section>
@@ -2764,6 +2764,7 @@
     <li><a href="#customer-provided-parameters">Customer provided parameters</a></li>
     <li><a href="#using-large-numbers-of-ssm-parameters">Using large numbers of SSM parameters</a></li>
     <li><a href="#using-boto3-parameters">Using boto3 parameters</a></li>
+    <li><a href="#using-s3-parameters">Using s3 parameters</a></li>
   </ul>
 </nav>
     </div>
@@ -3073,28 +3074,58 @@ significant performance improvement reducing the overall execution time of your 
 get_parameter and filter the result down to Parameter.Value:</p>
  <figure>
   <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">stacks:
-  golden-ami-id-replicator:
-    name: <span style="color:#e6db74">&#34;ssm-parameter&#34;</span>
-    version: <span style="color:#e6db74">&#34;v2&#34;</span>
-    execution: <span style="color:#e6db74">&#34;hub&#34;</span>
-    parameters:
-      Name:
-        default: <span style="color:#e6db74">&#34;GoldenAMIId&#34;</span>
-      Value:
-        boto3:
-          account_id: <span style="color:#e6db74">&#34;${AWS::AccountId}&#34;</span>
-          region: <span style="color:#e6db74">&#34;${AWS::Region}&#34;</span>
-          client: <span style="color:#e6db74">&#34;ssm&#34;</span>
-          call: <span style="color:#e6db74">&#34;get_parameter&#34;</span>
-          use_paginator: <span style="color:#66d9ef">false</span>
-          arguments:
-            Name: <span style="color:#e6db74">&#34;GoldenAMIId&#34;</span>
-          use_paginator: <span style="color:#66d9ef">false</span>
-          filter: <span style="color:#e6db74">&#34;Parameter.Value&#34;</span>
-    deploy_to:
-      tags:
-        - tag: role:spoke
-          regions: regions_enabled</code></pre></div>
+golden-ami-id-replicator:
+name: <span style="color:#e6db74">&#34;ssm-parameter&#34;</span>
+version: <span style="color:#e6db74">&#34;v2&#34;</span>
+execution: <span style="color:#e6db74">&#34;hub&#34;</span>
+parameters:
+Name:
+default: <span style="color:#e6db74">&#34;GoldenAMIId&#34;</span>
+Value:
+boto3:
+account_id: <span style="color:#e6db74">&#34;${AWS::AccountId}&#34;</span>
+region: <span style="color:#e6db74">&#34;${AWS::Region}&#34;</span>
+client: <span style="color:#e6db74">&#34;ssm&#34;</span>
+call: <span style="color:#e6db74">&#34;get_parameter&#34;</span>
+use_paginator: <span style="color:#66d9ef">false</span>
+arguments:
+Name: <span style="color:#e6db74">&#34;GoldenAMIId&#34;</span>
+use_paginator: <span style="color:#66d9ef">false</span>
+filter: <span style="color:#e6db74">&#34;Parameter.Value&#34;</span>
+deploy_to:
+tags:
+- tag: role:spoke
+regions: regions_enabled</code></pre></div>
+ </figure>
+<p>If you omit the region the framework will use the home region where you installed the framework and if you omit the
+account_id the framework will use the hub account where you installed the framework.</p>
+<p>Using ${AWS::AccountId} and ${AWS::Region} evaluate to the account and region where the action is occurring.</p>
+<h2 id="using-s3-parameters">Using s3 parameters</h2>
+<p>You can get a json encoded object from s3 and use that as a parameter.</p>
+ <figure>
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">stacks:
+golden-ami-id-replicator:
+name: <span style="color:#e6db74">&#34;ssm-parameter&#34;</span>
+version: <span style="color:#e6db74">&#34;v2&#34;</span>
+execution: <span style="color:#e6db74">&#34;hub&#34;</span>
+parameters:
+Name:
+default: <span style="color:#e6db74">&#34;GoldenAMIId&#34;</span>
+Value:
+boto3:
+account_id: <span style="color:#e6db74">&#34;${AWS::AccountId}&#34;</span>
+region: <span style="color:#e6db74">&#34;${AWS::Region}&#34;</span>
+client: <span style="color:#e6db74">&#34;ssm&#34;</span>
+call: <span style="color:#e6db74">&#34;get_parameter&#34;</span>
+use_paginator: <span style="color:#66d9ef">false</span>
+arguments:
+Name: <span style="color:#e6db74">&#34;GoldenAMIId&#34;</span>
+use_paginator: <span style="color:#66d9ef">false</span>
+filter: <span style="color:#e6db74">&#34;Parameter.Value&#34;</span>
+deploy_to:
+tags:
+- tag: role:spoke
+regions: regions_enabled</code></pre></div>
  </figure>
 <p>If you omit the region the framework will use the home region where you installed the framework and if you omit the
 account_id the framework will use the hub account where you installed the framework.</p>
