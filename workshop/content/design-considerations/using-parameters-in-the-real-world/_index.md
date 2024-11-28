@@ -403,34 +403,151 @@ You can get a json encoded object from s3 and use that as a parameter.
  <figure>
   {{< highlight yaml >}}
 
-stacks:
-golden-ami-id-replicator:
-name: "ssm-parameter"
-version: "v2"
-execution: "hub"
-parameters:
-Name:
-default: "GoldenAMIId"
-Value:
-boto3:
-account_id: "${AWS::AccountId}"
-region: "${AWS::Region}"
-client: "ssm"
-call: "get_parameter"
-use_paginator: false
-arguments:
-Name: "GoldenAMIId"
-use_paginator: false
-filter: "Parameter.Value"
-deploy_to:
-tags:
-- tag: role:spoke
-regions: regions_enabled
+vpc:
+  name: "vpc-stack"
+  version: "v1"
+  parameters:
+    CIDRRange:
+      s3:
+        key: "${AWS::AccountId}/config"
+        jmespath: "${AWS::Region}".networking.VPC.CIDR
+  deploy_to:
+    tags:
+    - tag: "spoke-accounts"
+      regions: "enabled_regions"
+
 
 {{< / highlight >}}
  </figure>
 
-If you omit the region the framework will use the home region where you installed the framework and if you omit the
-account_id the framework will use the hub account where you installed the framework.
+Uses the following JSON
 
-Using ${AWS::AccountId} and ${AWS::Region} evaluate to the account and region where the action is occuring.
+ <figure>
+  {{< highlight js >}}
+{
+  "eu-west-1": {
+    "networking": {
+      "VPC": {
+        "CIDR": "10.0.0.1/24"
+      }
+    }
+  }
+}
+{{< / highlight >}}
+ </figure>
+
+
+You must specify a key and a jmespath. You can use @ for the jmespath if you want to use the complete value. 
+
+You can use ${AWS::AccountId}, ${AWS::Region} and ${AWS::PuppetAccountId} in the key or the jmespath.
+
+If your jmespath contains a hyphen you must surround it with double quotes - like the example above. 
+
+Be careful with strings vs numbers in your json objects. If you are using strings for keys in the object and are relying on ${AWS::AccountId} (which is a number) you must use double quotes:
+
+
+ <figure>
+  {{< highlight yaml >}}
+
+vpc:
+  name: "vpc-stack"
+  version: "v1"
+  parameters:
+    CIDRRange:
+      s3:
+        key: "config"
+        jmespath: "${AWS::AccountId}"."${AWS::Region}".networking.VPC.CIDR
+  deploy_to:
+    tags:
+    - tag: "spoke-accounts"
+      regions: "enabled_regions"
+
+
+{{< / highlight >}}
+ </figure>
+
+
+Uses the following JSON
+
+ <figure>
+  {{< highlight js >}}
+{
+  "012345678910": {
+    "eu-west-1": {
+      "networking": {
+        "VPC": {
+          "CIDR": "10.0.0.1/24"
+        }
+      }
+    }
+  }
+}
+{{< / highlight >}}
+ </figure>
+
+
+whereas 
+
+
+ <figure>
+  {{< highlight yaml >}}
+
+vpc:
+  name: "vpc-stack"
+  version: "v1"
+  parameters:
+    CIDRRange:
+      s3:
+       key: "config"
+       jmespath: ${AWS::AccountId}."${AWS::Region}".networking.VPC.CIDR
+  deploy_to:
+    tags:
+    - tag: "spoke-accounts"
+      regions: "enabled_regions"
+
+
+{{< / highlight >}}
+ </figure>
+
+
+Uses the following JSON
+
+ <figure>
+  {{< highlight js >}}
+{
+  123456789101: {
+    "eu-west-1": {
+      "networking": {
+        "VPC": {
+          "CIDR": "10.0.0.1/24"
+        }
+      }
+    }
+  }
+}
+{{< / highlight >}}
+ </figure>
+
+You can also specify a default which is what is used when the value does not exist:
+
+ <figure>
+  {{< highlight yaml >}}
+
+vpc:
+  name: "vpc-stack"
+  version: "v1"
+  parameters:
+    CIDRRange:
+      s3:
+       key: "config"
+       jmespath: ${AWS::AccountId}."${AWS::Region}".networking.VPC.CIDR
+       default: "10.0.0.1/24"
+  deploy_to:
+    tags:
+    - tag: "spoke-accounts"
+      regions: "enabled_regions"
+
+
+{{< / highlight >}}
+ </figure>
+
