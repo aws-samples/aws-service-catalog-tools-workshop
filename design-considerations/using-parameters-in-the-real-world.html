@@ -2702,7 +2702,7 @@
 </left>
 
 <left>
-    <h5 class="copyright">fb5ed43 - Wed Nov 27 23:43:56 UTC 2024</h5>
+    <h5 class="copyright">51237ee - Thu Nov 28 16:54:29 UTC 2024</h5>
 </left>
 
     </section>
@@ -3103,33 +3103,111 @@ account_id the framework will use the hub account where you installed the framew
 <h2 id="using-s3-parameters">Using s3 parameters</h2>
 <p>You can get a json encoded object from s3 and use that as a parameter.</p>
  <figure>
-  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">stacks:
-golden-ami-id-replicator:
-name: <span style="color:#e6db74">&#34;ssm-parameter&#34;</span>
-version: <span style="color:#e6db74">&#34;v2&#34;</span>
-execution: <span style="color:#e6db74">&#34;hub&#34;</span>
-parameters:
-Name:
-default: <span style="color:#e6db74">&#34;GoldenAMIId&#34;</span>
-Value:
-boto3:
-account_id: <span style="color:#e6db74">&#34;${AWS::AccountId}&#34;</span>
-region: <span style="color:#e6db74">&#34;${AWS::Region}&#34;</span>
-client: <span style="color:#e6db74">&#34;ssm&#34;</span>
-call: <span style="color:#e6db74">&#34;get_parameter&#34;</span>
-use_paginator: <span style="color:#66d9ef">false</span>
-arguments:
-Name: <span style="color:#e6db74">&#34;GoldenAMIId&#34;</span>
-use_paginator: <span style="color:#66d9ef">false</span>
-filter: <span style="color:#e6db74">&#34;Parameter.Value&#34;</span>
-deploy_to:
-tags:
-- tag: role:spoke
-regions: regions_enabled</code></pre></div>
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">vpc:
+  name: <span style="color:#e6db74">&#34;vpc-stack&#34;</span>
+  version: <span style="color:#e6db74">&#34;v1&#34;</span>
+  parameters:
+    CIDRRange:
+      s3:
+        key: <span style="color:#e6db74">&#34;${AWS::AccountId}/config&#34;</span>
+        jmespath: <span style="color:#e6db74">&#34;${AWS::Region}&#34;</span>.networking.VPC.CIDR
+  deploy_to:
+    tags:
+    - tag: <span style="color:#e6db74">&#34;spoke-accounts&#34;</span>
+      regions: <span style="color:#e6db74">&#34;enabled_regions&#34;</span></code></pre></div>
  </figure>
-<p>If you omit the region the framework will use the home region where you installed the framework and if you omit the
-account_id the framework will use the hub account where you installed the framework.</p>
-<p>Using ${AWS::AccountId} and ${AWS::Region} evaluate to the account and region where the action is occuring.</p>
+<p>Uses the following JSON</p>
+ <figure>
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">{
+  <span style="color:#e6db74">&#34;eu-west-1&#34;</span><span style="color:#f92672">:</span> {
+    <span style="color:#e6db74">&#34;networking&#34;</span><span style="color:#f92672">:</span> {
+      <span style="color:#e6db74">&#34;VPC&#34;</span><span style="color:#f92672">:</span> {
+        <span style="color:#e6db74">&#34;CIDR&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;10.0.0.1/24&#34;</span>
+      }
+    }
+  }
+}
+</code></pre></div>
+ </figure>
+<p>You must specify a key and a jmespath. You can use @ for the jmespath if you want to use the complete value.</p>
+<p>You can use ${AWS::AccountId}, ${AWS::Region} and ${AWS::PuppetAccountId} in the key or the jmespath.</p>
+<p>If your jmespath contains a hyphen you must surround it with double quotes - like the example above.</p>
+<p>Be careful with strings vs numbers in your json objects. If you are using strings for keys in the object and are relying on ${AWS::AccountId} (which is a number) you must use double quotes:</p>
+ <figure>
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">vpc:
+  name: <span style="color:#e6db74">&#34;vpc-stack&#34;</span>
+  version: <span style="color:#e6db74">&#34;v1&#34;</span>
+  parameters:
+    CIDRRange:
+      s3:
+        key: <span style="color:#e6db74">&#34;config&#34;</span>
+        jmespath: <span style="color:#e6db74">&#34;${AWS::AccountId}&#34;</span>.<span style="color:#e6db74">&#34;${AWS::Region}&#34;</span>.networking.VPC.CIDR
+  deploy_to:
+    tags:
+    - tag: <span style="color:#e6db74">&#34;spoke-accounts&#34;</span>
+      regions: <span style="color:#e6db74">&#34;enabled_regions&#34;</span></code></pre></div>
+ </figure>
+<p>Uses the following JSON</p>
+ <figure>
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">{
+  <span style="color:#e6db74">&#34;012345678910&#34;</span><span style="color:#f92672">:</span> {
+    <span style="color:#e6db74">&#34;eu-west-1&#34;</span><span style="color:#f92672">:</span> {
+      <span style="color:#e6db74">&#34;networking&#34;</span><span style="color:#f92672">:</span> {
+        <span style="color:#e6db74">&#34;VPC&#34;</span><span style="color:#f92672">:</span> {
+          <span style="color:#e6db74">&#34;CIDR&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;10.0.0.1/24&#34;</span>
+        }
+      }
+    }
+  }
+}
+</code></pre></div>
+ </figure>
+<p>whereas</p>
+ <figure>
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">vpc:
+  name: <span style="color:#e6db74">&#34;vpc-stack&#34;</span>
+  version: <span style="color:#e6db74">&#34;v1&#34;</span>
+  parameters:
+    CIDRRange:
+      s3:
+       key: <span style="color:#e6db74">&#34;config&#34;</span>
+       jmespath: ${AWS::AccountId}.<span style="color:#e6db74">&#34;${AWS::Region}&#34;</span>.networking.VPC.CIDR
+  deploy_to:
+    tags:
+    - tag: <span style="color:#e6db74">&#34;spoke-accounts&#34;</span>
+      regions: <span style="color:#e6db74">&#34;enabled_regions&#34;</span></code></pre></div>
+ </figure>
+<p>Uses the following JSON</p>
+ <figure>
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">{
+  <span style="color:#ae81ff">123456789101</span><span style="color:#f92672">:</span> {
+    <span style="color:#e6db74">&#34;eu-west-1&#34;</span><span style="color:#f92672">:</span> {
+      <span style="color:#e6db74">&#34;networking&#34;</span><span style="color:#f92672">:</span> {
+        <span style="color:#e6db74">&#34;VPC&#34;</span><span style="color:#f92672">:</span> {
+          <span style="color:#e6db74">&#34;CIDR&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;10.0.0.1/24&#34;</span>
+        }
+      }
+    }
+  }
+}
+</code></pre></div>
+ </figure>
+<p>You can also specify a default which is what is used when the value does not exist:</p>
+ <figure>
+  <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">vpc:
+  name: <span style="color:#e6db74">&#34;vpc-stack&#34;</span>
+  version: <span style="color:#e6db74">&#34;v1&#34;</span>
+  parameters:
+    CIDRRange:
+      s3:
+       key: <span style="color:#e6db74">&#34;config&#34;</span>
+       jmespath: ${AWS::AccountId}.<span style="color:#e6db74">&#34;${AWS::Region}&#34;</span>.networking.VPC.CIDR
+       default: <span style="color:#e6db74">&#34;10.0.0.1/24&#34;</span>
+  deploy_to:
+    tags:
+    - tag: <span style="color:#e6db74">&#34;spoke-accounts&#34;</span>
+      regions: <span style="color:#e6db74">&#34;enabled_regions&#34;</span></code></pre></div>
+ </figure>
 
 
 
