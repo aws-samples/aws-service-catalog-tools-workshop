@@ -397,7 +397,7 @@ Using ${AWS::AccountId} and ${AWS::Region} evaluate to the account and region wh
 
 ## Using s3 parameters
 
-You can get a json encoded object from s3 and use that as a parameter.
+You can get a json encoded object from s3 and use that as a parameter. The objects must be in the bucket named: sc-puppet-parameters-<puppet-account-id>. You should not create this bucket yourself, it will be created when you upgrade.
 
 
  <figure>
@@ -510,7 +510,7 @@ vpc:
  </figure>
 
 
-Uses the following JSON
+Uses the following JSON:
 
  <figure>
   {{< highlight js >}}
