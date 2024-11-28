@@ -2702,7 +2702,7 @@
 </left>
 
 <left>
-    <h5 class="copyright">51237ee - Thu Nov 28 16:54:29 UTC 2024</h5>
+    <h5 class="copyright">d8942dc - Thu Nov 28 17:00:09 UTC 2024</h5>
 </left>
 
     </section>
@@ -3101,7 +3101,7 @@ regions: regions_enabled</code></pre></div>
 account_id the framework will use the hub account where you installed the framework.</p>
 <p>Using ${AWS::AccountId} and ${AWS::Region} evaluate to the account and region where the action is occurring.</p>
 <h2 id="using-s3-parameters">Using s3 parameters</h2>
-<p>You can get a json encoded object from s3 and use that as a parameter.</p>
+<p>You can get a json encoded object from s3 and use that as a parameter. The objects must be in the bucket named: sc-puppet-parameters-<puppet-account-id>. You should not create this bucket yourself, it will be created when you upgrade.</p>
  <figure>
   <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">vpc:
   name: <span style="color:#e6db74">&#34;vpc-stack&#34;</span>
@@ -3177,7 +3177,7 @@ account_id the framework will use the hub account where you installed the framew
     - tag: <span style="color:#e6db74">&#34;spoke-accounts&#34;</span>
       regions: <span style="color:#e6db74">&#34;enabled_regions&#34;</span></code></pre></div>
  </figure>
-<p>Uses the following JSON</p>
+<p>Uses the following JSON:</p>
  <figure>
   <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">{
   <span style="color:#ae81ff">123456789101</span><span style="color:#f92672">:</span> {
